@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
-public class GreetingController {
+public class GreetingController { 
 	@RequestMapping(method=RequestMethod.GET)
 	public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);
@@ -21,7 +21,8 @@ public class GreetingController {
 	return"index";}
 	
 	@RequestMapping(value = "/test2.html" , method=RequestMethod.POST)
-	public String testen(Model model ,@RequestParam(value="bar", required=false ,defaultValue="h") String name){
+	public String testen(Model model ,
+			@RequestParam(value="bar", required=false ,defaultValue="h") String name){
 		System.out.println(name);
 		model.addAttribute("name2", name);
 		 return"test2";
