@@ -3,15 +3,15 @@ package System;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-import Users.User;
+import Users.Admin;
+import Users.RegUser;
 
 public class System {
 
-	static System system;
-	List<User> userlist = new ArrayList<User>();
-
+	private static System system;
+	List<RegUser> regUserlist = new ArrayList<RegUser>();
+	List<Admin> adminList = new ArrayList<Admin>();
+	
 	public static System getSystem() {
 		if (system == null) {
 			system = new System();
@@ -20,8 +20,8 @@ public class System {
 			return system;
 	}
 	
-	public List<User> getUserList(){
-		return this.userlist;
+	public List<RegUser> getUserList(){
+		return this.regUserlist;
 	}
 
 }

@@ -12,12 +12,12 @@ public abstract class User {
 	String email;
 
 	public boolean signIn(String password, String name) {
-		List<User> userlist = System.getSystem().getUserList();
+		List<RegUser> userlist = System.getSystem().getUserList();
 		String comparePassword = null;
 		for (User user : userlist) {
 			if (user.name == name) {
 				comparePassword = user.password;
-			}else{
+			} else {
 				return false;
 			}
 		}
@@ -27,5 +27,13 @@ public abstract class User {
 			return false;
 		}
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 }
