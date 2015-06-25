@@ -15,29 +15,5 @@ public class GreetingController {
 	//System.out.println(name);
 	return"index";}
 	
-	@RequestMapping(value = "/index.html" ,method=RequestMethod.GET)
-	public String greeting2(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-	model.addAttribute("name", name);
-	return"index";}
-	
-	@RequestMapping(value = "/test2.html" , method=RequestMethod.POST)
-	public String testen(Model model ,
-			@RequestParam(value="bar", required=false ,defaultValue="h") String name)
-	{
-		System.out.println(name);
-		model.addAttribute("name2", name);
-		 return"test2";
-	}
-	
-	@RequestMapping(value = "/test2.html" , method=RequestMethod.GET)
-	public String greeting3(@RequestParam(value="bar", required=false, defaultValue="World") String name, Model model) {
-	model.addAttribute("name", name);
-	return"test2";}
-	
-	@RequestMapping(value = "/test3.html" , method=RequestMethod.GET)
-	public String greeting4(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-	model.addAttribute("name", name);
-	return"test3";}
-	
 }
 
