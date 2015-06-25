@@ -1,8 +1,6 @@
 package Users;
 
 import java.util.List;
-import java.util.ArrayList;
-
 import System.System;
 
 public abstract class User {
