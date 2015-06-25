@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color:red;">
+<p th:text="'Hello, ' + ${name} + '!Passwortvkvkbr: '" />
+<a href="index.html">test</a>
+<a href="test3.html">test3</a>
+ <form action="#" th:action="@{/test2.html}"  th:object="${test}" method="post">
+        <label for="name3">Name</label> 
+       <input type="text" id="name3" maxlength="30" th:field="*{bar}"/>
+
+ <!--   <label for="zuname">Zuname</label>  
+        <input type="text" id="zuname" maxlength="40"></input>
+--> 
+        <button type="reset">Eingaben zur&uuml;cksetzen</button>
+        <button type="submit">Eingaben absenden</button>
+    </form>
+    
+<p th:text="'-->  ' + ${name2}"/>
+</body>
+</html>
