@@ -34,4 +34,16 @@ public class RegUser extends User {
 		}
 	}
 
+	public int getXpPoints() {
+		return xpPoints;
+	}
+
+	public void setXpPoints(int xpPoints) {
+		this.xpPoints = xpPoints;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
 }
