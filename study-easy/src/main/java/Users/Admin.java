@@ -17,7 +17,7 @@ public class Admin extends User {
 	protected void banUser(String name) {
 		List<RegUser> userlist = System.getSystem().getUserList();
 		for (RegUser user : userlist) {
-			if (user.name == name)
+			if (user.name == name && user.banned == false)
 				user.banned = true;
 		}
 	}
@@ -25,8 +25,15 @@ public class Admin extends User {
 	protected void unBanUser(String name) {
 		List<RegUser> userlist = System.getSystem().getUserList();
 		for (RegUser user : userlist) {
-			if (user.name == name)
+			if (user.name == name && user.banned == true)
 				user.banned = false;
 		}
+	}
+	
+	protected void createAdmin(String name, String password){
+		Admin newAdmin = new Admin();
+		newAdmin.name = name;
+		newAdmin.password = password;
+		System.getSystem().getAdminList().add(newAdmin);
 	}
 }
