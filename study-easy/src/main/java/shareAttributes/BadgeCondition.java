@@ -1,4 +1,4 @@
-package SharedAttributes;
+package shareAttributes;
 
 public class BadgeCondition {
 	

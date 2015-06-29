@@ -1,9 +1,9 @@
-package Users;
+package users;
 
 import java.util.Date;
 import java.util.List;
 
-import System.System;
+import system.System;
 
 public class RegUser extends User {
 

@@ -1,10 +1,10 @@
-package System;
+package system;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Users.Admin;
-import Users.RegUser;
+import users.Admin;
+import users.RegUser;
 
 public class System {
 
