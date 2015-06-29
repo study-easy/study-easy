@@ -2,9 +2,9 @@ package groupFunctions;
 
 import java.util.ArrayList;
 
+import Users.RegUser;
 import shareAttributes.Achievement;
 import shareAttributes.GroupPinn;
-import users.RegUser;
 
 public class Group {
 	

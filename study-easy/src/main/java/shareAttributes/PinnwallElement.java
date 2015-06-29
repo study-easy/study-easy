@@ -3,7 +3,7 @@ package shareAttributes;
 import java.util.ArrayList;
 import java.util.Date;
 
-import users.RegUser;
+import Users.RegUser;
 
 public class PinnwallElement {
 	
