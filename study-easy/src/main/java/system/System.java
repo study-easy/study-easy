@@ -3,16 +3,19 @@ package system;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+import shareAttributes.Badge;
 import users.Admin;
 import users.RegUser;
+
 
 public class System {
 
 	private static System system;
 	List<RegUser> regUserlist = new ArrayList<RegUser>();
 	List<Admin> adminList = new ArrayList<Admin>();
-	//lul softly
-	
+		
 	public static System getSystem() {
 		if (system == null) {
 			system = new System();
@@ -23,6 +26,17 @@ public class System {
 	
 	public List<RegUser> getUserList(){
 		return this.regUserlist;
+	}
+	
+	public List<Admin> getAdminList(){
+		return this.adminList;
+	}
+	
+	public void awardBadge(Badge badge, String name){
+		for(RegUser user: this.regUserlist){
+			if(user.getName() == name)
+				user.getEarnedBadges().add(badge);
+		}
 	}
 
 }
