@@ -1,9 +1,9 @@
-package Users;
+package users;
 
 import java.util.Date;
 import java.util.List;
 
-import System.System;
+import system.System;
 
 public class RegUser extends User {
 
@@ -32,6 +32,18 @@ public class RegUser extends User {
 				System.getSystem().getUserList().add(regUser);
 			}
 		}
+	}
+
+	public int getXpPoints() {
+		return xpPoints;
+	}
+
+	public void setXpPoints(int xpPoints) {
+		this.xpPoints = xpPoints;
+	}
+
+	public int getLevel() {
+		return level;
 	}
 
 }
