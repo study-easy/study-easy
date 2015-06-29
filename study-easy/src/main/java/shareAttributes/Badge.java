@@ -3,7 +3,7 @@ package shareAttributes;
 import java.util.ArrayList;
 import java.util.List;
 
-import Users.RegUser;
+import users.RegUser;
 
 
 public class Badge {

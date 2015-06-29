@@ -1,4 +1,4 @@
-package System;
+package system;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 
 
 import shareAttributes.Badge;
-import Users.Admin;
-import Users.RegUser;
+import users.Admin;
+import users.RegUser;
 
 
 public class System {

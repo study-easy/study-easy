@@ -1,6 +1,6 @@
 package shareAttributes;
 
-import Users.User;
+import users.User;
 
 public class UserPinn extends Pinnwall {
 

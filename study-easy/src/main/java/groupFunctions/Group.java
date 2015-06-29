@@ -2,7 +2,7 @@ package groupFunctions;
 
 import java.util.ArrayList;
 
-import Users.RegUser;
+import users.RegUser;
 import shareAttributes.Achievement;
 import shareAttributes.GroupPinn;
 
