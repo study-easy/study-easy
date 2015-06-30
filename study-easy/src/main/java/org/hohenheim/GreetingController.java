@@ -31,6 +31,8 @@ public class GreetingController {
         }
         return "redirect:/test3";
     }
+    
+    
 	@RequestMapping(method=RequestMethod.GET)
 	public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);

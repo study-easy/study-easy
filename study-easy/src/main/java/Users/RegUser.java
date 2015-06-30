@@ -53,7 +53,9 @@ public class RegUser extends User {
 	
 	
 	
-	
+/*
+ * 
+ 
 	
 	
 	
@@ -135,7 +137,7 @@ public class RegUser extends User {
 	public void setBirthDate(int year, int month, int day) {
 
 	}
-
+*/
 	public List<Badge> getEarnedBadges() {
 		return earnedBadges;
 	}
