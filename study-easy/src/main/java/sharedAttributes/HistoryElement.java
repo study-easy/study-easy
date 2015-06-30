@@ -1,4 +1,4 @@
-package shareAttributes;
+package sharedAttributes;
 
 import java.util.Date;
 

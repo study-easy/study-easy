@@ -3,7 +3,7 @@ package system;
 import java.util.ArrayList;
 import java.util.List;
 
-import shareAttributes.Badge;
+import sharedAttributes.Badge;
 import users.Admin;
 import users.RegUser;
 

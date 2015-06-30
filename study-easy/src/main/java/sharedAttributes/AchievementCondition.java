@@ -1,4 +1,4 @@
-package shareAttributes;
+package sharedAttributes;
 
 public class AchievementCondition {
 	
@@ -9,8 +9,6 @@ public class AchievementCondition {
 	private float requiredTime;
 	private int bonusXp;
 	
-	public enum ConditionTypes { XpCondition, TimeCondition, StringCondition, LevelCondition }
-
 	
 	public ConditionTypes getConditionType() {
 		return conditionType;

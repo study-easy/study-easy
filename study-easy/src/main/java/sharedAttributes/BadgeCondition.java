@@ -1,4 +1,4 @@
-package shareAttributes;
+package sharedAttributes;
 
 public class BadgeCondition {
 	
@@ -8,8 +8,6 @@ public class BadgeCondition {
 	private String requiredString;
 	private float requiredTime;
 	
-	public enum ConditionTypes { XpCondition, TimeCondition, StringCondition, LevelCondition }
-
 	
 	public ConditionTypes getConditionType() {
 		return conditionType;
