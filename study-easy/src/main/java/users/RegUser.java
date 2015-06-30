@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import shareAttributes.Badge;
+import sharedAttributes.Badge;
 import system.System;
 
 
