@@ -1,5 +1,7 @@
 package users;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -50,8 +52,9 @@ public abstract class User {
 		return this.name;
 	}
 	
-	public Date getRegisteredSince(){
-		return this.registeredSince;
+	public String getRegisteredSince(){
+		DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+		return format.format(this.registeredSince);
 	}
 
 }
