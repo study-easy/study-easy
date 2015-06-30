@@ -1,11 +1,11 @@
-package Users;
+package users;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import SharedAttributes.Badge;
-import System.System;
+import sharedAttributes.Badge;
+import system.System;
 
 public class RegUser extends User {
 

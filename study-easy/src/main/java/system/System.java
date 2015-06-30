@@ -1,11 +1,11 @@
-package System;
+package system;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import SharedAttributes.Badge;
-import Users.Admin;
-import Users.RegUser;
+import sharedAttributes.Badge;
+import users.Admin;
+import users.RegUser;
 
 public class System {
 

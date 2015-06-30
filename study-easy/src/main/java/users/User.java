@@ -1,7 +1,8 @@
-package Users;
+package users;
 
 import java.util.List;
-import System.System;
+
+import system.System;
 
 public abstract class User {
 

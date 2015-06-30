@@ -1,4 +1,4 @@
-package SharedAttributes;
+package sharedAttributes;
 
 public class Achievement {
 
