@@ -11,15 +11,15 @@ public class Badge {
 	private String name;
 	private List<BadgeCondition> conditions = new ArrayList<BadgeCondition>();
 	
-	public boolean conditionsTrue(Badge badge, RegUser user) {
+	public boolean conditionsTrue(RegUser user) {
 		boolean bool=false;
 		//Fuer alle conditions im array von badge den Typ bestimmen und in type speichern
 		for(int i=0; i<=conditions.size(); i++) {
-			String type = badge.conditions.get(i).getConditionType().toString();
+			String type = this.conditions.get(i).getConditionType().toString();
 			
 			switch (type) {
 			case "XpCondition":
-				if(badge.conditions.get(i).getRequiredNumber() <= user.getXpPoints()) {
+				if(this.conditions.get(i).getRequiredNumber() <= user.getXpPoints()) {
 					bool = true;
 				} else {
 					bool = false;

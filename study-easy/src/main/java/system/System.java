@@ -33,8 +33,13 @@ public class System {
 	
 	public void awardBadge(Badge badge, String name){
 		for(RegUser user: this.regUserlist){
-			if(user.getName() == name)
-				user.getEarnedBadges().add(badge);
+			if(user.getName() == name){
+				if(badge.conditionsTrue(user)){
+					user.getEarnedBadges().add(badge);
+				}
+						
+			}
+				
 		}
 	}
 
