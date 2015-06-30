@@ -27,19 +27,19 @@ public class Group {
 	}
 	
 	public void reasignAdmin() {
-		//ToDo
+		//ToDo1
 	}
 	
 	public void startChallenge() {
-		//ToDo
+		//ToDo2
 	}
 	
 	public void finishCombat() {
-		//ToDo
+		//ToDo3
 	}
 	
 	public void startCombat() {
-		//ToDo
+		//ToDo4
 	}
 
 }
