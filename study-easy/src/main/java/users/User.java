@@ -1,5 +1,6 @@
 package users;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -8,9 +9,10 @@ import system.System;
 
 public abstract class User {
 
-	String password;
-	String name;
-	String email;
+	protected String password;
+	protected String name;
+	private String email;
+	protected Date registeredSince;
 
 	public boolean signIn(String password, String name) {
 		List<RegUser> regUserlist = System.getSystem().getUserList();
@@ -46,6 +48,10 @@ public abstract class User {
 	
 	public String getName(){
 		return this.name;
+	}
+	
+	public Date getRegisteredSince(){
+		return this.registeredSince;
 	}
 
 }

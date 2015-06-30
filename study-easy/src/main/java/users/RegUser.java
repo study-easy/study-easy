@@ -35,6 +35,7 @@ public class RegUser extends User {
 				regUser.password = password;
 				regUser.banned = false;
 				regUser.earnedBadges = new ArrayList<Badge>();
+				regUser.registeredSince = new Date();
 				System.getSystem().getUserList().add(regUser);
 
 			}

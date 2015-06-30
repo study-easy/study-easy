@@ -1,5 +1,6 @@
 package users;
 
+import java.util.Date;
 import java.util.List;
 
 import system.System;
@@ -9,7 +10,7 @@ public class Admin extends User {
 	protected void deleteUser(String name) {
 		List<RegUser> userlist = System.getSystem().getUserList();
 		for (RegUser user : userlist) {
-			if (user.name == name)
+			if (user.getName() == name)
 				user = null;
 		}
 	}
@@ -17,7 +18,7 @@ public class Admin extends User {
 	protected void banUser(String name) {
 		List<RegUser> userlist = System.getSystem().getUserList();
 		for (RegUser user : userlist) {
-			if (user.name == name && user.isBanned() == false)
+			if (user.getName() == name && user.isBanned() == false)
 				user.setBanned(true);
 		}
 	}
@@ -25,7 +26,7 @@ public class Admin extends User {
 	protected void unBanUser(String name) {
 		List<RegUser> userlist = System.getSystem().getUserList();
 		for (RegUser user : userlist) {
-			if (user.name == name && user.isBanned() == true)
+			if (user.getName() == name && user.isBanned() == true)
 				user.setBanned(false);
 		}
 	}
@@ -34,6 +35,7 @@ public class Admin extends User {
 		Admin newAdmin = new Admin();
 		newAdmin.name = name;
 		newAdmin.password = password;
+		newAdmin.registeredSince = new Date();
 		System.getSystem().getAdminList().add(newAdmin);
 	}
 }
