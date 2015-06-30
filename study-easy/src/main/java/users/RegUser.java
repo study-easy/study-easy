@@ -7,17 +7,16 @@ import java.util.List;
 import sharedAttributes.Badge;
 import system.System;
 
-
 public class RegUser extends User {
 
-	String school;
-	String hobby;
-	int xpPoints;
-	int level;
-	String[] quotes;
-	Date birthDate;
-	boolean banned;
-	List<Badge> earnedBadges;
+	private String school;
+	private String hobby;
+	private int xpPoints;
+	private int level;
+	private String[] quotes;
+	private Date birthDate;
+	private boolean banned;
+	private List<Badge> earnedBadges;
 
 	public boolean register(String password, String testPassword, String name) {
 		RegUser regUser = null;
@@ -37,10 +36,10 @@ public class RegUser extends User {
 				regUser.banned = false;
 				regUser.earnedBadges = new ArrayList<Badge>();
 				System.getSystem().getUserList().add(regUser);
-				
+
 			}
 		}
-		if(regUser != null)
+		if (regUser != null)
 			return true;
 		else
 			return false;
@@ -96,6 +95,14 @@ public class RegUser extends User {
 
 	public List<Badge> getEarnedBadges() {
 		return earnedBadges;
+	}
+
+	public boolean isBanned() {
+		return banned;
+	}
+
+	public void setBanned(boolean banned) {
+		this.banned = banned;
 	}
 
 }

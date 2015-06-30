@@ -13,13 +13,20 @@ public abstract class User {
 	String email;
 
 	public boolean signIn(String password, String name) {
-		List<RegUser> userlist = System.getSystem().getUserList();
+		List<RegUser> regUserlist = System.getSystem().getUserList();
+		List<Admin> adminlist = System.getSystem().getAdminList();
 		String comparePassword = null;
-		for (User user : userlist) {
-			if (user.name == name) {
+		for (User user : regUserlist) {
+			if (user.getName() == name) {
 				comparePassword = user.password;
 			} else {
-				return false;
+				for(User admin : adminlist){
+					if(admin.getName() == name){
+						comparePassword = admin.password;
+					}else{
+						return false;
+					}
+				}
 			}
 		}
 		if (comparePassword == password) {
