@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import sharedAttributes.Badge;
+import shareAttributes.Badge;
 import system.System;
+
 
 public class RegUser extends User {
 
