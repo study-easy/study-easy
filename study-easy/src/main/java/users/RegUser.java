@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+
 import sharedAttributes.Badge;
 import system.System;
 
+@Entity
 public class RegUser extends User {
 
 	private String school;

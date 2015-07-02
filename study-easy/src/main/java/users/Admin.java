@@ -3,8 +3,11 @@ package users;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+
 import system.System;
 
+@Entity
 public class Admin extends User {
 
 	protected void deleteUser(String name) {
