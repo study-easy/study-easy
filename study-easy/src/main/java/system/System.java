@@ -14,7 +14,7 @@ public class System {
 	private static System system;
 	List<RegUser> regUserlist = new ArrayList<RegUser>();
 	List<Admin> adminList = new ArrayList<Admin>();
-		
+		//lel
 	public static System getSystem() {
 		if (system == null) {
 			system = new System();
