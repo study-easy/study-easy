@@ -22,7 +22,11 @@ public class RegUser extends User {
 	Date birthDate;
 	boolean banned;
 	List<Badge> earnedBadges;
-	
+	/*
+	 *  ###### Gehört zur Post Methode der index.html ####
+	 *  Referenzen auf andere Dateien src/main/java/org.hohenheim/GrettingController.java
+	 *  src/main/webapp/web-inf/templates/index.html
+	 */
 	@Size(min=2, max=30)
 	String name;
 	
@@ -50,7 +54,11 @@ public class RegUser extends User {
         return "Person(Name: " + this.name + ", Age: " + this.age + ")";
     }
 	
-	
+    /*
+	 *  ###### bis hier ####
+	 *  die Nachfolgenden Mehtoden sind ausgekommeniert weil sie schon vorher da waren und nicht mit dieser Post
+	 *  Methode in berührung kommen
+	 */
 	
 	
 /*

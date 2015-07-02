@@ -15,7 +15,11 @@ import Users.RegUser;
 @Controller
 @RequestMapping("/")
 public class GreetingController { 
-	
+	/*
+	 *  ###### Gehört zur Post Methode der index.html ####
+	 *  Referenzen auf andere Dateien src/main/java/Users/RegUser.java
+	 *  src/main/webapp/web-inf/templates/index.html
+	 */
 	public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/test3").setViewName("test3");
     }
@@ -31,7 +35,10 @@ public class GreetingController {
         }
         return "redirect:/test3";
     }
-    
+    /*
+	 *  ###### bis hier ####
+	 *  die Nachfolgende Methode arbeitet ausschließlich mit dem Beispiel auf den folien mit ?name= 
+	 */
     
 	@RequestMapping(method=RequestMethod.GET)
 	public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {

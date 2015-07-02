@@ -8,6 +8,14 @@
 <p th:text="'Hello, ' + ${name} + '!Passwort: '" />
 <a href="test2.html">test</a>
 <a th:href="@{/test2.html}">Create Event</a>
+<!-- 
+
+	 *  ###### Gehört zur Post Methode ####
+	 *  Referenzen auf andere Dateien src/main/java/org.hohenheim/GrettingController.java
+	 *  src/main/java/Users/RegUser.java
+
+
+ -->
 <form action="#" th:action="@{/}" th:object="${RegUser}" method="post">
             <table>
                 <tr>
@@ -24,6 +32,8 @@
                     <td><button type="submit">Submit</button></td>
                 </tr>
             </table>
-        </form>
+</form>
+<!-- Ende des betreffenden Bereichs
+ -->
 </body>
 </html>
