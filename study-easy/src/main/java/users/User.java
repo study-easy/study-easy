@@ -1,25 +1,39 @@
 package users;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import system.System;
 
-
+@Entity
 public abstract class User {
 
-	String password;
-	String name;
-	String email;
+	protected String password;
+	@Id
+	protected String name;
+	private String email;
+	protected Date registeredSince;
 
 	public boolean signIn(String password, String name) {
-		List<RegUser> userlist = System.getSystem().getUserList();
+		List<RegUser> regUserlist = System.getSystem().getUserList();
+		List<Admin> adminlist = System.getSystem().getAdminList();
 		String comparePassword = null;
-		for (User user : userlist) {
-			if (user.name == name) {
+		for (User user : regUserlist) {
+			if (user.getName() == name) {
 				comparePassword = user.password;
 			} else {
-				return false;
+				for(User admin : adminlist){
+					if(admin.getName() == name){
+						comparePassword = admin.password;
+					}else{
+						return false;
+					}
+				}
 			}
 		}
 		if (comparePassword == password) {
@@ -39,6 +53,11 @@ public abstract class User {
 	
 	public String getName(){
 		return this.name;
+	}
+	
+	public String getRegisteredSince(){
+		DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+		return format.format(this.registeredSince);
 	}
 
 }
