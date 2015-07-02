@@ -5,13 +5,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import system.System;
 
-
+@Entity
 public abstract class User {
 
 	protected String password;
+	@Id
 	protected String name;
 	private String email;
 	protected Date registeredSince;
