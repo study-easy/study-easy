@@ -28,12 +28,13 @@ public class GreetingController {
 	 */
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
-    public String showForm(RegUser reguser) {
+    public String showForm(Model model) {
+		model.addAttribute("RegUser", new RegUser());
         return "index";
     }
 
     @RequestMapping(value="/", method=RequestMethod.POST)
-    public String checkPersonInfo(@Valid RegUser regUser, BindingResult bindingResult) {
+    public String checkPersonInfo(@Valid RegUser RegUser, BindingResult bindingResult) {
        System.out.println(bindingResult.hasErrors());
        
         if (bindingResult.hasErrors()) {
