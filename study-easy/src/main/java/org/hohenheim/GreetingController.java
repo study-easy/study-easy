@@ -20,36 +20,44 @@ public class GreetingController {
 	 *  Referenzen auf andere Dateien src/main/java/Users/RegUser.java
 	 *  src/main/webapp/web-inf/templates/index.html
 	 */
+	/*
 	public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/test3").setViewName("test3");
-    }
+    } 
+
+	 */
+
 	@RequestMapping(value="/", method=RequestMethod.GET)
     public String showForm(RegUser reguser) {
         return "index";
     }
 
     @RequestMapping(value="/", method=RequestMethod.POST)
-    public String checkPersonInfo(@Valid RegUser reguser, BindingResult bindingResult) {
+    public String checkPersonInfo(@Valid RegUser regUser, BindingResult bindingResult) {
+       System.out.println(bindingResult.hasErrors());
+       
         if (bindingResult.hasErrors()) {
             return "index";
         }
         return "redirect:/test3";
     }
-    /*
+	
+	/*
 	 *  ###### bis hier ####
 	 *  die Nachfolgende Methode arbeitet ausschlieﬂlich mit dem Beispiel auf den folien mit ?name= 
-	 */
+	
     
-	@RequestMapping(method=RequestMethod.GET)
-	public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-	model.addAttribute("name", name);
-	//System.out.println(name);
-	return"index";}
+	@RequestMapping(value="/", method=RequestMethod.GET)
+    public String showForm2(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+    	model.addAttribute("name", name);
+    	return "index";
+    }
 	@RequestMapping(value="/index.html",method=RequestMethod.GET)
 	public String greeting2(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);
 	//System.out.println(name);
 	return"index";}
+	 
 	@RequestMapping(value="/test2.html",method=RequestMethod.GET)
 	public String greeting3(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);
@@ -60,6 +68,6 @@ public class GreetingController {
 	model.addAttribute("name", name);
 	//System.out.println(name);
 	return"test3";}
-	
+	*/
 }
 

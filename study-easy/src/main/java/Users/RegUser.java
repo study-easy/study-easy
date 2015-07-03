@@ -32,7 +32,7 @@ public class RegUser extends User {
 	
 	@NotNull
     @Min(18)
-    private Integer age;
+    Integer age;
 
     public String getName() {
         return this.name;
