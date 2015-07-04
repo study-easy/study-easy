@@ -53,7 +53,7 @@ public class RegUser extends User {
     public String toString() {
         return "Person(Name: " + this.name + ", Age: " + this.age + ")";
     }
-	
+
     /*
 	 *  ###### bis hier ####
 	 *  die Nachfolgenden Mehtoden sind ausgekommeniert weil sie schon vorher da waren und nicht mit dieser Post
