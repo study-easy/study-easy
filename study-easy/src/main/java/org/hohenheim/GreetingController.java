@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import Users.RegUser;
+import Users.User;
 
 @Controller
 @RequestMapping("/")
@@ -30,17 +31,28 @@ public class GreetingController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
     public String showForm(Model model) {
              model.addAttribute("RegUser", new RegUser());
-        return "index";
+             model.addAttribute("User", new User());
+             System.out.println("TEST"); 
+        return "index"; 
     }
 
+	//@RequestMapping(value="/", method=RequestMethod.POST)
+   // public String checkPersonInfo(@Valid RegUser reguser, BindingResult bindingResult) {
+    //   System.out.println(bindingResult.hasErrors());
+    //   System.out.println("reguser");
+    //    if (bindingResult.hasErrors()) {
+    //       return "index";
+    //    }
+    //    return "redirect:/test2.html";
+    //}
 	@RequestMapping(value="/", method=RequestMethod.POST)
-    public String checkPersonInfo(@Valid RegUser reguser, BindingResult bindingResult) {
+    public String checkPersonInfo2(@Valid User user, BindingResult bindingResult) {
        System.out.println(bindingResult.hasErrors());
-       
+       System.out.println("user");
         if (bindingResult.hasErrors()) {
             return "index";
         }
-        return "redirect:/test3";
+        return "redirect:/test2.html";
     }
 	
 	/*
@@ -58,12 +70,13 @@ public class GreetingController {
 	model.addAttribute("name", name);
 	//System.out.println(name);
 	return"index";}
-	 
+	*/ 
 	@RequestMapping(value="/test2.html",method=RequestMethod.GET)
 	public String greeting3(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);
 	//System.out.println(name);
 	return"test2";}
+	/*
 	@RequestMapping(value="/test3.html",method=RequestMethod.GET)
 	public String greeting4(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);

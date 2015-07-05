@@ -1,12 +1,19 @@
 package Users;
 
 import java.util.List;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import System.System;
 
-public abstract class User {
-
+public class User {
+	@NotNull
+	@Size(min=4, max=10)
 	String password;
+	@NotNull
 	String name;
+	@NotNull
 	String email;
 
 	public boolean signIn(String password, String name) {
@@ -36,6 +43,16 @@ public abstract class User {
 	
 	public String getName(){
 		return this.name;
+	}
+	
+	public void setName(String name){
+		this.name=name;
+	}
+	public String getPassword(){
+		return this.name;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

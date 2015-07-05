@@ -28,6 +28,7 @@ public class RegUser extends User {
 	 *  src/main/webapp/web-inf/templates/index.html
 	 */
 	@Size(min=2, max=30)
+	public
 	String name;
 	
 	@NotNull
@@ -50,9 +51,9 @@ public class RegUser extends User {
         this.age = age;
     }
 
-    public String toString() {
-        return "Person(Name: " + this.name + ", Age: " + this.age + ")";
-    }
+    //public String toString() {
+    //    return "Person(Name: " + this.name + ", Age: " + this.age + ")";
+   // }
 
     /*
 	 *  ###### bis hier ####
