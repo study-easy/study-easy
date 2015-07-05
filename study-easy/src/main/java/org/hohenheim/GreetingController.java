@@ -29,16 +29,15 @@ public class GreetingController {
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
     public String showForm(Model model) {
-		model.addAttribute("RegUser", new RegUser());
+             model.addAttribute("RegUser", new RegUser());
         return "index";
     }
 
-    @RequestMapping(value="/", method=RequestMethod.POST)
-    public String checkPersonInfo(@Valid RegUser RegUser, BindingResult bindingResult) {
+	@RequestMapping(value="/", method=RequestMethod.POST)
+    public String checkPersonInfo(@Valid RegUser reguser, BindingResult bindingResult) {
        System.out.println(bindingResult.hasErrors());
        
         if (bindingResult.hasErrors()) {
-        	
             return "index";
         }
         return "redirect:/test3";
