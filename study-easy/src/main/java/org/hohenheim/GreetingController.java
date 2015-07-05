@@ -38,6 +38,7 @@ public class GreetingController {
        System.out.println(bindingResult.hasErrors());
        
         if (bindingResult.hasErrors()) {
+        	
             return "index";
         }
         return "redirect:/test3";
