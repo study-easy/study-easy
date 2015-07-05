@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Entity;
 
 import sharedAttributes.Badge;
+import sharedAttributes.UserPinn;
 import system.System;
 
 @Entity
@@ -20,9 +21,9 @@ public class RegUser extends User {
 	private Date birthDate;
 	private boolean banned;
 	private List<Badge> earnedBadges;
+	private UserPinn pinn;
 
 	public boolean register(String password, String testPassword, String name) {
-		RegUser regUser = null;
 		List<RegUser> userlist = System.getSystem().getUserList();
 		boolean nameOccupied = false;
 		for (User user : userlist) {
@@ -31,22 +32,23 @@ public class RegUser extends User {
 			}
 		}
 
-		if (nameOccupied == false) {
-			if (password == testPassword) {
-				regUser = new RegUser();
+		if (nameOccupied == true) {
+			return false;
+		}else if (password == testPassword) {
+				RegUser regUser = new RegUser();
 				regUser.name = name;
 				regUser.password = password;
 				regUser.banned = false;
 				regUser.earnedBadges = new ArrayList<Badge>();
 				regUser.registeredSince = new Date();
+				UserPinn pinn = new UserPinn();
+				pinn.setOwner(regUser);
+				regUser.pinn = pinn;
 				System.getSystem().getUserList().add(regUser);
-
-			}
-		}
-		if (regUser != null)
-			return true;
-		else
-			return false;
+				return true;
+			}else{
+				return false;
+		}		
 	}
 
 	public String getSchool() {
@@ -107,6 +109,10 @@ public class RegUser extends User {
 
 	public void setBanned(boolean banned) {
 		this.banned = banned;
+	}
+	
+	public UserPinn getPinn(){
+		return this.pinn;
 	}
 
 }

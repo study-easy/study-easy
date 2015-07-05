@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 
+import sharedAttributes.Pinnwall;
 import system.System;
 
 @Entity
@@ -40,5 +41,15 @@ public class Admin extends User {
 		newAdmin.password = password;
 		newAdmin.registeredSince = new Date();
 		System.getSystem().getAdminList().add(newAdmin);
+	}
+	
+	protected void banPinnwall(Pinnwall pinn){
+		if(pinn.getBanned() == false)
+			pinn.setBanned(true);		
+	}
+	
+	protected void unBanPinnwall(Pinnwall pinn){
+		if(pinn.getBanned())
+			pinn.setBanned(false);
 	}
 }
