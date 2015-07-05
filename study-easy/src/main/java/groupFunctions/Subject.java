@@ -1,6 +1,6 @@
 package groupFunctions;
 
-public enum Subject {
+public enum Subject { //Wenn das zu viele sind, löscht halt wieder was
 	Agrarwissenschaft, Architektur,	Bauingenieruwesen, Bienenkunde, Biologie, BWL, Chemie, Deutsch, 
 	Elektrotechnik, Englisch, Erdkunde, Ethnologie, Französisch, Geschichte, Informatik, Jura, Kunst, 
 	Kybernetik, Latein, Linguistik, Logistik, LuftUndRaumfahrttechnik, Maschinenbau, Mathematik, Mechatronik, Medizin, Musik, Pädagogik, 
