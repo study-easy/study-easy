@@ -18,7 +18,7 @@ public class Combat {
 		this.challenger.getCurrentCombats().add(this);
 		this.opponent.getCurrentCombats().add(this);
 		this.corrector.getCurrentCombats().add(this);
-		 
+		 //PENIS
 		
 	}
 	
