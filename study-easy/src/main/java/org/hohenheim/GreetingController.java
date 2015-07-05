@@ -54,21 +54,23 @@ public class GreetingController {
     //}
 	@RequestMapping(value="/", method=RequestMethod.POST)
     public String checkPersonInfo2(@Valid User user, BindingResult bindingResult,
-    		@RequestParam(value="name", required=true) String name,
+    		@RequestParam(value="name", required=true) String bname,
     		@RequestParam(value="password", required=true) String password) {
        System.out.println(bindingResult.hasErrors());
-       System.out.println("Benutzername: " +name);
+       System.out.println("Benutzername: " +bname);
        System.out.println("Passwort: " +password);
-       int groﬂe = name.length();
-       if (groﬂe < 4) {
-    	   System.out.println("Badumdz");
-    	   return "redirect:/?error=1";
+       if (bname.equals("bname")) {
+    	   System.out.println("Sie werden erfolgreich eingeloggt");
+    	   return "redirect:/";
+       } else {
+    	   System.out.println("ERROR");
+    	  return "redirect:/?error=1";
        }
     	   
-        if (bindingResult.hasErrors()) {
-            return "redirect:/test3.html";
-        }
-        return "redirect:/test2.html";
+        //if (bindingResult.hasErrors()) {
+         //   return "redirect:/test3.html";
+        //}
+        //return "redirect:/test2.html";
     }
 	
 	/*
