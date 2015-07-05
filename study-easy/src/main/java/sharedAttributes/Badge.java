@@ -32,10 +32,13 @@ public class Badge {
 				}
 				
 			case "StringCondition":
-				//ToDo
+				//TODO
 				
 			case "TimeCondition":
-				//ToDo
+				//TODO
+				
+			case "DateCondition":
+				//TODO
 			}
 			
 		}
