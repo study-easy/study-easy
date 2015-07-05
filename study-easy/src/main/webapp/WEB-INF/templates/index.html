@@ -37,13 +37,13 @@
 <form action="#" th:action="@{/}" th:object="${User}" method="post">
             <table>
                 <tr>
-                    <td>Name:</td>
+                    <td>Benutzername:</td>
                     <td><input type="text" th:field="*{name}" /></td>
                      <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
               
                 </tr>
                 <tr>
-                    <td>Age:</td>
+                    <td>Passwort:</td>
                     <td><input type="text" th:field="*{password}" /></td>
                     <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</td>
                 </tr>
