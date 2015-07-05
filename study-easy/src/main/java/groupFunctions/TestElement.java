@@ -9,5 +9,10 @@ public class TestElement {
 	private String task;
 	private String answer;
 	
+	public TestElement(Subject subject, String task, String answer){
+		this.subject = subject;
+		this.task = task;
+		this.answer = answer;
+	}
 	
 }

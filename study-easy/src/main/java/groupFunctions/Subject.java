@@ -6,5 +6,4 @@ public enum Subject {
 	Kybernetik, Latein, Linguistik, Logistik, LuftUndRaumfahrttechnik, Maschinenbau, Mathematik, Mechatronik, Medizin, Musik, Pädagogik, 
 	Physik, Politik, Religion, Romanistik, Sexualkunde, Softwaretechnik, Sozialkunde, Spanisch, Sport, Umweltschutztechnik, 
 	VWL, Wirtschaftsinformatik, Wirtschaftsingenieurwesen, Wissenskulturen
-
 }
