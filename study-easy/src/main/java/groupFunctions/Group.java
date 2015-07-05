@@ -41,5 +41,9 @@ public class Group {
 	public void startCombat() {
 		//ToDo4
 	}
+	
+	public float getWinToLoss(){
+		return winToLoss;
+	}
 
 }
