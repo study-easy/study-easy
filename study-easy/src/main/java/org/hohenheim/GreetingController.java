@@ -29,10 +29,17 @@ public class GreetingController {
 	 */
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
-    public String showForm(Model model) {
-             model.addAttribute("RegUser", new RegUser());
+    public String showForm(Model model,
+    		@RequestParam(value="error", required=false, defaultValue="null") String error) {
+             //model.addAttribute("RegUser", new RegUser());
              model.addAttribute("User", new User());
-             System.out.println("TEST"); 
+             if (error.isEmpty()){
+            	 error ="kein error";
+             } else {
+            	 error ="Sie haben einen Error"; 
+             }
+             model.addAttribute("error", error);
+             System.out.println("start index"); 
         return "index"; 
     }
 
@@ -46,11 +53,20 @@ public class GreetingController {
     //    return "redirect:/test2.html";
     //}
 	@RequestMapping(value="/", method=RequestMethod.POST)
-    public String checkPersonInfo2(@Valid User user, BindingResult bindingResult) {
+    public String checkPersonInfo2(@Valid User user, BindingResult bindingResult,
+    		@RequestParam(value="name", required=true) String name,
+    		@RequestParam(value="password", required=true) String password) {
        System.out.println(bindingResult.hasErrors());
-       System.out.println("user");
+       System.out.println("Benutzername: " +name);
+       System.out.println("Passwort: " +password);
+       int groﬂe = name.length();
+       if (groﬂe < 4) {
+    	   System.out.println("Badumdz");
+    	   return "redirect:/?error=1";
+       }
+    	   
         if (bindingResult.hasErrors()) {
-            return "index";
+            return "redirect:/test3.html";
         }
         return "redirect:/test2.html";
     }
@@ -76,12 +92,12 @@ public class GreetingController {
 	model.addAttribute("name", name);
 	//System.out.println(name);
 	return"test2";}
-	/*
+	
 	@RequestMapping(value="/test3.html",method=RequestMethod.GET)
 	public String greeting4(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);
 	//System.out.println(name);
 	return"test3";}
-	*/
+	
 }
 

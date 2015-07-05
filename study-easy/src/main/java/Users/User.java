@@ -2,6 +2,7 @@ package Users;
 
 import java.util.List;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -12,6 +13,7 @@ public class User {
 	@Size(min=4, max=10)
 	String password;
 	@NotNull
+	@Min(2)
 	String name;
 	@NotNull
 	String email;
