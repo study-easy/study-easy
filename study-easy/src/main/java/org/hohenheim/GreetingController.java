@@ -42,6 +42,7 @@ public class GreetingController {
              } else {
             	 error ="Sie haben einen Error"; 
              }
+             
              model.addAttribute("error", error);
              System.out.println("start index"); 
         return "index"; 
@@ -98,7 +99,7 @@ public class GreetingController {
 	//System.out.println(name);
 	return"index";}
 	*/ 
-	@RequestMapping(value="/test2.html",method=RequestMethod.GET)
+	@RequestMapping(value="/test2",method=RequestMethod.GET)
 	public String greeting3(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);
 	//System.out.println(name);
