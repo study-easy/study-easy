@@ -8,10 +8,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import Users.RegUser;
 import Users.User;
+
 
 @Controller
 @RequestMapping("/")
@@ -31,8 +31,12 @@ public class GreetingController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
     public String showForm(Model model,
     		@RequestParam(value="error", required=false, defaultValue="null") String error) {
-             //model.addAttribute("RegUser", new RegUser());
-             model.addAttribute("User", new User());
+            User usir = new User(); 
+			//model.addAttribute("RegUser", new RegUser());
+             //model.addAttribute("User", new User());
+             model.addAttribute("User", usir);
+             usir.setEmail("geil");
+             System.out.println(usir.getEmail());
              if (error.isEmpty()){
             	 error ="kein error";
              } else {
@@ -42,6 +46,11 @@ public class GreetingController {
              System.out.println("start index"); 
         return "index"; 
     }
+
+	private Model addAttribute(String string, User usir) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	//@RequestMapping(value="/", method=RequestMethod.POST)
    // public String checkPersonInfo(@Valid RegUser reguser, BindingResult bindingResult) {
