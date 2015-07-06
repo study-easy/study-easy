@@ -17,15 +17,18 @@ import Users.User;
 @RequestMapping("/")
 public class GreetingController { 
 	/*
-	 *  ###### Gehört zur Post Methode der index.html ####
-	 *  Referenzen auf andere Dateien src/main/java/Users/RegUser.java
-	 *  src/main/webapp/web-inf/templates/index.html
+	 *##########################
+	 *INHALTSVERZEICHNIS
+	 *##########################
+	 *1. Startseite mit Login
+	 *2. Regstrierseite
+	 *
 	 */
 	/*
-	public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/test3").setViewName("test3");
-    } 
-
+	 *##########################
+	 *1. STARTSEITE INDEX.HTML
+	 *Get Aufruf
+	 *
 	 */
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
@@ -35,7 +38,7 @@ public class GreetingController {
 			//model.addAttribute("RegUser", new RegUser());
              //model.addAttribute("User", new User());
              model.addAttribute("User", usir);
-             usir.setEmail("geil");
+             usir.setEmail("INDEX-Seite");
              System.out.println(usir.getEmail());
              if (error.isEmpty()){
             	 error ="kein error";
@@ -62,6 +65,12 @@ public class GreetingController {
     //    }
     //    return "redirect:/test2.html";
     //}
+	/*
+	 *##########################
+	 *STARTSEITE INDEX.HTML
+	 *Post Aufruf
+	 *
+	 */
 	@RequestMapping(value="/", method=RequestMethod.POST)
     public String checkPersonInfo2(@Valid User user, BindingResult bindingResult,
     		@RequestParam(value="name", required=true) String bname,
@@ -83,33 +92,55 @@ public class GreetingController {
         //return "redirect:/test2.html";
     }
 	
+	
+	
 	/*
-	 *  ###### bis hier ####
-	 *  die Nachfolgende Methode arbeitet ausschließlich mit dem Beispiel auf den folien mit ?name= 
-	
-    
-	@RequestMapping(value="/", method=RequestMethod.GET)
-    public String showForm2(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-    	model.addAttribute("name", name);
-    	return "index";
-    }
-	@RequestMapping(value="/index.html",method=RequestMethod.GET)
-	public String greeting2(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-	model.addAttribute("name", name);
-	//System.out.println(name);
-	return"index";}
-	*/ 
-	@RequestMapping(value="/test2",method=RequestMethod.GET)
-	public String greeting3(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-	model.addAttribute("name", name);
-	//System.out.println(name);
-	return"test2";}
-	
+	 *##########################
+	 *2. REGESTRIEREN.HTML
+	 *Get Aufruf
+	 *
+	 */
+	@RequestMapping(value="/register",method=RequestMethod.GET)
+	public String greeting3(Model model,
+		@RequestParam(value="error", required=false, defaultValue="null") String error) {
+        RegUser registerRegUser = new RegUser(); 
+		//model.addAttribute("RegUser", new RegUser());
+         //model.addAttribute("User", new User());
+         model.addAttribute("RegUser", registerRegUser);
+         registerRegUser.setEmail("Regestrieren");
+         System.out.println(registerRegUser.getEmail());
+         if (error.isEmpty()){
+        	 error ="kein error";
+         } else {
+        	 error ="Sie haben einen Error"; 
+         }
+         
+         model.addAttribute("error", error);
+         System.out.println("start index"); 
+    return "register"; 
+	}
+	/*
+	 *##########################
+	 *REGESTRIEREN.HTML
+	 *Post Aufruf
+	 *
+	 */
 	@RequestMapping(value="/test3.html",method=RequestMethod.GET)
 	public String greeting4(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);
 	//System.out.println(name);
 	return"test3";}
 	
+	
+	
+	/*
+	 *
+	@RequestMapping(value="/", method=RequestMethod.GET)
+   public String showForm2(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+   	model.addAttribute("name", name);
+   	return "index";
+   }
+	
+	*/ 
 }
 

@@ -34,7 +34,16 @@ public class RegUser extends User {
 	@NotNull
     @Min(18)
     Integer age;
+	@Size(min=4, max=10)
+	String passwordcheck;
 
+	public String getPasswordcheck() {
+        return this.passwordcheck;
+    }
+
+    public void setPasswordcheck(String passwortcheck) {
+        this.name = passwortcheck;
+    }
     public String getName() {
         return this.name;
     }
