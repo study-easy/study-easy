@@ -201,12 +201,12 @@ public class GreetingController {
 	public String greeting4(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);
 	//System.out.println(name);
-<<<<<<< HEAD
-	return"index";} 
+
+	return"index";
 	
-=======
-	return"test3";}
+
 	
+	}
 	
 	
 	/*
@@ -216,7 +216,7 @@ public class GreetingController {
    	model.addAttribute("name", name);
    	return "index";
    }
->>>>>>> origin/study-easy-Tobi-Beta2
+
 	
 	*/ 
 	//@RequestMapping(value="/", method=RequestMethod.POST)
