@@ -125,6 +125,32 @@ public class GreetingController {
 	 *Post Aufruf
 	 *
 	 */
+	@RequestMapping(value="/register", method=RequestMethod.POST)
+    public String regestrieren(@Valid RegUser registerReguser, BindingResult bindingResult,
+    		@RequestParam(value="name", required=true) String bname,
+    		@RequestParam(value="password", required=true) String password,
+    		@RequestParam(value="name", required=true) String passwordcheck,
+    		@RequestParam(value="check", required=false) Boolean check
+    		) {
+       System.out.println(bindingResult.hasErrors());
+       System.out.println("Benutzername: " +bname);
+       System.out.println("Passwort: " +password);
+       System.out.println("WPasswort: " +passwordcheck);
+       System.out.println("Aktzeptiert: " + check);
+       if (bname.equals("bname")) {
+    	   System.out.println("Sie werden erfolgreich eingeloggt");
+    	   return "redirect:/register";
+       } else {
+    	   System.out.println("ERROR");
+    	  return "redirect:/?error=1";
+       }
+       }
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value="/test3.html",method=RequestMethod.GET)
 	public String greeting4(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
 	model.addAttribute("name", name);

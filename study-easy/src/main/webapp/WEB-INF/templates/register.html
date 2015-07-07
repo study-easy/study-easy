@@ -7,7 +7,7 @@
 <body style="background-color:blue;">
 <p th:text="'Hello, ' + ${name} + '!Passwort: '" />
 <a th:href="@{/}">Home</a>
-<form action="#" th:action="@{/}" th:object="${RegUser}" method="post">
+<form action="#" th:action="@{/register}" th:object="${RegUser}" method="post">
             <table>
                 <tr>
                     <td>Gew&uuml;nschter Benutzername:</td>
@@ -24,6 +24,15 @@
                     <td>Bitte Password wiederholen:</td>
                     <td><input type="text" th:field="*{passwordcheck}" /></td>
                     <td th:if="${#fields.hasErrors('passwordcheck')}" th:errors="*{passwordcheck}">Name Error</td>
+                </tr>
+                <tr>
+                	<td>Ich habe die <a href="#">Nutzungsbedingungen</a></td>
+                	<td>und <a href="#">Datenrichtlinie</a> gelesen, verstanden</td>
+                </tr>
+                <tr>
+                    <td> und bin einverstanden </td>
+                    <td><input type="checkbox" th:field="*{check}" /></td>
+                    <td th:if="${#fields.hasErrors('check')}" th:errors="*{check}">Name Error</td>
                 </tr>
                 <tr>
                     <td><button type="submit">Submit</button></td>

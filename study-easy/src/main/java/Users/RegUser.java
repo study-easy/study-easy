@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.Size;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -36,7 +37,15 @@ public class RegUser extends User {
     Integer age;
 	@Size(min=4, max=10)
 	String passwordcheck;
+	@AssertTrue
+	Boolean check;
+	public Boolean getCheck() {
+        return this.check;
+    }
 
+    public void setCheck(Boolean check) {
+        this.check = check;
+    }
 	public String getPasswordcheck() {
         return this.passwordcheck;
     }
