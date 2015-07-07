@@ -27,7 +27,7 @@ public class GreetingController {
 	 *##########################
 	 *1. STARTSEITE INDEX.HTML
 	 *Get Aufruf
-	 *
+	 * 
 	 */
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
