@@ -71,7 +71,7 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/", method=RequestMethod.POST)
-    public String checkPersonInfo2(@Valid RegUser user, BindingResult bindingResult,
+    public String checkPersonInfo2(@Valid RegUser reguser, BindingResult bindingResult,
     		@RequestParam(value="name", required=true) String bname,
     		@RequestParam(value="password", required=true) String password) {
        System.out.println(bindingResult.hasErrors());

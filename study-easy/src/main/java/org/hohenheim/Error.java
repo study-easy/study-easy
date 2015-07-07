@@ -7,4 +7,5 @@ package org.hohenheim;
  */
 public class Error {
 
+	 static String [] [] error = new String [3] [4];
 }
