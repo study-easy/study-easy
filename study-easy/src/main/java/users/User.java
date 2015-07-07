@@ -7,15 +7,20 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import system.System;
 
 @Entity
 public abstract class User {
-
+	@NotNull
+	@Size(min=4)
 	protected String password;
 	@Id
+	@NotNull
 	protected String name;
+	@NotNull
 	private String email;
 	protected Date registeredSince;
 
@@ -53,6 +58,9 @@ public abstract class User {
 	
 	public String getName(){
 		return this.name;
+	}
+	public void setName(String name){
+		this.name = name;
 	}
 	
 	public String getRegisteredSince(){
