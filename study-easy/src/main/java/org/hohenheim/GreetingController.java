@@ -22,7 +22,7 @@ public class GreetingController {
 	 *##########################
 	 *1. Startseite mit Login
 	 *2. Regstrierseite
-	 *
+	 *3. Password vergessen
 	 */
 	/*
 	 *##########################
@@ -149,7 +149,61 @@ public class GreetingController {
     	  return "redirect:/";
        }
        }
+	/*
+	 *##########################
+	 *3.PASSWORT VERGESSEN.HTML
+	 *Get Aufruf
+	 *
+	 */
+	@RequestMapping(value="/forgot",method=RequestMethod.GET)
+	public String forgot(Model model,
+		@RequestParam(value="error", required=false, defaultValue="null") String error) {
+        RegUser registerRegUser = new RegUser(); 
+		//model.addAttribute("RegUser", new RegUser());
+         //model.addAttribute("User", new User());
+         model.addAttribute("RegUser", registerRegUser);
+         registerRegUser.setEmail("Password vergessen");
+         System.out.println(registerRegUser.getEmail());
+         if (error.isEmpty()){
+    
+         } else {
+        	 error ="Sie haben einen Error"; 
+        	 model.addAttribute("error", error);
+         }
+         
+         
+         System.out.println("start password vergessen"); 
+    return "forgot"; 
+	}
 	
+	
+	
+	/*
+	 *##########################
+	 *PASSWORT VERGESSEN.HTML
+	 *Post Aufruf
+	 *
+	 */
+	@RequestMapping(value="/forgot", method=RequestMethod.POST)
+    public String forgotN(@Valid RegUser reguser, BindingResult bindingResult,
+    		@RequestParam(value="name", required=true) String bname,
+    		@RequestParam(value="sicherheitsfrage", required=true) String password) {
+       System.out.println(bindingResult.hasErrors());
+       System.out.println("Benutzername: " +bname);
+       System.out.println("Passwort: " +password);
+       if (bname.equals("bname")) {
+    	   System.out.println("Sie werden erfolgreich eingeloggt");
+    	   return "redirect:/";
+       } else {
+    	   System.out.println("neues Password");
+    	  return "redirect:/?error=10000";
+       }
+    	   
+        //if (bindingResult.hasErrors()) {
+         //   return "redirect:/test3.html";
+        //}
+        //return "redirect:/test2.html";
+    }
 	
 	
 	
