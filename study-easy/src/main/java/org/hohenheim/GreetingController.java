@@ -33,13 +33,10 @@ public class GreetingController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
     public String showForm(Model model,
     		@RequestParam(value="error", required=false, defaultValue="null") String error) {
-            RegUser usir = new RegUser(); 
+            RegUser reguser = new RegUser(); 
 			//model.addAttribute("RegUser", new RegUser());
-             //model.addAttribute("User", new User());
-             model.addAttribute("User", usir);
-             usir.setEmail("INDEX-Seite");
-             System.out.println(usir.getEmail());
-             System.out.println(error);
+             model.addAttribute("RegUser", reguser);         
+             System.out.println("Index-Seite");
              if (error.length() < 5){
             	 error ="";
             	 model.addAttribute("error", error);
