@@ -58,6 +58,14 @@ public abstract class User {
 		}
 	}
 
+	public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.name = password;
+    }
+    
 	public String getSicherheitsfrage() {
         return this.sicherheitsfrage;
     }
@@ -65,9 +73,11 @@ public abstract class User {
     public void setSicherheitsfrage(String sicherheitsfrage) {
         this.name = sicherheitsfrage;
     }
+    
     public void setCheck(Boolean check) {
         this.checkbox = check;
     }
+    
     public Boolean getCheck() {
         return this.checkbox;
     }

@@ -55,15 +55,7 @@ public class GreetingController {
 	//	return null;
 	//}
 
-	//@RequestMapping(value="/", method=RequestMethod.POST)
-   // public String checkPersonInfo(@Valid RegUser reguser, BindingResult bindingResult) {
-    //   System.out.println(bindingResult.hasErrors());
-    //   System.out.println("reguser");
-    //    if (bindingResult.hasErrors()) {
-    //       return "index";
-    //    }
-    //    return "redirect:/test2.html";
-    //}
+
 	/*
 	 *##########################
 	 *STARTSEITE INDEX.HTML
@@ -222,6 +214,14 @@ public class GreetingController {
    }
 	
 	*/ 
-	
+	//@RequestMapping(value="/", method=RequestMethod.POST)
+	   // public String checkPersonInfo(@Valid RegUser reguser, BindingResult bindingResult) {
+	    //   System.out.println(bindingResult.hasErrors());
+	    //   System.out.println("reguser");
+	    //    if (bindingResult.hasErrors()) {
+	    //       return "index";
+	    //    }
+	    //    return "redirect:/test2.html";
+	    //}
 }
 

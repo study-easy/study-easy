@@ -4,8 +4,8 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body style="background-color:blue;">
-<p th:text="'Hello, ' + ${name} + '!Passwort: '" />
+<body>
+<p th:text="${error}"> </p>
 <a th:href="@{/}">Home</a>
 <form action="#" th:action="@{/register}" th:object="${RegUser}" method="post">
             <table>
@@ -43,7 +43,7 @@
                     <td th:if="${#fields.hasErrors('check')}" th:errors="*{check}">Name Error</td>
                 </tr>
                 <tr>
-                    <td><button type="submit">Submit</button></td>
+                    <td><button type="submit">Feierlich Registrieren</button></td>
                 </tr>
             </table>
 </form>
