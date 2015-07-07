@@ -98,8 +98,6 @@ public class GreetingController {
 		//model.addAttribute("RegUser", new RegUser());
          //model.addAttribute("User", new User());
          model.addAttribute("RegUser", registerRegUser);
-         registerRegUser.setEmail("Regestrieren");
-         System.out.println(registerRegUser.getEmail());
          if (error.isEmpty()){
     
          } else {
@@ -150,8 +148,6 @@ public class GreetingController {
 		//model.addAttribute("RegUser", new RegUser());
          //model.addAttribute("User", new User());
          model.addAttribute("RegUser", registerRegUser);
-         registerRegUser.setEmail("Password vergessen");
-         System.out.println(registerRegUser.getEmail());
          if (error.isEmpty()){
     
          } else {
