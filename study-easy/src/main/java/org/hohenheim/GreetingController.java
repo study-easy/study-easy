@@ -198,10 +198,10 @@ public class GreetingController {
     	   System.out.println("neues Password");
     	  return "redirect:/?error=10000";
        }
-    	   
+     
         //if (bindingResult.hasErrors()) {
          //   return "redirect:/test3.html";
-        //}
+        //} 
         //return "redirect:/test2.html";
     }
 	

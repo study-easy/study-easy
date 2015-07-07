@@ -38,13 +38,13 @@
             <table>
                 <tr>
                     <td>Benutzername:</td>
-                    <td><input type="text" th:field="*{name}" /></td>
+                    <td><input type="text" th:field="*{name}" placeholder="Deine_Mudda"/></td>
                      <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
               
                 </tr>
                 <tr>
                     <td>Passwort:</td>
-                    <td><input type="text" th:field="*{password}" /></td>
+                    <td><input type="password" th:field="*{password}" /></td>
                     <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</td>
                 </tr>
                 <tr>
@@ -53,6 +53,6 @@
             </table>
 </form>
 <a th:href="@{/register}">Neu? Hier gratis registrieren</a>
-<a href="#">Datenrichtlinie</a><a href="#">Nutzungsbedingungen</a><a href="#">Impressum</a>
+<a href="#" target="_blank">Datenrichtlinie</a><a href="#">Nutzungsbedingungen</a><a href="#">Impressum</a>
 </body>
 </html>
