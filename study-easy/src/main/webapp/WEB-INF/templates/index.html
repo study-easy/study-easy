@@ -1,13 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Getting Started: Serving Web Content</title>
+<title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="${error}" />
+<p th:text="${error}"> </p>
 
-<a th:href="@{/register}">Registrieren</a>
 <!-- 
 
 	 *  ###### Gehört zur Post Methode ####
@@ -53,8 +52,7 @@
                 </tr>
             </table>
 </form>
-
-<!-- Ende des betreffenden Bereichs
- -->
+<a th:href="@{/register}">Neu? Hier gratis registrieren</a>
+<a href="#">Datenrichtlinie</a><a href="#">Nutzungsbedingungen</a><a href="#">Impressum</a>
 </body>
 </html>

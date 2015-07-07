@@ -42,7 +42,16 @@ public class RegUser extends User {
 	public Boolean getCheck() {
         return this.check;
     }
+	@NotNull
+	String sicherheitsfrage;
+	
+	public String getSicherheitsfrage() {
+        return this.sicherheitsfrage;
+    }
 
+    public void setSicherheitsfrage(String sicherheitsfrage) {
+        this.name = sicherheitsfrage;
+    }
     public void setCheck(Boolean check) {
         this.check = check;
     }

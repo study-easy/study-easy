@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Getting Started: Serving Web Content</title>
+<title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body style="background-color:blue;">
@@ -24,6 +24,14 @@
                     <td>Bitte Password wiederholen:</td>
                     <td><input type="text" th:field="*{passwordcheck}" /></td>
                     <td th:if="${#fields.hasErrors('passwordcheck')}" th:errors="*{passwordcheck}">Name Error</td>
+                </tr>
+                <tr>
+                	<td>Sicherheitstext f&uuml;r</td>
+                </tr>
+                <tr>
+                    <td>Password vergessen:</td>
+                    <td><input type="text" th:field="*{sicherheitsfrage}" /></td>
+                    <td th:if="${#fields.hasErrors('sicherheitsfrage')}" th:errors="*{sicherheitsfrage}">Name Error</td>
                 </tr>
                 <tr>
                 	<td>Ich habe die <a href="#">Nutzungsbedingungen</a></td>

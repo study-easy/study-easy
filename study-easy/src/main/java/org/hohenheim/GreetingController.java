@@ -40,13 +40,16 @@ public class GreetingController {
              model.addAttribute("User", usir);
              usir.setEmail("INDEX-Seite");
              System.out.println(usir.getEmail());
-             if (error.isEmpty()){
-            	 error ="kein error";
+             System.out.println(error);
+             if (error.length() < 5){
+            	 error ="";
+            	 model.addAttribute("error", error);
              } else {
             	 error ="Sie haben einen Error"; 
+            	 model.addAttribute("error", error);
              }
              
-             model.addAttribute("error", error);
+            
              System.out.println("start index"); 
         return "index"; 
     }
@@ -83,7 +86,7 @@ public class GreetingController {
     	   return "redirect:/";
        } else {
     	   System.out.println("ERROR");
-    	  return "redirect:/?error=1";
+    	  return "redirect:/?error=10000";
        }
     	   
         //if (bindingResult.hasErrors()) {
@@ -110,12 +113,13 @@ public class GreetingController {
          registerRegUser.setEmail("Regestrieren");
          System.out.println(registerRegUser.getEmail());
          if (error.isEmpty()){
-        	 error ="kein error";
+    
          } else {
         	 error ="Sie haben einen Error"; 
+        	 model.addAttribute("error", error);
          }
          
-         model.addAttribute("error", error);
+         
          System.out.println("start index"); 
     return "register"; 
 	}
@@ -139,10 +143,10 @@ public class GreetingController {
        System.out.println("Aktzeptiert: " + check);
        if (bname.equals("bname")) {
     	   System.out.println("Sie werden erfolgreich eingeloggt");
-    	   return "redirect:/register";
+    	   return "redirect:/register"; 
        } else {
     	   System.out.println("ERROR");
-    	  return "redirect:/?error=1";
+    	  return "redirect:/";
        }
        }
 	
