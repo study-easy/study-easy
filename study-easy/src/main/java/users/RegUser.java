@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 import sharedAttributes.Badge;
 import sharedAttributes.UserPinn;
@@ -12,13 +13,19 @@ import system.System;
 
 @Entity
 public class RegUser extends User {
-
+	@NotNull
 	private String school;
+	@NotNull
 	private String hobby;
+	@NotNull
 	private int xpPoints;
+	@NotNull
 	private int level;
+
 	private String[] quotes;
+	@NotNull
 	private Date birthDate;
+	@NotNull
 	private boolean banned;
 	private List<Badge> earnedBadges;
 	private UserPinn pinn;
