@@ -22,6 +22,7 @@ public class GreetingController {
 	 *1. Startseite mit Login
 	 *2. Regstrierseite
 	 *3. Password vergessen
+	 *4. Profil bearbeiten
 	 */
 	/*
 	 *##########################
@@ -203,7 +204,30 @@ public class GreetingController {
 
 	
 	}
-	
+	/*
+	 *##########################
+	 *4. PROFIL.HTML
+	 *Get Aufruf
+	 *
+	 */
+	@RequestMapping(value="/profil", method=RequestMethod.GET)
+    public String profil(Model model,
+    		@RequestParam(value="error", required=false, defaultValue="null") String error) {
+            RegUser reguser = new RegUser(); 
+			//model.addAttribute("RegUser", new RegUser());
+             model.addAttribute("RegUser", reguser);         
+             System.out.println("Profil");
+             if (error.length() < 5){
+            	 error ="";
+            	 model.addAttribute("error", error);
+             } else {
+            	 error ="Sie haben einen Error"; 
+            	 model.addAttribute("error", error);
+             }
+             
+            
+        return "profil"; 
+    }
 	
 	/*
 	 *
