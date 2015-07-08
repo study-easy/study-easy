@@ -17,5 +17,10 @@ public class Leaderboard {
 			return leaderboard;
 		}
 	}
+	
+	public void sortBoard(){
+		LeaderboardComparator comparator = new LeaderboardComparator();
+		board.sort(comparator);
+	}
 
 }

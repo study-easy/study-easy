@@ -6,7 +6,9 @@ import sharedAttributes.Achievement;
 import sharedAttributes.GroupPinn;
 import users.RegUser;
 
+@SuppressWarnings("unused")
 public class Group {
+	
 	
 	private String name;
 	private ArrayList<RegUser> userList = new ArrayList<RegUser>();
@@ -18,7 +20,7 @@ public class Group {
 	private int losses;
 	private float winToLoss;
 	private int winStreak;
-	//private ArrayList<Combat> currentCombats = new ArrayList<Combat>();
+	private ArrayList<Combat> currentCombats = new ArrayList<Combat>();
 	private GroupPinn pinnwall;
 	private ArrayList<Achievement> achievements = new ArrayList<Achievement>();
 	
@@ -44,6 +46,10 @@ public class Group {
 	
 	public float getWinToLoss(){
 		return winToLoss;
+	}
+	
+	public ArrayList<Combat> getCurrentCombats(){
+		return this.currentCombats;
 	}
 
 }
