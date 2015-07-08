@@ -5,18 +5,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import system.System;
 
 @Entity
 public abstract class User {
 
-	protected String password;
-	@Id
+	@Id @Column(name = "name")
 	protected String name;
+	@Column(name = "password")
+	protected String password;
+	@Column (name = "email")
 	private String email;
+	@Column(name = "registered Since")
 	protected Date registeredSince;
 
 	public static boolean signIn(String password, String name) {
