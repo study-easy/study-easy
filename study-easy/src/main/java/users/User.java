@@ -19,7 +19,7 @@ public abstract class User {
 	private String email;
 	protected Date registeredSince;
 
-	public boolean signIn(String password, String name) {
+	public static boolean signIn(String password, String name) {
 		List<RegUser> regUserlist = System.getSystem().getUserList();
 		List<Admin> adminlist = System.getSystem().getAdminList();
 		String comparePassword = null;

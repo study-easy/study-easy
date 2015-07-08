@@ -23,7 +23,7 @@ public class RegUser extends User {
 	private List<Badge> earnedBadges;
 	private UserPinn pinn;
 
-	public boolean register(String password, String testPassword, String name) {
+	public static boolean register(String name, String password, String testPassword) {
 		List<RegUser> userlist = System.getSystem().getUserList();
 		boolean nameOccupied = false;
 		for (User user : userlist) {
