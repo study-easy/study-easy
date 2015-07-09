@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import system.System;
+import system.Controller;
 
 @Entity
 public abstract class User {
@@ -24,8 +24,8 @@ public abstract class User {
 
 	public static User signIn(String name, String password) {
 		User signingIn = null;
-		List<RegUser> regUserlist = System.getSystem().getUserList();
-		List<Admin> adminlist = System.getSystem().getAdminList();
+		List<RegUser> regUserlist = Controller.getSystem().getUserList();
+		List<Admin> adminlist = Controller.getSystem().getAdminList();
 		String comparePassword = null;
 		for (User user : regUserlist) {
 			if (user.getName() == name) {

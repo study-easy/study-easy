@@ -9,15 +9,15 @@ import users.RegUser;
 
 
 
-public class System {
+public class Controller {
 
-	private static System system;
+	private static Controller system;
 	List<RegUser> regUserlist = new ArrayList<RegUser>();
 	List<Admin> adminList = new ArrayList<Admin>();
 		//lel
-	public static System getSystem() {
+	public static Controller getSystem() {
 		if (system == null) {
-			system = new System();
+			system = new Controller();
 			return system;
 		} else
 			return system;

@@ -6,13 +6,13 @@ import java.util.List;
 import javax.persistence.Entity;
 
 import sharedAttributes.Pinnwall;
-import system.System;
+import system.Controller;
 
 @Entity
 public class Admin extends User {
 
 	protected void deleteUser(String name) {
-		List<RegUser> userlist = System.getSystem().getUserList();
+		List<RegUser> userlist = Controller.getSystem().getUserList();
 		for (RegUser user : userlist) {
 			if (user.getName() == name)
 				user = null;
@@ -20,7 +20,7 @@ public class Admin extends User {
 	}
 
 	protected void banUser(String name) {
-		List<RegUser> userlist = System.getSystem().getUserList();
+		List<RegUser> userlist = Controller.getSystem().getUserList();
 		for (RegUser user : userlist) {
 			if (user.getName() == name && user.isBanned() == false)
 				user.setBanned(true);
@@ -28,7 +28,7 @@ public class Admin extends User {
 	}
 
 	protected void unBanUser(String name) {
-		List<RegUser> userlist = System.getSystem().getUserList();
+		List<RegUser> userlist = Controller.getSystem().getUserList();
 		for (RegUser user : userlist) {
 			if (user.getName() == name && user.isBanned() == true)
 				user.setBanned(false);
@@ -40,7 +40,7 @@ public class Admin extends User {
 		newAdmin.name = name;
 		newAdmin.password = password;
 		newAdmin.registeredSince = new Date();
-		System.getSystem().getAdminList().add(newAdmin);
+		Controller.getSystem().getAdminList().add(newAdmin);
 	}
 	
 	protected void banPinnwall(Pinnwall pinn){
@@ -57,7 +57,7 @@ public class Admin extends User {
 		Admin standard = new Admin();
 		standard.name = "standard";
 		standard.password = "pissOff";
-		System.getSystem().getAdminList().add(standard);
+		Controller.getSystem().getAdminList().add(standard);
 		return standard;
 	}
 }

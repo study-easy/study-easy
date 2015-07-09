@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 import sharedAttributes.Badge;
 import sharedAttributes.UserPinn;
-import system.System;
+import system.Controller;
 
 @Entity
 public class RegUser extends User {
@@ -32,7 +32,7 @@ public class RegUser extends User {
 	private UserPinn pinn;
 
 	public static RegUser register(String name, String password, String testPassword) {
-		List<RegUser> userlist = System.getSystem().getUserList();
+		List<RegUser> userlist = Controller.getSystem().getUserList();
 		boolean nameOccupied = false;
 		for (User user : userlist) {
 			if (user.name == name) {
@@ -52,7 +52,7 @@ public class RegUser extends User {
 				UserPinn pinn = new UserPinn();
 				pinn.setOwner(regUser);
 				regUser.pinn = pinn;
-				System.getSystem().getUserList().add(regUser);
+				Controller.getSystem().getUserList().add(regUser);
 				return regUser;
 			}else{
 				return null;
