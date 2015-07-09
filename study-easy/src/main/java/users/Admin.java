@@ -52,4 +52,12 @@ public class Admin extends User {
 		if(pinn.getBanned())
 			pinn.setBanned(false);
 	}
+	
+	public static Admin createStandardAdmin(){
+		Admin standard = new Admin();
+		standard.name = "standard";
+		standard.password = "pissOff";
+		System.getSystem().getAdminList().add(standard);
+		return standard;
+	}
 }

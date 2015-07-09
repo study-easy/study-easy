@@ -12,37 +12,43 @@ import system.System;
 @Entity
 public abstract class User {
 
-	@Id @Column(name = "name")
+	@Id
+	@Column(name = "name")
 	protected String name;
 	@Column(name = "password")
 	protected String password;
-	@Column (name = "email")
+	@Column(name = "email")
 	private String email;
 	@Column(name = "registered Since")
 	protected Date registeredSince;
 
-	public static boolean signIn(String password, String name) {
+	public static User signIn(String name, String password) {
+		User signingIn = null;
 		List<RegUser> regUserlist = System.getSystem().getUserList();
 		List<Admin> adminlist = System.getSystem().getAdminList();
 		String comparePassword = null;
 		for (User user : regUserlist) {
 			if (user.getName() == name) {
 				comparePassword = user.password;
-			} else {
-				for(User admin : adminlist){
-					if(admin.getName() == name){
-						comparePassword = admin.password;
-					}else{
-						return false;
-					}
+				signingIn = user;
+				break;
 				}
+		}
+		for (User admin : adminlist) {
+			if (admin.getName() == name) {
+				comparePassword = admin.password;
+				signingIn = admin;
+				break;
+			} else {
+				return null;
 			}
 		}
-		if (comparePassword == password) {
-			return true;
+		if (comparePassword == password){
+			return signingIn;
 		} else {
-			return false;
+			return null;
 		}
+
 	}
 
 	public String getEmail() {
@@ -52,12 +58,12 @@ public abstract class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public String getName(){
+
+	public String getName() {
 		return this.name;
 	}
-	
-	public String getRegisteredSince(){
+
+	public String getRegisteredSince() {
 		DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
 		return format.format(this.registeredSince);
 	}

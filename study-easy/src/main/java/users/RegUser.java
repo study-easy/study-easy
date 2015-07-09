@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 import sharedAttributes.Badge;
 import sharedAttributes.UserPinn;
@@ -13,17 +13,25 @@ import system.System;
 @Entity
 public class RegUser extends User {
 
+	@Column(name = "school")
 	private String school;
+	@Column(name = "hobby")
 	private String hobby;
+	@Column(name = "xpPoints")
 	private int xpPoints;
+	@Column(name = "level")
 	private int level;
+	@Column(name = "quotes")
 	private String[] quotes;
+	@Column(name = "dateOfBirth")
 	private Date birthDate;
+	@Column(name = "banned")
 	private boolean banned;
+	@Column(name = "earnedBadges")
 	private List<Badge> earnedBadges;
 	private UserPinn pinn;
 
-	public static boolean register(String name, String password, String testPassword) {
+	public static RegUser register(String name, String password, String testPassword) {
 		List<RegUser> userlist = System.getSystem().getUserList();
 		boolean nameOccupied = false;
 		for (User user : userlist) {
@@ -33,7 +41,7 @@ public class RegUser extends User {
 		}
 
 		if (nameOccupied == true) {
-			return false;
+			return null;
 		}else if (password == testPassword) {
 				RegUser regUser = new RegUser();
 				regUser.name = name;
@@ -45,9 +53,9 @@ public class RegUser extends User {
 				pinn.setOwner(regUser);
 				regUser.pinn = pinn;
 				System.getSystem().getUserList().add(regUser);
-				return true;
+				return regUser;
 			}else{
-				return false;
+				return null;
 		}		
 	}
 
