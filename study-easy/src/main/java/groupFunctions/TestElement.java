@@ -15,7 +15,9 @@ public class TestElement {
 	private String task;
 	@Column(name = "answer")
 	private String answer;
-
+	@Column(name = "points")
+	private int points;
+	
 	public Subject getSubject() {
 		return subject;
 	}
@@ -38,6 +40,15 @@ public class TestElement {
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+	
+	public TestElement(){}
+	
+	public TestElement(Subject subject, String task, String answer, int points){
+		this.subject = subject;
+		this.task = task;
+		this.answer = answer;
+		this.points = points;
 	}
 
 }

@@ -10,7 +10,7 @@ import sharedAttributes.Badge;
 import sharedAttributes.UserPinn;
 import system.Controller;
 
-@Entity
+@Entity@Table(name = "RegUser")
 public class RegUser extends User {
 
 	@Column(name = "school")
@@ -23,8 +23,6 @@ public class RegUser extends User {
 	private int level;
 	@Column(name = "quotes")
 	private String[] quotes;
-	@Column(name = "dateOfBirth")
-	private Date birthDate;
 	@Column(name = "banned")
 	private boolean banned;
 	@Column(name = "earnedBadges")
@@ -32,23 +30,22 @@ public class RegUser extends User {
 	private UserPinn pinn;
 
 	public static RegUser register(String name, String password, String testPassword) {
-		List<RegUser> userlist = Controller.getSystem().getUserList();
 		boolean nameOccupied = false;
-		for (User user : userlist) {
+		for (User user : Controller.getSystem().getUserList()) {
+			if (user.name == name) {
+				nameOccupied = true;
+			}
+		}
+		for (User user : Controller.getSystem().getAdminList()) {
 			if (user.name == name) {
 				nameOccupied = true;
 			}
 		}
 
-		if (nameOccupied == true) {
+		if (nameOccupied) {
 			return null;
 		}else if (password == testPassword) {
-				RegUser regUser = new RegUser();
-				regUser.name = name;
-				regUser.password = password;
-				regUser.banned = false;
-				regUser.earnedBadges = new ArrayList<Badge>();
-				regUser.registeredSince = new Date();
+				RegUser regUser = new RegUser(name, password);
 				UserPinn pinn = new UserPinn();
 				pinn.setOwner(regUser);
 				regUser.pinn = pinn;
@@ -57,6 +54,18 @@ public class RegUser extends User {
 			}else{
 				return null;
 		}		
+	}
+	
+	public RegUser(){};
+	
+	public RegUser(String name, String password){
+		this.name = name;
+		this.password = password;
+		this.banned = false;
+		this.earnedBadges = new ArrayList<Badge>();
+		this.registeredSince = new Date();
+		this.level = 0;
+		this.xpPoints = 0;
 	}
 
 	public String getSchool() {
@@ -97,14 +106,6 @@ public class RegUser extends User {
 
 	public void setQuotes(String[] quotes) {
 		this.quotes = quotes;
-	}
-
-	public Date getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(int year, int month, int day) {
-
 	}
 
 	public List<Badge> getEarnedBadges() {

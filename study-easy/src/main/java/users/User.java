@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 import system.Controller;
 
-@Entity
+
 public abstract class User {
 
 	@Id
@@ -51,6 +51,22 @@ public abstract class User {
 
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setRegisteredSince(Date registeredSince) {
+		this.registeredSince = registeredSince;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -62,10 +78,14 @@ public abstract class User {
 	public String getName() {
 		return this.name;
 	}
+	
+	public Date getRegisteredSince() {
+		return this.registeredSince;
+	}
 
-	public String getRegisteredSince() {
+	public String getRegisteredSinceAsString() {
 		DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
 		return format.format(this.registeredSince);
 	}
-
+	
 }

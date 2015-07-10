@@ -1,5 +1,7 @@
 package groupFunctions;
 
+import java.util.ArrayList;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,10 +14,28 @@ public class Test {
 	@Column(name = "time")
 	private float time;
 	@Column(name = "tasks")
-	private TestElement[] tasks;
-
+	private ArrayList<TestElement> tasks;
+	@Column(name = "creator")
+	private Group creator;
+	
 	public int getId() {
 		return id;
+	}
+
+	public Group getCreator() {
+		return creator;
+	}
+
+	public void setCreator(Group creator) {
+		this.creator = creator;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setTasks(ArrayList<TestElement> tasks) {
+		this.tasks = tasks;
 	}
 
 	public float getTime() {
@@ -26,8 +46,9 @@ public class Test {
 		this.time = time;
 	}
 
-	public TestElement[] getTasks() {
+	public ArrayList<TestElement> getTasks() {
 		return tasks;
 	}
 
+	
 }
