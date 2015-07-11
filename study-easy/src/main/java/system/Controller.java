@@ -25,6 +25,7 @@ public class Controller {
 			return system;
 	}
 
+	//lel
 	private void fillLeaderboard(){
 		for(Group group : groupList)
 			Leaderboard.getLeaderboard().addGroup(group);
