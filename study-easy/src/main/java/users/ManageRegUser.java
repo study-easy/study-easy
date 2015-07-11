@@ -30,24 +30,21 @@ public class ManageRegUser {
 		return Username;
 	}
 	
-	public void listRegUsers(){
+	public List<RegUser> listRegUsers(){
 		Session session = factory.openSession();
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
 			List<RegUser> regUsers = session.createQuery("FROM RegUser").list();
-			for(Iterator<RegUser> iterator = regUsers.iterator(); iterator.hasNext();){
-				RegUser regUser = iterator.next();
-				System.out.println(regUser.name);
-				System.out.println(regUser.password);
-			}
 			tx.commit();
+			return regUsers;
 		} catch(HibernateException e){
 			if(tx!=null) tx.rollback();
 			e.printStackTrace();
 		}finally{
 			session.close();
 		}
+		return null;
 	}
 	
 	public void updateRegUser(String Username, int xpPoints){
