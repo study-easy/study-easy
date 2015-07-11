@@ -39,11 +39,13 @@ public class testing {
 		Leaderboard.getLeaderboard().addGroup(g2);
 		Leaderboard.getLeaderboard().addGroup(g1);
 		Leaderboard.getLeaderboard().addGroup(g3);
-		for (Group group : Leaderboard.getLeaderboard().getBoard()) {
-			System.out.println(group.getWins() + " " + group.getWinToLoss() + " " + group.getWinStreak());
-		}
 		Group g4 = new Group();
 		g4.setWins(5);
 		g4.setWinStreak(2);
+		g4.setWinToLoss(0.5f);
+		Leaderboard.getLeaderboard().addGroup(g4);
+		for (Group group : Leaderboard.getLeaderboard().getBoard()) {
+			System.out.println(group.getWins() + " " + group.getWinToLoss() + " " + group.getWinStreak());
+		}
 	}
 }
