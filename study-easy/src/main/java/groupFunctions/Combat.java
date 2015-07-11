@@ -17,14 +17,16 @@ public class Combat {
 	private Group opponent;
 	@Column(name = "corrector")
 	private Group corrector;
+	@Column(name = "notificationToChallenger")
 	private String notificationToChallenger;
+	@Column(name = "notificationToOpponen")
 	private String notificationToOpponent;
+	@Column(name = "notificationToCorrector")
 	private String notificationToCorrector;
 
-	public Combat(Group challenger, Group opponent, Test test) {
+	public Combat(Group challenger, Group opponent) {
 		this.challenger = challenger;
 		this.opponent = opponent;
-		this.test = test;
 		this.corrector = this.test.getCreator();
 		this.challenger.getCurrentCombats().add(this);
 		this.opponent.getCurrentCombats().add(this);
@@ -40,11 +42,16 @@ public class Combat {
 				+ " angenommen.Korrektor ist die Gruppe " + this.corrector.getName() + "  " + format.format(date);
 		
 		this.notificationToCorrector = "Sie sind nun Korrektor für einen Combat zwischen den Gruppen "
-				+ this.challenger.getName() + " und " + this.opponent.getName() + "  " + format.format(date);
+				+ this.challenger.getName() + " und " + this.opponent.getName() + ". Wählen Sie einen Test aus.  " + format.format(date);
 
 		this.challenger.getCombatNotifications().add(0, this.notificationToChallenger);
 		this.opponent.getCombatNotifications().add(0, this.notificationToOpponent);
 		this.corrector.getCombatNotifications().add(0, this.notificationToCorrector);
+	}
+	
+	public void addTest(Group corrector, Test test){
+		if(this.corrector == corrector)
+			this.test = test;
 	}
 
 	public Test getTest() {

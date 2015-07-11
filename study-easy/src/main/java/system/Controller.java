@@ -29,7 +29,6 @@ public class Controller {
 	private void fillLeaderboard(){
 		for(Group group : groupList)
 			Leaderboard.getLeaderboard().addGroup(group);
-		Leaderboard.getLeaderboard().sortBoard();
 	}
 	
 	public List<RegUser> getUserList() {

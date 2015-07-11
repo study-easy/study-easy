@@ -122,16 +122,21 @@ public class Group {
 			}
 	}
 	
-	public void startChallenge() {
-		//ToDo2
+	public void startChallenge(Group opponent, Group corrector) {
+		//not TODO
 	}
 	
 	public void finishCombat(Combat combat) {
-		//ToDo3
+		//TODO
+		
 	}
 	
-	public void startCombat() {
-		//ToDo4
+	public void startCombat(Group opponent, Group corrector) {
+		Combat combat = new Combat(this, opponent);
+		this.getCurrentCombats().add(combat);
+		opponent.getCurrentCombats().add(combat);
+		corrector.getCurrentCombats().add(combat);
+		//TODO
 	}
 	
 	public float getWinToLoss(){
