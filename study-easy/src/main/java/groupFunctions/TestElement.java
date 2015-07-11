@@ -13,8 +13,15 @@ public class TestElement {
 	private Subject subject;
 	@Column(name = "task")
 	private String task;
-	@Column(name = "answer")
-	private String answer;
+	@Column(name = "rightAnswer")
+	private String rightAnswer;
+	@Column(name = "wrongAnswer1")
+	private String wrongAnswer1;
+	@Column(name = "wongAnswer2")
+	private String wrongAnswer2;
+	@Column(name = "wrongAnswer3")
+	private String wrongAnswer3;
+	
 	@Column(name = "points")
 	private int points;
 	
@@ -33,22 +40,55 @@ public class TestElement {
 	public void setTask(String task) {
 		this.task = task;
 	}
-
-	public String getAnswer() {
-		return answer;
+	
+	public int getId() {
+		return id;
 	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setId(int id) {
+		this.id = id;
 	}
-	
-	public TestElement(){}
-	
-	public TestElement(Subject subject, String task, String answer, int points){
-		this.subject = subject;
-		this.task = task;
-		this.answer = answer;
+
+	public String getRightAnswer() {
+		return rightAnswer;
+	}
+
+	public void setRightAnswer(String rightAnswer) {
+		this.rightAnswer = rightAnswer;
+	}
+
+	public String getWrongAnswer1() {
+		return wrongAnswer1;
+	}
+
+	public void setWrongAnswer1(String wrongAnswer1) {
+		this.wrongAnswer1 = wrongAnswer1;
+	}
+
+	public String getWrongAnswer2() {
+		return wrongAnswer2;
+	}
+
+	public void setWrongAnswer2(String wrongAnswer2) {
+		this.wrongAnswer2 = wrongAnswer2;
+	}
+
+	public String getWrongAnswer3() {
+		return wrongAnswer3;
+	}
+
+	public void setWrongAnswer3(String wrongAnswer3) {
+		this.wrongAnswer3 = wrongAnswer3;
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
 		this.points = points;
 	}
+
+	public TestElement(){}
 
 }

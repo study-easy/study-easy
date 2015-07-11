@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import sharedAttributes.Badge;
@@ -13,19 +13,20 @@ import system.Controller;
 
 @Entity
 public class RegUser extends User {
-	@NotNull
+	
+	@NotNull@Column(name = "school")
 	private String school;
-	@NotNull
+	@NotNull@Column(name = "hobby")
 	private String hobby;
-	@NotNull
+	@NotNull@Column(name = "xpPoints")
 	private int xpPoints;
-	@NotNull
+	@NotNull@Column(name = "level")
 	private int level;
-
+	@Column(name = "quotes")
 	private String[] quotes;
 	@NotNull
 	private Date birthDate;
-	@NotNull
+	@NotNull@Column(name = "banned")
 	private boolean banned;
 	private List<Badge> earnedBadges;
 	private UserPinn pinn;
