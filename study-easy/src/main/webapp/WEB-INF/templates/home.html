@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/home.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
@@ -20,18 +20,33 @@
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20"/></a>
 		</div>
-		<p th:text="${error}" class="notification"></p>
+		<p class="logo">study-easy
+		</p>
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -55px;"></p>
+		<p class="logo" style="margin-left: 750px; margin-top: -60px;">study-easy
+		</p>
 		<div id="logout">
-		<a th:href="@{/logout}" target="_blank"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
+		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
 </div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
-	<a href="#" ><span th:text="#{name}">Mein Profil</span></a><br />
+	<div class="hellotext">
+	<a href="#" ><span th:text="${name}">Mein Profil</span></a><br />
 	<a href="#" >Profil bearbeiten</a><br />
 	<a href="#" >Pers&ouml;nliche Daten</a><br />
-	<p>Meine Gruppen</p>
-	
+	<table>
+	<tr>
+		<td>Meine Gruppen</td>
+	</tr>
+<!-- 	<tr th:each="">
+		<th th:text="">Liste</th>
+	</tr>
+--><tr>
+	<th>Bsp</th>
+	</tr>
+	</table>
+	</div>
 	
 
 </div>
@@ -49,5 +64,4 @@
 		</p>
 	</div>
 </body>        
-
 </html>
