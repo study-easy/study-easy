@@ -249,9 +249,25 @@ public class GreetingController {
 	
 	//System.out.println(name); 
 	return"test3";}
-	
-	
-	
+	/*
+	 *##########################
+	 *7. SUPPORT.HTML
+	 *Get Aufruf
+	 *
+	 */
+	@RequestMapping(value="/support", method=RequestMethod.GET)
+    public String support(Model model) {
+            RegUser reguser = new RegUser(); 
+             model.addAttribute("RegUser", reguser);         
+             System.out.println("support");  
+        return "support"; 
+    }
+	/*
+	 *##########################
+	 *7. SUPPORT.HTML
+	 *Post Aufruf
+	 *
+	 */
 	/*
 	 *
 	@RequestMapping(value="/", method=RequestMethod.GET)

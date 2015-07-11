@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>study-easy</title>
+<link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/support.css" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
+</head>
+<body style="background-image: url(resources/images/tafel.jpg);
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+   -o-background-size: cover;
+    background-position: center center; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;">
+ <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! --> 
+<div class="header">
+		<div id="support">
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supporthell.png" width="20" height="20"/></a>
+		</div>
+		<p th:text="${error}" class="notification"></p>
+</div>
+
+</body>
+</html>
