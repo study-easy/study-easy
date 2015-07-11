@@ -42,5 +42,7 @@ public class testing {
 		for (Group group : Leaderboard.getLeaderboard().getBoard()) {
 			System.out.println(group.getWins() + " " + group.getWinToLoss() + " " + group.getWinStreak());
 		}
+		Group g4 = new Group();
+		g4.setWins(5);
 	}
 }
