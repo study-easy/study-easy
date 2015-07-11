@@ -18,20 +18,19 @@ public class Controller {
 	public static Controller getSystem() {
 		if (system == null) {
 			system = new Controller();
-			//TODO laden der User, Admins und Gruppen aus hibernate
+			// TODO laden der User, Admins und Gruppen aus hibernate
 			system.fillLeaderboard();
 			return system;
 		} else
 			return system;
 	}
 
-	//lel
-	private void fillLeaderboard(){
-		for(Group group : groupList)
+	// lel
+	private void fillLeaderboard() {
+		for (Group group : groupList)
 			Leaderboard.getLeaderboard().addGroup(group);
-		Leaderboard.getLeaderboard().sortBoard();
 	}
-	
+
 	public List<RegUser> getUserList() {
 		return this.regUserlist;
 	}
@@ -44,6 +43,10 @@ public class Controller {
 		if (badge.conditionsTrue(user)) {
 			user.getEarnedBadges().add(badge);
 		}
+	}
+
+	public static void giveXP(RegUser user, int numberOfRight) {
+		user.setXpPoints(user.getXpPoints() + numberOfRight * 10);
 	}
 
 	public static void levelUpUser(RegUser user) {
@@ -85,7 +88,7 @@ public class Controller {
 
 	}
 
-	public static void recalcWinToLoss(Group group){
-		group.setWinToLoss(group.getWins()/group.getLosses());
+	public static void recalcWinToLoss(Group group) {
+		group.setWinToLoss(group.getWins() / group.getLosses());
 	}
 }

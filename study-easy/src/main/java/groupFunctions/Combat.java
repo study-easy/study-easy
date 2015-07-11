@@ -17,34 +17,45 @@ public class Combat {
 	private Group opponent;
 	@Column(name = "corrector")
 	private Group corrector;
+	@Column(name = "notificationToChallenger")
 	private String notificationToChallenger;
+	@Column(name = "notificationToOpponen")
 	private String notificationToOpponent;
+	@Column(name = "notificationToCorrector")
 	private String notificationToCorrector;
 
-	public Combat(Group challenger, Group opponent, Test test) {
+	public Combat() {
+	}
+
+	public Combat(Group challenger, Group opponent) {
 		this.challenger = challenger;
 		this.opponent = opponent;
-		this.test = test;
 		this.corrector = this.test.getCreator();
 		this.challenger.getCurrentCombats().add(this);
 		this.opponent.getCurrentCombats().add(this);
 		this.corrector.getCurrentCombats().add(this);
 		Date date = new Date();
 		DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-		
+
 		this.notificationToChallenger = "Die herausgeforderte Gruppe " + opponent.getName()
 				+ " hat ihre Herausforderung angenommen. Korrektor ist die Gruppe " + this.corrector.getName() + "  "
 				+ format.format(date);
-		
+
 		this.notificationToOpponent = "Sie haben die Herausforderung der Gruppe " + challenger.getName()
 				+ " angenommen.Korrektor ist die Gruppe " + this.corrector.getName() + "  " + format.format(date);
-		
+
 		this.notificationToCorrector = "Sie sind nun Korrektor für einen Combat zwischen den Gruppen "
-				+ this.challenger.getName() + " und " + this.opponent.getName() + "  " + format.format(date);
+				+ this.challenger.getName() + " und " + this.opponent.getName() + ". Wählen Sie einen Test aus.  "
+				+ format.format(date);
 
 		this.challenger.getCombatNotifications().add(0, this.notificationToChallenger);
 		this.opponent.getCombatNotifications().add(0, this.notificationToOpponent);
 		this.corrector.getCombatNotifications().add(0, this.notificationToCorrector);
+	}
+
+	public void addTest(Group corrector, Test test) {
+		if (this.corrector == corrector)
+			this.test = test;
 	}
 
 	public Test getTest() {
@@ -77,6 +88,30 @@ public class Combat {
 
 	public void setTest(Test test) {
 		this.test = test;
+	}
+
+	public String getNotificationToChallenger() {
+		return notificationToChallenger;
+	}
+
+	public void setNotificationToChallenger(String notificationToChallenger) {
+		this.notificationToChallenger = notificationToChallenger;
+	}
+
+	public String getNotificationToOpponent() {
+		return notificationToOpponent;
+	}
+
+	public void setNotificationToOpponent(String notificationToOpponent) {
+		this.notificationToOpponent = notificationToOpponent;
+	}
+
+	public String getNotificationToCorrector() {
+		return notificationToCorrector;
+	}
+
+	public void setNotificationToCorrector(String notificationToCorrector) {
+		this.notificationToCorrector = notificationToCorrector;
 	}
 
 }
