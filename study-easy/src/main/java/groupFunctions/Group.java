@@ -127,7 +127,9 @@ public class Group {
 	}
 	
 	public void finishCombat(Combat combat) {
-		//TODO
+		if(this == combat.getCorrector()){
+			//TODO
+		}
 		
 	}
 	

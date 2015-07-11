@@ -24,6 +24,9 @@ public class Combat {
 	@Column(name = "notificationToCorrector")
 	private String notificationToCorrector;
 
+	public Combat() {
+	}
+
 	public Combat(Group challenger, Group opponent) {
 		this.challenger = challenger;
 		this.opponent = opponent;
@@ -33,24 +36,25 @@ public class Combat {
 		this.corrector.getCurrentCombats().add(this);
 		Date date = new Date();
 		DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-		
+
 		this.notificationToChallenger = "Die herausgeforderte Gruppe " + opponent.getName()
 				+ " hat ihre Herausforderung angenommen. Korrektor ist die Gruppe " + this.corrector.getName() + "  "
 				+ format.format(date);
-		
+
 		this.notificationToOpponent = "Sie haben die Herausforderung der Gruppe " + challenger.getName()
 				+ " angenommen.Korrektor ist die Gruppe " + this.corrector.getName() + "  " + format.format(date);
-		
+
 		this.notificationToCorrector = "Sie sind nun Korrektor für einen Combat zwischen den Gruppen "
-				+ this.challenger.getName() + " und " + this.opponent.getName() + ". Wählen Sie einen Test aus.  " + format.format(date);
+				+ this.challenger.getName() + " und " + this.opponent.getName() + ". Wählen Sie einen Test aus.  "
+				+ format.format(date);
 
 		this.challenger.getCombatNotifications().add(0, this.notificationToChallenger);
 		this.opponent.getCombatNotifications().add(0, this.notificationToOpponent);
 		this.corrector.getCombatNotifications().add(0, this.notificationToCorrector);
 	}
-	
-	public void addTest(Group corrector, Test test){
-		if(this.corrector == corrector)
+
+	public void addTest(Group corrector, Test test) {
+		if (this.corrector == corrector)
 			this.test = test;
 	}
 
@@ -84,6 +88,30 @@ public class Combat {
 
 	public void setTest(Test test) {
 		this.test = test;
+	}
+
+	public String getNotificationToChallenger() {
+		return notificationToChallenger;
+	}
+
+	public void setNotificationToChallenger(String notificationToChallenger) {
+		this.notificationToChallenger = notificationToChallenger;
+	}
+
+	public String getNotificationToOpponent() {
+		return notificationToOpponent;
+	}
+
+	public void setNotificationToOpponent(String notificationToOpponent) {
+		this.notificationToOpponent = notificationToOpponent;
+	}
+
+	public String getNotificationToCorrector() {
+		return notificationToCorrector;
+	}
+
+	public void setNotificationToCorrector(String notificationToCorrector) {
+		this.notificationToCorrector = notificationToCorrector;
 	}
 
 }
