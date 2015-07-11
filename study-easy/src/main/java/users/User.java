@@ -11,7 +11,7 @@ import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import system.System;
+import system.Controller;
 
 @Entity
 public abstract class User {
@@ -35,8 +35,8 @@ public abstract class User {
 	
 
 	public boolean signIn(String password, String name) {
-		List<RegUser> regUserlist = System.getSystem().getUserList();
-		List<Admin> adminlist = System.getSystem().getAdminList();
+		List<RegUser> regUserlist = Controller.getSystem().getUserList();
+		List<Admin> adminlist = Controller.getSystem().getAdminList();
 		String comparePassword = null;
 		for (User user : regUserlist) {
 			if (user.getName() == name) {

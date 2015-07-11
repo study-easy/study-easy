@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 import sharedAttributes.Badge;
 import sharedAttributes.UserPinn;
-import system.System;
+import system.Controller;
 
 @Entity
 public class RegUser extends User {
@@ -31,7 +31,7 @@ public class RegUser extends User {
 	private UserPinn pinn;
 
 	public boolean register(String password, String testPassword, String name) {
-		List<RegUser> userlist = System.getSystem().getUserList();
+		List<RegUser> userlist = Controller.getSystem().getUserList();
 		boolean nameOccupied = false;
 		for (User user : userlist) {
 			if (user.name == name) {
@@ -51,7 +51,7 @@ public class RegUser extends User {
 				UserPinn pinn = new UserPinn();
 				pinn.setOwner(regUser);
 				regUser.pinn = pinn;
-				System.getSystem().getUserList().add(regUser);
+				Controller.getSystem().getUserList().add(regUser);
 				return true;
 			}else{
 				return false;
