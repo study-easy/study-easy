@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.persistence.*;
+=======
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+>>>>>>> origin/develop
 
 import sharedAttributes.Badge;
 import sharedAttributes.UserPinn;
@@ -12,6 +17,7 @@ import system.Controller;
 
 @Entity@Table(name = "RegUser")
 public class RegUser extends User {
+<<<<<<< HEAD
 
 	@Column(name = "school")
 	private String school;
@@ -24,12 +30,32 @@ public class RegUser extends User {
 	@Column(name = "quotes")
 	private String[] quotes;
 	@Column(name = "banned")
+=======
+	@NotNull
+	private String school;
+	@NotNull
+	private String hobby;
+	@NotNull
+	private int xpPoints;
+	@NotNull
+	private int level;
+
+	private String[] quotes;
+	@NotNull
+	private Date birthDate;
+	@NotNull
+>>>>>>> origin/develop
 	private boolean banned;
 	@Column(name = "earnedBadges")
 	private List<Badge> earnedBadges;
 	private UserPinn pinn;
 
+<<<<<<< HEAD
 	public static RegUser register(String name, String password, String testPassword) {
+=======
+	public boolean register(String password, String testPassword, String name) {
+		List<RegUser> userlist = Controller.getSystem().getUserList();
+>>>>>>> origin/develop
 		boolean nameOccupied = false;
 		for (User user : Controller.getSystem().getUserList()) {
 			if (user.name == name) {
@@ -50,7 +76,11 @@ public class RegUser extends User {
 				pinn.setOwner(regUser);
 				regUser.pinn = pinn;
 				Controller.getSystem().getUserList().add(regUser);
+<<<<<<< HEAD
 				return regUser;
+=======
+				return true;
+>>>>>>> origin/develop
 			}else{
 				return null;
 		}		

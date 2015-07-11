@@ -51,4 +51,8 @@ public class Test {
 	}
 
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/develop

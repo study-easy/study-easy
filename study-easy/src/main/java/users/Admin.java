@@ -36,6 +36,7 @@ public class Admin extends User {
 		}
 	}
 
+<<<<<<< HEAD
 	protected boolean createAdmin(String name, String password) {
 		Controller.getSystem();
 		boolean nameOccupied = false;
@@ -57,6 +58,14 @@ public class Admin extends User {
 			Controller.getSystem().getAdminList().add(newAdmin);
 			return true;
 		}
+=======
+	protected void createAdmin(String name, String password) {
+		Admin newAdmin = new Admin();
+		newAdmin.name = name;
+		newAdmin.password = password;
+		newAdmin.registeredSince = new Date();
+		Controller.getSystem().getAdminList().add(newAdmin);
+>>>>>>> origin/develop
 	}
 
 	protected void banPinnwall(Pinnwall pinn) {

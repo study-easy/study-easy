@@ -79,4 +79,8 @@ public class Combat {
 		this.test = test;
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/develop
