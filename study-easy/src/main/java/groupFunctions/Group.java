@@ -1,6 +1,11 @@
 package groupFunctions;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+
 
 import sharedAttributes.Achievement;
 import sharedAttributes.GroupPinn;
@@ -140,6 +145,20 @@ public class Group {
 	
 	public ArrayList<Combat> getCurrentCombats(){
 		return this.currentCombats;
+	}
+	
+	public void copyFile(String sourcePath, String destPath) throws Exception{
+				
+		Path source = Paths.get(sourcePath);
+		Path destination = Paths.get(destPath);
+		try {
+			Files.copy(source, destination);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 
 }
