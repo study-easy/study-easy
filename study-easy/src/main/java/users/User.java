@@ -114,7 +114,11 @@ public abstract class User {
 		this.name = name;
 	}
 	
-	public String getRegisteredSince(){
+	public Date getRegisteredSince(){
+		return this.registeredSince;
+	}
+	
+	public String getRegisteredSinceAsString(){
 		DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
 		return format.format(this.registeredSince);
 	}
