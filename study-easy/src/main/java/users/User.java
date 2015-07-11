@@ -31,6 +31,9 @@ public abstract class User {
 	
 	@NotNull
 	String sicherheitsfrage;
+	@NotNull
+	String sicherheitsfragecheck;
+
 	
 	
 
@@ -73,7 +76,13 @@ public abstract class User {
     public void setSicherheitsfrage(String sicherheitsfrage) {
         this.name = sicherheitsfrage;
     }
-    
+    public String getSicherheitsfragecheck() {
+        return this.sicherheitsfragecheck;
+    }
+
+    public void setSicherheitsfragecheck(String sicherheitsfragecheck) {
+        this.name = sicherheitsfragecheck;
+    }
     public void setCheck(Boolean check) {
         this.checkbox = check;
     }
