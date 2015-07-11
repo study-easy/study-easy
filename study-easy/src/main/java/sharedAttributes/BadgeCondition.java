@@ -1,12 +1,14 @@
 package sharedAttributes;
 
+import java.util.Date;
+
 public class BadgeCondition {
 	
 	private ConditionTypes conditionType;
 	private String name;
 	private int requiredNumber;
 	private String requiredString;
-	private float requiredTime;
+	private Date requiredDate;
 	
 	
 	public ConditionTypes getConditionType() {
@@ -33,11 +35,11 @@ public class BadgeCondition {
 	public void setRequiredString(String requiredString) {
 		this.requiredString = requiredString;
 	}
-	public float getRequiredTime() {
-		return requiredTime;
+	public Date getRequiredDate() {
+		return requiredDate;
 	}
-	public void setRequiredTime(float requiredTime) {
-		this.requiredTime = requiredTime;
+	public void setRequiredDate(Date requiredDate) {
+		this.requiredDate = requiredDate;
 	}
 	
 	
