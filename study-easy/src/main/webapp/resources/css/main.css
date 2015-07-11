@@ -1,0 +1,120 @@
+@CHARSET "ISO-8859-1";
+body{
+    width: 100%;
+    min-height:100%;
+}
+.header {
+	height: 61px; 
+	width: 975px;
+	margin-top: -10px;
+	left: 15%;
+	position: absolute;
+}
+.hellotext {
+	font-size: 17pt;
+	 color: #979797;
+}
+linksupport:visited {
+		 color: #979797;
+}
+#linksupport {
+		 color: #979797;
+}
+#support {
+	top:20px; 
+	left: 20px;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 30px;
+
+}
+#logout{
+	margin-top: -52px;
+	margin-left: 945px;
+	right: 10px;
+	width: 30px;
+
+}
+.mainbody{
+	width: 975px; 
+	height: 85%; 
+	position: absolute; 
+	left: 15%; 
+	margin-top: 51px;
+}
+#inside {
+	background-color: #fafbfc; 
+}
+#insidefield {
+	background-color: #fafbfc;
+	border-top: 1px solid #979797;
+}
+.menufield {
+	background-color: #dbdbdb; 
+	height: 100%; 
+	width: 250px; 
+	margin-left: 0px; 
+	margin-top: 0px;
+	border-right: 1px solid #979797;
+}
+.inputfield {
+	height: 25px;
+}
+.buttons {
+	background-color: #979797; 
+	border-bottom-width: 1px; 
+	border-style: none; 
+	-webkit-border-radius: 8px; 
+	border-radius: 8px;
+	-webkit-animation: mymove 5s infinite;
+    animation: mymove 5s infinite;
+}
+.buttonName {
+	font-size: 15pt; 
+	color: #fafbfc;
+}
+
+.inputName {
+	border-bottom: 1px solid #979797; 
+	font-size: 15pt; 
+	color: #979797;
+}
+.notification {
+	font-size: 20pt; 
+	color: #fafbfc;
+	text-align: center;
+	margin-top: -30px;
+}
+.logo {
+	font-size: 20pt;
+	color: #979797;
+	margin-top: -30px;
+	margin-left:70px;
+}
+
+#studyeasy {
+	font-size: 35pt; 
+	color: #fafbfc;
+}
+
+.footer {
+	position: absolute; 
+	bottom: 2px; 
+	height: 5%; 
+	width: 100%; 
+	text-align: center;
+	color: #979797;
+	font-size: 10pt;
+}
+.barbottom {
+	margin-left: 10px;
+	text-decoration: none;
+}
+a.barbottom:visited {
+	color: #979797;
+	text-decoration: none;
+}
+
+@-webkit-keyframes mymove {
+    50% {box-shadow: 5px 4px 10px #979797;}
+}
