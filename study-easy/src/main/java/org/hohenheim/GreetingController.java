@@ -22,8 +22,10 @@ public class GreetingController {
 	 *1. Startseite mit Login
 	 *2. Regstrierseite
 	 *3. Password vergessen
-	 *4. Profil bearbeiten
-	 */
+	 *4. Profil  
+	 *5. Rechtliches
+	 *6. Home
+	 *7. 
 	/*
 	 *##########################
 	 *1. STARTSEITE INDEX.HTML
@@ -51,12 +53,6 @@ public class GreetingController {
         return "index"; 
     }
 
-	//private Model addAttribute(String string, User usir) {
-		// TODO Auto-generated method stub
-	//	return null;
-	//}
-
-
 	/*
 	 *##########################
 	 *STARTSEITE INDEX.HTML
@@ -64,15 +60,14 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/", method=RequestMethod.POST)
-    public String checkPersonInfo2(@Valid RegUser reguser, BindingResult bindingResult,
+    public String login(@Valid RegUser reguser, BindingResult bindingResult,
     		@RequestParam(value="name", required=true) String bname,
     		@RequestParam(value="password", required=true) String password) {
-       System.out.println(bindingResult.hasErrors());
        System.out.println("Benutzername: " +bname);
        System.out.println("Passwort: " +password);
        if (bname.equals("bname")) {
     	   System.out.println("Sie werden erfolgreich eingeloggt");
-    	   return "redirect:/";
+    	   return "redirect:/home";
        } else {
     	   System.out.println("ERROR");
     	  return "redirect:/?error=10000";
@@ -93,12 +88,14 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/register",method=RequestMethod.GET)
-	public String greeting3(Model model,
+	public String registerG(Model model,
 		@RequestParam(value="error", required=false, defaultValue="null") String error) {
         RegUser registerRegUser = new RegUser(); 
 		//model.addAttribute("RegUser", new RegUser());
          //model.addAttribute("User", new User());
          model.addAttribute("RegUser", registerRegUser);
+         registerRegUser.setEmail("Regestrieren");
+         System.out.println(registerRegUser.getEmail());
          if (error.isEmpty()){
     
          } else {
@@ -149,6 +146,8 @@ public class GreetingController {
 		//model.addAttribute("RegUser", new RegUser());
          //model.addAttribute("User", new User());
          model.addAttribute("RegUser", registerRegUser);
+         registerRegUser.setEmail("Password vergessen");
+         System.out.println(registerRegUser.getEmail());
          if (error.isEmpty()){
     
          } else {
@@ -189,21 +188,6 @@ public class GreetingController {
         //} 
         //return "redirect:/test2.html";
     }
-	
-	
-	
-	
-	
-	@RequestMapping(value="/test3.html",method=RequestMethod.GET)
-	public String greeting4(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-	model.addAttribute("name", name);
-	//System.out.println(name);
-
-	return"index";
-	
-
-	
-	}
 	/*
 	 *##########################
 	 *4. PROFIL.HTML
@@ -228,6 +212,45 @@ public class GreetingController {
             
         return "profil"; 
     }
+	/*
+	 *##########################
+	 *PROFIL.HTML
+	 *POST Aufruf
+	 * 
+	 * 
+	 */
+	
+	/*
+	 *##########################
+	 *5. PRIVACY.HTML
+	 *Get Aufruf
+	 *Besitzt sonst nichts
+	 */
+	
+	@RequestMapping(value="/privacy", method=RequestMethod.GET)
+    public String privacy(){	 
+        return "privacy";
+    } 
+	/*
+	 *##########################
+	 *6. HOME.HTML
+	 *Get Aufruf
+	 *Da wo die Pinnwand ist
+	 */
+	@RequestMapping(value="/home",method=RequestMethod.GET)
+	public String home(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
+	model.addAttribute("error", name); 
+	return "home"; 
+	}
+	
+	@RequestMapping(value="/test3",method=RequestMethod.GET)
+	public String greeting4(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
+	model.addAttribute("name", name);
+	
+	//System.out.println(name); 
+	return"test3";}
+	
+	
 	
 	/*
 	 *
@@ -236,7 +259,6 @@ public class GreetingController {
    	model.addAttribute("name", name);
    	return "index";
    }
-
 	
 	*/ 
 	//@RequestMapping(value="/", method=RequestMethod.POST)
@@ -249,4 +271,3 @@ public class GreetingController {
 	    //    return "redirect:/test2.html";
 	    //}
 }
-
