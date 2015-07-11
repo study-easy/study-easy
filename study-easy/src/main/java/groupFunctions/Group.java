@@ -147,7 +147,7 @@ public class Group {
 		return this.currentCombats;
 	}
 	
-	public void copyFile(String sourcePath, String destPath) throws Exception{
+	/*public void copyFile(String sourcePath, String destPath) throws Exception{
 				
 		Path source = Paths.get(sourcePath);
 		Path destination = Paths.get(destPath);
@@ -156,9 +156,11 @@ public class Group {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	
+	
 		
 		
 		
-	}
+	}*/
 
 }
