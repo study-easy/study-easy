@@ -118,5 +118,9 @@ public abstract class User {
 		DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
 		return format.format(this.registeredSince);
 	}
+	
+	public Date getRegisteredSinceDate() {
+		return registeredSince;
+	}
 
 }

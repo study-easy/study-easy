@@ -42,14 +42,12 @@ public class Badge {
 					bool=false;
 				}
 				
-			case "StringCondition":
-				//TODO
-				
-			case "TimeCondition":
-				//TODO
-				
 			case "DateCondition":
-				//TODO
+				if(conditions.get(i).getRequiredDate().before(user.getRegisteredSinceDate())) {
+					bool = true;
+				} else {
+					bool = false;
+				}
 			}
 			
 		}
