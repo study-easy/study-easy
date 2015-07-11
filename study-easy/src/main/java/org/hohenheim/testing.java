@@ -44,5 +44,6 @@ public class testing {
 		}
 		Group g4 = new Group();
 		g4.setWins(5);
+		g4.setWinStreak(2);
 	}
 }
