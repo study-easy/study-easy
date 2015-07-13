@@ -4,8 +4,9 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/home.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/logout.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
+<meta http-equiv="refresh" content="5; URL=http://localhost:8080/study-easy/" />
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
  -webkit-background-size: cover;
@@ -15,46 +16,22 @@
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;">
- <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
-<div class="header" id="inside">
+ <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! --> 
+<div class="header">
 		<div id="support">
-		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20"/></a>
-		</div>
-		<p class="logo">study-easy
-		</p>
-		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -55px;"></p>
-		<p class="logo" style="margin-left: 750px; margin-top: -60px;">study-easy
-		</p>
-		<div id="logout">
-		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supporthell.png" width="20" height="20"/></a>
 		</div>
 </div>
-<div class="mainbody" id="insidefield">
-<div class="menufield">
-	<div class="hellotext">
-	<a href="#" ><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" >Profil bearbeiten</a><br />
-	<a href="#" >Pers&ouml;nliche Daten</a><br />
-	<table>
-	<tr>
-		<td>Meine Gruppen</td>
-	</tr>
-<!-- 	<tr th:each="">
-		<th th:text="">Liste</th>
-	</tr>
---><tr>
-	<th>Bsp</th>
-	</tr>
-	</table>
-	</div>
-	
-
-</div>
-<div style="margin-left: 260px; margin-top: -55%; background-color: red;">
-<table>
-<tr><td>gjgug</td></tr></table>
-<p>hkhj</p>
-</div>
+<div class="mainbody">
+		
+		<div class="hellofield">
+			<p class="hellotext">
+				<span id="studyeasy">study-easy.</span>
+				Du wirst erfolgreich abgemeldet<br />Bis bald :) <br />
+				Wenn du willst kannst du dich sofort wieder anmelden. 
+			</p>
+			<a th:href="@{/}" id="linksupport">Falls du nicht weitergeleitet wirst Klicke hier</a>
+		</div>
 </div>
 <div class="footer">
 		
@@ -68,5 +45,7 @@
 				</a> 
 		</p>
 	</div>
-</body>        
+
+
+</body>
 </html>

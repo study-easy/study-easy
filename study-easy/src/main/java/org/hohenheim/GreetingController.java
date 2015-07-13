@@ -308,11 +308,11 @@ public class GreetingController {
 	 *Get Aufruf
 	 * 
 	 */
-	@RequestMapping(value="/admin", method=RequestMethod.GET)
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
     public String logout(Model model, 
-    		@RequestParam(value="name", required=false) String name) {
+    		@RequestParam(value="name", required=false, defaultValue="§") String name) {
             int lange = name.length();
-            if(lange>=1) {
+            if(lange>1) {
             	//mache Logout, bzw speichere alle Daten
             	System.out.println("Du wirst ausgeloggt");
             }
