@@ -2,7 +2,7 @@ package sharedAttributes;
 
 import java.util.ArrayList;
 
-public abstract class Pinnwall {
+public class Pinnwall {
 	
 	private ArrayList<PinnwallElement> entries = new ArrayList<PinnwallElement>();
 	private boolean banned = false;

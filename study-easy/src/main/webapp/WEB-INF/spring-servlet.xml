@@ -8,10 +8,10 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!--enable automatic scanning for beans (@Controller @Service etc) -->
-	<context:component-scan base-package="org.hohenheim" />
-	<mvc:default-servlet-handler />
-	<tx:annotation-driven />
-	<mvc:annotation-driven />
+	<context:component-scan base-package="org.hohenheim"/>
+	<mvc:default-servlet-handler/>
+	<tx:annotation-driven/>
+	<mvc:annotation-driven/>
 	<mvc:resources mapping="/resources/**" location="/resources/"/>
 	<!--enable the thymeleaf framework -->
 	<bean id="templateResolver"

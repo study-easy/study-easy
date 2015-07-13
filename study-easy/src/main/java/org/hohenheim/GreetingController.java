@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import sharedAttributes.Pinnwall;
+import sharedAttributes.PinnwallElement;
+import sharedAttributes.UserPinn;
 import users.RegUser;
 
 
@@ -239,7 +242,14 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String home(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
-	model.addAttribute("error", name); 
+	UserPinn userPinn = new UserPinn();
+	//PinnwallElement e = new PinnwallElement();
+	//e.setEntry("Testeintrag");
+	//userPinn.addEntrie(e);
+	model.addAttribute("error", name);
+	model.addAttribute("userPinn", userPinn.getEntries());
+	//model.addAttribute("pinnwallOwner", userPinn.getOwner().getName());
+	model.addAttribute("pinnwallOwner", "Testuser 1");
 	return "home"; 
 	}
 	
