@@ -6,7 +6,9 @@
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/home.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
-<script language="javascript" type="text/javascript" src="resources/js/snake.js"></script>
+<script  type="text/javascript" src="resources/js/snake.js"></script>
+
+
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
  -webkit-background-size: cover;
@@ -52,10 +54,18 @@
 	
 
 </div>
-<div style="margin-left: 260px; margin-top: -55%; background-color: red;">
-<table>
-<tr><td>gjgug</td></tr></table>
-<p>hkhj</p>
+<div class="mainInsidefield">
+<script type="text/javascript">initSnake();</script>
+<div style="font-weight: bold;">Aktuelle L&auml;nge deiner Snake: <span id="snake_lang">3 Meter</span>
+</div>
+
+<div style="position: relative; height: 280px;">
+    <div style="position:absolute; top:40px; left:350px"><button onclick="start_3()" class="buttons" style="width: 60px;">Start</button></div>
+    <div style="position:absolute; top:100px; left:400px"><button onclick="oben_3()" class="buttons" style="width: 60px;">Hoch</button></div>
+    <div style="position:absolute; top:150px; left:400px"><button onclick="unten_3()" class="buttons" style="width: 60px;">Runter</button></div>
+    <div style="position:absolute; top:125px; left:435px"><button onclick="rechts_3()" class="buttons" style="width: 60px;">Rechts</button></div>
+    <div style="position:absolute; top:125px; left:365px"><button onclick="links_3()" class="buttons" style="width: 60px;">Links</button></div>
+</div>
 </div>
 </div>
 <div class="footer">

@@ -57,6 +57,13 @@ linksupport:visited {
 	margin-top: 0px;
 	border-right: 1px solid #979797;
 }
+.mainInsidefield{
+	position: absolute;
+	margin-left: 260px;
+	top: 0px;
+	height: 100%; 
+	width: 715px;
+}
 .inputfield {
 	height: 25px;
 }
