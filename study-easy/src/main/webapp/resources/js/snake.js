@@ -122,7 +122,7 @@ function oben_v() {
         }
         start_erl=1;
         clearInterval(Int_oben);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro� geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter groß geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
@@ -139,7 +139,7 @@ function unten_v() {
         }
         start_erl=1;
         clearInterval(Int_unten);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro� geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter groß geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
@@ -156,7 +156,7 @@ function rechts_v() {
         }
         start_erl=1;
         clearInterval(Int_rechts);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro� geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter groß geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
@@ -173,7 +173,7 @@ function links_v() {
         }
         start_erl=1;
         clearInterval(Int_links);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro&szlig; geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter groß geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
