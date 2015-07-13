@@ -26,7 +26,9 @@ public class GreetingController {
 	 *4. Profil  
 	 *5. Rechtliches
 	 *6. Home
-	 *7. 
+	 *7. Support
+	 *8. Admin
+	 *9. Snake
 	/*
 	 *##########################
 	 *1. STARTSEITE INDEX.HTML
@@ -320,6 +322,19 @@ public class GreetingController {
              
              System.out.println("logout");  
         return "logout"; 
+    }
+	/*
+	 *##########################
+	 *9. SNAKE.HTML
+	 *Get Aufruf
+	 * 
+	 */
+	@RequestMapping(value="/snake", method=RequestMethod.GET)
+    public String snake(Model model,
+    		@RequestParam(value="name", required=false, defaultValue=" ") String name) {
+        model.addAttribute("name", name);
+             System.out.println("snake");
+        return "snake"; 
     }
 	/*
 	 *
