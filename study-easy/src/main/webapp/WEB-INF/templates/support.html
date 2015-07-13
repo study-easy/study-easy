@@ -5,23 +5,80 @@
 <title>study-easy</title>
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/support.css" />
-<link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
+<link rel="icon" type="image/vnd.microsoft.icon"
+	href="resources/images/sopra.ico" />
 </head>
-<body style="background-image: url(resources/images/tafel.jpg);
- -webkit-background-size: cover;
-  -moz-background-size: cover;
-   -o-background-size: cover;
-    background-position: center center; 
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed;">
- <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! --> 
-<div class="header">
+<body
+	style="background-image: url(resources/images/tafel.jpg); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-position: center center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+	<!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
+	<div class="header">
 		<div id="support">
-		<a th:href="@{/support}" target="_blank"><img src="resources/images/supporthell.png" width="20" height="20"/></a>
+			<a th:href="@{/support}" target="_blank"><img
+				src="resources/images/supporthell.png" width="20" height="20" /></a>
 		</div>
 		<p th:text="${error}" class="notification"></p>
+	</div>
+	<div class="mainbody">
+		<div class="hellofield">
+			<p class="hellotext">
+				<span id="studyeasy">study-easy.</span> Anscheinend ist ein Problem
+				aufgetreten :( Und so werden wir dir helfen:<br />
+			</p>
+			<ol class="hellotext" style="margin-top: -5px;">
+				<li>Nutzername eingeben (optional)</li>
+				<li>Problem schildern</li>
+				<li>Schildern wo das Problem auftritt</li>
+				<li>Wir l&ouml;sen dein Problem f&uuml;r dich</li>
+			</ol>
+		</div>
+		<div class="loginfield">
+			<div style="padding: 10px;">
+				<form action="#" th:action="@{/support}" th:object="${Error}"
+					method="post">
+					<table>
+						<tr>
+							<td class="inputName">Support</td>
+
+						</tr>
+						<tr>
+							<td><input type="text" th:field="*{name}"
+								placeholder="Deine_Mudda-Nutzername" size="25" class="inputfield" />
+								</td>
+						</tr>
+						<tr>
+							<td><input type="text" th:field="*{problem}"
+								placeholder="Was ist passiert? :(" size="25" class="inputfield" /></td>
+						</tr>
+						<tr>
+							<td><input type="text" th:field="*{problemort}"
+								placeholder="Wo ist es passiert?" size="25" class="inputfield" /></td>
+						</tr>
+						
+						<tr>
+							<td><button type="submit"
+									class="buttons">
+									<span class="buttonName">Problem senden</span>
+								</button></td>
+						</tr>
+					</table>
+
+				</form>
+			</div>
+	</div>
 </div>
+<div class="footer">
+		
+		<p>[Foto: <a class="barbottom"
+				href="https://www.flickr.com/photos/eflon/8743593650/in/photolist-ejDcLE-7CXAFs-5f12UX-66DNTm-8DBeHu-u7Kox4-48gJ8a-utYpD-qya12-aoUijf-5rLNHy-8sbsWD-5rWxfB-kbvXU-sfGx6-sfFUe-sfF85-9pySMg-nt9qBc-4Q8N1i-7v4ENF-4Jz3fS-4JuNzc-4Jz2KJ-4Jz2GL-nt9qd6-pdkRm1-aRz3b4-8yLnax-7UtbFe-6qwzjT-a9GaMX-rwgSJK-9yjAXz-21mK7-8aHhds-6ZCUh-ciL5S5-nzfe54-8Dz8cn-nbAtrV-5HDt5Y-i2WtQK-i2WsTz-9ynAis-i2WtsR-i2WGjy-i2WG1C-i2WG2E-i2XpiK"
+				target="_blank">Alex</a> CC by 
+			<a class="barbottom" href="https://creativecommons.org/licenses/by/2.0/"
+				target="_blank">2.0
+				</a> ]
+				<a th:href="@{/privacy}" target="_blank" class="barbottom">Rechtliches
+				</a> 
+		</p>
+	</div>
+
 
 </body>
 </html>

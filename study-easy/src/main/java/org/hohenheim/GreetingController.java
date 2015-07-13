@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import users.Admin;
 import users.RegUser;
 
 
@@ -257,8 +258,10 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/support", method=RequestMethod.GET)
     public String support(Model model) {
-            RegUser reguser = new RegUser(); 
-             model.addAttribute("RegUser", reguser);         
+            Error reguser = new Error(); 
+             model.addAttribute("Error", reguser); 
+
+             
              System.out.println("support");  
         return "support"; 
     }
@@ -268,6 +271,56 @@ public class GreetingController {
 	 *Post Aufruf
 	 *
 	 */
+	@RequestMapping(value="/support", method=RequestMethod.POST)
+    public String senden(@Valid Error error, BindingResult bindingResult,
+    		@RequestParam(value="name", required=false) String bname,
+    		@RequestParam(value="problem", required=false) String problem,
+    		@RequestParam(value="problemort", required=false) String problemort) {
+       System.out.println("Support wird bearbeitet");
+       
+    return "redirect:/";
+
+    	   
+        //if (bindingResult.hasErrors()) {
+         //   return "redirect:/test3.html";
+        //}
+        //return "redirect:/test2.html";
+    }
+	/*
+	 *##########################
+	 *8. Admin.HTML
+	 *Get Aufruf
+	 * 
+	 */
+	@RequestMapping(value="/admin", method=RequestMethod.GET)
+    public String adminview(Model model) {
+            Admin admin = new Admin(); 
+             model.addAttribute("Admin", admin);
+             String adminname= "Der BABO-Admin";
+             model.addAttribute("name", adminname);
+             
+             System.out.println("adminseite");  
+        return "admin"; 
+    }
+	/*
+	 *##########################
+	 *9. LOGOUT.HTML
+	 *Get Aufruf
+	 * 
+	 */
+	@RequestMapping(value="/admin", method=RequestMethod.GET)
+    public String logout(Model model, 
+    		@RequestParam(value="name", required=false) String name) {
+            int lange = name.length();
+            if(lange>=1) {
+            	//mache Logout, bzw speichere alle Daten
+            	System.out.println("Du wirst ausgeloggt");
+            }
+
+             
+             System.out.println("logout");  
+        return "logout"; 
+    }
 	/*
 	 *
 	@RequestMapping(value="/", method=RequestMethod.GET)

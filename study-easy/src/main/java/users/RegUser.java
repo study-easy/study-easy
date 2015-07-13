@@ -29,6 +29,8 @@ public class RegUser extends User {
 	private boolean banned;
 	private List<Badge> earnedBadges;
 	private UserPinn pinn;
+	private String problem;
+	private String problemort;
 
 	public boolean register(String password, String testPassword, String name) {
 		List<RegUser> userlist = Controller.getSystem().getUserList();
@@ -58,6 +60,19 @@ public class RegUser extends User {
 		}		
 	}
 
+	public String getProblem() {
+		return problem;
+	}
+	public void setProblem(String problem) {
+		this.problem = problem;
+	}
+	public String getProblemort() {
+		return problem;
+	}
+	public void setProblemort(String problemort) {
+		this.problemort = problemort;
+	}
+	
 	public String getSchool() {
 		return school;
 	}
