@@ -31,7 +31,7 @@ for ( i = 0; i < 15; i++ ) {
 function start_3() {
     if( start_erl == 1 ) {
         start_erl=0; richtung=0; x_v=8; i_v=5; i_n=5; x_n=5; laenge=3;
-        document.getElementById('snake_lang').innerHTML=laenge + " meter";
+        document.getElementById('snake_lang').innerHTML=laenge + " Meter";
         zuf_punkt();
         document.getElementById(Img[6][5]).src = feld_2;
         document.getElementById(Img[7][5]).src = feld_2;
@@ -122,7 +122,7 @@ function oben_v() {
         }
         start_erl=1;
         clearInterval(Int_oben);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter groß geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter lang geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
@@ -139,7 +139,7 @@ function unten_v() {
         }
         start_erl=1;
         clearInterval(Int_unten);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro&szlig; geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter lang geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
@@ -156,7 +156,7 @@ function rechts_v() {
         }
         start_erl=1;
         clearInterval(Int_rechts);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro&szlig; geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter lang geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
@@ -173,7 +173,7 @@ function links_v() {
         }
         start_erl=1;
         clearInterval(Int_links);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro&szlig; geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter lang geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
