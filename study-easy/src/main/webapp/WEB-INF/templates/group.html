@@ -18,17 +18,13 @@
  <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
 <div class="header" id="inside">
 		<div id="support">
-		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20"/></a>
 		</div>
-		<a th:href="@{/home}" class="logo">study-easy</a>
-		
-		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
-		<form class="logo" id="search" style="" >
-  		<input type="search" size="20" class="inputfield"/><button type="submit"
-									class="buttons">
-									d
-								</button>
-		</form>
+		<p class="logo">study-easy
+		</p>
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -55px;"></p>
+		<p class="logo" style="margin-left: 750px; margin-top: -60px;">study-easy
+		</p>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
@@ -55,7 +51,7 @@
 	
 
 </div>
-<div class="mainInsidefield">
+<div style="margin-left: 260px; margin-top: -55%; background-color: red;">
 <table>
 <tr><td>gjgug</td></tr></table>
 <p>hkhj</p>

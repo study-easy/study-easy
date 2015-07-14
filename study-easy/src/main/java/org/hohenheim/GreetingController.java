@@ -241,7 +241,7 @@ public class GreetingController {
 	 *Da wo die Pinnwand ist
 	 */
 	@RequestMapping(value="/home",method=RequestMethod.GET)
-	public String home(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
+	public String home(@RequestParam(value="error", required=false, defaultValue=" ") String name, Model model) {
 	model.addAttribute("error", name); 
 	return "home"; 
 	}
@@ -336,6 +336,17 @@ public class GreetingController {
              System.out.println("snake");
         return "snake"; 
     }
+	/*
+	 *##########################
+	 *10. Group.HTML
+	 *Get Aufruf
+	 * 
+	 */
+	@RequestMapping(value="/group",method=RequestMethod.GET)
+	public String group(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
+	model.addAttribute("error", name); 
+	return "group";
+	}
 	/*
 	 *
 	@RequestMapping(value="/", method=RequestMethod.GET)

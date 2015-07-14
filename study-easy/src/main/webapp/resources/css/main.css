@@ -26,10 +26,11 @@ linksupport:visited {
 	margin-top: 20px;
 	margin-left: 20px;
 	width: 30px;
+	height: 25px;
 
 }
 #logout{
-	margin-top: -52px;
+	margin-top: -25px;
 	margin-left: 945px;
 	right: 10px;
 	width: 30px;
@@ -60,12 +61,16 @@ linksupport:visited {
 .mainInsidefield{
 	position: absolute;
 	margin-left: 260px;
-	top: 0px;
+	top: 10px;
 	height: 100%; 
 	width: 715px;
 }
 .inputfield {
 	height: 25px;
+}
+#search {
+	margin-left: 700px;
+	 margin-top: 7px; 
 }
 .buttons {
 	background-color: #979797; 
@@ -89,14 +94,19 @@ linksupport:visited {
 .notification {
 	font-size: 20pt; 
 	color: #fafbfc;
-	text-align: center;
+	margin-left: 175px;
+	left: 175px;
+	width: 300px;
 	margin-top: -30px;
+	position: absolute;
 }
 .logo {
 	font-size: 20pt;
 	color: #979797;
-	margin-top: -30px;
-	margin-left:70px;
+	margin-top: 7px;
+	top: 7px;
+	margin-left: 70px;
+	position: absolute;
 }
 
 #studyeasy {
