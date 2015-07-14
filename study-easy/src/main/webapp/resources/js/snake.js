@@ -139,7 +139,7 @@ function unten_v() {
         }
         start_erl=1;
         clearInterval(Int_unten);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter groß geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro&szlig; geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
@@ -156,7 +156,7 @@ function rechts_v() {
         }
         start_erl=1;
         clearInterval(Int_rechts);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter groß geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro&szlig; geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
@@ -173,7 +173,7 @@ function links_v() {
         }
         start_erl=1;
         clearInterval(Int_links);
-        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter groß geworden. Gleich nochmal!");
+        alert("Yuhuuu :) Deine Schlange ist " + laenge + " Meter gro&szlig; geworden. Gleich nochmal!");
     } else {
         elseZweig();
     }
@@ -201,7 +201,7 @@ function initSnake() {
     document.write('<div style="position: relative;">');
     for ( i = 1; i <= 15; i++ ) {
         for ( j = 1; j <= 12; j++ ) {
-            document.write('<div style="position:absolute; top:' + (20+(j*20)) + 'px; left:' + (i*20) + 'px; border: 1px dashed #ccc;"><img id="punkt' + i + '_' + j + '" src="' + feld_1 + '" alt="" /></div>');
+            document.write('<div style="position:absolute; top:' + (20+(j*20)) + 'px; left:' + (i*20) + 'px; border: 1px dashed #979797;"><img id="punkt' + i + '_' + j + '" src="' + feld_1 + '" alt="" /></div>');
         }
     }
     document.write('</div>');
