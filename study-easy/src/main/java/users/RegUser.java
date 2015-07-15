@@ -33,6 +33,7 @@ public class RegUser extends User {
 	@NotNull
 	@Column(name = "banned")
 	private boolean banned;
+	@OneToMany
 	private List<Badge> earnedBadges;
 	private UserPinn pinn;
 

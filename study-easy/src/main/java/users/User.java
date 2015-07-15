@@ -10,7 +10,6 @@ import javax.validation.constraints.Size;
 
 import system.Controller;
 
-@Entity
 public abstract class User {
 	@NotNull
 	@Size(min = 4)
