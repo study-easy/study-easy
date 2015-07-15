@@ -83,7 +83,7 @@ linksupport:visited {
 	margin-left: -3px;
 }
 #searchText {
-	font-size: 16pt; 
+	font-size: 13pt; 
 	color: #797979; 
 }
 .buttons {
@@ -121,6 +121,7 @@ linksupport:visited {
 	top: 7px;
 	margin-left: 70px;
 	position: absolute;
+	text-decoration: none;
 }
 
 #studyeasy {
