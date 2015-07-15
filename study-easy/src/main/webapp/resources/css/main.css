@@ -70,7 +70,21 @@ linksupport:visited {
 }
 #search {
 	margin-left: 700px;
-	 margin-top: 7px; 
+	 margin-top: 3px; 
+}
+#searchButton {
+	background-color: #fafbfc;
+	border-bottom-width: 1px; 
+	border-style: none; 
+	-webkit-border-radius: 1px; 
+	border-radius: 1px;
+	-webkit-border-radius: 1px; 
+	border-radius: 1px;
+	margin-left: -3px;
+}
+#searchText {
+	font-size: 16pt; 
+	color: #797979; 
 }
 .buttons {
 	background-color: #979797; 

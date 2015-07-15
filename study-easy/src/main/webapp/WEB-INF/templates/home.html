@@ -23,11 +23,10 @@
 		<a th:href="@{/home}" class="logo">study-easy</a>
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
-		<form class="logo" id="search" style="" >
-  		<input type="search" size="20" class="inputfield"/><button type="submit"
-									class="buttons">
-									d
-								</button>
+		<form class="logo" id="search" method="post" action="#" >
+  		<input type="text" size="20" style="height: 20px; margin-top:0px;" />
+  		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
+		</button>		
 		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
