@@ -15,5 +15,6 @@ public interface AchievementConditionDAO {
 	public void updateAchievementConditionRequiredString(int id, String string);
 	public void updateAchievementConditionRequiredTime(int id, float time);
 	public void updateAchievementConditionXp(int id, int xp);
+	public void deleteAchievementCondition(int id);
 
 }

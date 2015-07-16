@@ -9,6 +9,7 @@ public interface AchievementDAO {
 	
 	public void addAchievement(Achievement achievement);
 	public List<Achievement> listAchievement();
-	public void updateConditions(String name, List<AchievementCondition> list);
+	public void updateAchievementConditions(String name, List<AchievementCondition> list);
+	public void deleteAchievement(String name);
 
 }

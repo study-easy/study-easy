@@ -12,5 +12,6 @@ public interface AdminDAO {
 	public void updateAdminPassword(String name, String password);
 	public void updateAdminEmail(String name, String email);
 	public void updateAdminRegisteredSince(String name, Date date);
+	public void deleteAdmin(String name);
 
 }
