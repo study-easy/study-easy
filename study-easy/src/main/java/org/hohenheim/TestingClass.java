@@ -9,11 +9,7 @@ public class TestingClass {
 
 	public static void main(String[] args) {
 		
-		RegUserDAOImpl regUserDao = new RegUserDAOImpl();
-		regUserDao.addRegUser("testHugo", "123", "nonono@nono.de");
-		List<RegUser> list = regUserDao.listRegUsers();
-		for(RegUser user : list)
-			System.out.println(user.getName());
+		
 		
 	}
 

@@ -9,7 +9,8 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 
 	<!--enable automatic scanning for beans (@Controller @Service etc) -->
 	<context:component-scan base-package="org.hohenheim" />
-	<mvc:default-servlet-handler />
+	<context:component-scan base-package="service"/>
+	<context:component-scan base-package="dao"/>
 	<tx:annotation-driven />
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/resources/**" location="/resources/"/>
@@ -43,7 +44,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="org.hohenheim" />
+		<property name="packagesToScan" value="dao" />		
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">
