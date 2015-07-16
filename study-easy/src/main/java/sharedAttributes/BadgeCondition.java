@@ -2,8 +2,13 @@ package sharedAttributes;
 
 import java.util.Date;
 
+import javax.persistence.*;
+
+@Entity
 public class BadgeCondition {
 	
+	@Id@GeneratedValue
+	private int id;
 	private ConditionTypes conditionType;
 	private String name;
 	private int requiredNumber;

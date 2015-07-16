@@ -9,8 +9,10 @@ import javax.persistence.*;
 @Entity
 public class Combat {
 
+	@GeneratedValue
+	private int id;
 	@Column(name = "test")
-	private Test test;
+ 	private Test test;
 	@Column(name = "challenger")
 	private Group challenger;
 	@Column(name = "opponent")
