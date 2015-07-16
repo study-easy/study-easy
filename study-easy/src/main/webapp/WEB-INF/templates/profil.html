@@ -18,11 +18,18 @@
  <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
 <div class="header" id="inside">
 		<div id="support">
-		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20"/></a>
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<p th:text="${error}" class="notification"></p>
+		<a th:href="@{/home}" class="logo">study-easy</a>
+		
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
+		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
+		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
+		</button>
+  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
+		</form>
 		<div id="logout">
-		<a th:href="@{/logout}" target="_blank"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
+		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
 </div>
 <div class="mainbody" id="insidefield">
@@ -34,6 +41,11 @@
 	
 	
 
+</div>
+<div class="mainInsidefield">
+<table>
+<tr><td>gjgug</td></tr></table>
+<p>hkhj</p>
 </div>
 </div>
 <div class="footer">
