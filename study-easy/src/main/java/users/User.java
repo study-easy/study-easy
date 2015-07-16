@@ -38,18 +38,18 @@ public abstract class User {
 		boolean found = false;
 		User user = null;
 		for (User reguser : Controller.getSystem().getUserList()) {
-			if (reguser.getName() == name) {
+			if (reguser.getName().equals(name)) {
 				found = true;
 				user = reguser;
 			}
 		}
 		if (!found) {
 			for (User admin : Controller.getSystem().getAdminList()) {
-				if (admin.getName() == name) 
+				if (admin.getName().equals(name)) 
 					user = admin;
 			}
 		}
-		if (user.getPassword() == password)
+		if (user.getPassword().equals(password))
 			return user;
 		else
 			return null;
