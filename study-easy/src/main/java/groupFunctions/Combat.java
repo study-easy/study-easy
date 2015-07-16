@@ -9,8 +9,10 @@ import javax.persistence.*;
 @Entity
 public class Combat {
 
+	@GeneratedValue
+	private int id;
 	@Column(name = "test")
-	private Test test;
+ 	private Test test;
 	@Column(name = "challenger")
 	private Group challenger;
 	@Column(name = "opponent")
@@ -23,14 +25,16 @@ public class Combat {
 	private String notificationToOpponent;
 	@Column(name = "notificationToCorrector")
 	private String notificationToCorrector;
-
+	@Column(name = "testSelected")
+	private boolean testSelected;
+	
 	public Combat() {
 	}
 
-	public Combat(Group challenger, Group opponent) {
+	public Combat(Group challenger, Group opponent, Group corrector) {
 		this.challenger = challenger;
 		this.opponent = opponent;
-		this.corrector = this.test.getCreator();
+		this.corrector = corrector;
 		this.challenger.getCurrentCombats().add(this);
 		this.opponent.getCurrentCombats().add(this);
 		this.corrector.getCurrentCombats().add(this);
@@ -54,8 +58,10 @@ public class Combat {
 	}
 
 	public void addTest(Group corrector, Test test) {
-		if (this.corrector == corrector)
+		if (this.corrector == corrector && this.testSelected == false){
 			this.test = test;
+			this.testSelected = true;
+		}
 	}
 
 	public Test getTest() {

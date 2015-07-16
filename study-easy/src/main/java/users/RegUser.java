@@ -13,21 +13,27 @@ import system.Controller;
 
 @Entity
 public class RegUser extends User {
-	
-	@NotNull@Column(name = "school")
+
+	@NotNull
+	@Column(name = "school")
 	private String school;
-	@NotNull@Column(name = "hobby")
+	@NotNull
+	@Column(name = "hobby")
 	private String hobby;
-	@NotNull@Column(name = "xpPoints")
+	@NotNull
+	@Column(name = "xpPoints")
 	private int xpPoints;
-	@NotNull@Column(name = "level")
+	@NotNull
+	@Column(name = "level")
 	private int level;
 	@Column(name = "quotes")
 	private String[] quotes;
 	@NotNull
 	private Date birthDate;
-	@NotNull@Column(name = "banned")
+	@NotNull
+	@Column(name = "banned")
 	private boolean banned;
+	@OneToMany
 	private List<Badge> earnedBadges;
 	private UserPinn pinn;
 
@@ -35,28 +41,25 @@ public class RegUser extends User {
 		List<RegUser> userlist = Controller.getSystem().getUserList();
 		boolean nameOccupied = false;
 		for (User user : userlist) {
-			if (user.name == name) {
+			if (user.name == name)
 				nameOccupied = true;
-			}
 		}
-
 		if (nameOccupied == true) {
 			return false;
-		}else if (password == testPassword) {
-				RegUser regUser = new RegUser();
-				regUser.name = name;
-				regUser.password = password;
-				regUser.banned = false;
-				regUser.earnedBadges = new ArrayList<Badge>();
-				regUser.registeredSince = new Date();
-				UserPinn pinn = new UserPinn();
-				pinn.setOwner(regUser);
-				regUser.pinn = pinn;
-				Controller.getSystem().getUserList().add(regUser);
-				return true;
-			}else{
-				return false;
-		}		
+		} else if (password == testPassword) {
+			RegUser regUser = new RegUser();
+			regUser.name = name;
+			regUser.password = password;
+			regUser.banned = false;
+			regUser.earnedBadges = new ArrayList<Badge>();
+			regUser.registeredSince = new Date();
+			UserPinn pinn = new UserPinn();
+			pinn.setOwner(regUser);
+			regUser.pinn = pinn;
+			Controller.getSystem().getUserList().add(regUser);
+			return true;
+		} else
+			return false;
 	}
 
 	public String getSchool() {
@@ -118,8 +121,8 @@ public class RegUser extends User {
 	public void setBanned(boolean banned) {
 		this.banned = banned;
 	}
-	
-	public UserPinn getPinn(){
+
+	public UserPinn getPinn() {
 		return this.pinn;
 	}
 

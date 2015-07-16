@@ -3,27 +3,47 @@ package groupFunctions;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
+=======
+import javax.persistence.*;
+>>>>>>> origin/ConnorBranchNeu
 
 import sharedAttributes.Achievement;
+import sharedAttributes.Badge;
 import sharedAttributes.GroupPinn;
+import system.Controller;
 import users.RegUser;
 
+@Entity
 public class Group {
-		
+
+	@Id
+	@Column(name = "name")
 	private String name;
+	@Column(name = "userList")
 	private ArrayList<RegUser> userList = new ArrayList<RegUser>();
+	@Column(name = "description")
 	private String description;
+	@Column(name = "adnim")
 	private RegUser admin;
-	//private GroupDataBase dataBase;
+	// private GroupDataBase dataBase;
+	@Column(name = "wins")
 	private int wins;
+	@Column(name = "losses")
 	private int losses;
+	@Column(name = "winToLoss")
 	private float winToLoss;
+	@Column(name = "winStreak")
 	private int winStreak;
+	@Column(name = "currentCombats")
 	private ArrayList<Combat> currentCombats = new ArrayList<Combat>();
+	@Column(name = "pinnwall")
 	private GroupPinn pinnwall;
+	@Column(name = "achievements")
 	private ArrayList<Achievement> achievements = new ArrayList<Achievement>();
+	@Column(name = "combatNotifications")
 	private ArrayList<String> combatNotifications = new ArrayList<String>();
-	
+
 	public String getName() {
 		return name;
 	}
@@ -87,7 +107,7 @@ public class Group {
 	public void addUser(RegUser user) {
 		userList.add(user);
 	}
-	
+
 	public int getWinStreak() {
 		return winStreak;
 	}
@@ -117,37 +137,64 @@ public class Group {
 	}
 
 	public void reasignAdmin(String name) {
-		for(RegUser user : this.userList)
-			if(user.getName() == name){
+		for (RegUser user : this.userList)
+			if (user.getName() == name) {
 				this.admin = user;
 				break;
 			}
 	}
-	
+
 	public void startChallenge(Group opponent, Group corrector) {
-		//not TODO
+		// not TODO
 	}
-	
+
 	public void finishCombat(Combat combat) {
-		if(this == combat.getCorrector()){
-			//TODO
+		// TODO fertig?
+		combat.getChallenger().getCurrentCombats().remove(combat);
+		for (RegUser user : combat.getChallenger().getUserList()) {
+			for(Badge badge : Controller.getSystem().getBadgeList()){
+				Controller.awardBadge(badge, user);
+			}
+			Controller.levelUpUser(user);
 		}
 		
+		combat.getOpponent().getCurrentCombats().remove(combat);
+		for (RegUser user : combat.getOpponent().getUserList()) {
+			for(Badge badge : Controller.getSystem().getBadgeList()){
+				Controller.awardBadge(badge, user);
+			}
+			Controller.levelUpUser(user);
+		}
+		
+		combat.getCorrector().getCurrentCombats().remove(combat);
+		for (RegUser user : combat.getCorrector().getUserList()) {
+			for(Badge badge : Controller.getSystem().getBadgeList()){
+				Controller.awardBadge(badge, user);
+			}
+			int i = 0;
+			while (i <= 10) {
+				Controller.giveXP(user);
+				i++;
+			}
+			Controller.levelUpUser(user);
+		}
+		combat = null;
+
 	}
-	
+
 	public void startCombat(Group opponent, Group corrector) {
-		Combat combat = new Combat(this, opponent);
+		Combat combat = new Combat(this, opponent, corrector);
 		this.getCurrentCombats().add(combat);
 		opponent.getCurrentCombats().add(combat);
 		corrector.getCurrentCombats().add(combat);
-		//TODO
+		// TODO
 	}
-	
-	public float getWinToLoss(){
+
+	public float getWinToLoss() {
 		return winToLoss;
 	}
-	
-	public ArrayList<Combat> getCurrentCombats(){
+
+	public ArrayList<Combat> getCurrentCombats() {
 		return this.currentCombats;
 	}
 	
