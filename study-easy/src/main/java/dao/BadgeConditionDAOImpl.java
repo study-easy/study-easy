@@ -3,11 +3,22 @@ package dao;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import sharedAttributes.BadgeCondition;
 import sharedAttributes.ConditionTypes;
 
+@Transactional
+@Repository
 public class BadgeConditionDAOImpl implements BadgeConditionDAO{
 
+	@Autowired
+	private SessionFactory factory;
+	
 	@Override
 	public void addBadgeCondition(BadgeCondition condition) {
 		// TODO Auto-generated method stub

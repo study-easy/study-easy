@@ -2,21 +2,34 @@ package dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import sharedAttributes.AchievementCondition;
 import sharedAttributes.ConditionTypes;
 
+@Repository
+@Transactional
 public class AchievementConditionDAOImpl implements AchievementConditionDAO{
 
+	@Autowired
+	private SessionFactory factory;
+	
 	@Override
 	public void addAchievementCondition(AchievementCondition condition) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		session.save(condition);
 	}
 
 	@Override
 	public List<AchievementCondition> listAchievementCondition() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.getCurrentSession();
+		List<AchievementCondition> list = session.createQuery("from AchievementCondition").list();
+		return list;
 	}
 
 	@Override

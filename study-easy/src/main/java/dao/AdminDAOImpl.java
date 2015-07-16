@@ -3,10 +3,21 @@ package dao;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import users.Admin;
 
+@Repository
+@Transactional
 public class AdminDAOImpl implements AdminDAO{
 
+	@Autowired
+	private SessionFactory factory;
+	
 	@Override
 	public void addAdmin(Admin admin) {
 		// TODO Auto-generated method stub

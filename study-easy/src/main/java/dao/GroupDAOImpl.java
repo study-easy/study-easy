@@ -2,12 +2,18 @@ package dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Repository;
+
 import groupFunctions.Combat;
 import groupFunctions.Group;
 import sharedAttributes.Achievement;
 import sharedAttributes.GroupPinn;
 import users.RegUser;
 
+@Repository
+@Transactional
 public class GroupDAOImpl implements GroupDAO{
 
 	@Override
