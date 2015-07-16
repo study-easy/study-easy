@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,14 +22,15 @@ public class CombatDAOImpl implements CombatDAO{
 	
 	@Override
 	public void addCombat(Combat combat) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		session.save(combat);		
 	}
 
 	@Override
 	public List<Combat> listCombat() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.getCurrentSession();
+		List<Combat> list = session.createQuery("from Combat").list();
+		return list;
 	}
 
 	@Override
@@ -57,8 +59,10 @@ public class CombatDAOImpl implements CombatDAO{
 
 	@Override
 	public void deleteCombat(int id) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Combat combat = (Combat) session.load(Combat.class, id);
+		if(combat!=null)
+			session.delete(combat);
 	}
 
 }

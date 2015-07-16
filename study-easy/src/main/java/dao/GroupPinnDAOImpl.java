@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,38 +23,41 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 	
 	@Override
 	public void addGroupPinn(GroupPinn pinn) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		session.save(pinn);
 	}
 
 	@Override
 	public List<GroupPinn> listGroupPinn() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.getCurrentSession();
+		List<GroupPinn> list = session.createQuery("from GroupPinn").list();
+		return list;
 	}
 
 	@Override
-	public void updateGroupPinnHistory(Group owner, List<HistoryElement> list) {
+	public void updateGroupPinnHistory(String owner, List<HistoryElement> list) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateGroupPinnEntries(Group owner, List<PinnwallElement> list) {
+	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateGroupPinnBan(Group owner, boolean ban) {
+	public void updateGroupPinnBan(String owner, boolean ban) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteGroupPinn(Group owner) {
-		// TODO Auto-generated method stub
-		
+	public void deleteGroupPinn(String owner) {
+		Session session = factory.getCurrentSession();
+		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
+		if(pinn!=null)
+			session.delete(pinn);
 	}
 
 }

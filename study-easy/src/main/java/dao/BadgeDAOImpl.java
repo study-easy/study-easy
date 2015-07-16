@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,14 +21,15 @@ public class BadgeDAOImpl implements BadgeDAO{
 	
 	@Override
 	public void addBadge(Badge badge) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		session.save(badge);
 	}
 
 	@Override
 	public List<Badge> listBadge() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.getCurrentSession();
+		List<Badge> list = session.createQuery("from Badge").list();
+		return list;
 	}
 
 	@Override
@@ -38,8 +40,10 @@ public class BadgeDAOImpl implements BadgeDAO{
 
 	@Override
 	public void deleteBadge(String name) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Badge bagde = (Badge) session.load(Badge.class, name);
+		if(bagde!=null)
+			session.delete(bagde);
 	}
 
 }
