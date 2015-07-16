@@ -13,5 +13,6 @@ public interface TestDAO {
 	public void updateTestTime(int id, float time);
 	public void updateTestCreator(int id, Group group);
 	public void updateTestElements(int id, List<TestElement> tests);
+	public void deleteTest(int id);
 
 }
