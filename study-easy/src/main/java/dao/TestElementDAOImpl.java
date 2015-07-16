@@ -2,11 +2,22 @@ package dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import groupFunctions.Subject;
 import groupFunctions.TestElement;
 
+@Repository
+@Transactional
 public class TestElementDAOImpl implements TestElementDAO{
 
+	@Autowired
+	private SessionFactory factory;
+	
 	@Override
 	public void addTestElement(TestElement element) {
 		// TODO Auto-generated method stub

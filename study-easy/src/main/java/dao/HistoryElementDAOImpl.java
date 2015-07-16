@@ -3,10 +3,21 @@ package dao;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import sharedAttributes.HistoryElement;
 
+@Repository
+@Transactional
 public class HistoryElementDAOImpl implements HistoryElementDAO{
 
+	@Autowired
+	private SessionFactory factory;
+	
 	@Override
 	public void addHistoryElement(HistoryElement element) {
 		// TODO Auto-generated method stub

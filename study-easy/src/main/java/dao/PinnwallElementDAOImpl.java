@@ -3,10 +3,21 @@ package dao;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import sharedAttributes.PinnwallElement;
 
+@Repository
+@Transactional
 public class PinnwallElementDAOImpl implements PinnwallElementDAO{
 
+	@Autowired
+	private SessionFactory factory;
+	
 	@Override
 	public void addPinnwallElement(PinnwallElement element) {
 		// TODO Auto-generated method stub
