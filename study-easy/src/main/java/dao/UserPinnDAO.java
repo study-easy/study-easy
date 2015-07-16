@@ -11,6 +11,6 @@ public interface UserPinnDAO {
 	public void addUserPinn(UserPinn pinn);
 	public List<UserPinn> listUserPinn();
 	public void updateUserPinnEntries(RegUser owner, List<PinnwallElement> list);
-	public void updateUserPinnBan(RegUser owner, boolean ban);
-	public void deleteUserPinn(RegUser owner);
+	public void updateUserPinnBan(String owner, boolean ban);
+	public void deleteUserPinn(String owner);
 }

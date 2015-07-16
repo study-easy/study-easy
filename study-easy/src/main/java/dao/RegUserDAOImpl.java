@@ -4,95 +4,42 @@ import java.util.*;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import users.RegUser;
-import users.User;
-
 import org.hibernate.SessionFactory;
-import org.hibernate.Hibernate;
 
 @Repository
+@Transactional
 public class RegUserDAOImpl implements RegUserDAO{
-	@Autowired
-	private SessionFactory sessionFactory;
-
-	@Transactional
-	@Override
-	public void addRegUser(String name, String password, String email){
-		Session session = sessionFactory.openSession();
-		try{
-			session.beginTransaction();
-			User user = new RegUser();
-			user.setName(name);
-			user.setPassword(password);
-			user.setEmail(email);
-			session.save(user);
-			session.getTransaction().commit();
-		}catch(HibernateException e){
-			session.getTransaction().rollback();
-			e.printStackTrace();
-		}finally{
-			session.close();
-		}
-	}
 	
+	@Autowired
+	private SessionFactory factory;
+
+	@Override
+	public void addRegUser(RegUser user) {
+		Session session = factory.getCurrentSession();
+		session.save(user);
+	}	
+		
 	@Override
 	public List<RegUser> listRegUsers(){
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		try{
-			tx = session.beginTransaction();
-			List<RegUser> regUsers = session.createQuery("FROM RegUser").list();
-			tx.commit();
-			return regUsers;
-		} catch(HibernateException e){
-			if(tx!=null) tx.rollback();
-			e.printStackTrace();
-		}finally{
-			session.close();
-		}
-		return null;
+		Session session = factory.getCurrentSession();
+		List<RegUser> list = session.createQuery("from RegUser").list();
+		return list;
+		
 	}
 	
 	@Override
 	public void updateRegUserXP(String Username, int xpPoints){
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		try{
-			tx = session.beginTransaction();
-			RegUser regUser = (RegUser) session.get(RegUser.class, Username);
-			regUser.setXpPoints(xpPoints);
-			session.update(regUser);
-			tx.commit();
-		}catch(HibernateException e){
-			if(tx!=null) tx.rollback();
-			e.printStackTrace();
-		}finally{
-			session.close();
-		}
+		//TODO
 	}
 	
 	@Override
 	public void deleteRegUser(String Username){
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		try{
-			tx = session.beginTransaction();
-			RegUser regUser = (RegUser) session.get(RegUser.class, Username);
-			session.delete(regUser);
-			tx.commit();
-		}catch(HibernateException e){
-			if(tx!=null) tx.rollback();
-			e.printStackTrace();
-		}finally{
-			session.close();
-		}
+		//TODO
 	}
 
 	@Override
@@ -121,7 +68,11 @@ public class RegUserDAOImpl implements RegUserDAO{
 
 	@Override
 	public void updateRegUserHobby(String Username, String Hobby) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		RegUser user = (RegUser)session.load(RegUser.class, Username);
+		if(user!=null)
+			session.delete(user);
 	}
+
+	
 }

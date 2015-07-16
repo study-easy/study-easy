@@ -2,24 +2,37 @@ package dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import groupFunctions.Combat;
 import groupFunctions.Group;
 import sharedAttributes.Achievement;
 import sharedAttributes.GroupPinn;
 import users.RegUser;
 
+@Repository
+@Transactional
 public class GroupDAOImpl implements GroupDAO{
 
+	@Autowired
+	private SessionFactory factory;
+	
 	@Override
 	public void addGroup(Group group) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		session.save(group);
 	}
 
 	@Override
 	public List<Group> listGroup() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.getCurrentSession();
+		List<Group> list = session.createQuery("from Group").list();
+		return list;
 	}
 
 	@Override
@@ -78,8 +91,10 @@ public class GroupDAOImpl implements GroupDAO{
 
 	@Override
 	public void deleteGroup(String name) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null)
+			session.delete(group);
 	}
 
 }

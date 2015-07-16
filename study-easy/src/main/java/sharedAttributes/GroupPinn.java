@@ -10,7 +10,7 @@ import groupFunctions.Group;
 public class GroupPinn extends Pinnwall {
 
 	@Id
-	private Group owner;
+	private String owner;
 	private ArrayList<HistoryElement> history = new ArrayList<HistoryElement>();
 
 	public void addHistoryElement(HistoryElement element) {
@@ -21,11 +21,11 @@ public class GroupPinn extends Pinnwall {
 		return history;
 	}
 
-	public void setOwner(Group group) {
+	public void setOwner(String group) {
 		this.owner = group;
 	}
 
-	public Group getOwner() {
+	public String getOwner() {
 		return owner;
 	}
 

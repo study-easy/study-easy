@@ -8,13 +8,13 @@ import users.User;
 public class UserPinn extends Pinnwall {
 
 	@Id
-	private User owner;
+	private String owner;
 
-	public User getOwner() {
+	public String getOwner() {
 		return owner;
 	}
 
-	public void setOwner(User owner) {
+	public void setOwner(String owner) {
 		this.owner = owner;
 	}
 

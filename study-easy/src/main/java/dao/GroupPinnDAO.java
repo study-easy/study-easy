@@ -11,9 +11,9 @@ public interface GroupPinnDAO {
 	
 	public void addGroupPinn(GroupPinn pinn);
 	public List<GroupPinn> listGroupPinn();
-	public void updateGroupPinnHistory(Group owner, List<HistoryElement> list);
-	public void updateGroupPinnEntries(Group owner, List<PinnwallElement> list);
-	public void updateGroupPinnBan(Group owner, boolean ban);
-	public void deleteGroupPinn(Group owner);
+	public void updateGroupPinnHistory(String owner, List<HistoryElement> list);
+	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list);
+	public void updateGroupPinnBan(String owner, boolean ban);
+	public void deleteGroupPinn(String owner);
 
 }
