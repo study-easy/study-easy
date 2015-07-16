@@ -22,22 +22,24 @@ public class RegUserDAOImpl implements RegUserDAO{
 	public void addRegUser(RegUser user) {
 		Session session = factory.getCurrentSession();
 		session.save(user);
-	}
+	}	
 		
 	@Override
 	public List<RegUser> listRegUsers(){
-		return null;
+		Session session = factory.getCurrentSession();
+		List<RegUser> list = session.createQuery("from RegUser").list();
+		return list;
 		
 	}
 	
 	@Override
 	public void updateRegUserXP(String Username, int xpPoints){
-		
+		//TODO
 	}
 	
 	@Override
 	public void deleteRegUser(String Username){
-		
+		//TODO
 	}
 
 	@Override
@@ -66,8 +68,10 @@ public class RegUserDAOImpl implements RegUserDAO{
 
 	@Override
 	public void updateRegUserHobby(String Username, String Hobby) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		RegUser user = (RegUser)session.load(RegUser.class, Username);
+		if(user!=null)
+			session.delete(user);
 	}
 
 	

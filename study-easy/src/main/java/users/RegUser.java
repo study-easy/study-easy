@@ -54,7 +54,7 @@ public class RegUser extends User {
 			regUser.earnedBadges = new ArrayList<Badge>();
 			regUser.registeredSince = new Date();
 			UserPinn pinn = new UserPinn();
-			pinn.setOwner(regUser);
+			pinn.setOwner(regUser.getName());
 			regUser.pinn = pinn;
 			Controller.getSystem().getUserList().add(regUser);
 			return true;

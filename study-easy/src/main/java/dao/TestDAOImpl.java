@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -10,51 +9,54 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import sharedAttributes.PinnwallElement;
+import groupFunctions.Group;
+import groupFunctions.Test;
+import groupFunctions.TestElement;
 
 @Repository
 @Transactional
-public class PinnwallElementDAOImpl implements PinnwallElementDAO{
+public class TestDAOImpl implements TestDAO{
 
 	@Autowired
 	private SessionFactory factory;
 	
 	@Override
-	public void addPinnwallElement(PinnwallElement element) {
+	public void addTest(Test test) {
 		Session session = factory.getCurrentSession();
-		session.save(element);
+		session.save(test);
 	}
 
 	@Override
-	public List<PinnwallElement> listPinnwallElement() {
+	public List<Test> listTest() {
 		Session session = factory.getCurrentSession();
-		List<PinnwallElement> list = session.createQuery("from PinnwallElement").list();
+		List<Test> list = session.createQuery("from Test").list();
 		return list;
 	}
 
 	@Override
-	public void updatePinnwallElementContent(String content) {
+	public void updateTestTime(int id, float time) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updatePinnwallElementDate(Date date) {
+	public void updateTestCreator(int id, Group group) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updatePinnwallElementComments(List<PinnwallElement> list) {
+	public void updateTestElements(int id, List<TestElement> tests) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deletePinnwallElement() {
+	public void deleteTest(int id) {
 		Session session = factory.getCurrentSession();
-		
-		
+		Test test = (Test) session.load(Test.class, id);
+		if(test!=null)
+			session.delete(test);
 	}
 
 }
