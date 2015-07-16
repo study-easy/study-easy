@@ -9,11 +9,12 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 
 	<!--enable automatic scanning for beans (@Controller @Service etc) -->
 	<context:component-scan base-package="org.hohenheim" />
-	<context:component-scan base-package="service"/>
-	<context:component-scan base-package="dao"/>
+	<context:component-scan base-package="service" />
+	<context:component-scan base-package="dao" />
+	<context:component-scan base-package="users"/>
 	<tx:annotation-driven />
 	<mvc:annotation-driven />
-	<mvc:resources mapping="/resources/**" location="/resources/"/>
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<!--enable the thymeleaf framework -->
 	<bean id="templateResolver"
 		class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
@@ -44,7 +45,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="dao" />		
+		<property name="packagesToScan" value="dao" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">

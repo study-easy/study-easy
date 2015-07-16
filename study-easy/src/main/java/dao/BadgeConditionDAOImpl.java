@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,14 +22,15 @@ public class BadgeConditionDAOImpl implements BadgeConditionDAO{
 	
 	@Override
 	public void addBadgeCondition(BadgeCondition condition) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		session.save(condition);
 	}
 
 	@Override
 	public List<BadgeCondition> listBadgeCondition() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.getCurrentSession();
+		List<BadgeCondition> list = session.createQuery("from BadgeCondition").list();
+		return list;
 	}
 
 	@Override

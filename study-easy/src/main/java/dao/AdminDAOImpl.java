@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,14 +21,15 @@ public class AdminDAOImpl implements AdminDAO{
 	
 	@Override
 	public void addAdmin(Admin admin) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		session.save(admin);		
 	}
 
 	@Override
 	public List<Admin> listAdmin() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.getCurrentSession();
+		List<Admin> list = session.createQuery("from Admin").list();
+		return list;
 	}
 
 	@Override
@@ -50,8 +52,10 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public void deleteAdmin(String name) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Admin admin = (Admin) session.load(Admin.class, name);
+		if(admin!=null)
+			session.delete(admin);
 	}
 
 }
