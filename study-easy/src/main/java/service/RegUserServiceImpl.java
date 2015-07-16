@@ -14,8 +14,8 @@ public class RegUserServiceImpl implements RegUserService {
 
 	@Override
 	@Transactional
-	public void addRegUser(String name, String password, String email) {
-		this.regUserDAO.addRegUser(name, password, email);
+	public void addRegUser(RegUser user) {
+		this.regUserDAO.addRegUser(user);
 	}
 
 	@Override

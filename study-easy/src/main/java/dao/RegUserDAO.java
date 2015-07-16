@@ -7,7 +7,7 @@ import users.RegUser;
 
 public interface RegUserDAO {
 	
-	public void addRegUser(String name, String password, String email);
+	public void addRegUser(RegUser user);
 	public List<RegUser> listRegUsers();
 	public void updateRegUserXP(String Username, int xpPoints);
 	public void updateRegUserPassword(String Username, String Password);
