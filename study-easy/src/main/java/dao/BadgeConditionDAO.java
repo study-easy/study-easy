@@ -15,5 +15,6 @@ public interface BadgeConditionDAO {
 	public void updateBadgeConditionRequiredInt(int id, int integer);
 	public void updateBadgeConditionRequiredString(int id, String string);
 	public void updateBadgeConditionRequiredDate(int id, Date date);
+	public void deleteBadgeCondition(int id);
 
 }
