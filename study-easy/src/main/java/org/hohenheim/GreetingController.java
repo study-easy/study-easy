@@ -29,6 +29,8 @@ public class GreetingController {
 	 *7. Support
 	 *8. Admin
 	 *9. Snake
+	 *10.Group
+	 *11.Suche
 	/*
 	 *##########################
 	 *1. STARTSEITE INDEX.HTML
@@ -68,12 +70,16 @@ public class GreetingController {
     		@RequestParam(value="password", required=true) String password) {
        System.out.println("Benutzername: " +bname);
        System.out.println("Passwort: " +password);
-       if (bname.equals("bname")) {
+       if ((bname.equals("admin")) && (password.equals("admin"))) {
     	   System.out.println("Sie werden erfolgreich eingeloggt");
-    	   return "redirect:/home";
+    	   return "redirect:/admin";
        } else {
-    	   System.out.println("ERROR");
+    	   if (bname.equals("bname")) {
+    		   return "redirect:/home";
+    	   }
+    	   else { System.out.println("ERROR");
     	  return "redirect:/?error=10000";
+    	   }
        }
     	   
         //if (bindingResult.hasErrors()) {
@@ -243,6 +249,7 @@ public class GreetingController {
 	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String home(@RequestParam(value="error", required=false, defaultValue=" ") String name, Model model) {
 	model.addAttribute("error", name); 
+	model.addAttribute("name", name);
 	return "home"; 
 	}
 	
@@ -331,7 +338,7 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/snake", method=RequestMethod.GET)
     public String snake(Model model,
-    		@RequestParam(value="name", required=false, defaultValue=" ") String name) {
+    		@RequestParam(value="name", required=false, defaultValue="s ") String name) {
         model.addAttribute("name", name);
              System.out.println("snake");
         return "snake"; 
@@ -347,6 +354,20 @@ public class GreetingController {
 	model.addAttribute("error", name); 
 	return "group";
 	}
+	
+	/*
+	 *##########################
+	 *11. SEARCH.HTML
+	 *Get Aufruf
+	 *
+	 */
+	@RequestMapping(value="/search",method=RequestMethod.GET)
+	public String search(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
+	model.addAttribute("error", name); 
+	model.addAttribute("name", name); 
+	return "search";
+	}
+	
 	/*
 	 *
 	@RequestMapping(value="/", method=RequestMethod.GET)
