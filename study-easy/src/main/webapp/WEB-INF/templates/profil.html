@@ -34,9 +34,9 @@
 </div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
-	<a href="#" ><span th:text="#{name}">Mein Profil</span></a><br />
-	<a href="#" >Profil bearbeiten</a><br />
-	<a href="#" >Pers&ouml;nliche Daten</a><br />
+	<a href="#" th:href="@{/home}"><span th:text="${name}">Meine</span> Startseite</a><br />
+	<a href="#" th:href="@{/profilchange}">Profil bearbeiten</a><br />
+	<a href="#" th:href="@{/profilprivat}">Pers&ouml;nliche Daten</a><br />
 	<p>Meine Gruppen</p>
 	
 	

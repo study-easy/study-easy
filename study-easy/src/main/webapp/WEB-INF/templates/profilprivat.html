@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/home.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
@@ -34,28 +34,49 @@
 </div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
-	<div class="hellotext">
 	<a href="#" th:href="@{/profil}"><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" th:href="@{/snake}"><img src="resources/images/snakedunkel.png" width="18" height="18"/> Snake</a><br />
-	<table>
-	<tr>
-		<td>Meine Gruppen</td>
-	</tr>
-<!-- 	<tr th:each="">
-		<th th:text="">Liste</th>
-	</tr>
---><tr>
-	<th>Bsp</th>
-	</tr>
-	</table>
-	</div>
+	<a href="#" th:href="@{/profilchange}">Profil bearbeiten</a><br />
+	<a href="#" th:href="@{/profilprivat}">Pers&ouml;nliche Daten</a><br />
+	<p>Meine Gruppen</p>
+	
 	
 
 </div>
 <div class="mainInsidefield">
-<table>
-<tr><td>gjgug</td></tr></table>
-<p>hkhj</p>
+<form action="#" th:action="@{/profilprivat}" th:object="${RegUser}"
+				method="post">
+				<table>
+					<tr>
+						<td>Passwort</td>
+					</tr>
+					<tr>
+						<td><input type="email" placeholder="Bisheriges"/></td>
+						<td><a></a></td>
+					</tr>
+					<tr>
+						<td>Neu:</td>
+						<td><input type="email" placeholder="Neues Passwort"/></td>
+					</tr>
+					<tr>
+						<td><input type="email" placeholder="Neues Passwort widerholen"/></td>
+					</tr>
+					
+					<tr>
+						<td>Kontonummer + PIN</td>
+						<td><input type="text" /></td>
+					</tr>
+					<tr>
+						<td><button type="submit" class="buttons">
+								<span class="buttonName">Passwort ändern</span>
+							</button></td>
+					</tr>
+				</table>
+				</form>
+			<form method="get" action="#" th:action="@{/delete}" id="registerButton">
+				<button type="submit" class="buttons">
+					<span class="buttonName">Account löschen</span>
+				</button>
+			</form>
 </div>
 </div>
 <div class="footer">
@@ -71,4 +92,5 @@
 		</p>
 	</div>
 </body>        
+
 </html>

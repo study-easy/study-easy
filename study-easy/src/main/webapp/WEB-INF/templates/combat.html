@@ -53,9 +53,21 @@
 
 </div>
 <div class="mainInsidefield">
+<form action="#" th:action="@{/combat}" th:object="${Combat}"
+				method="post">
 <table>
-<tr><td>gjgug</td></tr></table>
-<p>hkhj</p>
+<tr>
+<td>Ergebnis des letzten Combats</td>
+<td>hier ergebnis stehen</td>
+</tr>
+<tr>
+<td><input type="button" th:field="combat"/><button type="submit" class="buttons">
+								<span class="buttonName" th:text="${status}">Combat</span>
+	</button><input type="file"/></td>
+</tr>
+</table>
+</form>
+
 </div>
 </div>
 <div class="footer">

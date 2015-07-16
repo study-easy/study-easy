@@ -43,7 +43,8 @@ public class RegUser extends User {
 
 		if (nameOccupied == true) {
 			return false;
-		}else if (password == testPassword) {
+		}else if (password.equals(testPassword)) {
+			System.out.println("REJJJJ");
 				RegUser regUser = new RegUser();
 				regUser.name = name;
 				regUser.password = password;
@@ -56,6 +57,7 @@ public class RegUser extends User {
 				Controller.getSystem().getUserList().add(regUser);
 				return true;
 			}else{
+				System.out.println("RENNNNN");
 				return false;
 		}		
 	}
