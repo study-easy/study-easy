@@ -1,9 +1,11 @@
 package dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,14 +23,16 @@ public class UserPinnDAOImpl implements UserPinnDAO{
 	
 	@Override
 	public void addUserPinn(UserPinn pinn) {
-		// TODO Auto-generated method stub
+		Session session = factory.getCurrentSession();
+		session.save(pinn);
 		
 	}
 
 	@Override
 	public List<UserPinn> listUserPinn() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.getCurrentSession();
+		List<UserPinn> list = session.createQuery("from UserPinn").list();
+		return list;
 	}
 
 	@Override
@@ -38,15 +42,17 @@ public class UserPinnDAOImpl implements UserPinnDAO{
 	}
 
 	@Override
-	public void updateUserPinnBan(RegUser owner, boolean ban) {
+	public void updateUserPinnBan(String owner, boolean ban) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteUserPinn(RegUser owner) {
+	public void deleteUserPinn(String owner) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
