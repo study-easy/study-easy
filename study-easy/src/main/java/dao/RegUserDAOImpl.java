@@ -34,40 +34,65 @@ public class RegUserDAOImpl implements RegUserDAO{
 	
 	@Override
 	public void updateRegUserXP(String Username, int xpPoints){
-		//TODO
+		Session session = factory.getCurrentSession();
+		RegUser user = (RegUser)session.load(RegUser.class, Username);
+		if(user!=null){
+			user.setXpPoints(xpPoints);
+			session.update(user);
+		}
 	}
 	
 	@Override
-	public void deleteRegUser(String Username){
-		//TODO
+	public void updateRegUserHobby(String Username, String hobby){
+		Session session = factory.getCurrentSession();
+		RegUser user = (RegUser)session.load(RegUser.class, Username);
+		if(user!=null){
+			user.setHobby(hobby);
+			session.update(user);
+		}
 	}
 
 	@Override
 	public void updateRegUserPassword(String Username, String Password) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		RegUser user = (RegUser)session.load(RegUser.class, Username);
+		if(user!=null){
+			user.setPassword(Password);
+			session.update(user);
+		}
 	}
 
 	@Override
 	public void updateRegUserEMail(String Username, String eMail) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		RegUser user = (RegUser)session.load(RegUser.class, Username);
+		if(user!=null){
+			user.setEmail(eMail);
+			session.update(user);
+		}
 	}
 
 	@Override
 	public void updateRegUserRegisteredSince(String Username, Date Date) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		RegUser user = (RegUser)session.load(RegUser.class, Username);
+		if(user!=null){
+			//TODO
+		}
 	}
 
 	@Override
 	public void updateRegUserSchool(String Username, String School) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		RegUser user = (RegUser)session.load(RegUser.class, Username);
+		if(user!=null){
+			user.setSchool(School);
+			session.update(user);
+		}		
 	}
 
 	@Override
-	public void updateRegUserHobby(String Username, String Hobby) {
+	public void deleteRegUser(String Username) {
 		Session session = factory.getCurrentSession();
 		RegUser user = (RegUser)session.load(RegUser.class, Username);
 		if(user!=null)

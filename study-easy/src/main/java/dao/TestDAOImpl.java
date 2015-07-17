@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -35,20 +36,32 @@ public class TestDAOImpl implements TestDAO{
 
 	@Override
 	public void updateTestTime(int id, float time) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Test test = (Test) session.load(Test.class, id);
+		if(test!=null){
+			test.setTime(time);
+			session.update(test);
+		}
 	}
 
 	@Override
 	public void updateTestCreator(int id, Group group) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Test test = (Test) session.load(Test.class, id);
+		if(test!=null){
+			test.setCreator(group);
+			session.update(test);
+		}
 	}
 
 	@Override
-	public void updateTestElements(int id, List<TestElement> tests) {
-		// TODO Auto-generated method stub
-		
+	public void updateTestElements(int id, ArrayList<TestElement> tests) {
+		Session session = factory.getCurrentSession();
+		Test test = (Test) session.load(Test.class, id);
+		if(test!=null){
+			test.setTasks(tests);
+			session.update(test);
+		}
 	}
 
 	@Override

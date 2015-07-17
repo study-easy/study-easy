@@ -53,7 +53,7 @@ public class PinnwallElementDAOImpl implements PinnwallElementDAO{
 	@Override
 	public void deletePinnwallElement() {
 		Session session = factory.getCurrentSession();
-		
+		//TODO
 		
 	}
 

@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import groupFunctions.Group;
@@ -12,7 +13,7 @@ public interface TestDAO {
 	public List<Test> listTest();
 	public void updateTestTime(int id, float time);
 	public void updateTestCreator(int id, Group group);
-	public void updateTestElements(int id, List<TestElement> tests);
+	public void updateTestElements(int id, ArrayList<TestElement> tests);
 	public void deleteTest(int id);
 
 }

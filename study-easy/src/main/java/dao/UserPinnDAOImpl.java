@@ -1,6 +1,6 @@
 package dao;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import sharedAttributes.PinnwallElement;
 import sharedAttributes.UserPinn;
-import users.RegUser;
 
 @Repository
 @Transactional
@@ -36,21 +35,30 @@ public class UserPinnDAOImpl implements UserPinnDAO{
 	}
 
 	@Override
-	public void updateUserPinnEntries(RegUser owner, List<PinnwallElement> list) {
-		// TODO Auto-generated method stub
-		
+	public void updateUserPinnEntries(String owner, ArrayList<PinnwallElement> list) {
+		Session session = factory.getCurrentSession();
+		UserPinn pinn = (UserPinn) session.load(UserPinn.class, owner);
+		if(pinn!=null){
+			//TODO
+		}
 	}
 
 	@Override
 	public void updateUserPinnBan(String owner, boolean ban) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		UserPinn pinn = (UserPinn) session.load(UserPinn.class, owner);
+		if(pinn!=null){
+			pinn.setBanned(ban);
+			session.update(pinn);
+		}
 	}
 
 	@Override
 	public void deleteUserPinn(String owner) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		UserPinn pinn = (UserPinn) session.load(UserPinn.class, owner);
+		if(pinn!=null)
+			session.delete(pinn);
 	}
 
 	

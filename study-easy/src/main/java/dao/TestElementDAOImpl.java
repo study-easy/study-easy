@@ -27,44 +27,69 @@ public class TestElementDAOImpl implements TestElementDAO{
 
 	@Override
 	public List<TestElement> listTestElement() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = factory.getCurrentSession();
+		List<TestElement> list = session.createQuery("from TestElement").list();
+		return list;
 	}
 
 	@Override
 	public void updateTestElementTask(int id, String task) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		TestElement element = (TestElement) session.load(TestElement.class, id);
+		if(element!=null){
+			element.setTask(task);
+			session.update(element);
+		}
 	}
 
 	@Override
 	public void updateTestElementAnswer(int id, String answer) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		TestElement element = (TestElement) session.load(TestElement.class, id);
+		if(element!=null){
+			element.setRightAnswer(answer);
+			session.update(element);
+		}
 	}
 
 	@Override
 	public void updateTestElementWrongAnswer1(int id, String wrongAnswer1) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		TestElement element = (TestElement) session.load(TestElement.class, id);
+		if(element!=null){
+			element.setWrongAnswer1(wrongAnswer1);
+			session.update(element);
+		}
 	}
 
 	@Override
 	public void updateTestElementWrongAnswer2(int id, String wrongAnswer2) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		TestElement element = (TestElement) session.load(TestElement.class, id);
+		if(element!=null){
+			element.setWrongAnswer2(wrongAnswer2);
+			session.update(element);
+		}
 	}
 
 	@Override
 	public void updateTestElementWrongAnswer3(int id, String wrongAnswer3) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		TestElement element = (TestElement) session.load(TestElement.class, id);
+		if(element!=null){
+			element.setWrongAnswer3(wrongAnswer3);
+			session.update(element);
+		}
 	}
 
 	@Override
 	public void updateTestSubject(int id, Subject subject) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		TestElement element = (TestElement) session.load(TestElement.class, id);
+		if(element!=null){
+			element.setSubject(subject);
+			session.update(element);
+		}
 	}
 
 	@Override
