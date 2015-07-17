@@ -2,8 +2,6 @@ package sharedAttributes;
 
 import javax.persistence.*;
 
-import users.User;
-
 @Entity
 public class UserPinn extends Pinnwall {
 

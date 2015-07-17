@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import javax.persistence.*;
 
-import groupFunctions.Group;
-
 @Entity
 public class GroupPinn extends Pinnwall {
 

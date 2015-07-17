@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -38,7 +39,7 @@ public class TestServiceImpl implements TestService{
 	}
 
 	@Override
-	public void updateTestElements(int id, List<TestElement> tests) {
+	public void updateTestElements(int id, ArrayList<TestElement> tests) {
 		tdao.updateTestElements(id, tests);
 		
 	}

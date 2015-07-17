@@ -1,9 +1,6 @@
 package org.hohenheim;
 
-import java.util.List;
-
 import dao.RegUserDAOImpl;
-import service.RegUserServiceImpl;
 import users.RegUser;
 
 public class TestingClass {

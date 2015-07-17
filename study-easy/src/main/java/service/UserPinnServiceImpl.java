@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -7,7 +8,6 @@ import org.springframework.stereotype.Service;
 import dao.UserPinnDAOImpl;
 import sharedAttributes.PinnwallElement;
 import sharedAttributes.UserPinn;
-import users.RegUser;
 
 @Service
 public class UserPinnServiceImpl implements UserPinnService{
@@ -26,7 +26,7 @@ public class UserPinnServiceImpl implements UserPinnService{
 	}
 
 	@Override
-	public void updateUserPinnEntries(RegUser owner, List<PinnwallElement> list) {
+	public void updateUserPinnEntries(String owner, ArrayList<PinnwallElement> list) {
 		updao.updateUserPinnEntries(owner, list);
 		
 	}

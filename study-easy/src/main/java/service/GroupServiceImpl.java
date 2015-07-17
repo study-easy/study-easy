@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -40,7 +41,7 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public void updateGroupUserList(String name, List<RegUser> list) {
+	public void updateGroupUserList(String name, ArrayList<RegUser> list) {
 		gdao.updateGroupUserList(name, list);
 		
 	}
@@ -64,13 +65,13 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public void updateGroupCurrentCombats(String name, List<Combat> list) {
+	public void updateGroupCurrentCombats(String name, ArrayList<Combat> list) {
 		gdao.updateGroupCurrentCombats(name, list);
 		
 	}
 
 	@Override
-	public void updateGroupAchievements(String name, List<Achievement> list) {
+	public void updateGroupAchievements(String name, ArrayList<Achievement> list) {
 		gdao.updateGroupAchievements(name, list);
 		
 	}
