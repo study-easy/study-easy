@@ -14,11 +14,11 @@ import sharedAttributes.ConditionTypes;
 
 @Repository
 @Transactional
-public class AchievementConditionDAOImpl implements AchievementConditionDAO{
+public class AchievementConditionDAOImpl implements AchievementConditionDAO {
 
 	@Autowired
 	private SessionFactory factory;
-	
+
 	@Override
 	public void addAchievementCondition(AchievementCondition condition) {
 		Session session = factory.getCurrentSession();
@@ -34,47 +34,69 @@ public class AchievementConditionDAOImpl implements AchievementConditionDAO{
 
 	@Override
 	public void updateAchievementConditionName(int id, String name) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		AchievementCondition condition = (AchievementCondition) session.load(AchievementCondition.class, id);
+		if (condition != null) {
+			condition.setName(name);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void updateAchievementConditionType(int id, ConditionTypes type) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		AchievementCondition condition = (AchievementCondition) session.load(AchievementCondition.class, id);
+		if (condition != null) {
+			condition.setConditionType(type);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void updateAchievementConditionRequiredNumber(int id, int number) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		AchievementCondition condition = (AchievementCondition) session.load(AchievementCondition.class, id);
+		if (condition != null) {
+			condition.setRequiredNumber(number);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void updateAchievementConditionRequiredString(int id, String string) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		AchievementCondition condition =(AchievementCondition) session.load(AchievementCondition.class, id);
+		if(condition!=null){
+			condition.setRequiredString(string);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void updateAchievementConditionRequiredTime(int id, float time) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		AchievementCondition condition =(AchievementCondition) session.load(AchievementCondition.class, id);
+		if(condition!=null){
+			condition.setRequiredTime(time);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void updateAchievementConditionXp(int id, int xp) {
 		Session session = factory.getCurrentSession();
 		AchievementCondition condition = (AchievementCondition) session.load(AchievementCondition.class, id);
-		if(condition != null)
-			session.update(condition);		
+		if (condition != null) {
+			condition.setBonusXp(xp);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void deleteAchievementCondition(int id) {
 		Session session = factory.getCurrentSession();
-		AchievementCondition condition =(AchievementCondition) session.load(AchievementCondition.class, id);
-		if(condition!=null)
+		AchievementCondition condition = (AchievementCondition) session.load(AchievementCondition.class, id);
+		if (condition != null)
 			session.delete(condition);
 	}
 

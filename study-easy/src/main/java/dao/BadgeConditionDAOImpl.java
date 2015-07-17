@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import sharedAttributes.Badge;
 import sharedAttributes.BadgeCondition;
 import sharedAttributes.ConditionTypes;
 
@@ -35,38 +36,60 @@ public class BadgeConditionDAOImpl implements BadgeConditionDAO{
 
 	@Override
 	public void updateBadgeConditionType(int id, ConditionTypes type) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
+		if(condition!=null){
+			condition.setConditionType(type);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void updateBadgeConditionName(int id, String name) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
+		if(condition!=null){
+			condition.setName(name);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void updateBadgeConditionRequiredInt(int id, int integer) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
+		if(condition!=null){
+			condition.setRequiredNumber(integer);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void updateBadgeConditionRequiredString(int id, String string) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
+		if(condition!=null){
+			condition.setRequiredString(string);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void updateBadgeConditionRequiredDate(int id, Date date) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
+		if(condition!=null){
+			condition.setRequiredDate(date);
+			session.update(condition);
+		}
 	}
 
 	@Override
 	public void deleteBadgeCondition(int id) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
+		if(condition!=null)
+			session.delete(condition);
 	}
 
 }

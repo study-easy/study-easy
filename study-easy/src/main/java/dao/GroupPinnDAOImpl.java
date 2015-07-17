@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import groupFunctions.Group;
 import sharedAttributes.GroupPinn;
 import sharedAttributes.HistoryElement;
 import sharedAttributes.PinnwallElement;
@@ -36,20 +35,30 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 
 	@Override
 	public void updateGroupPinnHistory(String owner, List<HistoryElement> list) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
+		if(pinn!=null){
+			//TODO
+		}
 	}
 
 	@Override
 	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
+		if(pinn!=null){
+			//TODO
+		}
 	}
 
 	@Override
 	public void updateGroupPinnBan(String owner, boolean ban) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
+		if(pinn!=null){
+			pinn.setBanned(ban);
+			session.update(pinn);
+		}
 	}
 
 	@Override

@@ -34,20 +34,31 @@ public class AdminDAOImpl implements AdminDAO{
 
 	@Override
 	public void updateAdminPassword(String name, String password) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Admin admin = (Admin) session.load(Admin.class, name);
+		if(admin!=null){
+			admin.setPassword(password);
+			session.update(admin);
+		}
 	}
 
 	@Override
 	public void updateAdminEmail(String name, String email) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Admin admin = (Admin) session.load(Admin.class, name);
+		if(admin!=null){
+			admin.setEmail(email);
+			session.update(admin);
+		}		
 	}
 
 	@Override
 	public void updateAdminRegisteredSince(String name, Date date) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Admin admin = (Admin) session.load(Admin.class, name);
+		if(admin!=null){
+			
+		}
 	}
 
 	@Override

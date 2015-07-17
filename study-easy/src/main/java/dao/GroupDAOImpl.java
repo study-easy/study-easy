@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -37,56 +38,92 @@ public class GroupDAOImpl implements GroupDAO{
 
 	@Override
 	public void updateGroupDescription(String name, String description) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setDescription(description);
+			session.update(group);
+		}
 	}
 
 	@Override
 	public void updateGroupAdmin(String name, RegUser admin) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setAdmin(admin);
+			session.update(group);
+		}
 	}
 
 	@Override
-	public void updateGroupUserList(String name, List<RegUser> list) {
-		// TODO Auto-generated method stub
-		
+	public void updateGroupUserList(String name, ArrayList<RegUser> list) {
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setUserList(list);
+			session.update(group);
+		}
 	}
 
 	@Override
 	public void updateGroupWins(String name, int wins) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setWins(wins);
+			session.update(group);
+		}
 	}
 
 	@Override
 	public void updateGroupLosses(String name, int losses) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setLosses(losses);
+			session.update(group);
+		}
 	}
 
 	@Override
 	public void updateGroupWinToLoss(String name, float winToLoss) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setWinToLoss(winToLoss);
+			session.update(group);
+		}
 	}
 
 	@Override
-	public void updateGroupCurrentCombats(String name, List<Combat> list) {
-		// TODO Auto-generated method stub
-		
+	public void updateGroupCurrentCombats(String name, ArrayList<Combat> list) {
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setCurrentCombats(list);
+			session.update(group);
+		}
 	}
 
 	@Override
-	public void updateGroupAchievements(String name, List<Achievement> list) {
-		// TODO Auto-generated method stub
-		
+	public void updateGroupAchievements(String name, ArrayList<Achievement> list) {
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setAchievements(list);
+			session.update(group);
+		}
 	}
 
 	@Override
 	public void updateGroupPinnwall(String name, GroupPinn pinn) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setPinnwall(pinn);
+			session.update(group);
+		}
 	}
 
 	@Override

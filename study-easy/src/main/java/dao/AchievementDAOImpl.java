@@ -34,8 +34,12 @@ public class AchievementDAOImpl implements AchievementDAO{
 
 	@Override
 	public void updateAchievementConditions(String name, List<AchievementCondition> list) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Achievement achievement = (Achievement) session.load(Achievement.class, name);
+		if(achievement!=null){
+			achievement.setConditions(list);
+			session.update(achievement);
+		}		
 	}
 
 	@Override

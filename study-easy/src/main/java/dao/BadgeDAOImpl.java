@@ -34,8 +34,12 @@ public class BadgeDAOImpl implements BadgeDAO{
 
 	@Override
 	public void updateBadgeConditions(String name, List<BadgeCondition> list) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Badge bagde = (Badge) session.load(Badge.class, name);
+		if(bagde!=null){
+			bagde.setConditions(list);
+			session.update(bagde);
+		}
 	}
 
 	@Override
