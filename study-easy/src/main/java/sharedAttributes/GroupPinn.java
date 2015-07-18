@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javax.persistence.*;
 
 import service.GroupPinnServiceImpl;
-import service.UserPinnServiceImpl;
 
 @Entity
 public class GroupPinn extends Pinnwall {
