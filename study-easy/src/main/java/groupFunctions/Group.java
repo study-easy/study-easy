@@ -126,7 +126,7 @@ public class Group {
 	public void setWinStreak(int winStreak) {
 		this.winStreak = winStreak;
 		GroupServiceImpl GS = new GroupServiceImpl();
-		//TODO WinStreak speichern, dafür DAO erweitern
+		//TODO WinStreak dao /service um Methode erweitern
 	}
 
 	public int getWins() {

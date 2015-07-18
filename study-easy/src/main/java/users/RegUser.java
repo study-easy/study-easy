@@ -102,7 +102,7 @@ public class RegUser extends User {
 	public void setLevel(int level) {
 		this.level = level;
 		RegUserServiceImpl RUS = new RegUserServiceImpl();
-		//TODO dao erweitern
+		//TODO dao/service um Methode erweitern
 	}
 
 	public String[] getQuotes() {
@@ -132,13 +132,13 @@ public class RegUser extends User {
 	public void addBadges(Badge badges) {
 		this.earnedBadges.add(badges);
 		RegUserServiceImpl RUS = new RegUserServiceImpl();
-		//TODO dao erweitern
+		//TODO dao/service um Methode erweitern
 	}
 
 	public void setBanned(boolean banned) {
 		this.banned = banned;
 		RegUserServiceImpl RUS = new RegUserServiceImpl();
-		//TODO dao erweitern
+		//TODO dao/service um Methode erweitern
 	}
 
 	public UserPinn getPinn() {
