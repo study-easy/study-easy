@@ -2,6 +2,8 @@ package sharedAttributes;
 
 import javax.persistence.*;
 
+import service.UserPinnServiceImpl;
+
 @Entity
 public class UserPinn extends Pinnwall {
 
@@ -16,4 +18,19 @@ public class UserPinn extends Pinnwall {
 		this.owner = owner;
 	}
 
+	public void addEntry(PinnwallElement entry) {
+		this.getEntries().add(entry);
+		UserPinnServiceImpl UPS = new UserPinnServiceImpl();
+		UPS.updateUserPinnEntries(this.owner, this.getEntries());
+	}
+
+	public boolean getBanned(){
+		return this.banned;
+	}
+	
+	public void setBanned(boolean ban){
+		this.banned = ban;
+		UserPinnServiceImpl UPS = new UserPinnServiceImpl();
+		UPS.updateUserPinnBan(this.owner, this.banned);
+	}
 }

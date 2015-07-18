@@ -8,6 +8,8 @@ import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import service.AdminServiceImpl;
+import service.RegUserServiceImpl;
 import system.Controller;
 
 public abstract class User {
@@ -61,6 +63,13 @@ public abstract class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+		if(this.getClass() == RegUser.class){
+			RegUserServiceImpl RUS = new RegUserServiceImpl();
+			RUS.updateRegUserPassword(this.name, this.password);
+		} else if(this.getClass() == Admin.class){
+			AdminServiceImpl AS = new AdminServiceImpl();
+			AS.updateAdminPassword(this.name, this.password);
+		}
 	}
 
 	public String getSicherheitsfrage() {
@@ -101,6 +110,13 @@ public abstract class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+		if(this.getClass() == RegUser.class){
+			RegUserServiceImpl RUS = new RegUserServiceImpl();
+			RUS.updateRegUserEMail(this.name, this.email);
+		} else if(this.getClass() == Admin.class){
+			AdminServiceImpl AS = new AdminServiceImpl();
+			AS.updateAdminEmail(this.name, this.email);
+		}
 	}
 
 	public String getName() {

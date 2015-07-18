@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import service.RegUserServiceImpl;
 import sharedAttributes.Badge;
 import sharedAttributes.UserPinn;
 import system.Controller;
@@ -57,6 +58,8 @@ public class RegUser extends User {
 			pinn.setOwner(regUser.getName());
 			regUser.pinn = pinn;
 			Controller.getSystem().getUserList().add(regUser);
+			RegUserServiceImpl RUS = new RegUserServiceImpl();
+			RUS.addRegUser(regUser);
 			return true;
 		} else
 			return false;
@@ -68,6 +71,8 @@ public class RegUser extends User {
 
 	public void setSchool(String school) {
 		this.school = school;
+		RegUserServiceImpl RUS = new RegUserServiceImpl();
+		RUS.updateRegUserSchool(this.name, this.school);
 	}
 
 	public String getHobby() {
@@ -76,6 +81,8 @@ public class RegUser extends User {
 
 	public void setHobby(String hobby) {
 		this.hobby = hobby;
+		RegUserServiceImpl RUS = new RegUserServiceImpl();
+		RUS.updateRegUserHobby(this.name, this.hobby);
 	}
 
 	public int getXpPoints() {
@@ -84,6 +91,8 @@ public class RegUser extends User {
 
 	public void setXpPoints(int xpPoints) {
 		this.xpPoints = xpPoints;
+		RegUserServiceImpl RUS = new RegUserServiceImpl();
+		RUS.updateRegUserXP(this.name, this.xpPoints);
 	}
 
 	public int getLevel() {
@@ -92,6 +101,8 @@ public class RegUser extends User {
 
 	public void setLevel(int level) {
 		this.level = level;
+		RegUserServiceImpl RUS = new RegUserServiceImpl();
+		//TODO
 	}
 
 	public String[] getQuotes() {
@@ -118,8 +129,16 @@ public class RegUser extends User {
 		return banned;
 	}
 
+	public void addBadges(Badge badges) {
+		this.earnedBadges.add(badges);
+		RegUserServiceImpl RUS = new RegUserServiceImpl();
+		//TODO
+	}
+
 	public void setBanned(boolean banned) {
 		this.banned = banned;
+		RegUserServiceImpl RUS = new RegUserServiceImpl();
+		//TODO
 	}
 
 	public UserPinn getPinn() {

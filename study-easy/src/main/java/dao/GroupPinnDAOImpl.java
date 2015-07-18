@@ -56,8 +56,7 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 		Session session = factory.getCurrentSession();
 		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
 		if(pinn!=null){
-			pinn.setBanned(ban);
-			session.update(pinn);
+			
 		}
 	}
 

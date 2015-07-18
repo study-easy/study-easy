@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.persistence.*;
 
+import service.GroupServiceImpl;
 import sharedAttributes.Achievement;
 import sharedAttributes.Badge;
 import sharedAttributes.GroupPinn;
@@ -54,6 +55,8 @@ public class Group {
 
 	public void setUserList(ArrayList<RegUser> userList) {
 		this.userList = userList;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupUserList(this.name, this.userList);
 	}
 
 	public String getDescription() {
@@ -62,6 +65,8 @@ public class Group {
 
 	public void setDescription(String description) {
 		this.description = description;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupDescription(this.name, this.description);
 	}
 
 	public RegUser getAdmin() {
@@ -70,6 +75,8 @@ public class Group {
 
 	public void setAdmin(RegUser admin) {
 		this.admin = admin;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupAdmin(this.name, this.admin);
 	}
 
 	public GroupPinn getPinnwall() {
@@ -78,6 +85,8 @@ public class Group {
 
 	public void setPinnwall(GroupPinn pinnwall) {
 		this.pinnwall = pinnwall;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupPinnwall(this.name, this.pinnwall);
 	}
 
 	public ArrayList<Achievement> getAchievements() {
@@ -86,6 +95,8 @@ public class Group {
 
 	public void setAchievements(ArrayList<Achievement> achievements) {
 		this.achievements = achievements;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupAchievements(this.name, this.achievements);
 	}
 
 	public ArrayList<String> getCombatNotifications() {
@@ -98,10 +109,14 @@ public class Group {
 
 	public void setCurrentCombats(ArrayList<Combat> currentCombats) {
 		this.currentCombats = currentCombats;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupCurrentCombats(this.name, this.currentCombats);
 	}
 
 	public void addUser(RegUser user) {
 		userList.add(user);
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupUserList(this.name, this.userList);
 	}
 
 	public int getWinStreak() {
@@ -110,6 +125,8 @@ public class Group {
 
 	public void setWinStreak(int winStreak) {
 		this.winStreak = winStreak;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		//TODO WinStreak speichern
 	}
 
 	public int getWins() {
@@ -118,6 +135,8 @@ public class Group {
 
 	public void setWins(int wins) {
 		this.wins = wins;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupWins(this.name, this.wins);
 	}
 
 	public int getLosses() {
@@ -126,16 +145,22 @@ public class Group {
 
 	public void setLosses(int losses) {
 		this.losses = losses;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupLosses(this.name, this.losses);
 	}
 
 	public void setWinToLoss(float winToLoss) {
 		this.winToLoss = winToLoss;
+		GroupServiceImpl GS = new GroupServiceImpl();
+		GS.updateGroupWinToLoss(this.name, this.winToLoss);
 	}
 
 	public void reasignAdmin(String name) {
 		for (RegUser user : this.userList)
 			if (user.getName() == name) {
 				this.admin = user;
+				GroupServiceImpl GS = new GroupServiceImpl();
+				GS.updateGroupAdmin(this.name, user);
 				break;
 			}
 	}
