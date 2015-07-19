@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/search.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
@@ -26,7 +26,7 @@
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
 		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
 		</button>
-  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
+  		<input type="text" size="20" name ="search" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
 		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
@@ -34,18 +34,28 @@
 </div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
-	<a href="#" th:href="@{/home}"><span th:text="${name}">Meine</span> Startseite</a><br />
-	<a href="#" th:href="@{/profilchange}">Profil bearbeiten</a><br />
-	<a href="#" th:href="@{/profilprivat}">Pers&ouml;nliche Daten</a><br />
-	<p>Meine Gruppen</p>
-	
+	<div class="hellotext">
+	<a href="#" ><span th:text="${name}">Mein Profil</span></a><br />
+	<a href="#" >Profil bearbeiten</a><br />
+	<a href="#" >Pers&ouml;nliche Daten</a><br />
+	<a href="#" th:href="@{/snake}">Snake</a><br />
+	<table>
+	<tr>
+		<td>Meine Gruppen</td>
+	</tr>
+<!-- 	<tr th:each="">
+		<th th:text="">Liste</th>
+	</tr>
+--><tr>
+	<th>Bsp</th>
+	</tr>
+	</table>
+	</div>
 	
 
 </div>
 <div class="mainInsidefield">
-<table>
-<tr><td>gjgug</td></tr></table>
-<p>fef <progress id="progressBar" max="100" value="50"></progress></p>
+<p>Suchergebnisse</p>
 </div>
 </div>
 <div class="footer">
@@ -61,5 +71,4 @@
 		</p>
 	</div>
 </body>        
-
 </html>

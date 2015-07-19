@@ -26,10 +26,11 @@ linksupport:visited {
 	margin-top: 20px;
 	margin-left: 20px;
 	width: 30px;
+	height: 25px;
 
 }
 #logout{
-	margin-top: -52px;
+	margin-top: -25px;
 	margin-left: 945px;
 	right: 10px;
 	width: 30px;
@@ -57,8 +58,33 @@ linksupport:visited {
 	margin-top: 0px;
 	border-right: 1px solid #979797;
 }
+.mainInsidefield{
+	position: absolute;
+	margin-left: 260px;
+	top: 10px;
+	height: 100%; 
+	width: 715px;
+}
 .inputfield {
 	height: 25px;
+}
+#search {
+	margin-left: 700px;
+	 margin-top: 3px; 
+}
+#searchButton {
+	background-color: #fafbfc;
+	border-bottom-width: 1px; 
+	border-style: none; 
+	-webkit-border-radius: 1px; 
+	border-radius: 1px;
+	-webkit-border-radius: 1px; 
+	border-radius: 1px;
+	margin-left: -3px;
+}
+#searchText {
+	font-size: 13pt; 
+	color: #797979; 
 }
 .buttons {
 	background-color: #979797; 
@@ -75,26 +101,32 @@ linksupport:visited {
 }
 
 .inputName {
-	border-bottom: 1px solid #979797; 
+	border-bottom: 1px solid #979797;
 	font-size: 15pt; 
 	color: #979797;
 }
 .notification {
 	font-size: 20pt; 
 	color: #fafbfc;
-	text-align: center;
+	margin-left: 175px;
+	left: 175px;
+	width: 300px;
 	margin-top: -30px;
+	position: absolute;
 }
 .logo {
 	font-size: 20pt;
 	color: #979797;
-	margin-top: -30px;
-	margin-left:70px;
+	margin-top: 7px;
+	top: 7px;
+	margin-left: 70px;
+	position: absolute;
+	text-decoration: none;
 }
 
 #studyeasy {
 	font-size: 35pt; 
-	color: #fafbfc;
+	color: #ffa726;
 }
 
 .footer {

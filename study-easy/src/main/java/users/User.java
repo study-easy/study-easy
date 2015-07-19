@@ -33,25 +33,28 @@ public abstract class User {
 	@NotNull
 	String sicherheitsfragecheck;
 
-	public static User signIn(String name, String password) {
-		boolean found = false;
-		User user = null;
-		for (User reguser : Controller.getSystem().getUserList()) {
-			if (reguser.getName().equals(name)) {
-				found = true;
-				user = reguser;
+
+	public boolean signIn(String password, String name) {
+		String comparePassword = null;
+		for (User user : Controller.getSystem().getUserList()) {
+			if (user.getName().equals(name)) {
+				comparePassword = user.password;
+			} else {
+				for(User admin : Controller.getSystem().getAdminList()){
+					if(admin.getName().equals(name)){
+						comparePassword = admin.password;
+					}else{
+						return false;
+					}
+				}
 			}
 		}
-		if (!found) {
-			for (User admin : Controller.getSystem().getAdminList()) {
-				if (admin.getName().equals(name)) 
-					user = admin;
-			}
+		if (comparePassword.equals(password)) {
+			return true;
+		} else {
+			return false;
 		}
-		if (user.getPassword().equals(password))
-			return user;
-		else
-			return null;
+		
 	}
 
 	public String getPassword() {

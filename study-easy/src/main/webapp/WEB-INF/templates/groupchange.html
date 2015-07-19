@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/home.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
 <link rel="icon" type="image/vnd.microsoft.icon"
 	href="resources/images/sopra.ico" />
 </head>
@@ -16,27 +16,73 @@
 			<a th:href="@{/support}" target="_blank"><img
 				src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<p class="logo">study-easy</p>
+		<a th:href="@{/home}" class="logo">study-easy</a>
 
-		<a href="javascript:window.close()" class="notification" style="color: #979797; margin-top: -25px;">Schlie&szlig;en</a> 
+		<p th:text="${error}" class="notification"
+			style="color: #979797; margin-top: -25px; background-color: red;"></p>
+		<form class="logo" id="search" method="get" action="#"
+			th:action="@{/search}">
+			<button type="submit" id="searchButton">
+				<span id="searchText">GO</span>
+			</button>
+			<input type="text" size="20" style="height: 20px; margin-top: 0px;"
+				placeholder="Suche..." />
+		</form>
+		<div id="logout">
+			<a th:href="@{/logout}"><img
+				src="resources/images/logoutdunkel.png" width="20" height="20" /></a>
+		</div>
 	</div>
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
-			<div class="hellotext">
-				<a href="#Datenrichtlinie">Datenrichtlinie</a><br /> <a
-					href="#Nutzung">Nutzungsbedingungen</a><br /> <a href="#Impressum">Impressum</a>
-			</div>
+			<a href="#"><span th:text="#{name}">Mein Profil</span></a><br /> <a
+				href="#">Profil bearbeiten</a><br /> <a href="#">Pers&ouml;nliche
+				Daten</a><br />
+			<p>Meine Gruppen</p>
+
 
 
 		</div>
 		<div class="mainInsidefield">
-			<p id="Datenrichtlinie">Datenrichtlinie</p>
-			<p>Datenrichtlinie</p>
-			<p id="Nutzung">Nutzungsbedingungen</p>
-			<p>Nutzungsbedingungen</p>
-			<p id="Impressum">Impressum</p>
-			<br />
-			<p>Impressum</p>
+			<!-- beschreibung, Sige, Niederlage, K/D, Siegstreak -->
+			<!-- schule, hobby, geburtsdatum,  -->
+			<form action="#" th:action="@{/profilchange}" th:object="${RegUser}"
+				method="post">
+				<table>
+					<tr>
+						<td><span>Gruppenname</span></td>
+					</tr>
+					<tr>
+						<td>Gruppenname</td>
+					</tr>
+					<tr>
+						<td>Bisher:</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Neu:</td>
+						<td><input type="text"/></td>
+					</tr>
+					<tr>
+						<td>Beschreibung</td>
+					</tr>
+					<tr>
+						<td>Bisher:</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Neu:</td>
+						<td><input type="text"/></td>
+					</tr>
+					
+					<tr>
+						<td><button type="submit" class="buttons">
+								<span class="buttonName">Daten sichern</span>
+							</button></td>
+					</tr>
+				</table>
+			</form>
+			<p>hkhj</p>
 		</div>
 	</div>
 	<div class="footer">
@@ -50,13 +96,6 @@
 			</a>
 		</p>
 	</div>
-
-
-
-
-
-
-
-
 </body>
+
 </html>

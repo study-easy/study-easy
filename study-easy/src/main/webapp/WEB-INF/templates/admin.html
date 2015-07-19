@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
@@ -15,7 +15,7 @@
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;">
- <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
+ <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->  
 <div class="header" id="inside">
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
@@ -34,19 +34,27 @@
 </div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
-	<a href="#" th:href="@{/home}"><span th:text="${name}">Meine</span> Startseite</a><br />
-	<a href="#" th:href="@{/profilchange}">Profil bearbeiten</a><br />
-	<a href="#" th:href="@{/profilprivat}">Pers&ouml;nliche Daten</a><br />
-	<p>Meine Gruppen</p>
+	<div class="hellotext">
+	<a href="#" th:href="@{/admin}" ><span th:text="${name}">jo</span></a><br />
+	<a href="#" >User ansehen</a><br />
+	<a href="#" >Gruppen ansehen</a><br />
 	
-	
-
+	</div>
 </div>
 <div class="mainInsidefield">
 <table>
-<tr><td>gjgug</td></tr></table>
-<p>fef <progress id="progressBar" max="100" value="50"></progress></p>
+<tr>
+<td>Support Anfragen</td>
+</tr>
+<!-- 	<tr th:each="">
+		<th th:text="">Liste mit allen Support Problemen</th>
+	</tr>
+--><tr>
+	<th>Bsp Supportproblem</th>
+	</tr>
+</table>
 </div>
+
 </div>
 <div class="footer">
 		
@@ -60,6 +68,8 @@
 				</a> 
 		</p>
 	</div>
-</body>        
 
+
+
+</body>
 </html>

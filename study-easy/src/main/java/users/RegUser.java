@@ -55,7 +55,7 @@ public class RegUser extends User {
 			RUS.addRegUser(regUser);
 			return true;
 		} else
-			return false;
+			return false;	
 	}
 
 	public String getSchool() {

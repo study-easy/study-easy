@@ -34,7 +34,7 @@
 </div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
-	<a href="#" th:href="@{/home}"><span th:text="${name}">Meine</span> Startseite</a><br />
+	<a href="#" th:href="@{/profil}"><span th:text="${name}">Mein Profil</span></a><br />
 	<a href="#" th:href="@{/profilchange}">Profil bearbeiten</a><br />
 	<a href="#" th:href="@{/profilprivat}">Pers&ouml;nliche Daten</a><br />
 	<p>Meine Gruppen</p>
@@ -43,9 +43,40 @@
 
 </div>
 <div class="mainInsidefield">
-<table>
-<tr><td>gjgug</td></tr></table>
-<p>fef <progress id="progressBar" max="100" value="50"></progress></p>
+<form action="#" th:action="@{/profilprivat}" th:object="${RegUser}"
+				method="post">
+				<table>
+					<tr>
+						<td>Passwort</td>
+					</tr>
+					<tr>
+						<td><input type="email" placeholder="Bisheriges"/></td>
+						<td><a></a></td>
+					</tr>
+					<tr>
+						<td>Neu:</td>
+						<td><input type="email" placeholder="Neues Passwort"/></td>
+					</tr>
+					<tr>
+						<td><input type="email" placeholder="Neues Passwort widerholen"/></td>
+					</tr>
+					
+					<tr>
+						<td>Kontonummer + PIN</td>
+						<td><input type="text" /></td>
+					</tr>
+					<tr>
+						<td><button type="submit" class="buttons">
+								<span class="buttonName">Passwort &auml;ndern</span>
+							</button></td>
+					</tr>
+				</table>
+				</form>
+			<form method="get" action="#" th:action="@{/delete}" id="registerButton">
+				<button type="submit" class="buttons">
+					<span class="buttonName">Account l&ouml;schen</span>
+				</button>
+			</form>
 </div>
 </div>
 <div class="footer">
