@@ -42,11 +42,11 @@ public abstract class User {
 		List<Admin> adminlist = Controller.getSystem().getAdminList();
 		String comparePassword = null;
 		for (User user : regUserlist) {
-			if (user.getName() == name) {
+			if (user.getName().equals(name)) {
 				comparePassword = user.password;
 			} else {
 				for(User admin : adminlist){
-					if(admin.getName() == name){
+					if(admin.getName().equals(name)){
 						comparePassword = admin.password;
 					}else{
 						return false;
@@ -54,7 +54,7 @@ public abstract class User {
 				}
 			}
 		}
-		if (comparePassword == password) {
+		if (comparePassword.equals(password)) {
 			return true;
 		} else {
 			return false;

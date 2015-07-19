@@ -42,7 +42,7 @@ public class RegUser extends User {
 
 		if (nameOccupied == true) {
 			return false;
-		}else if (password == testPassword) {
+		}else if (password.equals(testPassword)) {
 				RegUser regUser = new RegUser();
 				regUser.name = name;
 				regUser.password = password;
