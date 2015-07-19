@@ -68,8 +68,8 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/", method=RequestMethod.POST)
     public String login(@Valid RegUser reguser, BindingResult bindingResult,
-    		@RequestParam(value="name", required=true) String bname,
-    		@RequestParam(value="password", required=true) String password) {
+    		@RequestParam(value="name", required=true, defaultValue="") String bname,
+    		@RequestParam(value="password", required=true, defaultValue="") String password) {
 		System.out.println(reguser.signIn(password, bname)); 
        System.out.println("Benutzername: " +bname);
        System.out.println("Passwort: " +password);
@@ -84,7 +84,7 @@ public class GreetingController {
     		  return "redirect:/?error=10000";
     	   }
        }
-    	   
+    	    
         //if (bindingResult.hasErrors()) {
          //   return "redirect:/test3.html";
         //}
