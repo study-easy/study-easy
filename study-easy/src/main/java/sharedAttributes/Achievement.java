@@ -5,8 +5,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import service.AchievementServiceImpl;
+import service.GroupPinnServiceImpl;
 import users.RegUser;
 
 @Entity
@@ -15,12 +21,23 @@ public class Achievement {
 
 	@NotNull
 	@Id
+		
 	@Column(name="NAME")
 	private String name;
 	@NotNull
 	@Column(name="CONDITIONS")
+	@OneToMany
+	@JoinTable(name = "Achievments_Conditions", joinColumns = {
+			@JoinColumn(name = "name", referencedColumnName = "NAME") }, inverseJoinColumns = {
+					@JoinColumn(name = "conditionType", referencedColumnName = "id") })
 	private List<AchievementCondition> conditions = new ArrayList<AchievementCondition>();
 
+	public void addAchievmentConditions(AchievementCondition element) {
+		conditions.add(element);
+		AchievementServiceImpl GPS = new AchievementServiceImpl();
+		GPS.updateAchievementConditions(this.name, this.conditions);
+	} 
+	
 	public boolean conditionsTrue(RegUser user) {
 		boolean bool=false;
 		//Fuer alle conditions im array von achievement den Typ bestimmen und in type speichern

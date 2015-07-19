@@ -1,7 +1,12 @@
 package sharedAttributes;
 
+import javax.persistence.*;
+
+@Entity
 public class AchievementCondition {
 	
+	@GeneratedValue@Id
+	private int id;
 	private ConditionTypes conditionType;
 	private String name;
 	private int requiredNumber;

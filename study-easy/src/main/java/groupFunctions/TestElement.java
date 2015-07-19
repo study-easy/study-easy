@@ -2,27 +2,20 @@ package groupFunctions;
 
 import javax.persistence.*;
 
+import service.TestElementServiceImpl;
+
 @Entity
 public class TestElement {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id")
 	private int id;
-	@Column(name = "subject")
 	private Subject subject;
-	@Column(name = "task")
 	private String task;
-	@Column(name = "rightAnswer")
 	private String rightAnswer;
-	@Column(name = "wrongAnswer1")
 	private String wrongAnswer1;
-	@Column(name = "wongAnswer2")
 	private String wrongAnswer2;
-	@Column(name = "wrongAnswer3")
 	private String wrongAnswer3;
-	
-	@Column(name = "points")
 	private int points;
 	
 	public Subject getSubject() {
@@ -31,6 +24,8 @@ public class TestElement {
 
 	public void setSubject(Subject subject) {
 		this.subject = subject;
+		TestElementServiceImpl TES = new TestElementServiceImpl();
+		TES.updateTestSubject(this.id, this.subject);
 	}
 
 	public String getTask() {
@@ -39,6 +34,8 @@ public class TestElement {
 
 	public void setTask(String task) {
 		this.task = task;
+		TestElementServiceImpl TES = new TestElementServiceImpl();
+		TES.updateTestElementTask(this.id, this.task);
 	}
 	
 	public int getId() {
@@ -55,6 +52,8 @@ public class TestElement {
 
 	public void setRightAnswer(String rightAnswer) {
 		this.rightAnswer = rightAnswer;
+		TestElementServiceImpl TES = new TestElementServiceImpl();
+		TES.updateTestElementAnswer(this.id, this.rightAnswer);
 	}
 
 	public String getWrongAnswer1() {
@@ -63,6 +62,8 @@ public class TestElement {
 
 	public void setWrongAnswer1(String wrongAnswer1) {
 		this.wrongAnswer1 = wrongAnswer1;
+		TestElementServiceImpl TES = new TestElementServiceImpl();
+		TES.updateTestElementWrongAnswer1(this.id, this.wrongAnswer1);
 	}
 
 	public String getWrongAnswer2() {
@@ -71,6 +72,8 @@ public class TestElement {
 
 	public void setWrongAnswer2(String wrongAnswer2) {
 		this.wrongAnswer2 = wrongAnswer2;
+		TestElementServiceImpl TES = new TestElementServiceImpl();
+		TES.updateTestElementWrongAnswer2(this.id, this.wrongAnswer2);
 	}
 
 	public String getWrongAnswer3() {
@@ -79,6 +82,8 @@ public class TestElement {
 
 	public void setWrongAnswer3(String wrongAnswer3) {
 		this.wrongAnswer3 = wrongAnswer3;
+		TestElementServiceImpl TES = new TestElementServiceImpl();
+		TES.updateTestElementWrongAnswer3(this.id, this.wrongAnswer3);
 	}
 
 	public int getPoints() {

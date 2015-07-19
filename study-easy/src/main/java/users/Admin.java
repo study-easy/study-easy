@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.persistence.Entity;
 
-import sharedAttributes.Pinnwall;
+import service.AdminServiceImpl;
+import service.UserPinnServiceImpl;
+import sharedAttributes.UserPinn;
 import system.Controller;
 
 @Entity
@@ -41,15 +43,36 @@ public class Admin extends User {
 		newAdmin.password = password;
 		newAdmin.registeredSince = new Date();
 		Controller.getSystem().getAdminList().add(newAdmin);
+		AdminServiceImpl AS = new AdminServiceImpl();
+		AS.addAdmin(newAdmin);
+
 	}
-	
-	protected void banPinnwall(Pinnwall pinn){
-		if(pinn.getBanned() == false)
-			pinn.setBanned(true);		
+
+	protected void banUserPinnwall(UserPinn pinn) {
+		if (pinn.getBanned() == false) {
+			pinn.setBanned(true);
+			UserPinnServiceImpl UPS = new UserPinnServiceImpl();
+			UPS.updateUserPinnBan(pinn.getOwner(), pinn.getBanned());
+		}
 	}
-	
-	protected void unBanPinnwall(Pinnwall pinn){
-		if(pinn.getBanned())
+
+	protected void unBanUserPinnwall(UserPinn pinn) {
+		if (pinn.getBanned()){
 			pinn.setBanned(false);
+			UserPinnServiceImpl UPS = new UserPinnServiceImpl();
+			UPS.updateUserPinnBan(pinn.getOwner(), pinn.getBanned());
+		}
+	}
+
+	public static void createStandardAdmin() {
+		if (Controller.getSystem().getAdminList().isEmpty()) {
+			Admin standard = new Admin();
+			standard.setName("standard");
+			standard.setPassword("pissOff");
+
+			Controller.getSystem().getAdminList().add(standard);
+			AdminServiceImpl AS = new AdminServiceImpl();
+			AS.addAdmin(standard);
+		}
 	}
 }

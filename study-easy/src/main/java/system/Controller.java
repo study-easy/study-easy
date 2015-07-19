@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import groupFunctions.Group;
+import service.AchievementServiceImpl;
+import service.AdminServiceImpl;
+import service.BadgeServiceImpl;
+import service.GroupServiceImpl;
+import service.RegUserServiceImpl;
+import sharedAttributes.Achievement;
 import sharedAttributes.Badge;
 import users.Admin;
 import users.RegUser;
@@ -14,11 +20,22 @@ public class Controller {
 	private List<RegUser> regUserlist = new ArrayList<RegUser>();
 	private List<Admin> adminList = new ArrayList<Admin>();
 	private List<Group> groupList = new ArrayList<Group>();
-
+	private List<Badge> badgeList = new ArrayList<Badge>();
+	private List<Achievement> achievementList = new ArrayList<Achievement>();
+	
 	public static Controller getSystem() {
 		if (system == null) {
 			system = new Controller();
-			// TODO laden der User, Admins und Gruppen aus hibernate
+			RegUserServiceImpl RUS = new RegUserServiceImpl();
+			system.regUserlist = RUS.listRegUsers();
+			AdminServiceImpl AS = new AdminServiceImpl();
+			system.adminList = AS.listAdmin();
+			GroupServiceImpl GS = new GroupServiceImpl();
+			system.groupList = GS.listGroup();
+			BadgeServiceImpl BS = new BadgeServiceImpl();
+			system.badgeList = BS.listBadge();
+			AchievementServiceImpl AcS = new AchievementServiceImpl();
+			system.achievementList = AcS.listAchievement();
 			system.fillLeaderboard();
 			return system;
 		} else
@@ -30,6 +47,10 @@ public class Controller {
 		for (Group group : groupList)
 			Leaderboard.getLeaderboard().addGroup(group);
 	}
+	
+	public List<Achievement> getAchievementList(){
+		return this.achievementList;
+	}
 
 	public List<RegUser> getUserList() {
 		return this.regUserlist;
@@ -38,6 +59,10 @@ public class Controller {
 	public List<Admin> getAdminList() {
 		return this.adminList;
 	}
+	
+	public List<Badge> getBadgeList(){
+		return this.badgeList;
+	}
 
 	public static void awardBadge(Badge badge, RegUser user) {
 		if (badge.conditionsTrue(user)) {
@@ -45,8 +70,8 @@ public class Controller {
 		}
 	}
 
-	public static void giveXP(RegUser user, int numberOfRight) {
-		user.setXpPoints(user.getXpPoints() + numberOfRight * 10);
+	public static void giveXP(RegUser user) {
+		user.setXpPoints(user.getXpPoints() + 10);
 	}
 
 	public static void levelUpUser(RegUser user) {

@@ -2,8 +2,14 @@ package sharedAttributes;
 
 import java.util.Date;
 
+import javax.persistence.*;
+
+@Entity
 public class HistoryElement {
 
+	@Id
+	@GeneratedValue
+	private int id;
 	private String description;
 	private Date date;
 
