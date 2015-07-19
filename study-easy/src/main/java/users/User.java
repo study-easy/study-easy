@@ -40,7 +40,7 @@ public abstract class User {
 	public boolean signIn(String password, String name) {
 		List<RegUser> regUserlist = Controller.getSystem().getUserList();
 		List<Admin> adminlist = Controller.getSystem().getAdminList();
-		String comparePassword = null;
+		String comparePassword = "";
 		for (User user : regUserlist) {
 			if (user.getName().equals(name)) {
 				comparePassword = user.password;
