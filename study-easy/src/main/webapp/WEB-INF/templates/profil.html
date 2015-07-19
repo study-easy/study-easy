@@ -34,13 +34,16 @@
 </div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
-	<a href="#" th:href="@{/home}" class="linksupport" id="activ"><span th:text="${name}">Meine</span> Startseite</a><br />
+<div class="hellotext">
+	<a href="#" th:href="@{/home}" class="linksupport">Startseite</a><br />
+	<a href="#" th:href="@{/profil}" class="linksupport" id="activ"><span th:text="${name}">
+	Mein Profil</span></a><br />
 	<a href="#" th:href="@{/profilchange}" class="linksupport">Profil bearbeiten</a><br />
 	<a href="#" th:href="@{/profilprivat}" class="linksupport">Pers&ouml;nliche Daten</a><br />
 	<p>Meine Gruppen</p>
 	
 	
-
+</div>
 </div>
 <div class="mainInsidefield">
 <table>

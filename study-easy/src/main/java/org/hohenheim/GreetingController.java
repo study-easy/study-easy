@@ -204,6 +204,7 @@ public class GreetingController {
     public String profil(Model model,
     		@RequestParam(value="error", required=false, defaultValue="null") String error) {
             RegUser reguser = new RegUser(); 
+            model.addAttribute("name", "TestName");
 			//model.addAttribute("RegUser", new RegUser());
              model.addAttribute("RegUser", reguser);         
              System.out.println("Profil");
@@ -214,7 +215,7 @@ public class GreetingController {
             	 error ="Sie haben einen Error"; 
             	 model.addAttribute("error", error);
              }
-             
+              
             
         return "profil"; 
     }
@@ -244,13 +245,13 @@ public class GreetingController {
 	 *Da wo die Pinnwand ist
 	 */
 	@RequestMapping(value="/home",method=RequestMethod.GET)
-	public String home(@RequestParam(value="error", required=false, defaultValue="Testname") String name,
+	public String home(@RequestParam(value="error", required=false, defaultValue="Mein Profil") String name,
 			@RequestParam(value="error", required=false, defaultValue="") String error,
 			Model model) {
 	model.addAttribute("error", error); 
 	model.addAttribute("name", name);
 	return "home"; 
-	}
+	} 
 	
 	/*
 	 *##########################
