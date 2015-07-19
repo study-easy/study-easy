@@ -240,8 +240,10 @@ public class GreetingController {
 	 *Da wo die Pinnwand ist
 	 */
 	@RequestMapping(value="/home",method=RequestMethod.GET)
-	public String home(@RequestParam(value="error", required=false, defaultValue=" a") String name, Model model) {
-	model.addAttribute("error", name); 
+	public String home(@RequestParam(value="error", required=false, defaultValue=" a") String name,
+			@RequestParam(value="error", required=false, defaultValue="") String error,
+			Model model) {
+	model.addAttribute("error", error); 
 	model.addAttribute("name", name);
 	return "home"; 
 	}

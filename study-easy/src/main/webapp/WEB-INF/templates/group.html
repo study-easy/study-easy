@@ -18,13 +18,16 @@
  <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
 <div class="header" id="inside">
 		<div id="support">
-		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20"/></a>
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<p class="logo">study-easy
-		</p>
-		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -55px;"></p>
-		<p class="logo" style="margin-left: 750px; margin-top: -60px;">study-easy
-		</p>
+		<a th:href="@{/home}" class="logo">study-easy</a>
+		
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
+		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
+		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
+		</button>
+  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
+		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
