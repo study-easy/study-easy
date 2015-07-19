@@ -15,10 +15,17 @@ body{
 	 color: #979797;
 }
 linksupport:visited {
-		 color: #979797;
+		text-decoration: none;
+		 color: #ffa726;
+
 }
-#linksupport {
-		 color: #979797;
+.linksupport {
+	text-decoration: none;
+		 color: #ffa726;
+
+}
+#activ {
+	 border-bottom: 5px solid #ffd180;
 }
 #support {
 	top:20px; 

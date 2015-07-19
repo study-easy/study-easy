@@ -35,14 +35,14 @@
 	</div>
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
-			<a href="#"><span th:text="#{name}">Mein Profil</span></a><br /> <a
-				href="#">Profil bearbeiten</a><br /> <a href="#">Pers&ouml;nliche
-				Daten</a><br />
-			<p>Meine Gruppen</p>
+	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Meine</span> Startseite</a><br />
+	<a href="#" th:href="@{/profilchange}" class="linksupport" id="activ">Profil bearbeiten</a><br />
+	<a href="#" th:href="@{/profilprivat}" class="linksupport">Pers&ouml;nliche Daten</a><br />
+	<p>Meine Gruppen</p>
+	
+	
 
-
-
-		</div>
+</div>
 		<div class="mainInsidefield">
 			<!-- passwort, email, sicherheitsfrage, -->
 			<!-- schule, hobby, geburtsdatum,  -->

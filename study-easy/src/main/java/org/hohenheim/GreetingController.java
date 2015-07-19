@@ -33,6 +33,10 @@ public class GreetingController {
 	 *9. Snake
 	 *10.Group
 	 *11.Suche
+	 *12.Profilchange
+	 *13.Profilprivat
+	 *14. Delete
+	 *15.Combat
 	/*
 	 *##########################
 	 *1. STARTSEITE INDEX.HTML
@@ -240,7 +244,7 @@ public class GreetingController {
 	 *Da wo die Pinnwand ist
 	 */
 	@RequestMapping(value="/home",method=RequestMethod.GET)
-	public String home(@RequestParam(value="error", required=false, defaultValue=" a") String name,
+	public String home(@RequestParam(value="error", required=false, defaultValue="Testname") String name,
 			@RequestParam(value="error", required=false, defaultValue="") String error,
 			Model model) {
 	model.addAttribute("error", error); 
@@ -390,16 +394,16 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/profilprivat",method=RequestMethod.GET)
-	public String profilprivatget(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
+	public String profilprivatget(@RequestParam(value="name", required=false, defaultValue="Test") String name, Model model) {
 	model.addAttribute("error", name); 
 	RegUser reguser = new RegUser();
 	model.addAttribute("RegUser", reguser); 
 	model.addAttribute("name", name); 
 	return "profilprivat";
-	}
+	} 
 	/*
 	 *##########################
-	 *12. PROFILPRIVAT.HTML
+	 *13. PROFILPRIVAT.HTML
 	 *Post Aufruf
 	 *
 	 */
@@ -411,7 +415,7 @@ public class GreetingController {
 	}
 	/*
 	 *##########################
-	 *13. DELETE.HTML
+	 *14. DELETE.HTML
 	 *Get Aufruf
 	 *
 	 */
@@ -424,7 +428,7 @@ public class GreetingController {
 	}
 	/*
 	 *##########################
-	 *13. DELETE.HTML
+	 *14. DELETE.HTML
 	 *Post Aufruf 
 	 *
 	 */
@@ -443,7 +447,7 @@ public class GreetingController {
 	}
 	/*
 	 *##########################
-	 *14. Combat.HTML
+	 *15. Combat.HTML
 	 *Get Aufruf
 	 *
 	 */
@@ -459,21 +463,16 @@ public class GreetingController {
 	}
 	/*
 	 *##########################
-	 *13. DELETE.HTML
+	 *15. COMBAT.HTML
 	 *Post Aufruf 
 	 *
 	 */
 	@RequestMapping(value="/combat", method=RequestMethod.POST)
     public String combatpost(@RequestParam(value="check", required=false) Boolean check
     		) {
-		
-	if(check==true) {
-		//account sperren/löschen lassen
-		return "redirect:/logout?delete=true";
-	}
-       System.out.println("Private Daten gespeichert");
+	
        
-    return "redirect:/home";
+    return "redirect:/combat"; 
 	}
 	/*
 	 *
