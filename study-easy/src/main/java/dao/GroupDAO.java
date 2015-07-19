@@ -22,6 +22,7 @@ public interface GroupDAO {
 	public void updateGroupCurrentCombats(String name, ArrayList<Combat> list);
 	public void updateGroupAchievements(String name, ArrayList<Achievement> list);
 	public void updateGroupPinnwall(String name, GroupPinn pinn);
+	public void updateGroupWinStreak(String name, int streak);
 	public void deleteGroup(String name);
 
 }

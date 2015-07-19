@@ -65,13 +65,19 @@ public class Controller {
 	}
 
 	public static void awardBadge(Badge badge, RegUser user) {
-		if (badge.conditionsTrue(user)) {
+		if (badge.conditionsTrue(user) && !user.getEarnedBadges().contains(badge)) {
 			user.getEarnedBadges().add(badge);
 		}
 	}
+	
+	public static void awardAchievement(Achievement achiev, Group group) {
+		if (achiev.conditionsTrue(group) && !group.getAchievements().contains(achiev)) {
+			group.getAchievements().add(achiev);
+		}
+	}
 
-	public static void giveXP(RegUser user) {
-		user.setXpPoints(user.getXpPoints() + 10);
+	public static void giveXP(RegUser user, int numOfRight) {
+		user.setXpPoints(user.getXpPoints() + (numOfRight * 10));
 	}
 
 	public static void levelUpUser(RegUser user) {

@@ -40,12 +40,6 @@ public class CombatServiceImpl implements CombatService{
 	}
 
 	@Override
-	public void updateCombatCorrector(int id, Group corrector) {
-		cdao.updateCombatCorrector(id, corrector);
-		
-	}
-
-	@Override
 	public void updateCombatTest(int id, Test test) {
 		cdao.updateCombatTest(id, test);
 		

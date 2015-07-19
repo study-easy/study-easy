@@ -90,4 +90,9 @@ public class GroupServiceImpl implements GroupService {
 		
 	}
 
+	@Override
+	public void updateGroupWinStreak(String name, int streak) {
+		gdao.updateGroupWinStreak(name, streak);
+	}
+
 }

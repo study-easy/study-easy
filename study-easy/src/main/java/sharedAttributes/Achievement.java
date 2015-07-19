@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import groupFunctions.Group;
 import service.AchievementServiceImpl;
 import service.GroupPinnServiceImpl;
 import users.RegUser;
@@ -38,7 +39,7 @@ public class Achievement {
 		GPS.updateAchievementConditions(this.name, this.conditions);
 	} 
 	
-	public boolean conditionsTrue(RegUser user) {
+	public boolean conditionsTrue(Group group) {
 		boolean bool=false;
 		//Fuer alle conditions im array von achievement den Typ bestimmen und in type speichern
 		for(int i=0; i<=conditions.size(); i++) {
@@ -46,13 +47,22 @@ public class Achievement {
 			
 			switch (type) {
 			case "XpCondition":
-				if(this.conditions.get(i).getRequiredNumber() <= user.getXpPoints()) {
+				int allXP = 0;
+				for(RegUser user : group.getUserList()){
+					allXP = allXP + user.getXpPoints();
+				}
+				if(this.conditions.get(i).getRequiredNumber() <= allXP) {
 					bool = true;
 				} else {
 					bool = false;
 				} 
 			case "LevelCondition":
-				if(conditions.get(i).getRequiredNumber() <= user.getLevel()) {
+				float averageLevel = 0;
+				for(RegUser user : group.getUserList()){
+					averageLevel = averageLevel + user.getLevel();
+				}
+				averageLevel = averageLevel/group.getUserList().size();
+				if(conditions.get(i).getRequiredNumber() <= averageLevel) {
 					bool = true;
 				} else {
 					bool=false;

@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import javax.persistence.*;
 
+import service.CombatServiceImpl;
 import service.GroupServiceImpl;
 import sharedAttributes.Achievement;
 import sharedAttributes.Badge;
 import sharedAttributes.GroupPinn;
+import sharedAttributes.HistoryElement;
 import system.Controller;
 import users.RegUser;
 
@@ -16,6 +18,7 @@ public class Group {
 
 	@Id
 	private String name;
+	@ManyToMany
 	private ArrayList<RegUser> userList = new ArrayList<RegUser>();
 	private String description;
 	private RegUser admin;
@@ -23,8 +26,10 @@ public class Group {
 	private int losses;
 	private float winToLoss;
 	private int winStreak;
+	@ManyToMany
 	private ArrayList<Combat> currentCombats = new ArrayList<Combat>();
 	private GroupPinn pinnwall;
+	@ManyToMany
 	private ArrayList<Achievement> achievements = new ArrayList<Achievement>();
 
 	public String getName() {
@@ -104,7 +109,7 @@ public class Group {
 	public void setWinStreak(int winStreak) {
 		this.winStreak = winStreak;
 		GroupServiceImpl GS = new GroupServiceImpl();
-		//TODO WinStreak dao /service um Methode erweitern
+		GS.updateGroupWinStreak(this.name, this.winStreak);
 	}
 
 	public int getWins() {
@@ -149,44 +154,46 @@ public class Group {
 
 	public void finishCombat(Combat combat) {
 		// TODO fertig?
-		combat.getChallenger().getCurrentCombats().remove(combat);
-		for (RegUser user : combat.getChallenger().getUserList()) {
-			for(Badge badge : Controller.getSystem().getBadgeList()){
-				Controller.awardBadge(badge, user);
-			}
-			Controller.levelUpUser(user);
-		}
-		
-		combat.getOpponent().getCurrentCombats().remove(combat);
-		for (RegUser user : combat.getOpponent().getUserList()) {
-			for(Badge badge : Controller.getSystem().getBadgeList()){
-				Controller.awardBadge(badge, user);
-			}
-			Controller.levelUpUser(user);
-		}
-		
-		combat.getCorrector().getCurrentCombats().remove(combat);
-		for (RegUser user : combat.getCorrector().getUserList()) {
-			for(Badge badge : Controller.getSystem().getBadgeList()){
-				Controller.awardBadge(badge, user);
-			}
-			int i = 0;
-			while (i <= 10) {
-				Controller.giveXP(user);
-				i++;
-			}
-			Controller.levelUpUser(user);
-		}
-		combat = null;
+		if (combat.getChallengerNames().isEmpty() && combat.getOpponentNames().isEmpty()) {
+			combat.getChallenger().getCurrentCombats().remove(combat);
+			for (RegUser user : combat.getChallenger().getUserList()) {
+				for (Badge badge : Controller.getSystem().getBadgeList()) {
+					Controller.awardBadge(badge, user);
+				}
+				Controller.giveXP(user, combat.getChallengerRight());
+				Controller.levelUpUser(user);
 
+			}
+			for (Achievement achievement : Controller.getSystem().getAchievementList()) {
+				if (achievement.conditionsTrue(combat.getChallenger()))
+					combat.getChallenger().achievements.add(achievement);
+				// TODO speichern
+			}
+
+			combat.getOpponent().getCurrentCombats().remove(combat);
+
+			for (RegUser user : combat.getOpponent().getUserList()) {
+				for (Badge badge : Controller.getSystem().getBadgeList()) {
+					Controller.awardBadge(badge, user);
+				}
+				Controller.giveXP(user, combat.getOpponentRight());
+				Controller.levelUpUser(user);
+			}
+			for (Achievement achievement : Controller.getSystem().getAchievementList()) {
+				if (achievement.conditionsTrue(combat.getOpponent()))
+					combat.getOpponent().achievements.add(achievement);
+				// TODO speichern
+			}
+			HistoryElement element = new HistoryElement(combat);
+
+			CombatServiceImpl CS = new CombatServiceImpl();
+			CS.deleteCombat(combat.getId());
+			combat = null;
+		}
 	}
 
-	public void startCombat(Group opponent, Group corrector) {
-		Combat combat = new Combat(this, opponent, corrector);
-		this.getCurrentCombats().add(combat);
-		opponent.getCurrentCombats().add(combat);
-		corrector.getCurrentCombats().add(combat);
-		// TODO
+	public void startCombat(Group opponent, Test test) {
+		Combat combat = new Combat(this, opponent, test);
 	}
 
 	public float getWinToLoss() {

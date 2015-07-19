@@ -2,7 +2,6 @@ package dao;
 
 import java.util.List;
 
-import groupFunctions.Group;
 import sharedAttributes.GroupPinn;
 import sharedAttributes.HistoryElement;
 import sharedAttributes.PinnwallElement;

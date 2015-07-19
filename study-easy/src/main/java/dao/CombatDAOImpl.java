@@ -54,16 +54,6 @@ public class CombatDAOImpl implements CombatDAO{
 	}
 
 	@Override
-	public void updateCombatCorrector(int id, Group corrector) {
-		Session session = factory.getCurrentSession();
-		Combat combat = (Combat) session.load(Combat.class, id);
-		if(combat!=null){
-			combat.setCorrector(corrector);
-			session.update(combat);
-		}
-	}
-
-	@Override
 	public void updateCombatTest(int id, Test test) {
 		Session session = factory.getCurrentSession();
 		Combat combat = (Combat) session.load(Combat.class, id);

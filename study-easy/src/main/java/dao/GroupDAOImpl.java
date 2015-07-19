@@ -134,4 +134,14 @@ public class GroupDAOImpl implements GroupDAO{
 			session.delete(group);
 	}
 
+	@Override
+	public void updateGroupWinStreak(String name, int streak) {
+		Session session = factory.getCurrentSession();
+		Group group = (Group) session.load(Group.class, name);
+		if(group!=null){
+			group.setWinStreak(streak);
+			session.update(group);
+		}
+	}
+
 }
