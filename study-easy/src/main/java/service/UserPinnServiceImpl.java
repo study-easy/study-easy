@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.UserPinnDAOImpl;
@@ -12,7 +13,8 @@ import sharedAttributes.UserPinn;
 @Service
 public class UserPinnServiceImpl implements UserPinnService{
 
-	UserPinnDAOImpl updao = new UserPinnDAOImpl();
+	@Autowired
+	private UserPinnDAOImpl updao;
 	
 	@Override
 	public void addUserPinn(UserPinn pinn) {

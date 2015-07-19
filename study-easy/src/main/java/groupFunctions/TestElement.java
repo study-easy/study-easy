@@ -9,22 +9,13 @@ public class TestElement {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id")
 	private int id;
-	@Column(name = "subject")
 	private Subject subject;
-	@Column(name = "task")
 	private String task;
-	@Column(name = "rightAnswer")
 	private String rightAnswer;
-	@Column(name = "wrongAnswer1")
 	private String wrongAnswer1;
-	@Column(name = "wongAnswer2")
 	private String wrongAnswer2;
-	@Column(name = "wrongAnswer3")
 	private String wrongAnswer3;
-	
-	@Column(name = "points")
 	private int points;
 	
 	public Subject getSubject() {

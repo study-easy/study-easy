@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.TestElementDAOImpl;
@@ -11,7 +12,8 @@ import groupFunctions.TestElement;
 @Service
 public class TestElementServiceImpl implements TestElementService{
 
-	TestElementDAOImpl tedao = new TestElementDAOImpl();
+	@Autowired
+	private TestElementDAOImpl tedao;
 	
 	@Override
 	public void addTestElement(TestElement element) {

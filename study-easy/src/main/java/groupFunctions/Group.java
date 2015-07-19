@@ -15,31 +15,17 @@ import users.RegUser;
 public class Group {
 
 	@Id
-	@Column(name = "name")
 	private String name;
-	@Column(name = "userList")
 	private ArrayList<RegUser> userList = new ArrayList<RegUser>();
-	@Column(name = "description")
 	private String description;
-	@Column(name = "adnim")
 	private RegUser admin;
-	// private GroupDataBase dataBase;
-	@Column(name = "wins")
 	private int wins;
-	@Column(name = "losses")
 	private int losses;
-	@Column(name = "winToLoss")
 	private float winToLoss;
-	@Column(name = "winStreak")
 	private int winStreak;
-	@Column(name = "currentCombats")
 	private ArrayList<Combat> currentCombats = new ArrayList<Combat>();
-	@Column(name = "pinnwall")
 	private GroupPinn pinnwall;
-	@Column(name = "achievements")
 	private ArrayList<Achievement> achievements = new ArrayList<Achievement>();
-	@Column(name = "combatNotifications")
-	private ArrayList<String> combatNotifications = new ArrayList<String>();
 
 	public String getName() {
 		return name;
@@ -97,14 +83,6 @@ public class Group {
 		this.achievements = achievements;
 		GroupServiceImpl GS = new GroupServiceImpl();
 		GS.updateGroupAchievements(this.name, this.achievements);
-	}
-
-	public ArrayList<String> getCombatNotifications() {
-		return combatNotifications;
-	}
-
-	public void setCombatNotifications(ArrayList<String> combatNotifications) {
-		this.combatNotifications = combatNotifications;
 	}
 
 	public void setCurrentCombats(ArrayList<Combat> currentCombats) {

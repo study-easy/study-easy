@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.AchievementConditionDAOImpl;
@@ -11,7 +12,8 @@ import sharedAttributes.ConditionTypes;
 @Service
 public class AchievementConditionServiceImpl implements AchievementConditionService{
 
-	AchievementConditionDAOImpl acdao = new AchievementConditionDAOImpl();
+	@Autowired
+	private AchievementConditionDAOImpl acdao;
 	
 	@Override
 	public void addAchievementCondition(AchievementCondition condition) {

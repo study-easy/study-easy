@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.BadgeDAOImpl;
@@ -11,7 +12,8 @@ import sharedAttributes.BadgeCondition;
 @Service
 public class BadgeServiceImpl implements BadgeService{
 
-	private BadgeDAOImpl bdao = new BadgeDAOImpl();
+	@Autowired
+	private BadgeDAOImpl bdao;
 	
 	@Override
 	public void addBadge(Badge badge) {

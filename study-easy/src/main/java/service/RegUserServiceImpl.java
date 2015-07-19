@@ -3,6 +3,7 @@ package service;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +31,7 @@ public class RegUserServiceImpl implements RegUserService {
 		this.regUserDAO.deleteRegUser(Username);
 	}
 	
+	@Autowired
 	 private RegUserDAO regUserDAO;
 
 	 public void setRegUserDAO(RegUserDAO regUserDAO) {

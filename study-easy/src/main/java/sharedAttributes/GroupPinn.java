@@ -12,6 +12,9 @@ public class GroupPinn extends Pinnwall {
 	@Id
 	private String owner;
 	@OneToMany
+	@JoinTable(name = "HISTORY", joinColumns = {
+			@JoinColumn(name = "owner", referencedColumnName = "owner") }, inverseJoinColumns = {
+					@JoinColumn(name = "elementId", referencedColumnName = "id") })
 	private ArrayList<HistoryElement> history = new ArrayList<HistoryElement>();
 
 	public void addHistoryElement(HistoryElement element) {

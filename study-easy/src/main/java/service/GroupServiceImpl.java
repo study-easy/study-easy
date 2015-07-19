@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.GroupDAOImpl;
@@ -15,7 +16,8 @@ import users.RegUser;
 @Service
 public class GroupServiceImpl implements GroupService {
 
-	GroupDAOImpl gdao = new GroupDAOImpl();
+	@Autowired
+	private GroupDAOImpl gdao;
 	
 	@Override
 	public void addGroup(Group group) {

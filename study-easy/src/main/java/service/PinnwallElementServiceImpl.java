@@ -3,6 +3,7 @@ package service;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.PinnwallElementDAOImpl;
@@ -11,7 +12,8 @@ import sharedAttributes.PinnwallElement;
 @Service
 public class PinnwallElementServiceImpl implements PinnwallElementService{
 
-	PinnwallElementDAOImpl pedao = new PinnwallElementDAOImpl();
+	@Autowired
+	private PinnwallElementDAOImpl pedao;
 	
 	@Override
 	public void addPinnwallElement(PinnwallElement element) {

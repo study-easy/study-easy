@@ -3,6 +3,7 @@ package service;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.HistoryElementDAOImpl;
@@ -11,7 +12,8 @@ import sharedAttributes.HistoryElement;
 @Service
 public class HistoryElementServiceImpl implements HistoryElementService{
 
-	HistoryElementDAOImpl hedao = new HistoryElementDAOImpl();
+	@Autowired
+	private HistoryElementDAOImpl hedao;
 	
 	@Override
 	public void addHistoryElement(HistoryElement element) {

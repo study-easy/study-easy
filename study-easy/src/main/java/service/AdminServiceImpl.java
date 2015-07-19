@@ -3,6 +3,7 @@ package service;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.AdminDAOImpl;
@@ -11,7 +12,8 @@ import users.Admin;
 @Service
 public class AdminServiceImpl implements AdminService{
 
-	AdminDAOImpl addao = new AdminDAOImpl();
+	@Autowired
+	private AdminDAOImpl addao;
 	
 	@Override
 	public void addAdmin(Admin admin) {

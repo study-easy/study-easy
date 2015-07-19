@@ -11,13 +11,10 @@ public class Test {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id")
 	private int id;
-	@Column(name = "time")
 	private float time;
-	@Column(name = "tasks")
+	@OneToMany
 	private ArrayList<TestElement> tasks;
-	@Column(name = "creator")
 	private Group creator;
 	
 	public int getId() {

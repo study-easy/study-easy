@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import groupFunctions.Group;
+import service.AchievementServiceImpl;
+import service.AdminServiceImpl;
+import service.BadgeServiceImpl;
+import service.GroupServiceImpl;
+import service.RegUserServiceImpl;
 import sharedAttributes.Achievement;
 import sharedAttributes.Badge;
 import users.Admin;
@@ -21,7 +26,16 @@ public class Controller {
 	public static Controller getSystem() {
 		if (system == null) {
 			system = new Controller();
-			// TODO laden der User, Admins und Gruppen aus hibernate
+			RegUserServiceImpl RUS = new RegUserServiceImpl();
+			system.regUserlist = RUS.listRegUsers();
+			AdminServiceImpl AS = new AdminServiceImpl();
+			system.adminList = AS.listAdmin();
+			GroupServiceImpl GS = new GroupServiceImpl();
+			system.groupList = GS.listGroup();
+			BadgeServiceImpl BS = new BadgeServiceImpl();
+			system.badgeList = BS.listBadge();
+			AchievementServiceImpl AcS = new AchievementServiceImpl();
+			system.achievementList = AcS.listAchievement();
 			system.fillLeaderboard();
 			return system;
 		} else

@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.GroupPinnDAOImpl;
@@ -12,7 +13,8 @@ import sharedAttributes.PinnwallElement;
 @Service
 public class GroupPinnServiceImpl implements GroupPinnService{
 
-	GroupPinnDAOImpl gpdao = new GroupPinnDAOImpl();
+	@Autowired
+	private GroupPinnDAOImpl gpdao;
 	
 	@Override
 	public void addGroupPinn(GroupPinn pinn) {

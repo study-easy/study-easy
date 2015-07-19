@@ -12,19 +12,16 @@ import service.AdminServiceImpl;
 import service.RegUserServiceImpl;
 import system.Controller;
 
+@MappedSuperclass
 public abstract class User {
 	@NotNull
 	@Size(min = 4)
-	@Column(name = "password")
 	protected String password;
 	@Id
 	@NotNull
-	@Column(name = "name")
 	protected String name;
 	@NotNull
-	@Column(name = "email")
 	private String email;
-	@Column(name = "registered_since")
 	protected Date registeredSince;
 	@Size(min = 4, max = 10)
 	String passwordcheck;

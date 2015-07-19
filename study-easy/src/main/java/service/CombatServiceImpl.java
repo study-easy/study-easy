@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.CombatDAOImpl;
@@ -12,7 +13,8 @@ import groupFunctions.Test;
 @Service
 public class CombatServiceImpl implements CombatService{
 
-	private CombatDAOImpl cdao = new CombatDAOImpl();
+	@Autowired
+	private CombatDAOImpl cdao;
 	
 	@Override
 	public void addCombat(Combat combat) {

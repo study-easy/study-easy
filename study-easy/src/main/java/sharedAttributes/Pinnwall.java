@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.persistence.*;
 
+@MappedSuperclass
 public abstract class Pinnwall {
 	
 	@OneToMany

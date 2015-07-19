@@ -3,6 +3,7 @@ package service;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.BadgeConditionDAOImpl;
@@ -12,7 +13,8 @@ import sharedAttributes.ConditionTypes;
 @Service
 public class BadgeConditionServiceImpl implements BadgeConditionService{
 
-	BadgeConditionDAOImpl bcdao = new BadgeConditionDAOImpl();
+	@Autowired
+	private BadgeConditionDAOImpl bcdao;
 	
 	@Override
 	public void addBadgeCondition(BadgeCondition condition) {

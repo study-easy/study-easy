@@ -15,24 +15,17 @@ import system.Controller;
 @Entity
 public class RegUser extends User {
 
-	@NotNull
-	@Column(name = "school")
+	
 	private String school;
-	@NotNull
-	@Column(name = "hobby")
+	
 	private String hobby;
 	@NotNull
-	@Column(name = "xpPoints")
 	private int xpPoints;
 	@NotNull
-	@Column(name = "level")
 	private int level;
-	@Column(name = "quotes")
 	private String[] quotes;
-	@NotNull
 	private Date birthDate;
 	@NotNull
-	@Column(name = "banned")
 	private boolean banned;
 	@OneToMany
 	private List<Badge> earnedBadges;

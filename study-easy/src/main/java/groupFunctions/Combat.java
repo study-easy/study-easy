@@ -11,13 +11,9 @@ public class Combat {
 	@GeneratedValue
 	@Id
 	private int id;
-	@Column(name = "test")
 	private Test test;
-	@Column(name = "challenger")
 	private Group challenger;
-	@Column(name = "opponent")
 	private Group opponent;
-	@Column(name = "corrector")
 	private Group corrector;
 	
 
