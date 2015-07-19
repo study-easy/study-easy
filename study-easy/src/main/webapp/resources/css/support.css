@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+
+.hellofield {
+	width: 575px; 
+	height: 320px; 
+	margin-top: 90px; 
+	margin-left: 30px;
+}
+.loginfield {
+	background-color: #fafbfc; 
+	margin-left: 680px; 
+	margin-top: -300px; 
+	width: 235px;
+	box-shadow: 4px 3px 5px #979797; 
+	webkit-border-radius: 4px;
+    border-radius: 4px;
+}
