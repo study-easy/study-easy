@@ -3,6 +3,8 @@ package users;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
@@ -35,8 +37,27 @@ public abstract class User {
 
 
 	public boolean signIn(String password, String name) {
-		return false;
-				
+		List<RegUser> regUserlist = Controller.getSystem().getUserList();
+		List<Admin> adminlist = Controller.getSystem().getAdminList();
+		String comparePassword = null;
+		for (User user : regUserlist) {
+			if (user.getName().equals(name)) {
+				comparePassword = user.password;
+			} else {
+				for(User admin : adminlist){
+					if(admin.getName().equals(name)){
+						comparePassword = admin.password;
+					}else{
+						return false;
+					}
+				}
+			}
+		}
+		if (comparePassword.equals(password)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public String getPassword() {
