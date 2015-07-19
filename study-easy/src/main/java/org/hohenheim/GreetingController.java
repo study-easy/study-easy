@@ -204,7 +204,7 @@ public class GreetingController {
     public String profil(Model model,
     		@RequestParam(value="error", required=false, defaultValue="null") String error) {
             RegUser reguser = new RegUser(); 
-            model.addAttribute("name", "Mein Profil");
+            model.addAttribute("name", "Mein Profil"); 
 			//model.addAttribute("RegUser", new RegUser());
              model.addAttribute("RegUser", reguser);         
              System.out.println("Profil");
