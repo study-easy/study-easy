@@ -18,16 +18,13 @@
  <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
 <div class="header" id="inside">
 		<div id="support">
-		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20"/></a>
 		</div>
-		<a th:href="@{/home}" class="logo">study-easy</a>
-		
-		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
-		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
-		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
-		</button>
-  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
-		</form>
+		<p class="logo">study-easy
+		</p>
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -55px;"></p>
+		<p class="logo" style="margin-left: 750px; margin-top: -60px;">study-easy
+		</p>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
@@ -35,8 +32,10 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/profil}"><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" th:href="@{/snake}"><img src="resources/images/snakedunkel.png" width="18" height="18"/> Snake</a><br />
+	<a href="#" ><span th:text="${name}">Mein Profil</span></a><br />
+	<a href="#" >Profil bearbeiten</a><br />
+	<a href="#" >Pers&ouml;nliche Daten</a><br />
+	<a href="#" th:href="@{/snake}">Snake</a><br />
 	<table>
 	<tr>
 		<td>Meine Gruppen</td>
@@ -52,7 +51,7 @@
 	
 
 </div>
-<div class="mainInsidefield">
+<div style="margin-left: 260px; margin-top: -55%; background-color: red;">
 <table>
 <tr><td>gjgug</td></tr></table>
 <p>hkhj</p>

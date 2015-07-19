@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/home.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/search.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
@@ -26,7 +26,7 @@
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
 		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
 		</button>
-  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
+  		<input type="text" size="20" name ="search" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
 		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
@@ -35,8 +35,10 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/profil}"><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" th:href="@{/snake}"><img src="resources/images/snakedunkel.png" width="18" height="18"/> Snake</a><br />
+	<a href="#" ><span th:text="${name}">Mein Profil</span></a><br />
+	<a href="#" >Profil bearbeiten</a><br />
+	<a href="#" >Pers&ouml;nliche Daten</a><br />
+	<a href="#" th:href="@{/snake}">Snake</a><br />
 	<table>
 	<tr>
 		<td>Meine Gruppen</td>
@@ -53,9 +55,7 @@
 
 </div>
 <div class="mainInsidefield">
-<table>
-<tr><td>gjgug</td></tr></table>
-<p>hkhj</p>
+<p>Suchergebnisse</p>
 </div>
 </div>
 <div class="footer">

@@ -6,6 +6,9 @@
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/home.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
+<script  type="text/javascript" src="resources/js/snake.js"></script>
+
+
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
  -webkit-background-size: cover;
@@ -18,16 +21,13 @@
  <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
 <div class="header" id="inside">
 		<div id="support">
-		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20"/></a>
 		</div>
-		<a th:href="@{/home}" class="logo">study-easy</a>
-		
-		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
-		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
-		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
-		</button>
-  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
-		</form>
+		<p class="logo">study-easy
+		</p>
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -55px;"></p>
+		<p class="logo" style="margin-left: 750px; margin-top: -60px;">study-easy
+		</p>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
@@ -35,7 +35,9 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/profil}"><span th:text="${name}">Mein Profil</span></a><br />
+	<a href="#" ><span th:text="${name}">Mein Profil</span></a><br />
+	<a href="#" >Profil bearbeiten</a><br />
+	<a href="#" >Pers&ouml;nliche Daten</a><br />
 	<a href="#" th:href="@{/snake}"><img src="resources/images/snakedunkel.png" width="18" height="18"/> Snake</a><br />
 	<table>
 	<tr>
@@ -53,9 +55,17 @@
 
 </div>
 <div class="mainInsidefield">
-<table>
-<tr><td>gjgug</td></tr></table>
-<p>hkhj</p>
+<script type="text/javascript">initSnake();</script>
+<div style="margin-left: 10px;" class="hellotext">Aktuelle L&auml;nge deiner Snake: <span id="snake_lang">3 Meter</span>
+</div>
+
+<div style="position: relative; height: 280px;">
+    <div style="position:absolute; top:40px; left:350px"><button onclick="start_3()" class="buttons" style="width: 60px;">Start</button></div>
+    <div style="position:absolute; top:100px; left:400px"><button onclick="oben_3()" class="buttons" style="width: 60px;">Hoch</button></div>
+    <div style="position:absolute; top:150px; left:400px"><button onclick="unten_3()" class="buttons" style="width: 60px;">Runter</button></div>
+    <div style="position:absolute; top:125px; left:435px"><button onclick="rechts_3()" class="buttons" style="width: 60px;">Rechts</button></div>
+    <div style="position:absolute; top:125px; left:365px"><button onclick="links_3()" class="buttons" style="width: 60px;">Links</button></div>
+</div>
 </div>
 </div>
 <div class="footer">

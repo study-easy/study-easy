@@ -4,8 +4,9 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/logout.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
+<meta http-equiv="refresh" content="5; URL=http://localhost:8080/study-easy/" />
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
  -webkit-background-size: cover;
@@ -15,38 +16,22 @@
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;">
- <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
-<div class="header" id="inside">
+ <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! --> 
+<div class="header">
 		<div id="support">
-		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supporthell.png" width="20" height="20"/></a>
 		</div>
-		<a th:href="@{/home}" class="logo">study-easy</a>
+</div>
+<div class="mainbody">
 		
-		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
-		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
-		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
-		</button>
-  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
-		</form>
-		<div id="logout">
-		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
+		<div class="hellofield">
+			<p class="hellotext">
+				<span id="studyeasy">study-easy.</span>
+				Du wirst erfolgreich abgemeldet<br />Bis bald :) <br />
+				Wenn du willst kannst du dich sofort wieder anmelden. 
+			</p>
+			<a th:href="@{/}" id="linksupport">Falls du nicht weitergeleitet wirst Klicke hier</a>
 		</div>
-</div>
-<div class="mainbody" id="insidefield">
-<div class="menufield">
-	<a href="#" th:href="@{/home}"><span th:text="${name}">Meine</span> Startseite</a><br />
-	<a href="#" th:href="@{/profilchange}">Profil bearbeiten</a><br />
-	<a href="#" th:href="@{/profilprivat}">Pers&ouml;nliche Daten</a><br />
-	<p>Meine Gruppen</p>
-	
-	
-
-</div>
-<div class="mainInsidefield">
-<table>
-<tr><td>gjgug</td></tr></table>
-<p>fef <progress id="progressBar" max="100" value="50"></progress></p>
-</div>
 </div>
 <div class="footer">
 		
@@ -60,6 +45,7 @@
 				</a> 
 		</p>
 	</div>
-</body>        
 
+
+</body>
 </html>
