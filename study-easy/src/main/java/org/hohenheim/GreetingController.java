@@ -227,7 +227,7 @@ public class GreetingController {
 	 *5. PRIVACY.HTML
 	 *Get Aufruf
 	 *Besitzt sonst nichts
-	 */
+	 */ 
 	
 	@RequestMapping(value="/privacy", method=RequestMethod.GET)
     public String privacy(){	 
