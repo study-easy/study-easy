@@ -240,18 +240,12 @@ public class GreetingController {
 	 *Da wo die Pinnwand ist
 	 */
 	@RequestMapping(value="/home",method=RequestMethod.GET)
-	public String home(@RequestParam(value="error", required=false, defaultValue=" ") String name, Model model) {
+	public String home(@RequestParam(value="error", required=false, defaultValue=" a") String name, Model model) {
 	model.addAttribute("error", name); 
 	model.addAttribute("name", name);
 	return "home"; 
 	}
 	
-	@RequestMapping(value="/test3",method=RequestMethod.GET)
-	public String greeting4(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
-	model.addAttribute("name", name);
-	
-	//System.out.println(name); 
-	return"test3";}
 	/*
 	 *##########################
 	 *7. SUPPORT.HTML
@@ -497,4 +491,11 @@ public class GreetingController {
 	    //    }
 	    //    return "redirect:/test2.html";
 	    //}
+
+	@RequestMapping(value="/test3",method=RequestMethod.GET)
+	public String greeting4(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
+	model.addAttribute("name", name);
+	
+	//System.out.println(name); 
+	return"test3";}
 }
