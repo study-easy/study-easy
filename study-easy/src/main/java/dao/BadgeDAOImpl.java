@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -33,7 +34,7 @@ public class BadgeDAOImpl implements BadgeDAO{
 	}
 
 	@Override
-	public void updateBadgeConditions(String name, List<BadgeCondition> list) {
+	public void updateBadgeConditions(String name, ArrayList<BadgeCondition> list) {
 		Session session = factory.getCurrentSession();
 		Badge bagde = (Badge) session.load(Badge.class, name);
 		if(bagde!=null){

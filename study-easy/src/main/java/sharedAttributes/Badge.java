@@ -5,9 +5,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import service.BadgeServiceImpl;
+import service.GroupPinnServiceImpl;
 import users.RegUser;
 
 @Entity
@@ -19,8 +24,19 @@ public class Badge {
 	@Column(name="NAME")
 	private String name;
 	@NotNull
-	@Column(name="CONDITIONS")
-	private List<BadgeCondition> conditions = new ArrayList<BadgeCondition>();
+	@OneToMany
+	@JoinTable(name = "Condition_Type", joinColumns = {
+			@JoinColumn(name = "name", referencedColumnName = "NAME") }, inverseJoinColumns = {
+					@JoinColumn(name = "conditions", referencedColumnName = "id") })
+	private ArrayList<BadgeCondition> conditions = new ArrayList<BadgeCondition>();
+	
+	public void addBadgeCondition(BadgeCondition element) {
+		conditions.add(element);
+		BadgeServiceImpl GPS = new BadgeServiceImpl();
+		GPS.updateBadgeConditions(this.name, this.conditions);
+	}
+
+
 	
 	public boolean conditionsTrue(RegUser user) {
 		boolean bool=false;
@@ -67,7 +83,7 @@ public class Badge {
 		return conditions;
 	}
 
-	public void setConditions(List<BadgeCondition> conditions) {
+	public void setConditions(ArrayList<BadgeCondition> conditions) {
 		this.conditions = conditions;
 	}
 

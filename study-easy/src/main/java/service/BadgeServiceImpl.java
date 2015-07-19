@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class BadgeServiceImpl implements BadgeService{
 	}
 
 	@Override
-	public void updateBadgeConditions(String name, List<BadgeCondition> list) {
-		bdao.updateBadgeConditions(name, list);
+	public void updateBadgeConditions(String name, ArrayList<BadgeCondition> arraylist) {
+		bdao.updateBadgeConditions(name, arraylist);
 		
 	}
 

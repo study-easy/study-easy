@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import sharedAttributes.Badge;
@@ -9,6 +10,6 @@ public interface BadgeService {
 
 	public void addBadge(Badge badge);
 	public List<Badge> listBadge();
-	public void updateBadgeConditions(String name, List<BadgeCondition> list);
+	public void updateBadgeConditions(String name, ArrayList<BadgeCondition> list);
 	public void deleteBadge(String name);
 }
