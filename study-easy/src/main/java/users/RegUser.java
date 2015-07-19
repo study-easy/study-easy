@@ -40,22 +40,21 @@ public class RegUser extends User {
 		}
 		if (nameOccupied == true) {
 			return false;
-		} else if (password.equals(testPassword)) {
-			RegUser regUser = new RegUser();
-			regUser.name = name;
-			regUser.password = password;
-			regUser.banned = false;
-			regUser.earnedBadges = new ArrayList<Badge>();
-			regUser.registeredSince = new Date();
-			UserPinn pinn = new UserPinn();
-			pinn.setOwner(regUser.getName());
-			regUser.pinn = pinn;
-			Controller.getSystem().getUserList().add(regUser);
-			RegUserServiceImpl RUS = new RegUserServiceImpl();
-			RUS.addRegUser(regUser);
-			return true;
-		} else
-			return false;	
+		}else if (password.equals(testPassword)) {
+				RegUser regUser = new RegUser();
+				regUser.name = name;
+				regUser.password = password;
+				regUser.banned = false;
+				regUser.earnedBadges = new ArrayList<Badge>();
+				regUser.registeredSince = new Date();
+				UserPinn pinn = new UserPinn();
+				pinn.setOwner(regUser.name);
+				regUser.pinn = pinn;
+				Controller.getSystem().getUserList().add(regUser);
+				return true;
+			}else{
+				return false;
+		}		
 	}
 
 	public String getSchool() {

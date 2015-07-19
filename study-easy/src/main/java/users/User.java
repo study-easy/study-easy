@@ -35,26 +35,8 @@ public abstract class User {
 
 
 	public boolean signIn(String password, String name) {
-		String comparePassword = null;
-		for (User user : Controller.getSystem().getUserList()) {
-			if (user.getName().equals(name)) {
-				comparePassword = user.password;
-			} else {
-				for(User admin : Controller.getSystem().getAdminList()){
-					if(admin.getName().equals(name)){
-						comparePassword = admin.password;
-					}else{
-						return false;
-					}
-				}
-			}
-		}
-		if (comparePassword.equals(password)) {
-			return true;
-		} else {
-			return false;
-		}
-		
+		return false;
+				
 	}
 
 	public String getPassword() {
