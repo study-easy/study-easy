@@ -37,6 +37,11 @@ public class GreetingController {
 	 *13.Profilprivat
 	 *14. Delete
 	 *15.Combat
+	 *16.GAMES
+	 *GANZ UNTEN
+	 *FÜR PRÄSENTATION
+	 *-WELCOME
+	 *-END
 	/*
 	 *##########################
 	 *1. STARTSEITE INDEX.HTML
@@ -357,8 +362,10 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/search",method=RequestMethod.GET)
-	public String search(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
+	public String search(@RequestParam(value="name", required=false, defaultValue=" ") String name,
+			@RequestParam(value="search", required=false, defaultValue=" ") String search, Model model) {
 	model.addAttribute("error", name); 
+	//System.out.println("ggg " + search);
 	model.addAttribute("name", name); 
 	return "search";
 	}
@@ -474,6 +481,38 @@ public class GreetingController {
 	
        
     return "redirect:/combat"; 
+	}
+	/*
+	 *##########################
+	 *16.GAMES
+	 *GET Aufruf 
+	 *
+	 */
+	@RequestMapping(value="/games",method=RequestMethod.GET)
+	public String games(Model model) {
+	RegUser reguser = new RegUser();
+	model.addAttribute("name", "Testname");
+	return "games"; 
+	}
+	/*
+	 *##########################
+	 *FÜR PRÄSENTATION
+	 *WELCOME 
+	 *
+	 */
+	@RequestMapping(value="/welcome",method=RequestMethod.GET)
+	public String welcomeget(Model model) {
+	return "welcome";
+	}
+	/*
+	 *##########################
+	 *FÜR PRÄSENTATION
+	 *WELCOME 
+	 * 
+	 */
+	@RequestMapping(value="/theend",method=RequestMethod.GET)
+	public String theend(Model model) {
+	return "theend";
 	}
 	/*
 	 *
