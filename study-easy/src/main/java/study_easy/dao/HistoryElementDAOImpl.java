@@ -33,21 +33,21 @@ public class HistoryElementDAOImpl implements HistoryElementDAO{
 	}
 
 	@Override
-	public void updateHistoryElementContent(String content) {
+	public void updateHistoryElementContent(int id, String content) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updateHistoryElementDate(Date date) {
+	public void updateHistoryElementDate(int id, Date date) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteHistoryElement() {
+	public void deleteHistoryElement(int id) {
 		Session session = factory.getCurrentSession();
-		//HistoryElement element = session.load(HistoryElement.class)
+		session.delete(id);
 	}
 
 }

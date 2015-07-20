@@ -1,6 +1,5 @@
 package study_easy.sharedAttributes;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 

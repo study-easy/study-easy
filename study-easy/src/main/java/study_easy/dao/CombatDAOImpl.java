@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import study_easy.groupFunctions.Combat;
-import study_easy.groupFunctions.Group;
 import study_easy.groupFunctions.Test;
 
 @Repository

@@ -1,8 +1,6 @@
 package study_easy.dao;
 
 import java.util.List;
-import java.util.Set;
-
 import study_easy.sharedAttributes.Achievement;
 import study_easy.sharedAttributes.AchievementCondition;
 

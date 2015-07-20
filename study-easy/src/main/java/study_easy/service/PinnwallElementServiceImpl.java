@@ -27,26 +27,26 @@ public class PinnwallElementServiceImpl implements PinnwallElementService{
 	}
 
 	@Override
-	public void updatePinnwallElementContent(String content) {
-		pedao.updatePinnwallElementContent(content);
+	public void updatePinnwallElementContent(int id, String content) {
+		pedao.updatePinnwallElementContent(id, content);
 		
 	}
 
 	@Override
-	public void updatePinnwallElementDate(Date date) {
-		pedao.updatePinnwallElementDate(date);
+	public void updatePinnwallElementDate(int id, Date date) {
+		pedao.updatePinnwallElementDate(id, date);
 		
 	}
 
 	@Override
-	public void updatePinnwallElementComments(List<PinnwallElement> list) {
-		pedao.updatePinnwallElementComments(list);
+	public void updatePinnwallElementComments(int id, List<PinnwallElement> list) {
+		pedao.updatePinnwallElementComments(id, list);
 		
 	}
 
 	@Override
-	public void deletePinnwallElement() {
-		pedao.deletePinnwallElement();
+	public void deletePinnwallElement(int id) {
+		pedao.deletePinnwallElement(id);
 		
 	}
 

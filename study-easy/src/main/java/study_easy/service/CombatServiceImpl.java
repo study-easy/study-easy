@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import study_easy.dao.CombatDAOImpl;
 import study_easy.groupFunctions.Combat;
-import study_easy.groupFunctions.Group;
 import study_easy.groupFunctions.Test;
 
 @Service

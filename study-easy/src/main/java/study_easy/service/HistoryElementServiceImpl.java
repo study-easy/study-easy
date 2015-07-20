@@ -28,20 +28,20 @@ public class HistoryElementServiceImpl implements HistoryElementService{
 	}
 
 	@Override
-	public void updateHistoryElementContent(String content) {
-		hedao.updateHistoryElementContent(content);
+	public void updateHistoryElementContent(int id, String content) {
+		hedao.updateHistoryElementContent(id, content);
 		
 	}
 
 	@Override
-	public void updateHistoryElementDate(Date date) {
-		hedao.updateHistoryElementDate(date);
+	public void updateHistoryElementDate(int id, Date date) {
+		hedao.updateHistoryElementDate(id, date);
 		
 	}
 
 	@Override
-	public void deleteHistoryElement() {
-		hedao.deleteHistoryElement();
+	public void deleteHistoryElement(int id) {
+		hedao.deleteHistoryElement(id);
 		
 	}
 

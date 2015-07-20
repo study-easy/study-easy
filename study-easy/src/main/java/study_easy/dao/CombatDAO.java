@@ -3,7 +3,6 @@ package study_easy.dao;
 import java.util.List;
 
 import study_easy.groupFunctions.Combat;
-import study_easy.groupFunctions.Group;
 import study_easy.groupFunctions.Test;
 
 public interface CombatDAO {

@@ -9,9 +9,8 @@ public interface HistoryElementService {
 	
 	public void addHistoryElement(HistoryElement element);
 	public List<HistoryElement> listHistoryElement();
-	public void updateHistoryElementContent(String content);
-	public void updateHistoryElementDate(Date date);
-	public void deleteHistoryElement();
-	//TODO identifikation
+	public void updateHistoryElementContent(int id, String content);
+	public void updateHistoryElementDate(int id, Date date);
+	public void deleteHistoryElement(int id);
 
 }

@@ -33,28 +33,27 @@ public class PinnwallElementDAOImpl implements PinnwallElementDAO{
 	}
 
 	@Override
-	public void updatePinnwallElementContent(String content) {
+	public void updatePinnwallElementContent(int id, String content) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updatePinnwallElementDate(Date date) {
+	public void updatePinnwallElementDate(int id, Date date) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void updatePinnwallElementComments(List<PinnwallElement> list) {
+	public void updatePinnwallElementComments(int id, List<PinnwallElement> list) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deletePinnwallElement() {
+	public void deletePinnwallElement(int id) {
 		Session session = factory.getCurrentSession();
-		//TODO
-		
+		session.delete(id);
 	}
 
 }
