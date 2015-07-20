@@ -43,8 +43,11 @@ linksupport:visited {
 	margin-top: 51px;
 }
 .insideMainbody{
-	margin-left: 260px;
-	margin-top:-70%;
+	overflow: auto;
+	margin-left: 300px;
+	margin-right: 50px;
+	margin-top: -70%;
+	height: 90%;
 }
 #inside {
 	background-color: #fafbfc; 
@@ -121,4 +124,33 @@ a.barbottom:visited {
 
 @-webkit-keyframes mymove {
     50% {box-shadow: 5px 4px 10px #979797;}
+}
+.pinnwallFrame {
+	overflow: auto;
+	bottom: 5px;
+	width: 500px;
+	height: 400px;
+	overflow: auto;
+
+}
+.pinnwall {
+	background-color: #D8D8D8;
+	width: 500px;
+	height: 400px ;
+	word-break: break-all;
+	word-wrap:break-word;
+	border: 1px solid black;
+}
+table {
+	/*border: 1px solid black;*/
+	
+}
+th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	
+}
+.insideMainbodyHeadline {
+	font-size: 18pt;
+	color: #979797;
 }

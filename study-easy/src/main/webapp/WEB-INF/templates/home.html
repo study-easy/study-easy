@@ -34,10 +34,11 @@
 				<a href="#">Pers&ouml;nliche Daten</a><br/>
 				<table>
 					<tr>
-						<td>Meine Gruppen</td>
+						<th>Meine Gruppen</th>
 					</tr>
-					<tr>
-						<th>Bsp</th>
+					<tr th:each="groupList : ${groupList}">
+					<td><a href="group"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
+						<!--<th>Bsp</th>-->
 					</tr>
 				</table>
 			</div>
@@ -46,9 +47,11 @@
 		</div>
 		<!-- Pinnwand mit Einträgen im Mainbody -->
 		<div class="insideMainbody">
-		<p>Willkommen <span th:text="${pinnwallOwner}">Max Mustermann</span></p>
+		<p>Willkommen <span th:text="${pinnwallOwner}">Max Mustermann</span>
+		<a><img src="resources/images/Profilbild.png" width="150" height="150" align="right"/></a></p>
 		<p th:text="${pinnwallOwner}">Max Mustermann</p>
-		<table>
+		<div class="pinnwallFrame">
+		<table class="pinnwall">
 			<tr>
 				<th>CREATOR</th>
 				<th>ENTRY</th>
@@ -61,8 +64,9 @@
 			</tr>
 		</table>
 		</div>
+		</div>
+		</div>
 		
-	</div>
 	<div class="footer">
 
 		<p>

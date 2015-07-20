@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import groupFunctions.Group;
 import sharedAttributes.Pinnwall;
 import sharedAttributes.PinnwallElement;
 import sharedAttributes.UserPinn;
 import users.RegUser;
+import users.User;
 
 
 @Controller
@@ -243,11 +245,17 @@ public class GreetingController {
 	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String home(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
 	UserPinn userPinn = new UserPinn();
+	//RegUser testUser = new RegUser();
+	//Group group = new Group();
+	//group.setName("TestGruppe");
+	//testUser.addToGroupList(group);
+	//testUser.addToGroupList(group);
 	//PinnwallElement e = new PinnwallElement();
 	//e.setEntry("Testeintrag");
 	//userPinn.addEntrie(e);
 	model.addAttribute("error", name);
 	model.addAttribute("userPinn", userPinn.getEntries());
+	//model.addAttribute("groupList", testUser.getGroupList());
 	//model.addAttribute("pinnwallOwner", userPinn.getOwner().getName());
 	model.addAttribute("pinnwallOwner", "Testuser 1");
 	return "home"; 
@@ -280,4 +288,21 @@ public class GreetingController {
 	    //    }
 	    //    return "redirect:/test2.html";
 	    //}
+	
+	@RequestMapping(value="/group", method=RequestMethod.GET)
+		public String showGroupInfo(@RequestParam (value="error", required=false, defaultValue= " ") String name, Model model) {
+		Group group = new Group();
+		model.addAttribute("groupName", "TestGruppe");
+		model.addAttribute("members", group.getUserList());
+		model.addAttribute("groupDescription", "Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.");
+		model.addAttribute("groupPinn", "Eintrag" /**group.getPinnwall().getEntries()*/);
+		
+			return "group";
+		}
+	@RequestMapping(value="/groupHistory", method=RequestMethod.GET)
+		public String showGroupHistory(@RequestParam (value="error" , required=false, defaultValue=" ") String name, Model model) {
+		model.addAttribute("groupHistory", "Verlauf");
+		model.addAttribute("groupName", "Gruppenname");
+		return "groupHistory";
+	}
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
+import groupFunctions.Group;
 import sharedAttributes.Badge;
 import sharedAttributes.UserPinn;
 import system.Controller;
@@ -29,6 +30,7 @@ public class RegUser extends User {
 	private boolean banned;
 	private List<Badge> earnedBadges;
 	private UserPinn pinn;
+	private ArrayList<Group> groupList = new ArrayList<Group>();
 
 	public boolean register(String password, String testPassword, String name) {
 		List<RegUser> userlist = Controller.getSystem().getUserList();
@@ -120,6 +122,14 @@ public class RegUser extends User {
 	
 	public UserPinn getPinn(){
 		return this.pinn;
+	}
+
+	public ArrayList<Group> getGroupList() {
+		return groupList;
+	}
+
+	public void addToGroupList(Group group) {
+		 groupList.add(group);
 	}
 
 }
