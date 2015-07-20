@@ -86,3 +86,5 @@ public class Achievement {
 		this.conditions = conditions;
 	}
 }
+
+//Connor ist eine DivaBitch
