@@ -41,6 +41,18 @@
 					th:text="${name}">Mein Profil</span></a><br /> <a href="#"
 					th:href="@{/group}" class="linksupport" id="activ"><span
 					th:text="${name}">gruppenname</span></a><br />
+				<table>
+					<tr>
+						<td>Fragen</td>
+					</tr>
+					<!-- 	<tr th:each="">
+		<th th:text="">Liste</th>
+	</tr>
+-->
+					<tr>
+						<th>Bsp</th>
+					</tr>
+				</table>
 			</div>
 
 
@@ -49,20 +61,37 @@
 			<form action="#" th:action="@{/combattest}"
 				th:object="${TestElement}" method="post">
 				<table>
-					<tr><td><input type="checkbox" th:field="*{check}"/><span th:text="${answer1}">Antwort</span>
-					</td></tr>
-					<tr><td><input type="checkbox" th:field="*{check2}"/><span th:text="${answer2}">Antwort</span>
-					</td></tr>
-					<tr><td><input type="checkbox" th:field="*{check3}"/><span th:text="${answer3}">Antwort</span>
-					</td></tr>
-					<tr><td><input type="checkbox" th:field="*{check4}"/><span th:text="${answer4}">Antwort</span>
-					</td></tr>
-					
-					<tr><td>
-					<button type="submit" class="buttons">
-						<span class="buttonName">Login</span>
-					</button>
-					</td></tr>
+					<tr>
+						<td class="inputName"><span th:text="${task}">Frage</span></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" th:field="*{check}" /><span
+							th:text="${answer1}" class="inputName" style="border: none;">Antwort</span>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" th:field="*{check2}" /><span
+							th:text="${answer2}" class="inputName" style="border: none;">Antwort</span>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" th:field="*{check3}" /><span
+							th:text="${answer3}" class="inputName" style="border: none;">Antwort</span>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" th:field="*{check4}" /><span
+							th:text="${answer4}" class="inputName" style="border: none;">Antwort</span>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<button type="submit" class="buttons">
+								<span class="buttonName">Speichern</span>
+							</button>
+						</td>
+					</tr>
 				</table>
 			</form>
 

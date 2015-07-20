@@ -379,8 +379,9 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/profilchange",method=RequestMethod.GET)
-	public String profilget(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
-	model.addAttribute("error", name); 
+	public String profilget(@RequestParam(value="name", required=false, defaultValue="Testname") String name, Model model) {
+	String error = "";
+	model.addAttribute("error", error); 
 	RegUser reguser = new RegUser();
 	model.addAttribute("RegUser", reguser); 
 	model.addAttribute("name", name); 
@@ -484,7 +485,7 @@ public class GreetingController {
 	
        
     return "redirect:/combat"; 
-	}
+	} 
 	/*
 	 *##########################
 	 *16. Combattest.HTML
