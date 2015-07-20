@@ -100,4 +100,10 @@ public class TestElementDAOImpl implements TestElementDAO{
 			session.delete(element);
 	}
 
+	@Override
+	public void updateTestSubjectPoints(int id, int points) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

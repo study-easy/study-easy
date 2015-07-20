@@ -7,6 +7,7 @@ import study_easy.sharedAttributes.BadgeCondition;
 import study_easy.sharedAttributes.ConditionTypes;
 
 public interface BadgeConditionService {
+	
 	public void addBadgeCondition(BadgeCondition condition);
 	public List<BadgeCondition> listBadgeCondition();
 	public void updateBadgeConditionType(int id,ConditionTypes type);

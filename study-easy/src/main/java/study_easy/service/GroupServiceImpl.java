@@ -1,6 +1,7 @@
 package study_easy.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public void updateGroupUserList(String name, ArrayList<RegUser> list) {
+	public void updateGroupUserList(String name, HashSet<RegUser> list) {
 		gdao.updateGroupUserList(name, list);
 		
 	}
@@ -67,13 +68,13 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public void updateGroupCurrentCombats(String name, ArrayList<Combat> list) {
+	public void updateGroupCurrentCombats(String name, HashSet<Combat> list) {
 		gdao.updateGroupCurrentCombats(name, list);
 		
 	}
 
 	@Override
-	public void updateGroupAchievements(String name, ArrayList<Achievement> list) {
+	public void updateGroupAchievements(String name, HashSet<Achievement> list) {
 		gdao.updateGroupAchievements(name, list);
 		
 	}

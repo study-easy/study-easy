@@ -6,6 +6,7 @@ import java.util.List;
 import study_easy.sharedAttributes.HistoryElement;
 
 public interface HistoryElementService {
+	
 	public void addHistoryElement(HistoryElement element);
 	public List<HistoryElement> listHistoryElement();
 	public void updateHistoryElementContent(String content);

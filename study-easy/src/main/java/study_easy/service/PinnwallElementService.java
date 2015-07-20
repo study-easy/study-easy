@@ -6,6 +6,7 @@ import java.util.List;
 import study_easy.sharedAttributes.PinnwallElement;
 
 public interface PinnwallElementService {
+	
 	public void addPinnwallElement(PinnwallElement element);
 	public List<PinnwallElement> listPinnwallElement();
 	public void updatePinnwallElementContent(String content);

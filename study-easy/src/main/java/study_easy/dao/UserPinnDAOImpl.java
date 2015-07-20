@@ -61,6 +61,12 @@ public class UserPinnDAOImpl implements UserPinnDAO{
 			session.delete(pinn);
 	}
 
+	@Override
+	public void updateUserPinnOwner(String owner) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }

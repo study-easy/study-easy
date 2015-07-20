@@ -7,6 +7,7 @@ import study_easy.sharedAttributes.HistoryElement;
 import study_easy.sharedAttributes.PinnwallElement;
 
 public interface GroupPinnService {
+	
 	public void addGroupPinn(GroupPinn pinn);
 	public List<GroupPinn> listGroupPinn();
 	public void updateGroupPinnHistory(String owner, List<HistoryElement> list);

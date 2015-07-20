@@ -34,7 +34,7 @@ public class CombatDAOImpl implements CombatDAO{
 	}
 
 	@Override
-	public void updateCombatChallenger(int id, Group challenger) {
+	public void updateCombatChallenger(int id, String challenger) {
 		Session session = factory.getCurrentSession();
 		Combat combat = (Combat) session.load(Combat.class, id);
 		if(combat!=null){
@@ -44,7 +44,7 @@ public class CombatDAOImpl implements CombatDAO{
 	}
 
 	@Override
-	public void updateCombatOpponent(int id, Group opponent) {
+	public void updateCombatOpponent(int id, String opponent) {
 		Session session = factory.getCurrentSession();
 		Combat combat = (Combat) session.load(Combat.class, id);
 		if(combat!=null){
@@ -69,6 +69,18 @@ public class CombatDAOImpl implements CombatDAO{
 		Combat combat = (Combat) session.load(Combat.class, id);
 		if(combat!=null)
 			session.delete(combat);
+	}
+
+	@Override
+	public void updateChallangerRight(int id, int challengerRight) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateOpponentRight(int id, int opponentRight) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
