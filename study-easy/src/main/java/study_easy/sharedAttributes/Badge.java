@@ -25,7 +25,7 @@ public class Badge {
 	public void addBadgeCondition(BadgeCondition element) {
 		conditions.add(element);
 		BadgeServiceImpl GPS = new BadgeServiceImpl();
-		//GPS.updateBadgeConditions(this.name, this.conditions);
+		GPS.updateBadgeConditions(this.name, element);
 	}
 
 
