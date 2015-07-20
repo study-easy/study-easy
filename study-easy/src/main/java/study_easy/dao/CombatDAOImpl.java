@@ -2,8 +2,6 @@ package study_easy.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import study_easy.groupFunctions.Combat;
 import study_easy.groupFunctions.Test;
 
 @Repository
-@Transactional
 public class CombatDAOImpl implements CombatDAO{
 
 	@Autowired
@@ -72,21 +69,14 @@ public class CombatDAOImpl implements CombatDAO{
 
 	@Override
 	public void updateChallangerRight(int id, int challengerRight) {
-		Session session = factory.getCurrentSession();
-		Combat combat = (Combat) session.load(Combat.class, id);
-		if(combat!=null)
-			combat.setChallengerRight(challengerRight);
-			session.update(combat);
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void updateOpponentRight(int id, int opponentRight) {
-		Session session = factory.getCurrentSession();
-		Combat combat = (Combat) session.load(Combat.class, id);
-		if(combat!=null)
-			combat.setOpponentRight(opponentRight);
-			session.update(combat);		
+		// TODO Auto-generated method stub
+		
 	}
 
 }
