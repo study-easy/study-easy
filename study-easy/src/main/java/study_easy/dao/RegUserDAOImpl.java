@@ -78,7 +78,6 @@ public class RegUserDAOImpl implements RegUserDAO{
 		Session session = factory.getCurrentSession();
 		RegUser user = (RegUser)session.load(RegUser.class, Username);
 		if(user!=null){
-			//TODO
 		}
 	}
 

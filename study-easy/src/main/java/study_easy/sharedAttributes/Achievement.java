@@ -26,7 +26,7 @@ public class Achievement {
 	public void addAchievmentConditions(AchievementCondition element) {
 		conditions.add(element);
 		AchievementServiceImpl GPS = new AchievementServiceImpl();
-		//GPS.updateAchievementConditions(this.name, this.conditions);
+		GPS.updateAchievementConditions(this.name, element);
 	} 
 	
 	public boolean conditionsTrue(Group group) {

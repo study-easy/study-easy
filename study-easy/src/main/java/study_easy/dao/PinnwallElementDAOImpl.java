@@ -1,6 +1,7 @@
 package study_easy.dao;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -10,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import study_easy.groupFunctions.Combat;
 import study_easy.sharedAttributes.PinnwallElement;
 
 @Repository
@@ -34,19 +36,33 @@ public class PinnwallElementDAOImpl implements PinnwallElementDAO{
 
 	@Override
 	public void updatePinnwallElementContent(int id, String content) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		PinnwallElement pinnwallElement = (PinnwallElement) session.load(PinnwallElement.class, id);
+		if(pinnwallElement!=null){
+			pinnwallElement.setEntry(content);
+			session.update(pinnwallElement);
+		}
 	}
 
 	@Override
 	public void updatePinnwallElementDate(int id, Date date) {
-		// TODO Auto-generated method stub
+		Session session = factory.getCurrentSession();
+		PinnwallElement pinnwallElement = (PinnwallElement) session.load(PinnwallElement.class, id);
+		if(pinnwallElement!=null){
+			pinnwallElement.setDate(date);
+			session.update(pinnwallElement);
+		}
 		
 	}
 
 	@Override
-	public void updatePinnwallElementComments(int id, List<PinnwallElement> list) {
-		// TODO Auto-generated method stub
+	public void updatePinnwallElementComments(int id, PinnwallElement element) {
+		Session session = factory.getCurrentSession();
+		PinnwallElement pinnwallElement = (PinnwallElement) session.load(PinnwallElement.class, id);
+		if(pinnwallElement!=null){
+			pinnwallElement.setComments(element);
+			session.update(pinnwallElement);
+		}
 		
 	}
 

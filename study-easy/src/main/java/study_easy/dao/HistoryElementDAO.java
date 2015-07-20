@@ -1,6 +1,7 @@
 package study_easy.dao;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
 import study_easy.sharedAttributes.HistoryElement;

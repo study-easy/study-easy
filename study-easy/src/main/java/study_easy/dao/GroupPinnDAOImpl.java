@@ -1,5 +1,6 @@
 package study_easy.dao;
 
+import java.util.HashSet;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -34,20 +35,22 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 	}
 
 	@Override
-	public void updateGroupPinnHistory(String owner, List<HistoryElement> list) {
+	public void updateGroupPinnHistory(String owner, HistoryElement element) {
 		Session session = factory.getCurrentSession();
 		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
 		if(pinn!=null){
-			//TODO
+			pinn.addHistoryElement(element);
+			session.update(owner);			
 		}
 	}
 
 	@Override
-	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list) {
+	public void updateGroupPinnEntries(String owner, PinnwallElement list) {
 		Session session = factory.getCurrentSession();
 		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
 		if(pinn!=null){
-			//TODO
+			pinn.addEntrie(list);
+			session.update(owner);
 		}
 	}
 

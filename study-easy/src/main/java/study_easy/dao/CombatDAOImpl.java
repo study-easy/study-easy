@@ -72,14 +72,21 @@ public class CombatDAOImpl implements CombatDAO{
 
 	@Override
 	public void updateChallangerRight(int id, int challengerRight) {
-		// TODO Auto-generated method stub
+		Session session = factory.getCurrentSession();
+		Combat combat = (Combat) session.load(Combat.class, id);
+		if(combat!=null)
+			combat.setChallengerRight(challengerRight);
+			session.update(combat);
 		
 	}
 
 	@Override
 	public void updateOpponentRight(int id, int opponentRight) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Combat combat = (Combat) session.load(Combat.class, id);
+		if(combat!=null)
+			combat.setOpponentRight(opponentRight);
+			session.update(combat);		
 	}
 
 }
