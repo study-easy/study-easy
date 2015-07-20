@@ -256,7 +256,7 @@ public class GreetingController {
 	model.addAttribute("error", error); 
 	model.addAttribute("name", name);
 	return "home"; 
-	} 
+	}
 	
 	/*
 	 *##########################
@@ -304,12 +304,12 @@ public class GreetingController {
     public String adminview(Model model) {
             Admin admin = new Admin(); 
              model.addAttribute("Admin", admin);
-             String adminname= "Der BABO-Admin";
+             String adminname= "TestAdmin";
              model.addAttribute("name", adminname);
              
              System.out.println("adminseite");  
         return "admin"; 
-    }
+    } 
 	/*
 	 *##########################
 	 *9. LOGOUT.HTML
@@ -394,22 +394,21 @@ public class GreetingController {
        System.out.println("Profil gespeichert");
        
     return "redirect:/profil";
-	}
+	} 
 	/*
 	 *##########################
-	 *12. ProfilChange.HTML
+	 *12. Profilprivat.HTML
 	 *Get Aufruf
 	 *
 	 */
 	@RequestMapping(value="/profilprivat",method=RequestMethod.GET)
-	public String profilprivatget(@RequestParam(value="name", required=false, defaultValue="Test") String name, Model model) {
-	model.addAttribute("error", name); 
+	public String profilprivatget(@RequestParam(value="name", required=false, defaultValue="Testname") String name, Model model) {
 	RegUser reguser = new RegUser();
 	model.addAttribute("RegUser", reguser); 
 	model.addAttribute("name", name); 
 	return "profilprivat";
 	} 
-	/*
+	/* 
 	 *##########################
 	 *13. PROFILPRIVAT.HTML
 	 *Post Aufruf
@@ -421,7 +420,7 @@ public class GreetingController {
        
     return "redirect:/profil";
 	}
-	/*
+	/* 
 	 *##########################
 	 *14. DELETE.HTML
 	 *Get Aufruf

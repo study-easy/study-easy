@@ -36,6 +36,7 @@
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
 		<div class="hellotext">
+		<a href="#" th:href="@{/home}" class="linksupport">Startseite</a><br />
 	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Meine</span> Startseite</a><br />
 	<a href="#" th:href="@{/profilchange}" class="linksupport" id="activ">Profil bearbeiten</a><br />
 	<a href="#" th:href="@{/profilprivat}" class="linksupport">Pers&ouml;nliche Daten</a><br />
@@ -54,25 +55,34 @@
 						<td class="inputName">Deine Mailadresse:</td>
 					</tr>
 					<tr>
-						<td><input  class="inputfield" type="email" value="email" size="25"/></td>
+						<td><input  th:field="*{email}" class="inputfield" type="email" value="email" size="30"/>
+						</td>
 					</tr>
 					<tr>
 						<td class="inputName">Schule/Ausbildung:</td>
 					</tr>
 					<tr>
-						<td><input style="height: 40px;" type="text" value="schule" size="25"/></td>
+						<td><textarea th:field="*{school}"  cols="35" rows="4">
+					</textarea>
+						</td>
 					</tr>
 					<tr>
 						<td class="inputName">Hobbys: </td>
 					</tr>
-					<tr>
-						<td><input style="height: 40px;" type="text" value="hobby" size="25"/></td>
+					<tr><!--
+						<td><input th:field="*{hobby}" style="height: 40px;" type="text" value="hobby" size="25"/>
+						</td> -->
 					</tr>
+					<tr><td>
+					  <textarea th:field="*{hobby}"  cols="35" rows="4">
+					</textarea>
+					</td></tr>
 					<tr>
 						<td class="inputName">Geburtsdatum</td>
 					</tr>
 					<tr>
-						<td><input  class="inputfield" type="date" value="2014-10-15" min="1900-10-01" max="2015-11-01" size="25"/></td>
+						<td><input th:field="*{birthDate}" class="inputfield" type="date" value="2014-10-15" min="1900-10-01" max="2015-11-01" size="25"/>
+						</td>
 					</tr>
 					<tr>
 						<td><button type="submit" class="buttons">

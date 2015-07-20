@@ -20,14 +20,14 @@
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo" id="activ">study-easy</a>
+		<a th:href="@{/admin}" class="logo" id="activ">study-easy</a>
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
-		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
+		<!--  <form class="logo" id="search" method="get" action="#" th:action="@{/search}">
 		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
 		</button>
   		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
-		</form>
+		</form> -->
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
@@ -35,9 +35,9 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/admin}" ><span th:text="${name}">jo</span></a><br />
-	<a href="#" >User ansehen</a><br />
-	<a href="#" >Gruppen ansehen</a><br />
+	<a href="#" th:href="@{/admin}" class="linksupport" id="activ"><span th:text="${name}">jo</span></a><br />
+	<a href="#" class="linksupport">User ansehen</a><br />
+	<a href="#" class="linksupport">Gruppen ansehen</a><br />
 	
 	</div>
 </div>
