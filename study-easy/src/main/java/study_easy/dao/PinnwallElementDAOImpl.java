@@ -1,7 +1,6 @@
 package study_easy.dao;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -11,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import study_easy.groupFunctions.Combat;
 import study_easy.sharedAttributes.PinnwallElement;
 
 @Repository

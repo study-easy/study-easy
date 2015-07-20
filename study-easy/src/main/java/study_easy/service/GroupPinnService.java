@@ -1,6 +1,5 @@
 package study_easy.service;
 
-import java.util.HashSet;
 import java.util.List;
 
 import study_easy.sharedAttributes.GroupPinn;

@@ -1,6 +1,5 @@
 package study_easy.dao;
 
-import java.util.HashSet;
 import java.util.List;
 
 import javax.transaction.Transactional;

@@ -22,7 +22,7 @@ public class GroupPinn extends Pinnwall {
 	public void addHistoryElement(HistoryElement element) {
 		this.history.add(element);
 		GroupPinnServiceImpl GPS = new GroupPinnServiceImpl();
-		//GPS.updateGroupPinnHistory(this.owner, this.history);
+		//TODO speichern
 	}
 
 	public Set<HistoryElement> getHistory() {
