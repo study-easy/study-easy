@@ -49,15 +49,15 @@
 			<form action="#" th:action="@{/combattest}"
 				th:object="${TestElement}" method="post">
 				<table>
-					<tr><td><input type="radio" th:field="*{task}" th:value="${frage}" />
-						<label th:for="${#ids.prev('task')}">Frage 1</label>
+					<tr><td><input type="checkbox" th:field="*{check}"/><span th:text="${answer1}">Antwort</span>
 					</td></tr>
-					<tr><td><input type="radio" th:field="*{task}" th:value="${frage}" />
-						<label th:for="${#ids.prev('task')}">Frage 2</label>
+					<tr><td><input type="checkbox" th:field="*{check2}"/><span th:text="${answer2}">Antwort</span>
 					</td></tr>
-					<tr><td><input type="radio" th:field="*{task}" th:value="${frage}" />
-						<label th:for="${#ids.prev('task')}" th:text="${fragename}">Frage 3</label>
+					<tr><td><input type="checkbox" th:field="*{check3}"/><span th:text="${answer3}">Antwort</span>
 					</td></tr>
+					<tr><td><input type="checkbox" th:field="*{check4}"/><span th:text="${answer4}">Antwort</span>
+					</td></tr>
+					
 					<tr><td>
 					<button type="submit" class="buttons">
 						<span class="buttonName">Login</span>

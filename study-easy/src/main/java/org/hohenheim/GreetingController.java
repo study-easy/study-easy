@@ -498,9 +498,7 @@ public class GreetingController {
 	TestElement testelement = new TestElement ();
 	model.addAttribute("Combat", combat);
 	model.addAttribute("TestElement", testelement);
-	model.addAttribute("name", "Testname");
-	model.addAttribute("frage", "testfrage");
-	model.addAttribute("fragename", "ist cool");
+	
 	return "combattest"; 
 	}
 	/*
@@ -510,8 +508,11 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/combattest", method=RequestMethod.POST)
-    public String combattestpost(    		) {
-	
+    public String combattestpost( @RequestParam(value="check", required=false) Boolean check
+    		//,@RequestParam(value="frage", required=false) String check2
+    		) { 
+	System.out.println(check);
+	//System.out.println(check2);
        
     return "redirect:/combat"; 
 	}
