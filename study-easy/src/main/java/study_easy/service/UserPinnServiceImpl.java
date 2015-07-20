@@ -1,6 +1,7 @@
 package study_easy.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class UserPinnServiceImpl implements UserPinnService{
 	}
 
 	@Override
-	public void updateUserPinnEntries(String owner, ArrayList<PinnwallElement> list) {
-		updao.updateUserPinnEntries(owner, list);
+	public void updateUserPinnEntries(String owner, PinnwallElement entries) {
+		updao.updateUserPinnEntries(owner, entries);
 		
 	}
 

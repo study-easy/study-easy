@@ -1,7 +1,5 @@
 package study_easy.sharedAttributes;
 
-import java.util.ArrayList;
-
 import javax.persistence.*;
 
 @MappedSuperclass

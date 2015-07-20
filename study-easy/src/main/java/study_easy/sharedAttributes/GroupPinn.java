@@ -1,6 +1,5 @@
 package study_easy.sharedAttributes;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +20,7 @@ public class GroupPinn extends Pinnwall {
 	private Set<HistoryElement> history = new HashSet<HistoryElement>();
 
 	public void addHistoryElement(HistoryElement element) {
-		history.add(element);
+		this.history.add(element);
 		GroupPinnServiceImpl GPS = new GroupPinnServiceImpl();
 		//GPS.updateGroupPinnHistory(this.owner, this.history);
 	}

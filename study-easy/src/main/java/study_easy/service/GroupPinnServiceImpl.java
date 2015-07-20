@@ -28,13 +28,13 @@ public class GroupPinnServiceImpl implements GroupPinnService{
 	}
 
 	@Override
-	public void updateGroupPinnHistory(String owner, List<HistoryElement> list) {
+	public void updateGroupPinnHistory(String owner, HistoryElement list) {
 		gpdao.updateGroupPinnHistory(owner, list);
 		
 	}
 
 	@Override
-	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list) {
+	public void updateGroupPinnEntries(String owner, PinnwallElement list) {
 		gpdao.updateGroupPinnEntries(owner, list);
 		
 	}

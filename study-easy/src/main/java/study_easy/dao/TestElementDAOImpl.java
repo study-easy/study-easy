@@ -14,15 +14,16 @@ import study_easy.groupFunctions.TestElement;
 
 @Repository
 @Transactional
-public class TestElementDAOImpl implements TestElementDAO{
+public class TestElementDAOImpl implements TestElementDAO {
 
 	@Autowired
 	private SessionFactory factory;
-	
+
 	@Override
-	public void addTestElement(TestElement element) {
-		// TODO Auto-generated method stub
-		
+	public void addTestElement(TestElement tElement) {
+		Session session = factory.getCurrentSession();
+		session.save(tElement);
+
 	}
 
 	@Override
@@ -36,7 +37,7 @@ public class TestElementDAOImpl implements TestElementDAO{
 	public void updateTestElementTask(int id, String task) {
 		Session session = factory.getCurrentSession();
 		TestElement element = (TestElement) session.load(TestElement.class, id);
-		if(element!=null){
+		if (element != null) {
 			element.setTask(task);
 			session.update(element);
 		}
@@ -46,7 +47,7 @@ public class TestElementDAOImpl implements TestElementDAO{
 	public void updateTestElementAnswer(int id, String answer) {
 		Session session = factory.getCurrentSession();
 		TestElement element = (TestElement) session.load(TestElement.class, id);
-		if(element!=null){
+		if (element != null) {
 			element.setRightAnswer(answer);
 			session.update(element);
 		}
@@ -56,7 +57,7 @@ public class TestElementDAOImpl implements TestElementDAO{
 	public void updateTestElementWrongAnswer1(int id, String wrongAnswer1) {
 		Session session = factory.getCurrentSession();
 		TestElement element = (TestElement) session.load(TestElement.class, id);
-		if(element!=null){
+		if (element != null) {
 			element.setWrongAnswer1(wrongAnswer1);
 			session.update(element);
 		}
@@ -66,7 +67,7 @@ public class TestElementDAOImpl implements TestElementDAO{
 	public void updateTestElementWrongAnswer2(int id, String wrongAnswer2) {
 		Session session = factory.getCurrentSession();
 		TestElement element = (TestElement) session.load(TestElement.class, id);
-		if(element!=null){
+		if (element != null) {
 			element.setWrongAnswer2(wrongAnswer2);
 			session.update(element);
 		}
@@ -76,7 +77,7 @@ public class TestElementDAOImpl implements TestElementDAO{
 	public void updateTestElementWrongAnswer3(int id, String wrongAnswer3) {
 		Session session = factory.getCurrentSession();
 		TestElement element = (TestElement) session.load(TestElement.class, id);
-		if(element!=null){
+		if (element != null) {
 			element.setWrongAnswer3(wrongAnswer3);
 			session.update(element);
 		}
@@ -86,7 +87,7 @@ public class TestElementDAOImpl implements TestElementDAO{
 	public void updateTestSubject(int id, Subject subject) {
 		Session session = factory.getCurrentSession();
 		TestElement element = (TestElement) session.load(TestElement.class, id);
-		if(element!=null){
+		if (element != null) {
 			element.setSubject(subject);
 			session.update(element);
 		}
@@ -96,14 +97,18 @@ public class TestElementDAOImpl implements TestElementDAO{
 	public void deleteTestElement(int id) {
 		Session session = factory.getCurrentSession();
 		TestElement element = (TestElement) session.load(TestElement.class, id);
-		if(element!=null)
+		if (element != null)
 			session.delete(element);
 	}
 
 	@Override
 	public void updateTestSubjectPoints(int id, int points) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		TestElement element = (TestElement) session.load(TestElement.class, id);
+		if (element != null) {
+			element.setPoints(points);
+			session.update(element);
+		}
 	}
 
 }

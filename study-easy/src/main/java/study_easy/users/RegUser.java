@@ -1,6 +1,5 @@
 package study_easy.users;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;

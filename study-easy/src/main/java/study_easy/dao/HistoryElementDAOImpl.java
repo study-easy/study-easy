@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import study_easy.groupFunctions.Combat;
 import study_easy.sharedAttributes.HistoryElement;
 
 @Repository
@@ -34,13 +35,22 @@ public class HistoryElementDAOImpl implements HistoryElementDAO{
 
 	@Override
 	public void updateHistoryElementContent(int id, String content) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		HistoryElement historyElement = (HistoryElement) session.load(HistoryElement.class, id);
+		if(historyElement!=null){
+			historyElement.setDescription(content);
+			session.update(historyElement);
+		}
 	}
 
 	@Override
 	public void updateHistoryElementDate(int id, Date date) {
-		// TODO Auto-generated method stub
+		Session session = factory.getCurrentSession();
+		HistoryElement historyElement = (HistoryElement) session.load(HistoryElement.class, id);
+		if(historyElement!=null){
+			historyElement.setDate(date);
+			session.update(historyElement);
+		}
 		
 	}
 
