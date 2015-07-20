@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import groupFunctions.Combat;
 import groupFunctions.Group;
+import groupFunctions.TestElement;
 import users.Admin;
 import users.RegUser;
 
@@ -37,7 +38,8 @@ public class GreetingController {
 	 *13.Profilprivat
 	 *14. Delete
 	 *15.Combat
-	 *16.GAMES
+	 *16.COMBATTEST
+	 *17.GAMES
 	 *GANZ UNTEN
 	 *FÜR PRÄSENTATION
 	 *-WELCOME
@@ -466,6 +468,7 @@ public class GreetingController {
 	Combat combat = new Combat ();	
 	model.addAttribute("Combat", combat);
 	model.addAttribute("status", status);
+	model.addAttribute("name", "Testname");
 	return "combat";
 	}
 	/*
@@ -483,7 +486,38 @@ public class GreetingController {
 	}
 	/*
 	 *##########################
-	 *16.GAMES
+	 *16. Combattest.HTML
+	 *Get Aufruf
+	 *
+	 */
+	@RequestMapping(value="/combattest",method=RequestMethod.GET)
+	public String combattest(Model model) {
+	RegUser reguser = new RegUser();
+	Group group = new Group();
+	Combat combat = new Combat ();	
+	TestElement testelement = new TestElement ();
+	model.addAttribute("Combat", combat);
+	model.addAttribute("TestElement", testelement);
+	model.addAttribute("name", "Testname");
+	model.addAttribute("frage", "testfrage");
+	model.addAttribute("fragename", "ist cool");
+	return "combattest";
+	}
+	/*
+	 *##########################
+	 *15. COMBATTEST.HTML
+	 *Post Aufruf 
+	 *
+	 */
+	@RequestMapping(value="/combattest", method=RequestMethod.POST)
+    public String combattestpost(    		) {
+	
+       
+    return "redirect:/combat"; 
+	}
+	/*
+	 *##########################
+	 *17.GAMES
 	 *GET Aufruf 
 	 *
 	 */
