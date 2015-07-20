@@ -38,10 +38,9 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" ><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" >Profil bearbeiten</a><br />
-	<a href="#" >Pers&ouml;nliche Daten</a><br />
-	<a href="#" th:href="@{/snake}"><img src="resources/images/snakedunkel.png" width="18" height="18"/> Snake</a><br />
+	<a href="#" th:href="@{/profil}" class="linksupport" ><span th:text="${name}">
+	Mein Profil</span></a><br />
+	<a href="#" th:href="@{/games}" class="linksupport" id="activ">Spiele</a><br />
 	<table>
 	<tr>
 		<td>Meine Gruppen</td>

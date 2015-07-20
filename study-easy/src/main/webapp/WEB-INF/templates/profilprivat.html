@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/profilprivat.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
@@ -22,7 +22,7 @@
 		</div>
 		<a th:href="@{/home}" class="logo">study-easy</a>
 		
-		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
 		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
 		</button>
@@ -48,23 +48,17 @@
 				method="post">
 				<table>
 					<tr>
-						<td>Passwort</td>
+						<td class="inputName">Passwort &auml;ndern</td>
 					</tr>
 					<tr>
-						<td><input type="email" placeholder="Bisheriges"/></td>
+						<td><input type="email" placeholder="Bisheriges" size="25" class="inputfield"/></td>
 						<td><a></a></td>
 					</tr>
 					<tr>
-						<td>Neu:</td>
-						<td><input type="email" placeholder="Neues Passwort"/></td>
+						<td><input type="email" placeholder="Neues Passwort" size="25" class="inputfield"/></td>
 					</tr>
 					<tr>
-						<td><input type="email" placeholder="Neues Passwort widerholen"/></td>
-					</tr>
-					
-					<tr>
-						<td>Kontonummer + PIN</td>
-						<td><input type="text" /></td>
+						<td><input type="email" placeholder="Neues Passwort widerholen" size="25" class="inputfield"/></td>
 					</tr>
 					<tr>
 						<td><button type="submit" class="buttons">
@@ -74,9 +68,15 @@
 				</table>
 				</form>
 			<form method="get" action="#" th:action="@{/delete}" id="registerButton">
+			<table>
+			<tr>
+			<td>
 				<button type="submit" class="buttons">
 					<span class="buttonName">Account l&ouml;schen</span>
 				</button>
+				</td>
+				</tr>
+				</table>
 			</form>
 </div>
 </div>

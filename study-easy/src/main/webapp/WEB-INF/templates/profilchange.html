@@ -19,7 +19,7 @@
 		<a th:href="@{/home}" class="logo">study-easy</a>
 
 		<p th:text="${error}" class="notification"
-			style="color: #979797; margin-top: -25px; background-color: red;"></p>
+			style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#"
 			th:action="@{/search}">
 			<button type="submit" id="searchButton">
@@ -51,52 +51,28 @@
 				method="post">
 				<table>
 					<tr>
-						<td>Deine Mailadresse</td>
+						<td class="inputName">Deine Mailadresse:</td>
 					</tr>
 					<tr>
-						<td>Bisher:</td>
-						<td><a></a></td>
+						<td><input  class="inputfield" type="email" value="email" size="25"/></td>
 					</tr>
 					<tr>
-						<td>Neu:</td>
-						<td><input type="email"/></td>
+						<td class="inputName">Schule/Ausbildung:</td>
 					</tr>
 					<tr>
-						<td>Schule/Ausbildung</td>
+						<td><input style="height: 40px;" type="text" value="schule" size="25"/></td>
 					</tr>
 					<tr>
-						<td>Bisher:</td>
-						<td></td>
+						<td class="inputName">Hobbys: </td>
 					</tr>
 					<tr>
-						<td>Neu:</td>
-						<td><input /></td>
+						<td><input style="height: 40px;" type="text" value="hobby" size="25"/></td>
 					</tr>
 					<tr>
-						<td>Hobbys</td>
+						<td class="inputName">Geburtsdatum</td>
 					</tr>
 					<tr>
-						<td>Du magst bereits</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>Jetzt magst du</td>
-						<td><input /></td>
-					</tr>
-					<tr>
-						<td>Geburtsdatum</td>
-					</tr>
-					<tr>
-						<td>Bisher wurdest du geboren am</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>Jetzt bist du geboren am</td>
-						<td><input type="date" value="2014-10-15" min="1900-10-01" max="2015-11-01"/></td>
-					</tr>
-					<tr>
-						<td>Kontonummer + PIN</td>
-						<td><input type="text" /></td>
+						<td><input  class="inputfield" type="date" value="2014-10-15" min="1900-10-01" max="2015-11-01" size="25"/></td>
 					</tr>
 					<tr>
 						<td><button type="submit" class="buttons">
@@ -105,7 +81,6 @@
 					</tr>
 				</table>
 			</form>
-			<p>hkhj</p>
 		</div>
 	</div>
 	<div class="footer">

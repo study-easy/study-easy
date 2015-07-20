@@ -88,7 +88,7 @@ public class GreetingController {
        } else {
     	   if (bname.equals("bname")) {
     		   return "redirect:/home";
-    	   }
+    	   } 
     	   else { System.out.println("ERROR");
     		  return "redirect:/?error=10000";
     	   }
@@ -165,7 +165,7 @@ public class GreetingController {
         	 error ="Sie haben einen Error"; 
         	 model.addAttribute("error", error);
          }
-         
+           
          
          System.out.println("start password vergessen"); 
     return "forgot"; 
@@ -338,7 +338,7 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/snake", method=RequestMethod.GET)
     public String snake(Model model,
-    		@RequestParam(value="name", required=false, defaultValue="s ") String name) {
+    		@RequestParam(value="name", required=false, defaultValue="TestName") String name) {
         model.addAttribute("name", name);
              System.out.println("snake");
         return "snake"; 
