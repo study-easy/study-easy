@@ -501,7 +501,7 @@ public class GreetingController {
 	model.addAttribute("name", "Testname");
 	model.addAttribute("frage", "testfrage");
 	model.addAttribute("fragename", "ist cool");
-	return "combattest";
+	return "combattest"; 
 	}
 	/*
 	 *##########################
