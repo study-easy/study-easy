@@ -23,7 +23,7 @@ public class Group {
 	@Column
 	private String name;
 	@ManyToMany
-	@JoinTable(name = "Gruppenmitglieder", joinColumns= @JoinColumn(name = "name") , inverseJoinColumns = @JoinColumn(name = "name"))
+	@JoinTable(name = "Gruppenmitglieder", joinColumns= @JoinColumn(name = "name") , inverseJoinColumns = @JoinColumn(name = "userName"))
 	private Set<RegUser> userList = new HashSet<RegUser>();
 	@Column
 	private String description;

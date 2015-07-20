@@ -22,7 +22,7 @@ public abstract class User {
 	protected String password;
 	@Id
 	@NotNull
-	@Column
+	@Column(name = "userName")
 	protected String name;
 	@NotNull
 	@Column

@@ -13,7 +13,6 @@ import study_easy.sharedAttributes.AchievementCondition;
 import study_easy.sharedAttributes.ConditionTypes;
 
 @Repository
-@Transactional
 public class AchievementConditionDAOImpl implements AchievementConditionDAO {
 
 	@Autowired
