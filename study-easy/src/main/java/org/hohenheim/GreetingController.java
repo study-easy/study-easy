@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import groupFunctions.Combat;
 import groupFunctions.Group;
+import groupFunctions.Test;
 import groupFunctions.TestElement;
 import users.Admin;
 import users.RegUser;
@@ -495,9 +496,15 @@ public class GreetingController {
 	RegUser reguser = new RegUser();
 	Group group = new Group();
 	Combat combat = new Combat ();	
+	Test test = new Test ();
 	TestElement testelement = new TestElement ();
 	model.addAttribute("Combat", combat);
 	model.addAttribute("TestElement", testelement);
+	model.addAttribute("task", "Hier könnte eine Frage stehen");
+	model.addAttribute("answer1", "Antwort1");
+	model.addAttribute("answer2", "Antwort2");
+	model.addAttribute("answer3", "Antwort3");
+	model.addAttribute("answer4", "Antwort4");
 	
 	return "combattest"; 
 	}
@@ -508,11 +515,15 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/combattest", method=RequestMethod.POST)
-    public String combattestpost( @RequestParam(value="check", required=false) Boolean check
-    		//,@RequestParam(value="frage", required=false) String check2
+    public String combattestpost( @RequestParam(value="check", required=false, defaultValue="false") Boolean check,
+    		@RequestParam(value="check2", required=false, defaultValue="false") Boolean check2,
+    		@RequestParam(value="check3", required=false, defaultValue="false") Boolean check3,
+    		@RequestParam(value="check4", required=false, defaultValue="false") Boolean check4
     		) { 
 	System.out.println(check);
-	//System.out.println(check2);
+	System.out.println(check2);
+	System.out.println(check3);
+	System.out.println(check4);
        
     return "redirect:/combat"; 
 	}
