@@ -109,8 +109,8 @@ public class Combat {
 		return opponent;
 	}
 
-	public void setOpponent(String opponent) {
-		this.opponent = opponent;
+	public void setOpponent(String opponent2) {
+		this.opponent = opponent2;
 		CombatServiceImpl CS = new CombatServiceImpl();
 		//CS.updateCombatOpponent(this.id, opponent);
 	}

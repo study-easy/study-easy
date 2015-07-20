@@ -27,8 +27,8 @@ public class AchievementServiceImpl implements AchievementService {
 	}
 
 	@Override
-	public void updateAchievementConditions(String name, List<AchievementCondition> list) {
-		adao.updateAchievementConditions(name, list);
+	public void updateAchievementConditions(String name, AchievementCondition condition) {
+		adao.updateAchievementConditions(name, condition);
 		
 	}
 

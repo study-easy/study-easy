@@ -28,13 +28,13 @@ public class CombatServiceImpl implements CombatService{
 	}
 
 	@Override
-	public void updateCombatChallenger(int id, Group challenger) {
+	public void updateCombatChallenger(int id, String challenger) {
 		cdao.updateCombatChallenger(id, challenger);
 		
 	}
 
 	@Override
-	public void updateCombatOpponent(int id, Group opponent) {
+	public void updateCombatOpponent(int id, String opponent) {
 		cdao.updateCombatOpponent(id, opponent);
 		
 	}
@@ -48,6 +48,18 @@ public class CombatServiceImpl implements CombatService{
 	@Override
 	public void deleteCombat(int id) {
 		cdao.deleteCombat(id);
+		
+	}
+
+	@Override
+	public void updateChallangerRight(int id, int challengerRight) {
+		cdao.updateChallangerRight(id, challengerRight);
+		
+	}
+
+	@Override
+	public void updateOpponentRight(int id, int opponentRight) {
+		cdao.updateOpponentRight(id, opponentRight);
 		
 	}
 

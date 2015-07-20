@@ -1,6 +1,7 @@
 package study_easy.dao;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -57,7 +58,7 @@ public class GroupDAOImpl implements GroupDAO{
 	}
 
 	@Override
-	public void updateGroupUserList(String name, ArrayList<RegUser> list) {
+	public void updateGroupUserList(String name, HashSet<RegUser> list) {
 		Session session = factory.getCurrentSession();
 		Group group = (Group) session.load(Group.class, name);
 		if(group!=null){
@@ -97,7 +98,7 @@ public class GroupDAOImpl implements GroupDAO{
 	}
 
 	@Override
-	public void updateGroupCurrentCombats(String name, ArrayList<Combat> list) {
+	public void updateGroupCurrentCombats(String name, HashSet<Combat> list) {
 		Session session = factory.getCurrentSession();
 		Group group = (Group) session.load(Group.class, name);
 		if(group!=null){
@@ -107,7 +108,7 @@ public class GroupDAOImpl implements GroupDAO{
 	}
 
 	@Override
-	public void updateGroupAchievements(String name, ArrayList<Achievement> list) {
+	public void updateGroupAchievements(String name, HashSet<Achievement> list) {
 		Session session = factory.getCurrentSession();
 		Group group = (Group) session.load(Group.class, name);
 		if(group!=null){

@@ -34,11 +34,11 @@ public class BadgeDAOImpl implements BadgeDAO{
 	}
 
 	@Override
-	public void updateBadgeConditions(String name, ArrayList<BadgeCondition> list) {
+	public void updateBadgeConditions(String name, BadgeCondition condition) {
 		Session session = factory.getCurrentSession();
 		Badge bagde = (Badge) session.load(Badge.class, name);
 		if(bagde!=null){
-			bagde.setConditions(list);
+			bagde.getConditions().add(condition);
 			session.update(bagde);
 		}
 	}

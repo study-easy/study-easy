@@ -45,4 +45,10 @@ public class UserPinnServiceImpl implements UserPinnService{
 		
 	}
 
+	@Override
+	public void updateUserPinnOwner(String owner) {
+		updao.updateUserPinnOwner(owner);
+		
+	}
+
 }

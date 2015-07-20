@@ -28,8 +28,8 @@ public class BadgeServiceImpl implements BadgeService{
 	}
 
 	@Override
-	public void updateBadgeConditions(String name, ArrayList<BadgeCondition> arraylist) {
-		bdao.updateBadgeConditions(name, arraylist);
+	public void updateBadgeConditions(String name, BadgeCondition condition) {
+		bdao.updateBadgeConditions(name, condition);
 		
 	}
 

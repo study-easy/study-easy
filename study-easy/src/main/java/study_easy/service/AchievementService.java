@@ -9,6 +9,6 @@ public interface AchievementService {
 
 	public void addAchievement(Achievement achievement);
 	public List<Achievement> listAchievement();
-	public void updateAchievementConditions(String name, List<AchievementCondition> list);
+	public void updateAchievementConditions(String name, AchievementCondition condition);
 	public void deleteAchievement(String name);
 }

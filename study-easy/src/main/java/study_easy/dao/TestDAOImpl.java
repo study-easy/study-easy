@@ -1,6 +1,7 @@
 package study_easy.dao;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -55,7 +56,7 @@ public class TestDAOImpl implements TestDAO{
 	}
 
 	@Override
-	public void updateTestElements(int id, ArrayList<TestElement> tests) {
+	public void updateTestElements(int id, HashSet<TestElement> tests) {
 		Session session = factory.getCurrentSession();
 		Test test = (Test) session.load(Test.class, id);
 		if(test!=null){

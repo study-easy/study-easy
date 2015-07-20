@@ -6,6 +6,7 @@ import study_easy.sharedAttributes.AchievementCondition;
 import study_easy.sharedAttributes.ConditionTypes;
 
 public interface AchievementConditionService {
+	
 	public void addAchievementCondition(AchievementCondition condition);
 	public List<AchievementCondition> listAchievementCondition();
 	public void updateAchievementConditionName(int id, String name);

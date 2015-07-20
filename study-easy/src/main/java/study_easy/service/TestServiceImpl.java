@@ -1,6 +1,7 @@
 package study_easy.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class TestServiceImpl implements TestService{
 	}
 
 	@Override
-	public void updateTestElements(int id, ArrayList<TestElement> tests) {
+	public void updateTestElements(int id, HashSet<TestElement> tests) {
 		tdao.updateTestElements(id, tests);
 		
 	}

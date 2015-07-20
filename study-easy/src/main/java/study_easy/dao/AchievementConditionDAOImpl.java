@@ -99,4 +99,5 @@ public class AchievementConditionDAOImpl implements AchievementConditionDAO {
 			session.delete(condition);
 	}
 
+
 }
