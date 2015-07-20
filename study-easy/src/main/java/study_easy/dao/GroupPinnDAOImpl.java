@@ -2,8 +2,6 @@ package study_easy.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import study_easy.sharedAttributes.HistoryElement;
 import study_easy.sharedAttributes.PinnwallElement;
 
 @Repository
-@Transactional
 public class GroupPinnDAOImpl implements GroupPinnDAO{
 
 	@Autowired
@@ -34,22 +31,20 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 	}
 
 	@Override
-	public void updateGroupPinnHistory(String owner, HistoryElement element) {
+	public void updateGroupPinnHistory(String owner, List<HistoryElement> list) {
 		Session session = factory.getCurrentSession();
 		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
 		if(pinn!=null){
-			pinn.addHistoryElement(element);
-			session.update(owner);			
+			//TODO
 		}
 	}
 
 	@Override
-	public void updateGroupPinnEntries(String owner, PinnwallElement list) {
+	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list) {
 		Session session = factory.getCurrentSession();
 		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
 		if(pinn!=null){
-			pinn.addEntrie(list);
-			session.update(owner);
+			//TODO
 		}
 	}
 

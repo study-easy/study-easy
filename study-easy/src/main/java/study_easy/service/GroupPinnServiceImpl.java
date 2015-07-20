@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.GroupPinnDAOImpl;
 import study_easy.sharedAttributes.GroupPinn;
@@ -11,6 +12,7 @@ import study_easy.sharedAttributes.HistoryElement;
 import study_easy.sharedAttributes.PinnwallElement;
 
 @Service
+@Transactional
 public class GroupPinnServiceImpl implements GroupPinnService{
 
 	@Autowired
@@ -28,13 +30,13 @@ public class GroupPinnServiceImpl implements GroupPinnService{
 	}
 
 	@Override
-	public void updateGroupPinnHistory(String owner, HistoryElement list) {
+	public void updateGroupPinnHistory(String owner, List<HistoryElement> list) {
 		gpdao.updateGroupPinnHistory(owner, list);
 		
 	}
 
 	@Override
-	public void updateGroupPinnEntries(String owner, PinnwallElement list) {
+	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list) {
 		gpdao.updateGroupPinnEntries(owner, list);
 		
 	}

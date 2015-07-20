@@ -1,15 +1,18 @@
 package study_easy.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.UserPinnDAOImpl;
 import study_easy.sharedAttributes.PinnwallElement;
 import study_easy.sharedAttributes.UserPinn;
 
 @Service
+@Transactional
 public class UserPinnServiceImpl implements UserPinnService{
 
 	@Autowired
@@ -27,8 +30,8 @@ public class UserPinnServiceImpl implements UserPinnService{
 	}
 
 	@Override
-	public void updateUserPinnEntries(String owner, PinnwallElement entries) {
-		updao.updateUserPinnEntries(owner, entries);
+	public void updateUserPinnEntries(String owner, ArrayList<PinnwallElement> list) {
+		updao.updateUserPinnEntries(owner, list);
 		
 	}
 

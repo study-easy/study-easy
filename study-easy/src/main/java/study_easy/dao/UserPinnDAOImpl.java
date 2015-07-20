@@ -1,8 +1,7 @@
 package study_easy.dao;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,7 +12,6 @@ import study_easy.sharedAttributes.PinnwallElement;
 import study_easy.sharedAttributes.UserPinn;
 
 @Repository
-@Transactional
 public class UserPinnDAOImpl implements UserPinnDAO{
 
 	@Autowired
@@ -34,12 +32,11 @@ public class UserPinnDAOImpl implements UserPinnDAO{
 	}
 
 	@Override
-	public void updateUserPinnEntries(String owner, PinnwallElement entry) {
+	public void updateUserPinnEntries(String owner, ArrayList<PinnwallElement> list) {
 		Session session = factory.getCurrentSession();
 		UserPinn pinn = (UserPinn) session.load(UserPinn.class, owner);
 		if(pinn!=null){
-			pinn.addEntry(entry);
-			session.update(pinn);
+			//TODO
 		}
 	}
 
@@ -63,12 +60,8 @@ public class UserPinnDAOImpl implements UserPinnDAO{
 
 	@Override
 	public void updateUserPinnOwner(String owner) {
-		Session session = factory.getCurrentSession();
-		UserPinn pinn = (UserPinn) session.load(UserPinn.class, owner);
-		if(pinn!=null){
-			pinn.setOwner(owner);
-			session.update(pinn);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
 	

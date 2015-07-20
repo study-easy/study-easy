@@ -5,12 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.BadgeConditionDAOImpl;
 import study_easy.sharedAttributes.BadgeCondition;
 import study_easy.sharedAttributes.ConditionTypes;
 
 @Service
+@Transactional
 public class BadgeConditionServiceImpl implements BadgeConditionService{
 
 	@Autowired

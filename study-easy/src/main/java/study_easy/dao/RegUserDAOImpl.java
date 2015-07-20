@@ -2,8 +2,6 @@ package study_easy.dao;
 
 import java.util.*;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,7 +11,6 @@ import study_easy.users.RegUser;
 import org.hibernate.SessionFactory;
 
 @Repository
-@Transactional
 public class RegUserDAOImpl implements RegUserDAO{
 	
 	@Autowired
@@ -78,6 +75,7 @@ public class RegUserDAOImpl implements RegUserDAO{
 		Session session = factory.getCurrentSession();
 		RegUser user = (RegUser)session.load(RegUser.class, Username);
 		if(user!=null){
+			//TODO
 		}
 	}
 

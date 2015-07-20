@@ -1,5 +1,6 @@
 package study_easy.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import study_easy.sharedAttributes.Badge;

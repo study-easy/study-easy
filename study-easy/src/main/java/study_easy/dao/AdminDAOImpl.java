@@ -3,8 +3,6 @@ package study_easy.dao;
 import java.util.Date;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import study_easy.users.Admin;
 
 @Repository
-@Transactional
 public class AdminDAOImpl implements AdminDAO{
 
 	@Autowired

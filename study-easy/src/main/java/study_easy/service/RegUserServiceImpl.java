@@ -11,6 +11,7 @@ import study_easy.dao.RegUserDAO;
 import study_easy.users.RegUser;
 
 @Service
+@Transactional
 public class RegUserServiceImpl implements RegUserService {
 
 	@Override
@@ -20,13 +21,11 @@ public class RegUserServiceImpl implements RegUserService {
 	}
 
 	@Override
-	@Transactional
 	public List<RegUser> listRegUsers() {
 		return this.regUserDAO.listRegUsers();
 	}
 
 	@Override
-	@Transactional
 	public void deleteRegUser(String Username) {
 		this.regUserDAO.deleteRegUser(Username);
 	}

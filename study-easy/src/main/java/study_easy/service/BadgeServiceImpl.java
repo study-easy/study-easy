@@ -1,15 +1,18 @@
 package study_easy.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.BadgeDAOImpl;
 import study_easy.sharedAttributes.Badge;
 import study_easy.sharedAttributes.BadgeCondition;
 
 @Service
+@Transactional
 public class BadgeServiceImpl implements BadgeService{
 
 	@Autowired

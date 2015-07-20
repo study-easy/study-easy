@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.PinnwallElementDAOImpl;
 import study_easy.sharedAttributes.PinnwallElement;
 
 @Service
+@Transactional
 public class PinnwallElementServiceImpl implements PinnwallElementService{
 
 	@Autowired
@@ -39,8 +41,8 @@ public class PinnwallElementServiceImpl implements PinnwallElementService{
 	}
 
 	@Override
-	public void updatePinnwallElementComments(int id, PinnwallElement element) {
-		pedao.updatePinnwallElementComments(id, element);
+	public void updatePinnwallElementComments(int id, List<PinnwallElement> list) {
+		pedao.updatePinnwallElementComments(id, list);
 		
 	}
 

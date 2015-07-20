@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 import study_easy.sharedAttributes.AchievementCondition;
 import study_easy.sharedAttributes.ConditionTypes;
 
-@Repository
-@Transactional
 public interface AchievementConditionDAO {
 	
 	public void addAchievementCondition(AchievementCondition condition);

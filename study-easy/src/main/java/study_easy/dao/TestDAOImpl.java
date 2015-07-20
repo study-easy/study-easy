@@ -1,9 +1,8 @@
 package study_easy.dao;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-
-import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,7 +14,6 @@ import study_easy.groupFunctions.Test;
 import study_easy.groupFunctions.TestElement;
 
 @Repository
-@Transactional
 public class TestDAOImpl implements TestDAO{
 
 	@Autowired

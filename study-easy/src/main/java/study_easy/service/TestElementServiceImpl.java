@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.TestElementDAOImpl;
 import study_easy.groupFunctions.Subject;
 import study_easy.groupFunctions.TestElement;
 
 @Service
+@Transactional
 public class TestElementServiceImpl implements TestElementService{
 
 	@Autowired

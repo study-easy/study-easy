@@ -3,8 +3,6 @@ package study_easy.dao;
 import java.util.Date;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import study_easy.sharedAttributes.HistoryElement;
 
 @Repository
-@Transactional
 public class HistoryElementDAOImpl implements HistoryElementDAO{
 
 	@Autowired
@@ -34,22 +31,13 @@ public class HistoryElementDAOImpl implements HistoryElementDAO{
 
 	@Override
 	public void updateHistoryElementContent(int id, String content) {
-		Session session = factory.getCurrentSession();
-		HistoryElement historyElement = (HistoryElement) session.load(HistoryElement.class, id);
-		if(historyElement!=null){
-			historyElement.setDescription(content);
-			session.update(historyElement);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void updateHistoryElementDate(int id, Date date) {
-		Session session = factory.getCurrentSession();
-		HistoryElement historyElement = (HistoryElement) session.load(HistoryElement.class, id);
-		if(historyElement!=null){
-			historyElement.setDate(date);
-			session.update(historyElement);
-		}
+		// TODO Auto-generated method stub
 		
 	}
 

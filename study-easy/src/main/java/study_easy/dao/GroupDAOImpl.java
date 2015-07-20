@@ -3,8 +3,6 @@ package study_easy.dao;
 import java.util.HashSet;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import study_easy.sharedAttributes.GroupPinn;
 import study_easy.users.RegUser;
 
 @Repository
-@Transactional
 public class GroupDAOImpl implements GroupDAO{
 
 	@Autowired

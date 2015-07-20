@@ -1,10 +1,12 @@
 package study_easy.service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.GroupDAOImpl;
 import study_easy.groupFunctions.Combat;
@@ -14,6 +16,7 @@ import study_easy.sharedAttributes.GroupPinn;
 import study_easy.users.RegUser;
 
 @Service
+@Transactional
 public class GroupServiceImpl implements GroupService {
 
 	@Autowired
