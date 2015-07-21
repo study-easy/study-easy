@@ -14,15 +14,20 @@ body{
 	font-size: 17pt;
 	 color: #979797;
 }
-linksupport:visited {
+a.linksupport:visited {
 	text-decoration: none;
 		 color: #ffa726;
 	/*	 color: #979797; */
 }
-linksupport:hover {
+a.linksupport:hover {
 	text-decoration: none;
-	color: 58b7d5;
+	color: #58b7d5;
 }
+.linksupport:hover {
+	text-decoration: none;
+	color: #58b7d5;
+}
+
 .linksupport {
 		text-decoration: none;
 		 color: #ffa726;
