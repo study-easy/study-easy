@@ -63,9 +63,18 @@
 			<br/>
 			<span th:text="${groupDescription}">Leer</span><br/><br/></p>
 			<p> <span class="insideMainbodyHeadline">Pinnwand</span></p>
-			<div class="pinnwallFrame">
+			<div class="pinnwallFrame" style="border-top: 1px solid grey">
+			<form action="#" th:action="@{/profilchange}" th:object="${PinnwallElement}"
+				method="post">
 			<table class="pinnwall" id="groupPinnwall">
-			
+			<tr style="background-color: #FAFBFC; border:1px solid #979797">
+				<td class="inputName">Eintrag verfassen:
+				<input  th:field="*{entry}" class="inputfield" type="text" value=" " size="70" columns="2" placeholder="Was möchtest du posten?"/>
+				<button type="submit" class="buttons">
+								<span class="buttonName">Posten</span>
+							</button>
+				</td>
+			</tr>
 			<tr th:each="groupPinn : ${groupPinn}"></tr>
 			<tr><td>Eintrag</td></tr>
 			<tr><td>Eintrag</td></tr>
@@ -102,6 +111,7 @@
 			<tr><td>Eintrag</td></tr>
 			
 			</table>
+			</form>
 			</div>
 			
 		</div>

@@ -30,19 +30,18 @@
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
 			<div class="hellotext">
-				<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Mein Profil</span></a><br />
-				<a href="#" th:href="@{/profilchange}" class="linksupport">Profil bearbeiten</a><br />
-				<a href="#" th:href="@{/profilprivat}" class="linksupport">Pers&ouml;nliche Daten</a><br />
-				<a href="#" th:href="@{/games}" class="linksupport" >Spiele</a><br />
-				<table>
-					<tr>
-						<th>Meine Gruppen</th>
-					</tr>
-					<tr th:each="groupList : ${groupList}">
-					<td><a href="group" class="linksupport"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
+				<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+				<dl>
+				<dt><a href="#" th:href="@{/profilchange}" class="linksupport">Profil bearbeiten</a></dt>
+				<dt><a href="#" th:href="@{/games}" class="linksupport" >Spiele</a></dt>
+				
+				
+					<dt>Meine Gruppen</dt>
+						<dd th:each="groupList : ${groupList}">
+						<a href="group" class="linksupport"><span th:text="${groupList.name}">Keine Gruppen</span></a></dd>
 						<!--<th>Bsp</th>-->
-					</tr>
-				</table>
+					</dl>
+				
 			</div>
 
 

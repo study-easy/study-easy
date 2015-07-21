@@ -378,7 +378,8 @@ public class GreetingController {
 	@RequestMapping(value="/group", method=RequestMethod.GET)
 		public String showGroupInfo(@RequestParam (value="error", required=false, defaultValue= " ") String name, Model model) {
 		Group group = new Group();
-
+		PinnwallElement element = new PinnwallElement();
+		model.addAttribute("PinnwallElement", element);
 		model.addAttribute("groupName", "TestGruppe");
 		model.addAttribute("members", group.getUserList());
 		model.addAttribute("groupDescription", "Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.");
