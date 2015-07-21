@@ -27,7 +27,7 @@ public class Controller {
 		if (system == null) {
 			system = new Controller();
 			RegUserServiceImpl RUS = new RegUserServiceImpl();
-			system.regUserlist = RUS.listRegUsers();
+			system.regUserlist = RUS.listRegUsers();	
 			AdminServiceImpl AS = new AdminServiceImpl();
 			system.adminList = AS.listAdmin();
 			GroupServiceImpl GS = new GroupServiceImpl();

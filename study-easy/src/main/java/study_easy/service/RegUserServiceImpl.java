@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.RegUserDAO;
+import study_easy.dao.RegUserDAOImpl;
 import study_easy.users.RegUser;
 
 @Service
@@ -31,11 +32,7 @@ public class RegUserServiceImpl implements RegUserService {
 	}
 	
 	@Autowired
-	 private RegUserDAO regUserDAO;
-
-	 public void setRegUserDAO(RegUserDAO regUserDAO) {
-	  this.regUserDAO = regUserDAO;
-	 }
+	 private RegUserDAOImpl regUserDAO;
 
 	@Override
 	public void updateRegUserXP(String Username, int xpPoints) {

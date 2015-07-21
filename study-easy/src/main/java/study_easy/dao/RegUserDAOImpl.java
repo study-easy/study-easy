@@ -5,7 +5,6 @@ import java.util.*;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import study_easy.users.RegUser;
 
 import org.hibernate.SessionFactory;
@@ -25,7 +24,7 @@ public class RegUserDAOImpl implements RegUserDAO{
 	@Override
 	public List<RegUser> listRegUsers(){
 		Session session = factory.getCurrentSession();
-		List<RegUser> list = session.createQuery("FROM reguser").list();
+		List<RegUser> list = session.createQuery("from RegUser").list();
 		return list;
 		
 	}

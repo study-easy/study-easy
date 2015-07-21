@@ -27,18 +27,18 @@ public class RegUser extends User {
 	@NotNull
 	@Column
 	private int level;
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> quotes = new HashSet<String>();
 	@Column
 	private Date birthDate;
 	@NotNull
 	@Column
 	private boolean banned;
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<Badge> earnedBadges;
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	private UserPinn pinn;
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	public Set<String> groups = new HashSet<String>();
 
 	public boolean register(String password, String testPassword, String name) {
@@ -61,6 +61,8 @@ public class RegUser extends User {
 				pinn.setOwner(regUser.name);
 				regUser.pinn = pinn;
 				Controller.getSystem().getUserList().add(regUser);
+//				RegUserServiceImpl RUS = new RegUserServiceImpl();
+//				RUS.addRegUser(regUser);
 				return true;
 			}else{
 				return false;
