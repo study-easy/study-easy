@@ -6,6 +6,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import study_easy.service.AchievementServiceImpl;
+import study_easy.service.PinnwallElementServiceImpl;
 import study_easy.users.RegUser;
 
 @Entity
@@ -32,14 +34,19 @@ public class PinnwallElement {
 
 	public void setEntry(String entry) {
 		this.entry = entry;
+		PinnwallElementServiceImpl PE = new PinnwallElementServiceImpl();
+		PE.updatePinnwallElementContent(this.id, entry);
 	}
 
 	public Set<PinnwallElement> getComments() {
 		return comments;
+		
 	}
 
-	public void setComments(PinnwallElement comments) {
+	public void addComments(PinnwallElement comments) {
 		this.comments.add(comments);
+		PinnwallElementServiceImpl PE = new PinnwallElementServiceImpl();
+		PE.updatePinnwallElementComments(this.id, comments);
 	}
 
 	public RegUser getCreator() {
@@ -48,6 +55,7 @@ public class PinnwallElement {
 
 	public void setCreator(RegUser creator) {
 		this.creator = creator;
+		
 	}
 
 	public Date getDate() {
@@ -56,6 +64,8 @@ public class PinnwallElement {
 
 	public void setDate(Date date) {
 		this.date = date;
+		PinnwallElementServiceImpl PE = new PinnwallElementServiceImpl();
+		PE.updatePinnwallElementDate(this.id, date);
 	}
 
 	public void edit(PinnwallElement element) {
