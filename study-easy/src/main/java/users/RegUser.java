@@ -1,5 +1,7 @@
 package users;
-
+/*
+ * QUOTES zu normales String geändert
+ */
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +25,7 @@ public class RegUser extends User {
 	@NotNull
 	private int level;
 
-	private String[] quotes;
+	private String quotes;
 	@NotNull
 	private Date birthDate;
 	@NotNull
@@ -92,11 +94,11 @@ public class RegUser extends User {
 		this.level = level;
 	}
 
-	public String[] getQuotes() {
+	public String getQuotes() {
 		return quotes;
 	}
 
-	public void setQuotes(String[] quotes) {
+	public void setQuotes(String quotes) {
 		this.quotes = quotes;
 	}
 

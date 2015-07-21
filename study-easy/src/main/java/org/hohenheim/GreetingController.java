@@ -504,7 +504,7 @@ public class GreetingController {
 	 *##########################
 	 *15. COMBAT.HTML
 	 *Post Aufruf 
-	 *
+	 * 
 	 */
 	@RequestMapping(value="/combat", method=RequestMethod.POST)
     public String combatpost(@RequestParam(value="check", required=false) Boolean check
@@ -522,7 +522,7 @@ public class GreetingController {
 	@RequestMapping(value="/combattest",method=RequestMethod.GET)
 	public String combattest(Model model,
 			@RequestParam(value="nr", required=true) int nr) {
-	nr++ ;
+	nr++ ; 
 	RegUser reguser = new RegUser();
 	Group group = new Group();
 	Combat combat = new Combat ();	
@@ -535,7 +535,7 @@ public class GreetingController {
 	model.addAttribute("answer2", "Antwort2");
 	model.addAttribute("answer3", "Antwort3");
 	model.addAttribute("answer4", "Antwort4");
-	
+	 
 	return "combattest"; 
 	}
 	/*

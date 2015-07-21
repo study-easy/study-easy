@@ -61,18 +61,27 @@
 					<tr>
 						<td class="inputName">Hobbys: </td>
 					</tr>
-					<tr><!--
-						<td><input th:field="*{hobby}" style="height: 40px;" type="text" value="hobby" size="25"/>
-						</td> -->
-					</tr>
 					<tr><td>
 					  <textarea th:field="*{hobby}"  cols="35" rows="4" >Wird noch benötigt</textarea>
+					</td></tr>
+					<tr>
+						<td class="inputName">Zitate: </td>
+					</tr>
+					<tr><td>
+					  <textarea th:field="*{quotes}"  cols="35" rows="4" >Wird noch benötigt</textarea>
 					</td></tr>
 					<tr>
 						<td class="inputName">Geburtsdatum</td>
 					</tr>
 					<tr>
 						<td><input th:field="*{birthDate}" class="inputfield" type="date" value="2014-10-15" min="1900-10-01" max="2015-11-01" size="25"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="inputName">Neues Profilbild:</td>
+					</tr>
+					<tr>
+						<td><input type="file" size="30" class="inputfield"/>
 						</td>
 					</tr>
 					<tr>
