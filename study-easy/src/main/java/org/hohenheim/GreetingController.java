@@ -47,6 +47,7 @@ public class GreetingController {
 	 *15.Combat
 	 *16.COMBATTEST
 	 *17.GAMES
+	 *18. GroupHistory
 	 *GANZ UNTEN
 	 *FÜR PRÄSENTATION
 	 *-WELCOME
@@ -574,6 +575,18 @@ public class GreetingController {
 	model.addAttribute("name", "Testname");
 	return "games"; 
 	}
+	/*
+	 *##########################
+	 *18.GroupHistory
+	 *GET Aufruf 
+	 *
+	 */
+	@RequestMapping(value="/groupHistory", method=RequestMethod.GET)
+	public String showGroupHistory(@RequestParam (value="error" , required=false, defaultValue=" ") String name, Model model) {
+	model.addAttribute("groupHistory", "Verlauf");
+	model.addAttribute("groupName", "Gruppenname");
+	return "groupHistory";
+}
 	/*
 	 *##########################
 	 *FÜR PRÄSENTATION
