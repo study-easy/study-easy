@@ -18,9 +18,9 @@
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
-		<button type="submit" id="searchButton" style="margin-top:-15px;"><span id="searchText">GO</span>
+		<button type="submit" id="searchButton"><span id="searchText">GO</span>
 		</button>
-  		<input type="text" size="20" style="height: 20px; width: 180px;  margin-top:15px;" placeholder="Suche..."/>	
+  		<input type="text" size="20" style="height: 20px; width: 180px;  margin-top:13px;" placeholder="Suche..."/>	
 		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
@@ -70,7 +70,6 @@
 					</tr>
 				</table>
 			</form>
-			<p>hkhj</p>
 		</div>
 	</div>
 	<div class="footer">

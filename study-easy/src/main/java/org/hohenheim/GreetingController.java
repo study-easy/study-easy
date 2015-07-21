@@ -280,7 +280,7 @@ public class GreetingController {
 	
 	//System.out.println(name); 
 	return"test3";}
-	/*
+	/* 
 	 *##########################
 	 *7. SUPPORT.HTML
 	 *Get Aufruf
@@ -511,7 +511,7 @@ public class GreetingController {
     		) {
 	
        
-    return "redirect:/combat"; 
+    return "redirect:/combattest?nr=0"; 
 	} 
 	/*
 	 *##########################
@@ -520,7 +520,9 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/combattest",method=RequestMethod.GET)
-	public String combattest(Model model) {
+	public String combattest(Model model,
+			@RequestParam(value="nr", required=true) int nr) {
+	nr++ ;
 	RegUser reguser = new RegUser();
 	Group group = new Group();
 	Combat combat = new Combat ();	

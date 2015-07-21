@@ -45,15 +45,29 @@
 <div class="mainInsidefield">
 <form action="#" th:action="@{/combat}" th:object="${Combat}"
 				method="post">
-<table>
+<table class="hellotext">
 <tr>
-<td>Ergebnis des letzten Combats</td>
-<td>hier ergebnis stehen</td>
+<td>Ergebnis des letzten Combats: <span></span></td>
 </tr>
 <tr>
 <td><input type="button" th:field="combat"/><button type="submit" class="buttons">
 								<span class="buttonName" th:text="${status}">Combat</span>
 	</button><input type="file"/></td>
+</tr>
+<tr>
+<td>Achtung: Wenn du einen Combat startest</td>
+</tr>
+<tr>
+<td>oder beginnst zu bearbeiten musst du</td>
+</tr>
+<tr>
+<td>alle Fragen bearbeiten um gewinnen</td>
+</tr>
+<tr>
+<td>zu k&ouml;nnen.</td>
+</tr>
+<tr>
+<td>Jede Frage ist nur 1x bearbeitbar!</td>
 </tr>
 </table>
 </form>
