@@ -130,26 +130,88 @@ a.barbottom:visited {
 	bottom: 5px;
 	width: 500px;
 	height: 400px;
-	overflow: auto;
 
 }
 .pinnwall {
-	background-color: #D8D8D8;
+	/*background-color: #D8D8D8;*/
 	width: 500px;
 	height: 400px ;
 	word-break: break-all;
 	word-wrap:break-word;
-	border: 1px solid black;
-}
-table {
-	/*border: 1px solid black;*/
 	
 }
-th, td {
+
+#history { 
+	border-collapse: separate;
+	border-spacing: 3px; 
+}
+#history td {
 	border: 1px solid black;
-	border-collapse: collapse;
+	border-radius: 5px;
+	padding: 15px;
+}
+#history tr:nth-child(even) {
+	/*graue Zeile*/
+	background-color: #D9D9D9;
+	border: 1px solid black;
+}
+#history tr:nth-child(odd) {
+	/*blaue Zeile*/
+	background-color: #B0E5FF;
+	border: 1px solid black;
 	
 }
+#history tr:hover {
+	background-color: #58D3F7;
+}
+#history th {
+	
+	border: 1px solid black;
+}
+#groupPinnwall {
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+#groupPinnwall td {
+	border: #B0E2FF;
+	border-radius: 5px;
+	padding: 5px;
+}
+#groupPinnwall tr {
+	/*graue Zeile*/
+	background-color: #B0E2FF;
+	border: 1px #B0E2FF;
+}
+#groupPinnwall tr:hover {
+	background-color: #58D3F7;
+}
+#groupPinnwall th {
+	
+	border: 1px solid black;
+}
+#homePinnwall {
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+#homePinnwall td {
+	border: #B0E2FF;
+	border-radius: 5px;
+	padding: 5px;
+}
+#homePinnwall tr {
+	/*graue Zeile*/
+	background-color: #B0E2FF;
+	border: 1px #B0E2FF;
+}
+#homePinnwall tr:hover {
+	background-color: #58D3F7;
+}
+#homePinnwall th {
+	
+	border: 1px solid black;
+}
+
+
 .insideMainbodyHeadline {
 	font-size: 18pt;
 	color: #979797;

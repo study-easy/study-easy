@@ -50,18 +50,27 @@
 		<p>Willkommen <span th:text="${pinnwallOwner}">Max Mustermann</span>
 		<a><img src="resources/images/Profilbild.png" width="150" height="150" align="right"/></a></p>
 		<p th:text="${pinnwallOwner}">Max Mustermann</p>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<span class="insideMainbodyHeader">Pinnwand</span>
 		<div class="pinnwallFrame">
-		<table class="pinnwall">
-			<tr>
-				<th>CREATOR</th>
-				<th>ENTRY</th>
-				<th>DATE</th>
-			</tr>
+		<table class="pinnwall" id="homePinnwall">
+			
 			<tr th:each="userPinn : ${userPinn}">
-				<td th:text="${userPinn.creator}"></td>
-				<td th:text="${userPinn.entry}">2.41</td>
-				<td th:text="${userPinn.date}"></td>
+				<td>
+					<span th:text="${pinnwallOwner}"></span>
+					<br/>
+					<br/>
+					<span th:text="${userPinn.entry}"></span>
+					<br/>
+					<span th:text="${userPinn.date}"></span>
+				</td>
 			</tr>
+			<tr><td>Blabla</td></tr>
 		</table>
 		</div>
 		</div>

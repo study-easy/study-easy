@@ -1,5 +1,7 @@
 package org.hohenheim;
 
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -245,18 +247,22 @@ public class GreetingController {
 	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String home(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
 	UserPinn userPinn = new UserPinn();
-	//RegUser testUser = new RegUser();
-	//Group group = new Group();
-	//group.setName("TestGruppe");
-	//testUser.addToGroupList(group);
-	//testUser.addToGroupList(group);
-	//PinnwallElement e = new PinnwallElement();
-	//e.setEntry("Testeintrag");
-	//userPinn.addEntrie(e);
+	Date date = new Date();
+	date.setDate(20);
+	RegUser testUser = new RegUser();
+	Group group = new Group();
+	group.setName("TestGruppe");
+	testUser.addToGroupList(group);
+	testUser.addToGroupList(group);
+	PinnwallElement e = new PinnwallElement();
+	e.setEntry("Testeintrag");
+	e.setCreator(testUser);
+	e.setDate(date);
+	userPinn.addEntrie(e);
 	model.addAttribute("error", name);
 	model.addAttribute("userPinn", userPinn.getEntries());
-	//model.addAttribute("groupList", testUser.getGroupList());
-	//model.addAttribute("pinnwallOwner", userPinn.getOwner().getName());
+	model.addAttribute("groupList", testUser.getGroupList());
+	model.addAttribute("pinnwallOwner", "Hans");
 	model.addAttribute("pinnwallOwner", "Testuser 1");
 	return "home"; 
 	}
