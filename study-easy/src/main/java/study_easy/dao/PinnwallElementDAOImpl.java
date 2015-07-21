@@ -42,7 +42,7 @@ public class PinnwallElementDAOImpl implements PinnwallElementDAO{
 	}
 
 	@Override
-	public void updatePinnwallElementComments(int id, List<PinnwallElement> list) {
+	public void updatePinnwallElementComments(int id, PinnwallElement list) {
 		// TODO Auto-generated method stub
 		
 	}
