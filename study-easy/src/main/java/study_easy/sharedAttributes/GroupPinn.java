@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import study_easy.service.BadgeConditionServiceImpl;
 import study_easy.service.GroupPinnServiceImpl;
 
 @Entity
@@ -40,7 +41,7 @@ public class GroupPinn extends Pinnwall {
 	public void addEntrie(PinnwallElement entry) {
 		this.getEntries().add(entry);
 		GroupPinnServiceImpl GPS = new GroupPinnServiceImpl();
-		//GPS.updateGroupPinnEntries(this.owner, this.getEntries());
+		//GPS.updateGroupPinnEntries(this.owner, entry);
 	}
 
 	private Set<PinnwallElement> getEntries() {

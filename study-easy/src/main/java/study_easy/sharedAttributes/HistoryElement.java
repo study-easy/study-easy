@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 import study_easy.groupFunctions.Combat;
+import study_easy.service.BadgeConditionServiceImpl;
 import study_easy.service.GroupPinnServiceImpl;
 import study_easy.service.HistoryElementServiceImpl;
 import study_easy.system.Controller;
@@ -58,6 +59,8 @@ public class HistoryElement {
 
 	public void setDescription(String description) {
 		this.description = description;
+		HistoryElementServiceImpl HE = new HistoryElementServiceImpl();
+		HE.updateHistoryElementContent(this.id, description);
 	}
 
 	public Date getDate() {
@@ -66,6 +69,8 @@ public class HistoryElement {
 
 	public void setDate(Date date) {
 		this.date = date;
+		HistoryElementServiceImpl HE = new HistoryElementServiceImpl();
+		HE.updateHistoryElementDate(this.id, date);
 	}
 
 }
