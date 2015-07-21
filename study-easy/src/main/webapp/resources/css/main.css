@@ -15,11 +15,11 @@ body{
 	 color: #979797;
 }
 linksupport:visited {
-			text-decoration: none;
+	text-decoration: none;
 		 color: #ffa726;
 	/*	 color: #979797; */
 }
-#linksupport {
+.linksupport {
 		text-decoration: none;
 		 color: #ffa726;
 	/* color: #979797; */

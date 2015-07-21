@@ -35,21 +35,17 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" ><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" >Profil bearbeiten</a><br />
-	<a href="#" >Pers&ouml;nliche Daten</a><br />
-	<a href="#" th:href="@{/snake}">Snake</a><br />
-	<table>
-	<tr>
-		<td>Meine Gruppen</td>
-	</tr>
-<!-- 	<tr th:each="">
-		<th th:text="">Liste</th>
-	</tr>
---><tr>
-	<th>Bsp</th>
-	</tr>
-	</table>
+	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Mein Profil</span></a><br />
+				<a href="#" th:href="@{/games}" class="linksupport" >Spiele</a><br />
+				<table>
+					<tr>
+						<th>Meine Gruppen</th>
+					</tr>
+					<tr th:each="groupList : ${groupList}">
+					<td><a href="group"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
+						<!--<th>Bsp</th>-->
+					</tr>
+				</table>
 	</div>
 	
 

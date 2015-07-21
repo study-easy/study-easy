@@ -47,7 +47,7 @@ public class GreetingController {
 	 *15.Combat
 	 *16.COMBATTEST
 	 *17.GAMES
-	 *18. GroupHistory
+	 *18. GroupHistory 
 	 *GANZ UNTEN
 	 *FÜR PRÄSENTATION
 	 *-WELCOME

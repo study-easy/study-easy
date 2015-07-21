@@ -17,7 +17,7 @@
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo" id="activ">study-easy</a>
+		<a th:href="@{/home}" class="logo">study-easy</a>
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
@@ -32,14 +32,14 @@
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
 			<div class="hellotext">
-				<span th:text="${groupName}" class="linksupport" id="activ"></span>
-				<p>
-					<a th:href="@{/edit}" class="linksupport"><span th:text="Profil_bearbeiten"></span></a><br />
-					<a th:href="@{/members}" class="linksupport"><span th:text="Mitglieder"></span></a><br />
-					<a th:href="@{/groupHistory}" class="linksupport"><span th:text="Verlauf"></span></a><br />
-					<a th:href="@{/home}" class="linksupport"><span th:text="Combats"></span></a><br />
-					<a th:href="@{/data}" class="linksupport"><span th:text="Dateien"></span></a>
-				</p>
+			<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Mein Profil</span></a><br />
+			<a th:href="@{/group}" class="linksupport" id="activ"> <span th:text="${groupName}"></span></a>
+			<a th:href="@{/groupchange}" class="linksupport"><span th:text="Profil_bearbeiten"></span></a><br />
+			<a th:href="@{/members}" class="linksupport"><span th:text="Mitglieder"></span></a><br />
+			<a th:href="@{/groupHistory}" class="linksupport"><span th:text="Verlauf"></span></a><br />
+			<a th:href="@{/combat}" class="linksupport" >Combat</a><br />
+			<a th:href="@{/data}" class="linksupport"><span th:text="Dateien"></span></a>
+
 
 
 			</div>
