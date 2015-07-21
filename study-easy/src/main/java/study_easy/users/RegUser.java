@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import study_easy.service.RegUserServiceImpl;
 import study_easy.sharedAttributes.Badge;
 import study_easy.sharedAttributes.UserPinn;
-import study_easy.system.Controller;
+import study_easy.system.Functionals;
 
 @Entity
 @Table(name = "RegUser")
@@ -42,7 +42,7 @@ public class RegUser extends User {
 	public Set<String> groups = new HashSet<String>();
 
 	public boolean register(String password, String testPassword, String name) {
-		List<RegUser> userlist = Controller.getSystem().getUserList();
+		List<RegUser> userlist = Functionals.getSystem().getUserList();
 		boolean nameOccupied = false;
 		for (User user : userlist) {
 			if (user.name == name)
@@ -60,7 +60,7 @@ public class RegUser extends User {
 				UserPinn pinn = new UserPinn();
 				pinn.setOwner(regUser.name);
 				regUser.pinn = pinn;
-				Controller.getSystem().getUserList().add(regUser);
+				Functionals.getSystem().getUserList().add(regUser);
 //				RegUserServiceImpl RUS = new RegUserServiceImpl();
 //				RUS.addRegUser(regUser);
 				return true;

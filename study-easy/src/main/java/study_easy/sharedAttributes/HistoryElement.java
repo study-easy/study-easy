@@ -9,7 +9,7 @@ import javax.persistence.*;
 import study_easy.groupFunctions.Combat;
 import study_easy.service.GroupPinnServiceImpl;
 import study_easy.service.HistoryElementServiceImpl;
-import study_easy.system.Controller;
+import study_easy.system.Functionals;
 
 @Entity
 @Table(name = "HistoryElement")
@@ -42,8 +42,8 @@ public class HistoryElement {
 			this.description = this.description + "Er endete in einem Unentschieden. Beide Gruppen hatten insgesamnt "
 					+ combat.getChallengerRight() + " richtige Antworten";
 		
-		Controller.getSystem().findGroup(combat.getChallenger()).getPinnwall().addHistoryElement(this);
-		Controller.getSystem().findGroup(combat.getOpponent()).getPinnwall().addHistoryElement(this);
+		Functionals.getSystem().findGroup(combat.getChallenger()).getPinnwall().addHistoryElement(this);
+		Functionals.getSystem().findGroup(combat.getOpponent()).getPinnwall().addHistoryElement(this);
 		
 		HistoryElementServiceImpl HES = new HistoryElementServiceImpl();;
 		HES.addHistoryElement(this);

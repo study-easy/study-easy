@@ -14,9 +14,12 @@ import study_easy.users.RegUser;
 @Service
 @Transactional
 public class RegUserServiceImpl implements RegUserService {
+	
+	public RegUserServiceImpl(){
+		
+	}
 
 	@Override
-	@Transactional
 	public void addRegUser(RegUser user) {
 		this.regUserDAO.addRegUser(user);
 	}

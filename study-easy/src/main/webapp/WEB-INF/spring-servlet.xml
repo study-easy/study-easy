@@ -9,7 +9,8 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 
 	<!--enable automatic scanning for beans (@Controller @Service etc) -->
 	<context:component-scan base-package="study_easy"/>
-	<tx:annotation-driven />
+	<context:annotation-config/>
+	<tx:annotation-driven proxy-target-class="true"/>
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<!--enable the thymeleaf framework -->

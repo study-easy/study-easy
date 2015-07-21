@@ -9,14 +9,14 @@ import javax.persistence.Table;
 import study_easy.service.AdminServiceImpl;
 import study_easy.service.UserPinnServiceImpl;
 import study_easy.sharedAttributes.UserPinn;
-import study_easy.system.Controller;
+import study_easy.system.Functionals;
 
 @Entity
 @Table(name = "Admin")
 public class Admin extends User {
 
 	protected void deleteUser(String name) {
-		List<RegUser> userlist = Controller.getSystem().getUserList();
+		List<RegUser> userlist = Functionals.getSystem().getUserList();
 		for (RegUser user : userlist) {
 			if (user.getName() == name)
 				user = null;
@@ -24,7 +24,7 @@ public class Admin extends User {
 	}
 
 	protected void banUser(String name) {
-		List<RegUser> userlist = Controller.getSystem().getUserList();
+		List<RegUser> userlist = Functionals.getSystem().getUserList();
 		for (RegUser user : userlist) {
 			if (user.getName() == name && user.isBanned() == false)
 				user.setBanned(true);
@@ -32,7 +32,7 @@ public class Admin extends User {
 	}
 
 	protected void unBanUser(String name) {
-		List<RegUser> userlist = Controller.getSystem().getUserList();
+		List<RegUser> userlist = Functionals.getSystem().getUserList();
 		for (RegUser user : userlist) {
 			if (user.getName() == name && user.isBanned() == true)
 				user.setBanned(false);
@@ -44,7 +44,7 @@ public class Admin extends User {
 		newAdmin.name = name;
 		newAdmin.password = password;
 		newAdmin.registeredSince = new Date();
-		Controller.getSystem().getAdminList().add(newAdmin);
+		Functionals.getSystem().getAdminList().add(newAdmin);
 		AdminServiceImpl AS = new AdminServiceImpl();
 		AS.addAdmin(newAdmin);
 
@@ -67,12 +67,12 @@ public class Admin extends User {
 	}
 
 	public static void createStandardAdmin() {
-		if (Controller.getSystem().getAdminList().isEmpty()) {
+		if (Functionals.getSystem().getAdminList().isEmpty()) {
 			Admin standard = new Admin();
 			standard.setName("standard");
 			standard.setPassword("admin123");
 
-			Controller.getSystem().getAdminList().add(standard);
+			Functionals.getSystem().getAdminList().add(standard);
 			AdminServiceImpl AS = new AdminServiceImpl();
 			AS.addAdmin(standard);
 		}

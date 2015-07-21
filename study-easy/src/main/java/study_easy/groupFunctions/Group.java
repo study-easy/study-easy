@@ -12,7 +12,7 @@ import study_easy.sharedAttributes.Achievement;
 import study_easy.sharedAttributes.Badge;
 import study_easy.sharedAttributes.GroupPinn;
 import study_easy.sharedAttributes.HistoryElement;
-import study_easy.system.Controller;
+import study_easy.system.Functionals;
 import study_easy.users.RegUser;
 
 @Entity
@@ -175,33 +175,33 @@ public class Group {
 	public void finishCombat(Combat combat) {
 		// TODO fertig?
 		if (combat.getChallengerNames().isEmpty() && combat.getOpponentNames().isEmpty()) {
-			Controller.getSystem().findGroup(combat.getChallenger()).getCurrentCombats().remove(combat);
-			for (RegUser user : Controller.getSystem().findGroup(combat.getChallenger()).getUserList()) {
-				for (Badge badge : Controller.getSystem().getBadgeList()) {
-					Controller.awardBadge(badge, user);
+			Functionals.getSystem().findGroup(combat.getChallenger()).getCurrentCombats().remove(combat);
+			for (RegUser user : Functionals.getSystem().findGroup(combat.getChallenger()).getUserList()) {
+				for (Badge badge : Functionals.getSystem().getBadgeList()) {
+					Functionals.awardBadge(badge, user);
 				}
-				Controller.getSystem().giveXP(user, combat.getChallengerRight());
-				Controller.levelUpUser(user);
+				Functionals.getSystem().giveXP(user, combat.getChallengerRight());
+				Functionals.levelUpUser(user);
 
 			}
-			for (Achievement achievement : Controller.getSystem().getAchievementList()) {
-				if (achievement.conditionsTrue(Controller.getSystem().findGroup(combat.getChallenger())))
-					Controller.getSystem().findGroup(combat.getChallenger()).achievements.add(achievement);
+			for (Achievement achievement : Functionals.getSystem().getAchievementList()) {
+				if (achievement.conditionsTrue(Functionals.getSystem().findGroup(combat.getChallenger())))
+					Functionals.getSystem().findGroup(combat.getChallenger()).achievements.add(achievement);
 				// TODO speichern
 			}
 
-			Controller.getSystem().findGroup(combat.getOpponent()).getCurrentCombats().remove(combat);
+			Functionals.getSystem().findGroup(combat.getOpponent()).getCurrentCombats().remove(combat);
 
-			for (RegUser user : Controller.getSystem().findGroup(combat.getOpponent()).getUserList()) {
-				for (Badge badge : Controller.getSystem().getBadgeList()) {
-					Controller.awardBadge(badge, user);
+			for (RegUser user : Functionals.getSystem().findGroup(combat.getOpponent()).getUserList()) {
+				for (Badge badge : Functionals.getSystem().getBadgeList()) {
+					Functionals.awardBadge(badge, user);
 				}
-				Controller.getSystem().giveXP(user, combat.getOpponentRight());
-				Controller.levelUpUser(user);
+				Functionals.getSystem().giveXP(user, combat.getOpponentRight());
+				Functionals.levelUpUser(user);
 			}
-			for (Achievement achievement : Controller.getSystem().getAchievementList()) {
-				if (achievement.conditionsTrue(Controller.getSystem().findGroup(combat.getOpponent())))
-					Controller.getSystem().findGroup(combat.getOpponent()).achievements.add(achievement);
+			for (Achievement achievement : Functionals.getSystem().getAchievementList()) {
+				if (achievement.conditionsTrue(Functionals.getSystem().findGroup(combat.getOpponent())))
+					Functionals.getSystem().findGroup(combat.getOpponent()).achievements.add(achievement);
 				// TODO speichern
 			}
 			HistoryElement element = new HistoryElement(combat);

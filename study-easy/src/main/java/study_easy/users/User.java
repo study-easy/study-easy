@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 
 import study_easy.service.AdminServiceImpl;
 import study_easy.service.RegUserServiceImpl;
-import study_easy.system.Controller;
+import study_easy.system.Functionals;
 
 @MappedSuperclass
 public abstract class User {
@@ -41,8 +41,8 @@ public abstract class User {
 	String sicherheitsfragecheck;
 
 	public boolean signIn(String password, String name) {
-		List<RegUser> regUserlist = Controller.getSystem().getUserList();
-		List<Admin> adminlist = Controller.getSystem().getAdminList();
+		List<RegUser> regUserlist = Functionals.getSystem().getUserList();
+		List<Admin> adminlist = Functionals.getSystem().getAdminList();
 		String comparePassword = null;
 		for (User user : regUserlist) {
 			if (user.getName().equals(name)) {

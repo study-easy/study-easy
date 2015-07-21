@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 import study_easy.service.CombatServiceImpl;
 import study_easy.service.GroupServiceImpl;
-import study_easy.system.Controller;
+import study_easy.system.Functionals;
 import study_easy.users.RegUser;
 
 @Entity
@@ -73,14 +73,14 @@ public class Combat {
 		this.challenger = challenger;
 		this.opponent = opponent;
 		this.test = test;
-		Controller.getSystem().findGroup(challenger).getCurrentCombats().add(this);
-		Controller.getSystem().findGroup(opponent).getCurrentCombats().add(this);
+		Functionals.getSystem().findGroup(challenger).getCurrentCombats().add(this);
+		Functionals.getSystem().findGroup(opponent).getCurrentCombats().add(this);
 		this.opponentRight = 0;
 		this.challengerRight = 0;
-		for (RegUser user : Controller.getSystem().findGroup(challenger).getUserList()) {
+		for (RegUser user : Functionals.getSystem().findGroup(challenger).getUserList()) {
 			this.challengerNames.add(user.getName());
 		}
-		for (RegUser user : Controller.getSystem().findGroup(opponent).getUserList()) {
+		for (RegUser user : Functionals.getSystem().findGroup(opponent).getUserList()) {
 			this.challengerNames.add(user.getName());
 		}
 
