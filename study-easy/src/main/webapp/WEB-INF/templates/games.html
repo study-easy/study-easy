@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>study-easy</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="resources/css/main.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/home.css" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
+</head>
+<body style="background-image: url(resources/images/tafel.jpg);
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+   -o-background-size: cover;
+    background-position: center center; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;">
+ <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
+<div class="header" id="inside">
+		<div id="support">
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
+		</div>
+		<a th:href="@{/home}" class="logo" id="activ">study-easy</a>
+		
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
+		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
+		<button type="submit" id="searchButton" style="margin-top:-10px;"><span id="searchText">GO</span>
+		</button>
+  		<input type="text" size="20" style="height: 20px; width: 200px;  margin-top:15px;" placeholder="Suche..."/>	
+		</form>
+		<div id="logout">
+		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
+		</div>
+</div>
+<div class="mainbody" id="insidefield">
+<div class="menufield">
+	<div class="hellotext">
+	<a href="#" th:href="@{/profil}" class="linksupport" ><span th:text="${name}">
+	Mein Profil</span></a><br />
+	<a href="#" th:href="@{/games}" class="linksupport" id="activ">Spiele</a><br />
+	<table>
+	<tr>
+		<td>Meine Gruppen</td>
+	</tr>
+<!-- 	<tr th:each="">
+		<th th:text="">Liste</th>
+	</tr>
+--><tr>
+	<th>Bsp</th>
+	</tr>
+	</table>
+	</div>
+	
+
+</div>
+<div class="mainInsidefield">
+<table>
+<tr><td><a href="#" th:href="@{/snake}"><img src="resources/images/snakelogodunkel.png" width="100" height="100"/></a>
+</td></tr>
+<tr><td><a href="#" th:href="@{/snake}" class="linksupport">Snake</a>
+</td></tr>
+</table>
+</div>
+</div>
+<div class="footer">
+		
+		<p>[Foto: <a class="barbottom"
+				href="https://www.flickr.com/photos/eflon/8743593650/in/photolist-ejDcLE-7CXAFs-5f12UX-66DNTm-8DBeHu-u7Kox4-48gJ8a-utYpD-qya12-aoUijf-5rLNHy-8sbsWD-5rWxfB-kbvXU-sfGx6-sfFUe-sfF85-9pySMg-nt9qBc-4Q8N1i-7v4ENF-4Jz3fS-4JuNzc-4Jz2KJ-4Jz2GL-nt9qd6-pdkRm1-aRz3b4-8yLnax-7UtbFe-6qwzjT-a9GaMX-rwgSJK-9yjAXz-21mK7-8aHhds-6ZCUh-ciL5S5-nzfe54-8Dz8cn-nbAtrV-5HDt5Y-i2WtQK-i2WsTz-9ynAis-i2WtsR-i2WGjy-i2WG1C-i2WG2E-i2XpiK"
+				target="_blank">Alex</a> CC by 
+			<a class="barbottom" href="https://creativecommons.org/licenses/by/2.0/"
+				target="_blank">2.0
+				</a> ]
+				<a th:href="@{/privacy}" target="_blank" class="barbottom">Rechtliches
+				</a> 
+		</p>
+	</div>
+</body>        
+</html>

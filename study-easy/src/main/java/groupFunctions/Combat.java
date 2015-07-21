@@ -47,6 +47,10 @@ public class Combat {
 		this.corrector.getCombatNotifications().add(0, this.notificationToCorrector);
 	}
 
+	public Combat() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Test getTest() {
 		return this.test;
 	}

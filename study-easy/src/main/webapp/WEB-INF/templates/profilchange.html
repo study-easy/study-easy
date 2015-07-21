@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/home.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
 <link rel="icon" type="image/vnd.microsoft.icon"
 	href="resources/images/sopra.ico" />
 </head>
@@ -29,55 +29,64 @@
 </div>
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
-			<div class="hellotext">
-				<a href="#" th:href="@{/profil}" class="linksupport" ><span th:text="${name}">
-				Mein Profil</span></a><br />
-				<a href="#" th:href="@{/games}" class="linksupport" >Spiele</a><br />
+		<div class="hellotext">
+		<a href="#" th:href="@{/home}" class="linksupport">Startseite</a><br />
+	<a href="#" th:href="@{/profil}" class="linksupport"><span th:text="${name}">Meine</span></a><br />
+	<a href="#" th:href="@{/profilchange}" class="linksupport" id="activ">Profil bearbeiten</a><br />
+	<a href="#" th:href="@{/profilprivat}" class="linksupport">Pers&ouml;nliche Daten</a><br />
+	<p>Meine Gruppen</p>
+	
+	
+</div>
+</div>
+		<div class="mainInsidefield">
+			<!-- passwort, email, sicherheitsfrage, -->
+			<!-- schule, hobby, geburtsdatum,  -->
+			<form action="#" th:action="@{/profilchange}" th:object="${RegUser}"
+				method="post">
 				<table>
 					<tr>
-						<th>Meine Gruppen</th>
+						<td class="inputName">Deine Mailadresse:</td>
 					</tr>
-					<tr th:each="groupList : ${groupList}">
-					<td><a href="group"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
-						<!--<th>Bsp</th>-->
+					<tr>
+						<td><input  th:field="*{email}" class="inputfield" type="email" value="email" size="30"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="inputName">Schule/Ausbildung:</td>
+					</tr>
+					<tr>
+						<td><textarea th:field="*{school}"  cols="35" rows="4">
+					</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="inputName">Hobbys: </td>
+					</tr>
+					<tr><!--
+						<td><input th:field="*{hobby}" style="height: 40px;" type="text" value="hobby" size="25"/>
+						</td> -->
+					</tr>
+					<tr><td>
+					  <textarea th:field="*{hobby}"  cols="35" rows="4">
+					</textarea>
+					</td></tr>
+					<tr>
+						<td class="inputName">Geburtsdatum</td>
+					</tr>
+					<tr>
+						<td><input th:field="*{birthDate}" class="inputfield" type="date" value="2014-10-15" min="1900-10-01" max="2015-11-01" size="25"/>
+						</td>
+					</tr>
+					<tr>
+						<td><button type="submit" class="buttons">
+								<span class="buttonName">Daten sichern</span>
+							</button></td>
 					</tr>
 				</table>
-			</div>
-
-
+			</form>
 		</div>
-		<!-- Pinnwand mit Einträgen im Mainbody 
-		<div class="insideMainbody"> -->
-		<div class="mainInsidefield">
-		<p>Willkommen <span th:text="${pinnwallOwner}">Max Mustermann</span>
-		<a><img src="resources/images/Profilbild.png" width="150" height="150" align="right"/></a></p>
-		<p th:text="${pinnwallOwner}">Max Mustermann</p>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<span class="insideMainbodyHeader">Pinnwand</span>
-		<div class="pinnwallFrame">
-		<table class="pinnwall" id="homePinnwall">
-			
-			<tr th:each="userPinn : ${userPinn}">
-				<td>
-					<span th:text="${pinnwallOwner}"></span>
-					<br/>
-					<br/>
-					<span th:text="${userPinn.entry}"></span>
-					<br/>
-					<span th:text="${userPinn.date}"></span>
-				</td>
-			</tr>
-			<tr><td>Blabla</td></tr>
-		</table>
-		</div>
-		</div>
-		</div>
-		
+	</div>
 	<div class="footer">
 
 		<p>
@@ -90,4 +99,5 @@
 		</p>
 	</div>
 </body>
+
 </html>

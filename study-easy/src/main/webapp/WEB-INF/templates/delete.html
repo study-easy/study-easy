@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/home.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
 <link rel="icon" type="image/vnd.microsoft.icon"
 	href="resources/images/sopra.ico" />
 </head>
@@ -26,58 +26,53 @@
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
-</div>
+	</div>
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
-			<div class="hellotext">
-				<a href="#" th:href="@{/profil}" class="linksupport" ><span th:text="${name}">
-				Mein Profil</span></a><br />
-				<a href="#" th:href="@{/games}" class="linksupport" >Spiele</a><br />
+			<a href="#" th:href="@{/profil}"><span th:text="${name}">Mein
+					Profil</span></a><br /> <a href="#" th:href="@{/profilchange}">Profil
+				bearbeiten</a><br /> <a href="#" th:href="@{/profilprivat}">Pers&ouml;nliche
+				Daten</a><br />
+			<p>Meine Gruppen</p>
+
+
+
+		</div>
+		<div class="mainInsidefield">
+			<form action="#" th:action="@{/delete}" th:object="${RegUser}"
+				method="post">
+				<p class="hellotext">Achtung, Du m&ouml;chtest anscheind dein Profil
+					l&ouml;schen. Bitte beachte wenn du dein Account l&ouml;scht passiert
+					folgendes:</p>
+				<ol class="hellotext">
+					<li>Du verlierst wertvolle soziale Kontakte</li>
+					<li>Wir werden weinen</li>
+					<li>Deine Kontake werden weinen</li>
+					<li>Du kannst auf deine Daten nicht mehr zugreifen</li>
+				</ol>
 				<table>
+
 					<tr>
-						<th>Meine Gruppen</th>
+						<td><a th:href="@{/home}" class="hellotext" style="text-decoration: none;">Profil heldenhaft retten</a></td>
 					</tr>
-					<tr th:each="groupList : ${groupList}">
-					<td><a href="group"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
-						<!--<th>Bsp</th>-->
+					<tr>
+						<td class="hellotext" style="border-top: 1px solid #979797;">Ich gehe die schlimmen</td>
+					</tr>
+					<tr>
+						<td class="hellotext">Risiken ein <input type="checkbox" th:field="*{check}"/></td>
+					</tr>
+					<tr>
+						<td><button type="submit" class="buttons">
+								<span class="buttonName">Unwiderruflich l&ouml;schen</span>
+							</button></td>
 					</tr>
 				</table>
-			</div>
+
+			</form>
 
 
 		</div>
-		<!-- Pinnwand mit Einträgen im Mainbody 
-		<div class="insideMainbody"> -->
-		<div class="mainInsidefield">
-		<p>Willkommen <span th:text="${pinnwallOwner}">Max Mustermann</span>
-		<a><img src="resources/images/Profilbild.png" width="150" height="150" align="right"/></a></p>
-		<p th:text="${pinnwallOwner}">Max Mustermann</p>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<span class="insideMainbodyHeader">Pinnwand</span>
-		<div class="pinnwallFrame">
-		<table class="pinnwall" id="homePinnwall">
-			
-			<tr th:each="userPinn : ${userPinn}">
-				<td>
-					<span th:text="${pinnwallOwner}"></span>
-					<br/>
-					<br/>
-					<span th:text="${userPinn.entry}"></span>
-					<br/>
-					<span th:text="${userPinn.date}"></span>
-				</td>
-			</tr>
-			<tr><td>Blabla</td></tr>
-		</table>
-		</div>
-		</div>
-		</div>
-		
+	</div>
 	<div class="footer">
 
 		<p>
@@ -90,4 +85,5 @@
 		</p>
 	</div>
 </body>
+
 </html>

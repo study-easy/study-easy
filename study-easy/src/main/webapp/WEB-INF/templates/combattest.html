@@ -27,57 +27,71 @@
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
 </div>
+	</div>
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
 			<div class="hellotext">
-				<a href="#" th:href="@{/profil}" class="linksupport" ><span th:text="${name}">
-				Mein Profil</span></a><br />
-				<a href="#" th:href="@{/games}" class="linksupport" >Spiele</a><br />
+				<a href="#" th:href="@{/home}" class="linksupport">Startseite</a><br />
+				<a href="#" th:href="@{/profil}" class="linksupport"><span
+					th:text="${name}">Mein Profil</span></a><br /> <a href="#"
+					th:href="@{/group}" class="linksupport" id="activ"><span
+					th:text="${name}">gruppenname</span></a><br />
 				<table>
 					<tr>
-						<th>Meine Gruppen</th>
+						<td>Fragen</td>
 					</tr>
-					<tr th:each="groupList : ${groupList}">
-					<td><a href="group"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
-						<!--<th>Bsp</th>-->
+					<!-- 	<tr th:each="">
+		<th th:text="">Liste</th>
+	</tr>
+-->
+					<tr>
+						<th>Bsp</th>
 					</tr>
 				</table>
 			</div>
 
 
 		</div>
-		<!-- Pinnwand mit Einträgen im Mainbody 
-		<div class="insideMainbody"> -->
 		<div class="mainInsidefield">
-		<p>Willkommen <span th:text="${pinnwallOwner}">Max Mustermann</span>
-		<a><img src="resources/images/Profilbild.png" width="150" height="150" align="right"/></a></p>
-		<p th:text="${pinnwallOwner}">Max Mustermann</p>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<span class="insideMainbodyHeader">Pinnwand</span>
-		<div class="pinnwallFrame">
-		<table class="pinnwall" id="homePinnwall">
-			
-			<tr th:each="userPinn : ${userPinn}">
-				<td>
-					<span th:text="${pinnwallOwner}"></span>
-					<br/>
-					<br/>
-					<span th:text="${userPinn.entry}"></span>
-					<br/>
-					<span th:text="${userPinn.date}"></span>
-				</td>
-			</tr>
-			<tr><td>Blabla</td></tr>
-		</table>
+			<form action="#" th:action="@{/combattest}"
+				th:object="${TestElement}" method="post">
+				<table>
+					<tr>
+						<td class="inputName"><span th:text="${task}">Frage</span></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" th:field="*{check}" /><span
+							th:text="${answer1}" class="inputName" style="border: none;">Antwort</span>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" th:field="*{check2}" /><span
+							th:text="${answer2}" class="inputName" style="border: none;">Antwort</span>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" th:field="*{check3}" /><span
+							th:text="${answer3}" class="inputName" style="border: none;">Antwort</span>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" th:field="*{check4}" /><span
+							th:text="${answer4}" class="inputName" style="border: none;">Antwort</span>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<button type="submit" class="buttons">
+								<span class="buttonName">Speichern</span>
+							</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+
 		</div>
-		</div>
-		</div>
-		
+	</div>
 	<div class="footer">
 
 		<p>
