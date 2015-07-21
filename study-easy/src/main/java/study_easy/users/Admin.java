@@ -70,7 +70,7 @@ public class Admin extends User {
 		if (Controller.getSystem().getAdminList().isEmpty()) {
 			Admin standard = new Admin();
 			standard.setName("standard");
-			standard.setPassword("pissOff");
+			standard.setPassword("admin123");
 
 			Controller.getSystem().getAdminList().add(standard);
 			AdminServiceImpl AS = new AdminServiceImpl();
