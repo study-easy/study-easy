@@ -4,7 +4,6 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
 <link rel="icon" type="image/vnd.microsoft.icon"
 	href="resources/images/sopra.ico" />
 </head>
@@ -19,9 +18,9 @@
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
-		<button type="submit" id="searchButton" style="margin-top:-10px;"><span id="searchText">GO</span>
+		<button type="submit" id="searchButton" style="margin-top:-15px;"><span id="searchText">GO</span>
 		</button>
-  		<input type="text" size="20" style="height: 20px; width: 200px;  margin-top:15px;" placeholder="Suche..."/>	
+  		<input type="text" size="20" style="height: 20px; width: 180px;  margin-top:15px;" placeholder="Suche..."/>	
 		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
@@ -29,47 +28,39 @@
 </div>
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
+		<div class="hellotext">
 		<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Mein Profil</span></a><br />
-			<a th:href="@{/group}" class="linksupport" > <span th:text="${groupName}"></span></a>
-			<a th:href="@{/groupchange}" class="linksupport" id="activ"><span th:text="Profil_bearbeiten"></span></a><br />
+			<a th:href="@{/group}" class="linksupport" > <span th:text="${groupName}"></span></a><br />
+			<a th:href="@{/groupchange}" class="linksupport" id="activ"><span th:text="Gruppe_bearbeiten"></span></a><br />
 			<a th:href="@{/members}" class="linksupport"><span th:text="Mitglieder"></span></a><br />
 			<a th:href="@{/groupHistory}" class="linksupport"><span th:text="Verlauf"></span></a><br />
 			<a th:href="@{/combat}" class="linksupport" >Combat</a><br />
 			<a th:href="@{/data}" class="linksupport"><span th:text="Dateien"></span></a>
 
 
-
+		</div>
 		</div>
 		<div class="mainInsidefield">
 			<!-- beschreibung, Sige, Niederlage, K/D, Siegstreak -->
 			<!-- schule, hobby, geburtsdatum,  -->
-			<form action="#" th:action="@{/profilchange}" th:object="${RegUser}"
+			<form action="#" th:action="@{/profilchange}" th:object="${Group}"
 				method="post">
 				<table>
 					<tr>
-						<td><span>Gruppenname</span></td>
+						<td class="inputName"><span th:text="${groupName}">Gruppenname</span></td>
 					</tr>
 					<tr>
-						<td>Gruppenname</td>
+						<td><input  th:field="*{name}" class="inputfield" type="text" value="${groupName}" size="30"/>
+						</td>
 					</tr>
 					<tr>
-						<td>Bisher:</td>
-						<td></td>
+						<td class="inputName">Beschreibung</td>
 					</tr>
 					<tr>
-						<td>Neu:</td>
-						<td><input type="text"/></td>
-					</tr>
-					<tr>
-						<td>Beschreibung</td>
-					</tr>
-					<tr>
-						<td>Bisher:</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>Neu:</td>
-						<td><input type="text"/></td>
+						<td>
+					 	 <textarea th:field="*{description}"  cols="35" rows="4">
+						</textarea>
+						</td>
 					</tr>
 					
 					<tr>

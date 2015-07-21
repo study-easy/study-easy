@@ -33,7 +33,7 @@ public class GreetingController {
 	 *1. Startseite mit Login
 	 *2. Regstrierseite
 	 *3. Password vergessen
-	 *4. Profil  
+	 *4. Groupchange  
 	 *5. Rechtliches
 	 *6. Home
 	 *7. Support
@@ -211,35 +211,27 @@ public class GreetingController {
     }
 	/*
 	 *##########################
-	 *4. PROFIL.HTML WKOMMT RAUS
+	 *4. Groupchange
 	 *Get Aufruf
 	 *
 	 */
-	@RequestMapping(value="/profil", method=RequestMethod.GET)
+	@RequestMapping(value="/groupchange", method=RequestMethod.GET)
     public String profil(Model model,
     		@RequestParam(value="error", required=false, defaultValue="null") String error) {
             RegUser reguser = new RegUser(); 
+            Group group = new Group();
 			//model.addAttribute("RegUser", new RegUser());
-             model.addAttribute("RegUser", reguser);         
-             System.out.println("Profil");
-             if (error.length() < 5){
-            	 error ="";
-            	 model.addAttribute("error", error);
-             } else {
-            	 error ="Sie haben einen Error"; 
-            	 model.addAttribute("error", error);
-             }
+             model.addAttribute("RegUser", reguser);
+             model.addAttribute("Group", group);
+             model.addAttribute("groupName", "Testgruppe");
+             model.addAttribute("name", "Testnutzer");
+             System.out.println("Groupchange");
+ 
              
             
-        return "profil"; 
+        return "groupchange"; 
     }
-	/*
-	 *##########################
-	 *PROFIL.HTML
-	 *POST Aufruf
-	 * 
-	 * 
-	 */
+	 
 	
 	/*
 	 *##########################
