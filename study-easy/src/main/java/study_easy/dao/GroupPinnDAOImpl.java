@@ -31,7 +31,7 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 	}
 
 	@Override
-	public void updateGroupPinnHistory(String owner, List<HistoryElement> list) {
+	public void updateGroupPinnHistory(String owner, HistoryElement list) {
 		Session session = factory.getCurrentSession();
 		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
 		if(pinn!=null){
@@ -40,7 +40,7 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 	}
 
 	@Override
-	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list) {
+	public void updateGroupPinnEntries(String owner, PinnwallElement list) {
 		Session session = factory.getCurrentSession();
 		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
 		if(pinn!=null){

@@ -10,8 +10,8 @@ public interface GroupPinnService {
 	
 	public void addGroupPinn(GroupPinn pinn);
 	public List<GroupPinn> listGroupPinn();
-	public void updateGroupPinnHistory(String owner, List<HistoryElement> list);
-	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list);
+	public void updateGroupPinnHistory(String owner, HistoryElement list);
+	public void updateGroupPinnEntries(String owner, PinnwallElement list);
 	public void updateGroupPinnBan(String owner, boolean ban);
 	public void deleteGroupPinn(String owner);
 
