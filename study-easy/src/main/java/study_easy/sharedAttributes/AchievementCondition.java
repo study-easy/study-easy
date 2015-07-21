@@ -2,6 +2,9 @@ package study_easy.sharedAttributes;
 
 import javax.persistence.*;
 
+import study_easy.service.AchievementConditionServiceImpl;
+import study_easy.service.AchievementServiceImpl;
+
 @Entity
 @Table(name = "AchievementCondition")
 @Embeddable
@@ -30,6 +33,8 @@ public class AchievementCondition {
 
 	public void setConditionType(ConditionTypes conditionType) {
 		this.conditionType = conditionType;
+		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
+		AC.updateAchievementConditionType(this.id, conditionType);
 	}
 
 	public String getName() {
@@ -38,6 +43,8 @@ public class AchievementCondition {
 
 	public void setName(String name) {
 		this.name = name;
+		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
+		AC.updateAchievementConditionName(this.id, name);
 	}
 
 	public int getRequiredNumber() {
@@ -46,6 +53,8 @@ public class AchievementCondition {
 
 	public void setRequiredNumber(int requiredNumber) {
 		this.requiredNumber = requiredNumber;
+		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
+		AC.updateAchievementConditionRequiredNumber(this.id, requiredNumber);
 	}
 
 	public String getRequiredString() {
@@ -54,6 +63,8 @@ public class AchievementCondition {
 
 	public void setRequiredString(String requiredString) {
 		this.requiredString = requiredString;
+		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
+		AC.updateAchievementConditionRequiredString(this.id, requiredString);
 	}
 
 	public float getRequiredTime() {
@@ -62,6 +73,8 @@ public class AchievementCondition {
 
 	public void setRequiredTime(float requiredTime) {
 		this.requiredTime = requiredTime;
+		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
+		AC.updateAchievementConditionRequiredTime(this.id, requiredTime);
 	}
 
 	public int getBonusXp() {

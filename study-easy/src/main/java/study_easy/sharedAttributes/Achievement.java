@@ -82,9 +82,9 @@ public class Achievement {
 		return conditions;
 	}
 
-	public void setConditions(Set<AchievementCondition> conditions) {
-		this.conditions = conditions;
+	public void addConditions(AchievementCondition condition) {
+		this.conditions.add(condition);
+		AchievementServiceImpl AS = new AchievementServiceImpl();
+		AS.updateAchievementConditions(this.name, condition);
 	}
 }
-
-//Connor ist eine DivaBitch
