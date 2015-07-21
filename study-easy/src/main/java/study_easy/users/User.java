@@ -10,11 +10,15 @@ import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.AdminServiceImpl;
 import study_easy.service.RegUserServiceImpl;
 import study_easy.system.Controller;
 
 @MappedSuperclass
+@Component
 public abstract class User {
 	@NotNull
 	@Size(min = 4)
@@ -39,6 +43,11 @@ public abstract class User {
 	String sicherheitsfrage;
 	@NotNull
 	String sicherheitsfragecheck;
+	
+	@Autowired
+	private static RegUserServiceImpl RUS;
+	@Autowired
+	private static AdminServiceImpl AS;
 
 	public boolean signIn(String password, String name) {
 		List<RegUser> regUserlist = Controller.getSystem().getUserList();
@@ -71,10 +80,8 @@ public abstract class User {
 	public void setPassword(String password) {
 		this.password = password;
 		if (this.getClass() == RegUser.class) {
-			RegUserServiceImpl RUS = new RegUserServiceImpl();
 			RUS.updateRegUserPassword(this.name, this.password);
 		} else if (this.getClass() == Admin.class) {
-			AdminServiceImpl AS = new AdminServiceImpl();
 			AS.updateAdminPassword(this.name, this.password);
 		}
 	}
@@ -118,10 +125,8 @@ public abstract class User {
 	public void setEmail(String email) {
 		this.email = email;
 		if (this.getClass() == RegUser.class) {
-			RegUserServiceImpl RUS = new RegUserServiceImpl();
 			RUS.updateRegUserEMail(this.name, this.email);
 		} else if (this.getClass() == Admin.class) {
-			AdminServiceImpl AS = new AdminServiceImpl();
 			AS.updateAdminEmail(this.name, this.email);
 		}
 	}

@@ -30,7 +30,7 @@ public class UserPinnServiceImpl implements UserPinnService{
 	}
 
 	@Override
-	public void updateUserPinnEntries(String owner, ArrayList<PinnwallElement> list) {
+	public void updateUserPinnEntries(String owner, PinnwallElement list) {
 		updao.updateUserPinnEntries(owner, list);
 		
 	}

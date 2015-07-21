@@ -5,10 +5,14 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.UserPinnServiceImpl;
 
 @Entity
 @Table(name = "UserPinn")
+@Component
 public class UserPinn extends Pinnwall {
 
 	@Id
@@ -16,6 +20,8 @@ public class UserPinn extends Pinnwall {
 	private String owner;
 	@ElementCollection
 	private Set<PinnwallElement> entries = new HashSet<PinnwallElement>();
+	@Autowired
+	private static UserPinnServiceImpl UPS;
 
 	public String getOwner() {
 		return owner;
@@ -27,8 +33,7 @@ public class UserPinn extends Pinnwall {
 
 	public void addEntry(PinnwallElement entry) {
 		this.getEntries().add(entry);
-		UserPinnServiceImpl UPS = new UserPinnServiceImpl();
-		//UPS.updateUserPinnEntries(this.owner, this.getEntries());
+		UPS.updateUserPinnEntries(this.owner, entry);
 	}
 
 	private Set<PinnwallElement> getEntries() {
@@ -42,7 +47,6 @@ public class UserPinn extends Pinnwall {
 	
 	public void setBanned(boolean ban){
 		this.banned = ban;
-		UserPinnServiceImpl UPS = new UserPinnServiceImpl();
 		UPS.updateUserPinnBan(this.owner, this.banned);
 	}
 }

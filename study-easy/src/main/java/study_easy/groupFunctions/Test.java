@@ -5,9 +5,13 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.TestServiceImpl;
 
 @Entity
+@Component
 public class Test {
 
 	@Id
@@ -20,6 +24,8 @@ public class Test {
 	private Set<TestElement> tasks;
 	@OneToOne
 	private Group creator;
+	@Autowired
+	private static TestServiceImpl TS;
 
 	public int getId() {
 		return id;
@@ -31,7 +37,6 @@ public class Test {
 
 	public void setCreator(Group creator) {
 		this.creator = creator;
-		TestServiceImpl TS = new TestServiceImpl();
 		TS.updateTestCreator(this.id, this.creator);
 	}
 
@@ -41,7 +46,6 @@ public class Test {
 
 	public void setTasks(HashSet<TestElement> tasks) {
 		this.tasks = tasks;
-		TestServiceImpl TS = new TestServiceImpl();
 		//TS.updateTestElements(this.id, this.tasks);
 	}
 
@@ -51,7 +55,6 @@ public class Test {
 
 	public void setTime(float time) {
 		this.time = time;
-		TestServiceImpl TS = new TestServiceImpl();
 		TS.updateTestTime(this.id, this.time);
 	}
 

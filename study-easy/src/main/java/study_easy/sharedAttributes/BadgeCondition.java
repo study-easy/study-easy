@@ -4,12 +4,16 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.BadgeConditionServiceImpl;
 import study_easy.service.BadgeServiceImpl;
 
 @Entity
 @Table(name = "BadgeCondition")
 @Embeddable
+@Component
 public class BadgeCondition {
 
 	@Id
@@ -26,6 +30,8 @@ public class BadgeCondition {
 	private String requiredString;
 	@Column
 	private Date requiredDate;
+	@Autowired
+	private static BadgeConditionServiceImpl BC;
 
 	public ConditionTypes getConditionType() {
 		return conditionType;
@@ -33,7 +39,6 @@ public class BadgeCondition {
 
 	public void setConditionType(ConditionTypes conditionType) {
 		this.conditionType = conditionType;
-		BadgeConditionServiceImpl BC = new BadgeConditionServiceImpl();
 		BC.updateBadgeConditionType(this.id, conditionType);
 	}
 
@@ -43,7 +48,6 @@ public class BadgeCondition {
 
 	public void setName(String name) {
 		this.name = name;
-		BadgeConditionServiceImpl BC = new BadgeConditionServiceImpl();
 		BC.updateBadgeConditionName(this.id, name);
 	}
 
@@ -53,7 +57,6 @@ public class BadgeCondition {
 
 	public void setRequiredNumber(int requiredNumber) {
 		this.requiredNumber = requiredNumber;
-		BadgeConditionServiceImpl BC = new BadgeConditionServiceImpl();
 		BC.updateBadgeConditionRequiredInt(this.id, requiredNumber);
 	}
 
@@ -63,7 +66,6 @@ public class BadgeCondition {
 
 	public void setRequiredString(String requiredString) {
 		this.requiredString = requiredString;
-		BadgeConditionServiceImpl BC = new BadgeConditionServiceImpl();
 		BC.updateBadgeConditionRequiredString(this.id, requiredString);
 	}
 
@@ -73,7 +75,6 @@ public class BadgeCondition {
 
 	public void setRequiredDate(Date requiredDate) {
 		this.requiredDate = requiredDate;
-		BadgeConditionServiceImpl BC = new BadgeConditionServiceImpl();
 		BC.updateBadgeConditionRequiredDate(this.id, requiredDate);
 	}
 

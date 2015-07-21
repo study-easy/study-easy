@@ -32,11 +32,12 @@ public class UserPinnDAOImpl implements UserPinnDAO{
 	}
 
 	@Override
-	public void updateUserPinnEntries(String owner, ArrayList<PinnwallElement> list) {
+	public void updateUserPinnEntries(String owner, PinnwallElement list) {
 		Session session = factory.getCurrentSession();
 		UserPinn pinn = (UserPinn) session.load(UserPinn.class, owner);
 		if(pinn!=null){
-			//TODO
+			pinn.addEntry(list);
+			session.update(pinn);
 		}
 	}
 

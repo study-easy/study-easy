@@ -3,6 +3,7 @@ package study_easy.service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -70,7 +71,7 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public void updateGroupCurrentCombats(String name, HashSet<Combat> list) {
+	public void updateGroupCurrentCombats(String name, Set<Combat> list) {
 		gdao.updateGroupCurrentCombats(name, list);
 		
 	}

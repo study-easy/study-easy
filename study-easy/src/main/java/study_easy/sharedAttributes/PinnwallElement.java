@@ -6,6 +6,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.AchievementServiceImpl;
 import study_easy.service.PinnwallElementServiceImpl;
 import study_easy.users.RegUser;
@@ -13,6 +16,7 @@ import study_easy.users.RegUser;
 @Entity
 @Table(name = "PinnwallElement")
 @Embeddable
+@Component
 public class PinnwallElement {
 
 	@Id
@@ -27,6 +31,8 @@ public class PinnwallElement {
 	private RegUser creator;
 	@Column
 	private Date date;
+	@Autowired
+	private static PinnwallElementServiceImpl PE;
 
 	public String getEntry() {
 		return entry;
@@ -34,7 +40,6 @@ public class PinnwallElement {
 
 	public void setEntry(String entry) {
 		this.entry = entry;
-		PinnwallElementServiceImpl PE = new PinnwallElementServiceImpl();
 		PE.updatePinnwallElementContent(this.id, entry);
 	}
 
@@ -45,7 +50,6 @@ public class PinnwallElement {
 
 	public void addComments(PinnwallElement comments) {
 		this.comments.add(comments);
-		PinnwallElementServiceImpl PE = new PinnwallElementServiceImpl();
 		PE.updatePinnwallElementComments(this.id, comments);
 	}
 
@@ -64,7 +68,6 @@ public class PinnwallElement {
 
 	public void setDate(Date date) {
 		this.date = date;
-		PinnwallElementServiceImpl PE = new PinnwallElementServiceImpl();
 		PE.updatePinnwallElementDate(this.id, date);
 	}
 

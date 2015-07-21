@@ -8,6 +8,9 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.RegUserServiceImpl;
 import study_easy.sharedAttributes.Badge;
 import study_easy.sharedAttributes.UserPinn;
@@ -15,6 +18,7 @@ import study_easy.system.Controller;
 
 @Entity
 @Table(name = "RegUser")
+@Component
 public class RegUser extends User {
 
 	@Column
@@ -40,6 +44,9 @@ public class RegUser extends User {
 	private UserPinn pinn;
 	@ElementCollection
 	public Set<String> groups = new HashSet<String>();
+	@Autowired
+	private static RegUserServiceImpl RUS;
+	
 
 	public boolean register(String password, String testPassword, String name) {
 		List<RegUser> userlist = Controller.getSystem().getUserList();
@@ -81,7 +88,6 @@ public class RegUser extends User {
 
 	public void setSchool(String school) {
 		this.school = school;
-		RegUserServiceImpl RUS = new RegUserServiceImpl();
 		RUS.updateRegUserSchool(this.name, this.school);
 	}
 
@@ -91,7 +97,6 @@ public class RegUser extends User {
 
 	public void setHobby(String hobby) {
 		this.hobby = hobby;
-		RegUserServiceImpl RUS = new RegUserServiceImpl();
 		RUS.updateRegUserHobby(this.name, this.hobby);
 	}
 
@@ -101,7 +106,6 @@ public class RegUser extends User {
 
 	public void setXpPoints(int xpPoints) {
 		this.xpPoints = xpPoints;
-		RegUserServiceImpl RUS = new RegUserServiceImpl();
 		RUS.updateRegUserXP(this.name, this.xpPoints);
 	}
 
@@ -111,7 +115,6 @@ public class RegUser extends User {
 
 	public void setLevel(int level) {
 		this.level = level;
-		RegUserServiceImpl RUS = new RegUserServiceImpl();
 		//TODO dao/service um Methode erweitern
 	}
 
@@ -141,13 +144,11 @@ public class RegUser extends User {
 
 	public void addBadges(Badge badges) {
 		this.earnedBadges.add(badges);
-		RegUserServiceImpl RUS = new RegUserServiceImpl();
 		//TODO dao/service um Methode erweitern
 	}
 
 	public void setBanned(boolean banned) {
 		this.banned = banned;
-		RegUserServiceImpl RUS = new RegUserServiceImpl();
 		//TODO dao/service um Methode erweitern
 	}
 

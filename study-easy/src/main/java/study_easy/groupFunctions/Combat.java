@@ -5,6 +5,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.BadgeConditionServiceImpl;
 import study_easy.service.CombatServiceImpl;
 import study_easy.service.GroupServiceImpl;
@@ -14,6 +17,7 @@ import study_easy.users.RegUser;
 @Entity
 @Table(name = "Combat")
 @Embeddable
+@Component
 public class Combat {
 
 	@GeneratedValue
@@ -34,6 +38,12 @@ public class Combat {
 	private Set<String> challengerNames = new HashSet<String>();
 	@ElementCollection
 	private Set<String> opponentNames = new HashSet<String>();
+	@Autowired
+	private static CombatServiceImpl CB;
+	@Autowired
+	private static CombatServiceImpl CS;
+	@Autowired
+	private static GroupServiceImpl GS;
 
 	public int getChallengerRight() {
 		return challengerRight;
@@ -41,7 +51,6 @@ public class Combat {
 
 	public void setChallengerRight(int challengerRight) {
 		this.challengerRight = challengerRight;
-		CombatServiceImpl CB = new CombatServiceImpl();
 		CB.updateChallangerRight(this.id, challengerRight);
 	}
 
@@ -51,7 +60,6 @@ public class Combat {
 
 	public void setOpponentRight(int opponentRight) {
 		this.opponentRight = opponentRight;
-		CombatServiceImpl CB = new CombatServiceImpl();
 		CB.updateOpponentRight(this.id, opponentRight);
 	}
 
@@ -89,11 +97,9 @@ public class Combat {
 			this.challengerNames.add(user.getName());
 		}
 
-		CombatServiceImpl CS = new CombatServiceImpl();
 		CS.addCombat(this);
-		GroupServiceImpl GS = new GroupServiceImpl();
-		//GS.updateGroupCurrentCombats(this.challenger.getName(), this.challenger.getCurrentCombats());
-		//GS.updateGroupCurrentCombats(this.opponent.getName(), this.opponent.getCurrentCombats());
+		GS.updateGroupCurrentCombats(this.challenger, Controller.getSystem().findGroup(this.challenger).getCurrentCombats());
+		GS.updateGroupCurrentCombats(this.opponent, Controller.getSystem().findGroup(this.opponent).getCurrentCombats());
 	}
 
 	public Test getTest() {
@@ -106,7 +112,6 @@ public class Combat {
 
 	public void setChallenger(String challenger) {
 		this.challenger = challenger;
-		CombatServiceImpl CS = new CombatServiceImpl();
 		CS.updateCombatChallenger(this.id, challenger);
 	}
 
@@ -116,7 +121,6 @@ public class Combat {
 
 	public void setOpponent(String opponent2) {
 		this.opponent = opponent2;
-		CombatServiceImpl CS = new CombatServiceImpl();
 		CS.updateCombatOpponent(this.id, opponent);
 	}
 
@@ -126,7 +130,6 @@ public class Combat {
 
 	public void setTest(Test test) {
 		this.test = test;
-		CombatServiceImpl CB = new CombatServiceImpl();
 		CB.updateCombatTest(this.id, test);
 	}
 

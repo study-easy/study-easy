@@ -6,6 +6,9 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.groupFunctions.Combat;
 import study_easy.service.BadgeConditionServiceImpl;
 import study_easy.service.GroupPinnServiceImpl;
@@ -15,6 +18,7 @@ import study_easy.system.Controller;
 @Entity
 @Table(name = "HistoryElement")
 @Embeddable
+@Component
 public class HistoryElement {
 
 	@Id
@@ -25,6 +29,10 @@ public class HistoryElement {
 	private String description;
 	@Column
 	private Date date;
+	@Autowired
+	private static HistoryElementServiceImpl HE;
+	@Autowired
+	private static GroupPinnServiceImpl GPS;
 
 	public HistoryElement(Combat combat) {
 		this.date = new Date();
@@ -46,11 +54,9 @@ public class HistoryElement {
 		Controller.getSystem().findGroup(combat.getChallenger()).getPinnwall().addHistoryElement(this);
 		Controller.getSystem().findGroup(combat.getOpponent()).getPinnwall().addHistoryElement(this);
 		
-		HistoryElementServiceImpl HES = new HistoryElementServiceImpl();;
-		HES.addHistoryElement(this);
-		GroupPinnServiceImpl GPS = new GroupPinnServiceImpl();
-		//GPS.updateGroupPinnHistory(combat.getChallenger().getName(), combat.getChallenger().getPinnwall().getHistory());
-		//GPS.updateGroupPinnHistory(combat.getOpponent().getName(), combat.getOpponent().getPinnwall().getHistory());
+		HE.addHistoryElement(this);
+		GPS.updateGroupPinnHistory(combat.getChallenger(), this);
+		GPS.updateGroupPinnHistory(combat.getOpponent(), this);
 	}
 
 	public String getDescription() {
@@ -59,7 +65,6 @@ public class HistoryElement {
 
 	public void setDescription(String description) {
 		this.description = description;
-		HistoryElementServiceImpl HE = new HistoryElementServiceImpl();
 		HE.updateHistoryElementContent(this.id, description);
 	}
 
@@ -69,7 +74,6 @@ public class HistoryElement {
 
 	public void setDate(Date date) {
 		this.date = date;
-		HistoryElementServiceImpl HE = new HistoryElementServiceImpl();
 		HE.updateHistoryElementDate(this.id, date);
 	}
 

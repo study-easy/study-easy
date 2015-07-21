@@ -6,6 +6,9 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.AchievementServiceImpl;
 import study_easy.service.BadgeServiceImpl;
 import study_easy.users.RegUser;
@@ -13,6 +16,7 @@ import study_easy.users.RegUser;
 @Entity
 @Table(name="Badge")
 @Embeddable
+@Component
 public class Badge {
 	
 	@NotNull
@@ -22,10 +26,11 @@ public class Badge {
 	@NotNull
 	@ElementCollection
 	private Set<BadgeCondition> conditions = new HashSet<BadgeCondition>();
+	@Autowired
+	private static BadgeServiceImpl GPS;
 	
 	public void addBadgeCondition(BadgeCondition element) {
 		conditions.add(element);
-		BadgeServiceImpl GPS = new BadgeServiceImpl();
 		GPS.updateBadgeConditions(this.name, element);
 	}
 
@@ -78,8 +83,7 @@ public class Badge {
 
 	public void addConditions(BadgeCondition conditions) {
 		this.conditions.add(conditions);
-		BadgeServiceImpl CS = new BadgeServiceImpl();
-		CS.updateBadgeConditions(this.name, conditions);
+		GPS.updateBadgeConditions(this.name, conditions);
 	}
 
 }

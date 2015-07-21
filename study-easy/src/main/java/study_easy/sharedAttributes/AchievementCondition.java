@@ -2,12 +2,16 @@ package study_easy.sharedAttributes;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.AchievementConditionServiceImpl;
 import study_easy.service.AchievementServiceImpl;
 
 @Entity
 @Table(name = "AchievementCondition")
 @Embeddable
+@Component
 public class AchievementCondition {
 
 	@GeneratedValue
@@ -26,6 +30,8 @@ public class AchievementCondition {
 	private float requiredTime;
 	@Column
 	private int bonusXp;
+	@Autowired
+	private static AchievementConditionServiceImpl AC;
 
 	public ConditionTypes getConditionType() {
 		return conditionType;
@@ -33,7 +39,6 @@ public class AchievementCondition {
 
 	public void setConditionType(ConditionTypes conditionType) {
 		this.conditionType = conditionType;
-		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
 		AC.updateAchievementConditionType(this.id, conditionType);
 	}
 
@@ -43,7 +48,6 @@ public class AchievementCondition {
 
 	public void setName(String name) {
 		this.name = name;
-		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
 		AC.updateAchievementConditionName(this.id, name);
 	}
 
@@ -53,7 +57,6 @@ public class AchievementCondition {
 
 	public void setRequiredNumber(int requiredNumber) {
 		this.requiredNumber = requiredNumber;
-		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
 		AC.updateAchievementConditionRequiredNumber(this.id, requiredNumber);
 	}
 
@@ -63,7 +66,6 @@ public class AchievementCondition {
 
 	public void setRequiredString(String requiredString) {
 		this.requiredString = requiredString;
-		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
 		AC.updateAchievementConditionRequiredString(this.id, requiredString);
 	}
 
@@ -73,7 +75,6 @@ public class AchievementCondition {
 
 	public void setRequiredTime(float requiredTime) {
 		this.requiredTime = requiredTime;
-		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
 		AC.updateAchievementConditionRequiredTime(this.id, requiredTime);
 	}
 
@@ -83,7 +84,6 @@ public class AchievementCondition {
 
 	public void setBonusXp(int bonusXp) {
 		this.bonusXp = bonusXp;
-		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
 		AC.updateAchievementConditionXp(this.id, bonusXp);
 	}
 

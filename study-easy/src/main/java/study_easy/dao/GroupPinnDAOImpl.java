@@ -35,7 +35,8 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 		Session session = factory.getCurrentSession();
 		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
 		if(pinn!=null){
-			//TODO
+			pinn.addHistoryElement(list);
+			session.update(owner);
 		}
 	}
 

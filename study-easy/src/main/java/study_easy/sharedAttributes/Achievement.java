@@ -6,6 +6,9 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.groupFunctions.Group;
 import study_easy.service.AchievementServiceImpl;
 import study_easy.users.RegUser;
@@ -13,6 +16,7 @@ import study_easy.users.RegUser;
 @Entity
 @Table(name = "Achievement")
 @Embeddable
+@Component
 public class Achievement {
 
 	@NotNull
@@ -22,10 +26,11 @@ public class Achievement {
 	@NotNull
 	@ElementCollection
 	private Set<AchievementCondition> conditions = new HashSet<AchievementCondition>();
+	@Autowired
+	private static AchievementServiceImpl GPS;
 
 	public void addAchievmentConditions(AchievementCondition element) {
 		conditions.add(element);
-		AchievementServiceImpl GPS = new AchievementServiceImpl();
 		GPS.updateAchievementConditions(this.name, element);
 	} 
 	
@@ -84,7 +89,6 @@ public class Achievement {
 
 	public void addConditions(AchievementCondition condition) {
 		this.conditions.add(condition);
-		AchievementServiceImpl AS = new AchievementServiceImpl();
-		AS.updateAchievementConditions(this.name, condition);
+		GPS.updateAchievementConditions(this.name, condition);
 	}
 }

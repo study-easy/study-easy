@@ -2,6 +2,7 @@ package study_easy.dao;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -94,7 +95,7 @@ public class GroupDAOImpl implements GroupDAO{
 	}
 
 	@Override
-	public void updateGroupCurrentCombats(String name, HashSet<Combat> list) {
+	public void updateGroupCurrentCombats(String name, Set<Combat> list) {
 		Session session = factory.getCurrentSession();
 		Group group = (Group) session.load(Group.class, name);
 		if(group!=null){

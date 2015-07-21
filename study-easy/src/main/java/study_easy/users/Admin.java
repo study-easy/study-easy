@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.AdminServiceImpl;
 import study_easy.service.UserPinnServiceImpl;
 import study_easy.sharedAttributes.UserPinn;
@@ -13,7 +16,13 @@ import study_easy.system.Controller;
 
 @Entity
 @Table(name = "Admin")
+@Component
 public class Admin extends User {
+	
+	@Autowired
+	private static AdminServiceImpl AS;
+	@Autowired
+	private static UserPinnServiceImpl UPS;
 
 	protected void deleteUser(String name) {
 		List<RegUser> userlist = Controller.getSystem().getUserList();
@@ -45,7 +54,6 @@ public class Admin extends User {
 		newAdmin.password = password;
 		newAdmin.registeredSince = new Date();
 		Controller.getSystem().getAdminList().add(newAdmin);
-		AdminServiceImpl AS = new AdminServiceImpl();
 		AS.addAdmin(newAdmin);
 
 	}
@@ -53,7 +61,6 @@ public class Admin extends User {
 	protected void banUserPinnwall(UserPinn pinn) {
 		if (pinn.getBanned() == false) {
 			pinn.setBanned(true);
-			UserPinnServiceImpl UPS = new UserPinnServiceImpl();
 			UPS.updateUserPinnBan(pinn.getOwner(), pinn.getBanned());
 		}
 	}
@@ -61,7 +68,6 @@ public class Admin extends User {
 	protected void unBanUserPinnwall(UserPinn pinn) {
 		if (pinn.getBanned()){
 			pinn.setBanned(false);
-			UserPinnServiceImpl UPS = new UserPinnServiceImpl();
 			UPS.updateUserPinnBan(pinn.getOwner(), pinn.getBanned());
 		}
 	}
@@ -73,7 +79,6 @@ public class Admin extends User {
 			standard.setPassword("admin123");
 
 			Controller.getSystem().getAdminList().add(standard);
-			AdminServiceImpl AS = new AdminServiceImpl();
 			AS.addAdmin(standard);
 		}
 	}

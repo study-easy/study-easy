@@ -5,6 +5,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import study_easy.service.CombatServiceImpl;
 import study_easy.service.GroupServiceImpl;
 import study_easy.service.RegUserServiceImpl;
@@ -17,6 +20,7 @@ import study_easy.users.RegUser;
 
 @Entity
 @Table(name = "Group")
+@Component
 public class Group {
 
 	@Id
@@ -44,6 +48,12 @@ public class Group {
 	private GroupPinn pinnwall;
 	@ElementCollection
 	private Set<Achievement> achievements = new HashSet<Achievement>();
+	@Autowired
+	private static GroupServiceImpl GS;
+	@Autowired
+	private static RegUserServiceImpl RUS;
+	@Autowired
+	private static CombatServiceImpl CS;
 
 	public String getName() {
 		return name;
@@ -59,7 +69,6 @@ public class Group {
 
 	public void setUserList(Set<RegUser> userList) {
 		this.userList = userList;
-		GroupServiceImpl GS = new GroupServiceImpl();
 		//GS.updateGroupUserList(this.name, this.userList);
 	}
 
@@ -69,7 +78,6 @@ public class Group {
 
 	public void setDescription(String description) {
 		this.description = description;
-		GroupServiceImpl GS = new GroupServiceImpl();
 		GS.updateGroupDescription(this.name, this.description);
 	}
 
@@ -79,7 +87,6 @@ public class Group {
 
 	public void setAdmin(RegUser admin) {
 		this.admin = admin;
-		GroupServiceImpl GS = new GroupServiceImpl();
 		GS.updateGroupAdmin(this.name, this.admin);
 	}
 
@@ -89,7 +96,6 @@ public class Group {
 
 	public void setPinnwall(GroupPinn pinnwall) {
 		this.pinnwall = pinnwall;
-		GroupServiceImpl GS = new GroupServiceImpl();
 		GS.updateGroupPinnwall(this.name, this.pinnwall);
 	}
 
@@ -99,21 +105,17 @@ public class Group {
 
 	public void setAchievements(HashSet<Achievement> achievements) {
 		this.achievements = achievements;
-		GroupServiceImpl GS = new GroupServiceImpl();
 		//GS.updateGroupAchievements(this.name, this.achievements);
 	}
 
-	public void setCurrentCombats(HashSet<Combat> currentCombats) {
-		this.currentCombats = currentCombats;
-		GroupServiceImpl GS = new GroupServiceImpl();
+	public void setCurrentCombats(Set<Combat> list) {
+		this.currentCombats = list;
 		//GS.updateGroupCurrentCombats(this.name, this.currentCombats);
 	}
 
 	public void addUser(RegUser user) {
 		this.userList.add(user);
 		user.getGroups().add(this.name);
-		RegUserServiceImpl RUS = new RegUserServiceImpl();
-		GroupServiceImpl GS = new GroupServiceImpl();
 		//GS.updateGroupUserList(this.name, this.userList);
 	}
 	
@@ -128,7 +130,6 @@ public class Group {
 
 	public void setWinStreak(int winStreak) {
 		this.winStreak = winStreak;
-		GroupServiceImpl GS = new GroupServiceImpl();
 		GS.updateGroupWinStreak(this.name, this.winStreak);
 	}
 
@@ -138,7 +139,6 @@ public class Group {
 
 	public void setWins(int wins) {
 		this.wins = wins;
-		GroupServiceImpl GS = new GroupServiceImpl();
 		GS.updateGroupWins(this.name, this.wins);
 	}
 
@@ -148,13 +148,11 @@ public class Group {
 
 	public void setLosses(int losses) {
 		this.losses = losses;
-		GroupServiceImpl GS = new GroupServiceImpl();
 		GS.updateGroupLosses(this.name, this.losses);
 	}
 
 	public void setWinToLoss(float winToLoss) {
 		this.winToLoss = winToLoss;
-		GroupServiceImpl GS = new GroupServiceImpl();
 		GS.updateGroupWinToLoss(this.name, this.winToLoss);
 	}
 
@@ -162,7 +160,6 @@ public class Group {
 		for (RegUser user : this.userList)
 			if (user.getName() == name) {
 				this.admin = user;
-				GroupServiceImpl GS = new GroupServiceImpl();
 				GS.updateGroupAdmin(this.name, user);
 				break;
 			}
@@ -206,7 +203,6 @@ public class Group {
 			}
 			HistoryElement element = new HistoryElement(combat);
 
-			CombatServiceImpl CS = new CombatServiceImpl();
 			CS.deleteCombat(combat.getId());
 			combat = null;
 		}
