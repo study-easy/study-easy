@@ -133,5 +133,12 @@ public class Combat {
 		}
 		//TODO listen updaten via dao und service
 	}
+	
+	public boolean isNotDone(String name){
+		if(this.challengerNames.contains(name) || this.opponentNames.contains(name))
+			return true;
+		else
+			return false;
+	}
 
 }

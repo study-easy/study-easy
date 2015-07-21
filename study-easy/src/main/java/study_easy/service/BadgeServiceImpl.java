@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import study_easy.dao.BadgeDAO;
 import study_easy.dao.BadgeDAOImpl;
 import study_easy.sharedAttributes.Badge;
 import study_easy.sharedAttributes.BadgeCondition;

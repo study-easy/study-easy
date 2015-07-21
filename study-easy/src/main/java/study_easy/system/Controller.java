@@ -3,17 +3,24 @@ package study_easy.system;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import study_easy.dao.RegUserDAOImpl;
 import study_easy.groupFunctions.Group;
 import study_easy.service.AchievementServiceImpl;
 import study_easy.service.AdminServiceImpl;
 import study_easy.service.BadgeServiceImpl;
 import study_easy.service.GroupServiceImpl;
+import study_easy.service.RegUserService;
 import study_easy.service.RegUserServiceImpl;
 import study_easy.sharedAttributes.Achievement;
 import study_easy.sharedAttributes.Badge;
 import study_easy.users.Admin;
 import study_easy.users.RegUser;
 
+@Component
 public class Controller {
 
 	private static Controller system;
@@ -22,19 +29,25 @@ public class Controller {
 	private List<Group> groupList = new ArrayList<Group>();
 	private List<Badge> badgeList = new ArrayList<Badge>();
 	private List<Achievement> achievementList = new ArrayList<Achievement>();
-
+	
+	@Autowired
+	private static RegUserServiceImpl RUS;
+	@Autowired
+	private static AdminServiceImpl AS;
+	@Autowired
+	private static GroupServiceImpl GS;
+	@Autowired
+	private static BadgeServiceImpl BS;
+	@Autowired
+	private static AchievementServiceImpl AcS ;
+	
 	public static Controller getSystem() {
 		if (system == null) {
 			system = new Controller();
-			RegUserServiceImpl RUS = new RegUserServiceImpl();
-			system.regUserlist = RUS.listRegUsers();	
-			AdminServiceImpl AS = new AdminServiceImpl();
+			system.regUserlist = RUS.listRegUsers();
 			system.adminList = AS.listAdmin();
-			GroupServiceImpl GS = new GroupServiceImpl();
 			system.groupList = GS.listGroup();
-			BadgeServiceImpl BS = new BadgeServiceImpl();
 			system.badgeList = BS.listBadge();
-			AchievementServiceImpl AcS = new AchievementServiceImpl();
 			system.achievementList = AcS.listAchievement();
 			system.fillLeaderboard();
 			return system;

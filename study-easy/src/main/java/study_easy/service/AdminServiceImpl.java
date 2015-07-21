@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import study_easy.dao.AdminDAO;
 import study_easy.dao.AdminDAOImpl;
 import study_easy.users.Admin;
 

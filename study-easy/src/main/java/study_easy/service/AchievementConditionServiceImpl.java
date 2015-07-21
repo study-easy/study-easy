@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import study_easy.dao.AchievementConditionDAO;
 import study_easy.dao.AchievementConditionDAOImpl;
 import study_easy.sharedAttributes.AchievementCondition;
 import study_easy.sharedAttributes.ConditionTypes;
