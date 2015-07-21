@@ -83,6 +83,8 @@ public class AchievementCondition {
 
 	public void setBonusXp(int bonusXp) {
 		this.bonusXp = bonusXp;
+		AchievementConditionServiceImpl AC = new AchievementConditionServiceImpl();
+		AC.updateAchievementConditionXp(this.id, bonusXp);
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import study_easy.service.AchievementServiceImpl;
 import study_easy.service.BadgeServiceImpl;
 import study_easy.users.RegUser;
 
@@ -75,8 +76,10 @@ public class Badge {
 		return conditions;
 	}
 
-	public void setConditions(HashSet<BadgeCondition> conditions) {
-		this.conditions = conditions;
+	public void addConditions(BadgeCondition conditions) {
+		this.conditions.add(conditions);
+		BadgeServiceImpl CS = new BadgeServiceImpl();
+		CS.updateBadgeConditions(this.name, conditions);
 	}
 
 }
