@@ -5,6 +5,8 @@ import java.util.*;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import study_easy.users.RegUser;
 
 import org.hibernate.SessionFactory;
@@ -14,6 +16,10 @@ public class RegUserDAOImpl implements RegUserDAO{
 	
 	@Autowired
 	private SessionFactory factory;
+	
+	public RegUserDAOImpl(){
+		
+	}
 
 	@Override
 	public void addRegUser(RegUser user) {
