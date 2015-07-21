@@ -25,7 +25,7 @@ public class RegUserDAOImpl implements RegUserDAO{
 	@Override
 	public List<RegUser> listRegUsers(){
 		Session session = factory.getCurrentSession();
-		List<RegUser> list = session.createQuery("from RegUser").list();
+		List<RegUser> list = session.createQuery("FROM reguser").list();
 		return list;
 		
 	}
