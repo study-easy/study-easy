@@ -19,6 +19,10 @@ linksupport:visited {
 		 color: #ffa726;
 	/*	 color: #979797; */
 }
+linksupport:hover {
+	text-decoration: none;
+	color: 58b7d5;
+}
 .linksupport {
 		text-decoration: none;
 		 color: #ffa726;
