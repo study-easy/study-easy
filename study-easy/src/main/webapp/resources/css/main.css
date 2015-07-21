@@ -283,4 +283,14 @@ a.barbottom:visited {
 .insideMainbodyHeadline {
 	font-size: 18pt;
 	color: #979797;
+
 }
+
+}
+#userFont {
+	font-size: 17pt;
+	font-weight: bold;
+	font-style: italic;
+	color:#979797;
+}
+
