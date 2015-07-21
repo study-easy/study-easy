@@ -13,31 +13,32 @@
 <body
 	style="background-image: url(resources/images/tafel.jpg); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-position: center center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
 	<!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
-	<div class="header" id="inside">
+<div class="header" id="inside">
 		<div id="support">
-			<a th:href="@{/support}" target="_blank"><img
-				src="resources/images/supportdunkel.png" width="20" height="20" /></a>
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<p class="logo">study-easy</p>
-		<p th:text="${error}" class="notification"
-			style="color: #979797; margin-top: -55px;"></p>
-		<p class="logo" style="margin-left: 750px; margin-top: -60px;">study-easy
-		</p>
+		<a th:href="@{/home}" class="logo" id="activ">study-easy</a>
+		
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
+		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
+		<button type="submit" id="searchButton" style="margin-top:-10px;"><span id="searchText">GO</span>
+		</button>
+  		<input type="text" size="20" style="height: 20px; width: 200px;  margin-top:15px;" placeholder="Suche..."/>	
+		</form>
 		<div id="logout">
-			<a th:href="@{/logout}"><img
-				src="resources/images/logoutdunkel.png" width="20" height="20" /></a>
+		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
-	</div>
+</div>
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
 			<div class="hellotext">
-				<span th:text="${groupName}"></span>
+				<span th:text="${groupName}" class="linksupport" id="activ"></span>
 				<p>
-					<a th:href="@{/edit}"><span th:text="Profil_bearbeiten"></span></a><br />
-					<a th:href="@{/members}"><span th:text="Mitglieder"></span></a><br />
-					<a th:href="@{/groupHistory}"><span th:text="Verlauf"></span></a><br />
-					<a th:href="@{/home}"><span th:text="Combats"></span></a><br />
-					<a th:href="@{/data}"><span th:text="Dateien"></span></a>
+					<a th:href="@{/edit}" class="linksupport"><span th:text="Profil_bearbeiten"></span></a><br />
+					<a th:href="@{/members}" class="linksupport"><span th:text="Mitglieder"></span></a><br />
+					<a th:href="@{/groupHistory}" class="linksupport"><span th:text="Verlauf"></span></a><br />
+					<a th:href="@{/home}" class="linksupport"><span th:text="Combats"></span></a><br />
+					<a th:href="@{/data}" class="linksupport"><span th:text="Dateien"></span></a>
 				</p>
 
 
@@ -45,7 +46,8 @@
 
 
 		</div>
-		<div class="insideMainbody">
+		<div class="mainInsidefield">
+	<!--  	<div class="insideMainbody"> -->
 		
 			<p>
 				<span th:text="${groupName}" style="font-size: 30pt; color: #979797">Leer</span>

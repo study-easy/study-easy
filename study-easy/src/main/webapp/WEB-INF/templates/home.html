@@ -29,9 +29,9 @@
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
 			<div class="hellotext">
-				<a href="#"><span th:text="${name}">Mein Profil</span></a><br/> 
-				<a href="#">Profil bearbeiten</a><br /> 
-				<a href="#">Pers&ouml;nliche Daten</a><br/>
+				<a href="#" th:href="@{/profil}" class="linksupport" ><span th:text="${name}">
+				Mein Profil</span></a><br />
+				<a href="#" th:href="@{/games}" class="linksupport" >Spiele</a><br />
 				<table>
 					<tr>
 						<th>Meine Gruppen</th>
@@ -45,8 +45,9 @@
 
 
 		</div>
-		<!-- Pinnwand mit Einträgen im Mainbody -->
-		<div class="insideMainbody">
+		<!-- Pinnwand mit Einträgen im Mainbody 
+		<div class="insideMainbody"> -->
+		<div class="mainInsidefield">
 		<p>Willkommen <span th:text="${pinnwallOwner}">Max Mustermann</span>
 		<a><img src="resources/images/Profilbild.png" width="150" height="150" align="right"/></a></p>
 		<p th:text="${pinnwallOwner}">Max Mustermann</p>
