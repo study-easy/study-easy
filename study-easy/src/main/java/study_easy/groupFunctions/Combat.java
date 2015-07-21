@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import study_easy.service.BadgeConditionServiceImpl;
 import study_easy.service.CombatServiceImpl;
 import study_easy.service.GroupServiceImpl;
 import study_easy.system.Controller;
@@ -40,6 +41,8 @@ public class Combat {
 
 	public void setChallengerRight(int challengerRight) {
 		this.challengerRight = challengerRight;
+		CombatServiceImpl CB = new CombatServiceImpl();
+		CB.updateChallangerRight(this.id, challengerRight);
 	}
 
 	public int getOpponentRight() {
@@ -48,6 +51,8 @@ public class Combat {
 
 	public void setOpponentRight(int opponentRight) {
 		this.opponentRight = opponentRight;
+		CombatServiceImpl CB = new CombatServiceImpl();
+		CB.updateOpponentRight(this.id, opponentRight);
 	}
 
 	public Set<String> getChallengerNames() {
@@ -121,6 +126,8 @@ public class Combat {
 
 	public void setTest(Test test) {
 		this.test = test;
+		CombatServiceImpl CB = new CombatServiceImpl();
+		CB.updateCombatTest(this.id, test);
 	}
 
 	public void finishUser(String name, int numberOfRight) {

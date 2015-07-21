@@ -2,6 +2,7 @@ package study_easy.groupFunctions;
 
 import javax.persistence.*;
 
+import study_easy.service.CombatServiceImpl;
 import study_easy.service.TestElementServiceImpl;
 
 @Entity
@@ -102,7 +103,8 @@ public class TestElement {
 
 	public void setPoints(int points) {
 		this.points = points;
-	}
+		TestElementServiceImpl TE = new TestElementServiceImpl();
+		}
 
 	public TestElement(){}
 
