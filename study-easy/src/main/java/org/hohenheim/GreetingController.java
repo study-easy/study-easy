@@ -143,7 +143,7 @@ public class GreetingController {
     		) {
        System.out.println(registerReguser.register(password, passwordcheck, bname));
        System.out.println("Benutzername: " +bname);
-       System.out.println("Passwort: " +password);
+       System.out.println("Passwort: " +password); 
        System.out.println("WPasswort: " +passwordcheck);
        System.out.println("Aktzeptiert: " + check);
        if (bname.equals("bname")) {
