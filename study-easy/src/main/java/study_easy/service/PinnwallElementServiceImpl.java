@@ -41,8 +41,8 @@ public class PinnwallElementServiceImpl implements PinnwallElementService{
 	}
 
 	@Override
-	public void updatePinnwallElementComments(int id, List<PinnwallElement> list) {
-		pedao.updatePinnwallElementComments(id, list);
+	public void updatePinnwallElementComments(int id, PinnwallElement comments) {
+		pedao.updatePinnwallElementComments(id, comments);
 		
 	}
 
