@@ -48,8 +48,9 @@ public class GreetingController {
 	 *16.COMBATTEST
 	 *17.GAMES
 	 *18. GroupHistory 
+	 *19. Members
 	 *GANZ UNTEN
-	 *FÜR PRÄSENTATION
+	 *Fï¿½R PRï¿½SENTATION
 	 *-WELCOME
 	 *-END
 	/*
@@ -340,7 +341,7 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
     public String logout(Model model, 
-    		@RequestParam(value="name", required=false, defaultValue="§") String name,
+    		@RequestParam(value="name", required=false, defaultValue="ï¿½") String name,
     		@RequestParam(value="delete", required=false, defaultValue="false") Boolean delete) {
             int lange = name.length();
             if(lange>1) {
@@ -382,6 +383,7 @@ public class GreetingController {
 		model.addAttribute("members", group.getUserList());
 		model.addAttribute("groupDescription", "Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.");
 		model.addAttribute("groupPinn", "Eintrag" /**group.getPinnwall().getEntries()*/);
+		model.addAttribute("name", "Testuser");
 		
 			return "group";
 		}
@@ -476,7 +478,7 @@ public class GreetingController {
     		) {
 		
 	if(check==true) {
-		//account sperren/löschen lassen
+		//account sperren/lï¿½schen lassen
 		return "redirect:/logout?delete=true";
 	}
        System.out.println("Private Daten gespeichert");
@@ -530,7 +532,7 @@ public class GreetingController {
 	TestElement testelement = new TestElement ();
 	model.addAttribute("Combat", combat);
 	model.addAttribute("TestElement", testelement);
-	model.addAttribute("task", "Hier könnte eine Frage stehen");
+	model.addAttribute("task", "Hier kï¿½nnte eine Frage stehen");
 	model.addAttribute("answer1", "Antwort1");
 	model.addAttribute("answer2", "Antwort2");
 	model.addAttribute("answer3", "Antwort3");
@@ -583,7 +585,20 @@ public class GreetingController {
 }
 	/*
 	 *##########################
-	 *FÜR PRÄSENTATION
+	 *19. Members
+	 *Gruppenmember
+	 *
+	 */
+	@RequestMapping(value="/members", method=RequestMethod.GET)
+	public String showMembers(@RequestParam (value="error" , required=false, defaultValue=" ") String name, Model model) {
+	model.addAttribute("groupHistory", "Verlauf");
+	model.addAttribute("groupName", "Testgruppe");
+	model.addAttribute("name", "Testuser");
+	return "members";
+	}
+	/*
+	 *##########################
+	 *Fï¿½R PRï¿½SENTATION
 	 *WELCOME 
 	 *
 	 */
@@ -593,7 +608,7 @@ public class GreetingController {
 	}
 	/*
 	 *##########################
-	 *FÜR PRÄSENTATION
+	 *Fï¿½R PRï¿½SENTATION
 	 *WELCOME 
 	 * 
 	 */
@@ -601,5 +616,6 @@ public class GreetingController {
 	public String theend(Model model) {
 	return "theend";
 	}
+	
 	
 }
