@@ -13,7 +13,7 @@ import study_easy.groupFunctions.TestElement;
 
 @Service
 @Transactional
-public class TestElementServiceImpl implements TestElementService{
+public class TestElementServiceImpl implements TestElementDAO{
 
 	@Autowired
 	private TestElementDAOImpl tedao;
@@ -68,6 +68,12 @@ public class TestElementServiceImpl implements TestElementService{
 	@Override
 	public void deleteTestElement(int id) {
 		tedao.deleteTestElement(id);
+		
+	}
+
+	@Override
+	public void updateTestSubjectPoints(int id, int points) {
+		// TODO Auto-generated method stub
 		
 	}
 

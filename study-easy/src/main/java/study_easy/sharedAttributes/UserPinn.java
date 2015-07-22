@@ -5,8 +5,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import study_easy.service.UserPinnServiceImpl;
-
 @Entity
 @Table(name = "UserPinn")
 public class UserPinn extends Pinnwall {
@@ -27,13 +25,10 @@ public class UserPinn extends Pinnwall {
 
 	public void addEntry(PinnwallElement entry) {
 		this.getEntries().add(entry);
-		UserPinnServiceImpl UPS = new UserPinnServiceImpl();
-		//UPS.updateUserPinnEntries(this.owner, this.getEntries());
 	}
 
 	private Set<PinnwallElement> getEntries() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.entries;
 	}
 
 	public boolean getBanned(){
@@ -42,7 +37,5 @@ public class UserPinn extends Pinnwall {
 	
 	public void setBanned(boolean ban){
 		this.banned = ban;
-		UserPinnServiceImpl UPS = new UserPinnServiceImpl();
-		UPS.updateUserPinnBan(this.owner, this.banned);
 	}
 }

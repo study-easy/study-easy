@@ -3,28 +3,18 @@ package study_easy.users;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.*;
 import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import study_easy.service.AdminServiceImpl;
-import study_easy.service.RegUserServiceImpl;
-import study_easy.system.Functionals;
 
 @MappedSuperclass
 public abstract class User {
-	@NotNull
 	@Size(min = 4)
 	@Column
 	protected String password;
 	@Id
-	@NotNull
 	@Column(name = "userName")
 	protected String name;
-	@NotNull
 	@Column
 	private String email;
 	@Column
@@ -35,34 +25,8 @@ public abstract class User {
 	@AssertTrue
 	Boolean checkbox;
 
-	@NotNull
 	String sicherheitsfrage;
-	@NotNull
 	String sicherheitsfragecheck;
-
-	public boolean signIn(String password, String name) {
-		List<RegUser> regUserlist = Functionals.getSystem().getUserList();
-		List<Admin> adminlist = Functionals.getSystem().getAdminList();
-		String comparePassword = null;
-		for (User user : regUserlist) {
-			if (user.getName().equals(name)) {
-				comparePassword = user.password;
-			} else {
-				for (User admin : adminlist) {
-					if (admin.getName().equals(name)) {
-						comparePassword = admin.password;
-					} else {
-						return false;
-					}
-				}
-			}
-		}
-		if (comparePassword.equals(password)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 
 	public String getPassword() {
 		return this.password;
@@ -70,13 +34,6 @@ public abstract class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-		if (this.getClass() == RegUser.class) {
-			RegUserServiceImpl RUS = new RegUserServiceImpl();
-			RUS.updateRegUserPassword(this.name, this.password);
-		} else if (this.getClass() == Admin.class) {
-			AdminServiceImpl AS = new AdminServiceImpl();
-			AS.updateAdminPassword(this.name, this.password);
-		}
 	}
 
 	public String getSicherheitsfrage() {
@@ -117,13 +74,6 @@ public abstract class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-		if (this.getClass() == RegUser.class) {
-			RegUserServiceImpl RUS = new RegUserServiceImpl();
-			RUS.updateRegUserEMail(this.name, this.email);
-		} else if (this.getClass() == Admin.class) {
-			AdminServiceImpl AS = new AdminServiceImpl();
-			AS.updateAdminEmail(this.name, this.email);
-		}
 	}
 
 	public String getName() {
@@ -141,6 +91,10 @@ public abstract class User {
 
 	public Date getRegisteredSinceDate() {
 		return registeredSince;
+	}
+	
+	public void setRegisteredSince(Date date){
+		this.registeredSince = date;
 	}
 
 }

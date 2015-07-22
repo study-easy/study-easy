@@ -1,18 +1,44 @@
 package study_easy.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import study_easy.sharedAttributes.PinnwallElement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import study_easy.dao.UserPinnDAOImpl;
 import study_easy.sharedAttributes.UserPinn;
 
-public interface UserPinnService {
+@Service
+@Transactional
+public class UserPinnService{
+
+	@Autowired
+	private UserPinnDAOImpl updao;
 	
-	public void addUserPinn(UserPinn pinn);
-	public List<UserPinn> listUserPinn();
-	public void updateUserPinnEntries(String owner, ArrayList<PinnwallElement> list);
-	public void updateUserPinnBan(String owner, boolean ban);
-	public void updateUserPinnOwner(String owner);
-	public void deleteUserPinn(String owner);
+	public void addUserPinn(UserPinn pinn) {
+		updao.addUserPinn(pinn);
+	}
+	
+	public  UserPinnService(){	
+	}
+
+	public List<UserPinn> listUserPinn() {
+		return updao.listUserPinn();
+	}
+
+	public void updateUserPinn(String owner) {
+		//TDOD
+		
+	}
+
+	public void deleteUserPinn(String owner) {
+		updao.deleteUserPinn(owner);
+		
+	}
+	
+	public void getThisPinn(String owner){
+		
+	}
 
 }

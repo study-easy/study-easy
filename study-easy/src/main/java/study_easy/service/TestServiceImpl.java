@@ -15,7 +15,7 @@ import study_easy.groupFunctions.TestElement;
 
 @Service
 @Transactional
-public class TestServiceImpl implements TestService{
+public class TestServiceImpl implements TestDAO{
 
 	@Autowired
 	private TestDAOImpl tdao;

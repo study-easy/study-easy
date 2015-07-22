@@ -5,8 +5,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import study_easy.service.GroupPinnServiceImpl;
-
 @Entity
 @Table(name = "GroupPinn")
 public class GroupPinn extends Pinnwall {
@@ -21,8 +19,6 @@ public class GroupPinn extends Pinnwall {
 
 	public void addHistoryElement(HistoryElement element) {
 		this.history.add(element);
-		GroupPinnServiceImpl GPS = new GroupPinnServiceImpl();
-		//TODO speichern
 	}
 
 	public Set<HistoryElement> getHistory() {
@@ -39,13 +35,10 @@ public class GroupPinn extends Pinnwall {
 
 	public void addEntrie(PinnwallElement entry) {
 		this.getEntries().add(entry);
-		GroupPinnServiceImpl GPS = new GroupPinnServiceImpl();
-		//GPS.updateGroupPinnEntries(this.owner, this.getEntries());
 	}
 
 	private Set<PinnwallElement> getEntries() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.entries;
 	}
 
 }
