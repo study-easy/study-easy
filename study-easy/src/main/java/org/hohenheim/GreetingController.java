@@ -49,6 +49,7 @@ public class GreetingController {
 	 *17.GAMES
 	 *18. GroupHistory 
 	 *19. Members
+	 *20. Data
 	 *GANZ UNTEN
 	 *F�R PR�SENTATION
 	 *-WELCOME
@@ -597,6 +598,19 @@ public class GreetingController {
 	model.addAttribute("groupName", "Testgruppe");
 	model.addAttribute("name", "Testuser");
 	return "members";
+	}
+	/*
+	 *##########################
+	 *20. Members
+	 *Gruppenmember
+	 * 
+	 */
+	@RequestMapping(value="/data", method=RequestMethod.GET)
+	public String showData(@RequestParam (value="error" , required=false, defaultValue=" ") String name, Model model) {
+	model.addAttribute("groupHistory", "Verlauf");
+	model.addAttribute("groupName", "Testgruppe");
+	model.addAttribute("name", "Testuser");
+	return "data";
 	}
 	/*
 	 *##########################

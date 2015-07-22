@@ -333,3 +333,27 @@ progress::-webkit-progress-value {
                 rgb(84,240,84) 69%
         );
 }
+/* Firefox */
+progress.test::-moz-progress-bar {
+        background-image: -moz-linear-gradient(
+                center bottom,
+                rgb(43,194,83) 37%,
+                rgb(84,240,84) 69%
+        );
+}
+ 
+/* Chrome */
+progress.test::-webkit-progress-value {
+        background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(43,194,83)),
+                color-stop(1, rgb(84,240,84))
+        );
+        background-image: -webkit-linear-gradient(
+                center bottom,
+                rgb(43,194,83) 37%,
+                rgb(84,240,84) 69%
+        );
+}
