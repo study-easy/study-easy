@@ -241,7 +241,23 @@ public class GreetingController {
 	
        
     return "redirect:/combattest?nr=0"; 
+    
 	} 
+	/*
+	 *##########################
+	 *5. ProfilChange.HTML
+	 *Get Aufruf
+	 *
+	 */
+	@RequestMapping(value="/profilchange",method=RequestMethod.GET)
+	public String profilget(@RequestParam(value="name", required=false, defaultValue="Testname") String name, Model model) {
+	String error = "";
+	model.addAttribute("error", error); 
+	RegUser reguser = new RegUser();
+	model.addAttribute("RegUser", reguser); 
+	model.addAttribute("name", name); 
+	return "profilchange";
+	}
 	/*
 	 *##########################
 	 *5. PROFILCHANGE.HTML
@@ -254,19 +270,7 @@ public class GreetingController {
        
     return "redirect:/profil";
 	} 
-	/*
-	 *##########################
-	 *5. Profilprivat.HTML
-	 *Get Aufruf
-	 *
-	 */
-	@RequestMapping(value="/profilprivat",method=RequestMethod.GET)
-	public String profilprivatget(@RequestParam(value="name", required=false, defaultValue="Testname") String name, Model model) {
-	RegUser reguser = new RegUser();
-	model.addAttribute("RegUser", reguser); 
-	model.addAttribute("name", name); 
-	return "profilprivat";
-	} 
+	
 	
 	
 	/*
@@ -339,7 +343,7 @@ public class GreetingController {
     }
 	/*
 	 *##########################
-	 *18. Combattest.HTML
+	 *8. Combattest.HTML
 	 *Get Aufruf
 	 *
 	 */
@@ -458,21 +462,8 @@ public class GreetingController {
 	model.addAttribute("name", name); 
 	return "search";
 	}
-	/*
-	 *##########################
-	 *12. ProfilChange.HTML
-	 *Get Aufruf
-	 *
-	 */
-	@RequestMapping(value="/profilchange",method=RequestMethod.GET)
-	public String profilget(@RequestParam(value="name", required=false, defaultValue="Testname") String name, Model model) {
-	String error = "";
-	model.addAttribute("error", error); 
-	RegUser reguser = new RegUser();
-	model.addAttribute("RegUser", reguser); 
-	model.addAttribute("name", name); 
-	return "profilchange";
-	}
+	
+	
 	/*
 	 *##########################
 	 *12. PRIVACY.HTML
@@ -484,7 +475,19 @@ public class GreetingController {
     public String privacy(){	 
         return "privacy";
     } 
-	
+	/*
+	 *##########################
+	 *13. Profilprivat.HTML
+	 *Get Aufruf
+	 *
+	 */
+	@RequestMapping(value="/profilprivat",method=RequestMethod.GET)
+	public String profilprivatget(@RequestParam(value="name", required=false, defaultValue="Testname") String name, Model model) {
+	RegUser reguser = new RegUser();
+	model.addAttribute("RegUser", reguser); 
+	model.addAttribute("name", name); 
+	return "profilprivat";
+	} 
 	/* 
 	 *##########################
 	 *13. PROFILPRIVAT.HTML
