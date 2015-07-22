@@ -5,8 +5,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import study_easy.service.CombatServiceImpl;
-
 @Entity
 @Table(name = "Combat")
 @Embeddable
@@ -92,8 +90,6 @@ public class Combat {
 
 	public void setChallenger(String challenger) {
 		this.challenger = challenger;
-		CombatServiceImpl CS = new CombatServiceImpl();
-		CS.updateCombatChallenger(this.id, challenger);
 	}
 
 	public String getOpponent() {
@@ -102,8 +98,6 @@ public class Combat {
 
 	public void setOpponent(String opponent2) {
 		this.opponent = opponent2;
-		CombatServiceImpl CS = new CombatServiceImpl();
-		CS.updateCombatOpponent(this.id, opponent);
 	}
 
 	public int getId() {
