@@ -6,9 +6,6 @@ import java.util.Set;
 import javax.persistence.*;
 
 import study_easy.service.CombatServiceImpl;
-import study_easy.service.GroupServiceImpl;
-import study_easy.system.Functionals;
-import study_easy.users.RegUser;
 
 @Entity
 @Table(name = "Combat")
@@ -70,25 +67,19 @@ public class Combat {
 	}
 
 	public Combat(String challenger, String opponent, Test test) {
-		this.challenger = challenger;
-		this.opponent = opponent;
-		this.test = test;
-		Functionals.getSystem().findGroup(challenger).getCurrentCombats().add(this);
-		Functionals.getSystem().findGroup(opponent).getCurrentCombats().add(this);
-		this.opponentRight = 0;
-		this.challengerRight = 0;
-		for (RegUser user : Functionals.getSystem().findGroup(challenger).getUserList()) {
-			this.challengerNames.add(user.getName());
-		}
-		for (RegUser user : Functionals.getSystem().findGroup(opponent).getUserList()) {
-			this.challengerNames.add(user.getName());
-		}
-
-		CombatServiceImpl CS = new CombatServiceImpl();
-		CS.addCombat(this);
-		GroupServiceImpl GS = new GroupServiceImpl();
-		//GS.updateGroupCurrentCombats(this.challenger.getName(), this.challenger.getCurrentCombats());
-		//GS.updateGroupCurrentCombats(this.opponent.getName(), this.opponent.getCurrentCombats());
+//		this.challenger = challenger;
+//		this.opponent = opponent;
+//		this.test = test;
+//		Functionals.getSystem().findGroup(challenger).getCurrentCombats().add(this);
+//		Functionals.getSystem().findGroup(opponent).getCurrentCombats().add(this);
+//		this.opponentRight = 0;
+//		this.challengerRight = 0;
+//		for (RegUser user : Functionals.getSystem().findGroup(challenger).getUserList()) {
+//			this.challengerNames.add(user.getName());
+//		}
+//		for (RegUser user : Functionals.getSystem().findGroup(opponent).getUserList()) {
+//			this.challengerNames.add(user.getName());
+//		}
 	}
 
 	public Test getTest() {

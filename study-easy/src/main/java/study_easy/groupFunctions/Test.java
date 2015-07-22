@@ -5,8 +5,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import study_easy.service.TestServiceImpl;
-
 @Entity
 public class Test {
 
@@ -31,8 +29,6 @@ public class Test {
 
 	public void setCreator(Group creator) {
 		this.creator = creator;
-		TestServiceImpl TS = new TestServiceImpl();
-		TS.updateTestCreator(this.id, this.creator);
 	}
 
 	public void setId(int id) {
@@ -41,8 +37,6 @@ public class Test {
 
 	public void setTasks(HashSet<TestElement> tasks) {
 		this.tasks = tasks;
-		TestServiceImpl TS = new TestServiceImpl();
-		//TS.updateTestElements(this.id, this.tasks);
 	}
 
 	public float getTime() {
@@ -51,8 +45,6 @@ public class Test {
 
 	public void setTime(float time) {
 		this.time = time;
-		TestServiceImpl TS = new TestServiceImpl();
-		TS.updateTestTime(this.id, this.time);
 	}
 
 	public Set<TestElement> getTasks() {

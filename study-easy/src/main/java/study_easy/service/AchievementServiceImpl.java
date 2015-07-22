@@ -13,7 +13,7 @@ import study_easy.sharedAttributes.AchievementCondition;
 
 @Service
 @Transactional
-public class AchievementServiceImpl implements AchievementService {
+public class AchievementServiceImpl implements AchievementDAO {
 
 	@Autowired
 	private AchievementDAOImpl achievementDAOImpl;

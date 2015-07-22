@@ -13,7 +13,7 @@ import study_easy.users.Admin;
 
 @Service
 @Transactional
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminDAO{
 
 	@Autowired
 	private AdminDAOImpl addao;

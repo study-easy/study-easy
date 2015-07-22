@@ -10,12 +10,11 @@ import org.springframework.stereotype.Service;
 import study_easy.dao.AchievementConditionDAO;
 import study_easy.dao.AchievementConditionDAOImpl;
 import study_easy.sharedAttributes.AchievementCondition;
-import study_easy.sharedAttributes.ConditionTypes;
 
 
 @Service
 @Transactional
-public class AchievementConditionServiceImpl implements AchievementConditionService{
+public class AchievementConditionServiceImpl implements AchievementConditionDAO{
 
 	@Autowired
 	private AchievementConditionDAOImpl achievementConditionDAOImpl;
@@ -32,44 +31,14 @@ public class AchievementConditionServiceImpl implements AchievementConditionServ
 	}
 
 	@Override
-	public void updateAchievementConditionName(int id, String name) {
-		achievementConditionDAOImpl.updateAchievementConditionName(id, name);
-		
-	}
-
-	@Override
-	public void updateAchievementConditionType(int id, ConditionTypes type) {
-		achievementConditionDAOImpl.updateAchievementConditionType(id, type);
-		
-	}
-
-	@Override
-	public void updateAchievementConditionRequiredNumber(int id, int number) {
-		achievementConditionDAOImpl.updateAchievementConditionRequiredNumber(id, number);
-		
-	}
-
-	@Override
-	public void updateAchievementConditionRequiredString(int id, String string) {
-		achievementConditionDAOImpl.updateAchievementConditionRequiredString(id, string);
-		
-	}
-
-	@Override
-	public void updateAchievementConditionRequiredTime(int id, float time) {
-		achievementConditionDAOImpl.updateAchievementConditionRequiredTime(id, time);
-		
-	}
-
-	@Override
-	public void updateAchievementConditionXp(int id, int xp) {
-		achievementConditionDAOImpl.updateAchievementConditionXp(id, xp);
-		
-	}
-
-	@Override
 	public void deleteAchievementCondition(int id) {
 		achievementConditionDAOImpl.deleteAchievementCondition(id);
+		
+	}
+
+	@Override
+	public void updateAchievementCondition(AchievementCondition condition) {
+		achievementConditionDAOImpl.updateAchievementCondition(condition);
 		
 	}
 
