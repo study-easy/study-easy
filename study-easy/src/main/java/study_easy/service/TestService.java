@@ -28,23 +28,12 @@ public class TestService{
 		return tdao.listTest();
 	}
 
-	public void updateTestTime(int id, float time) {
-		tdao.updateTestTime(id, time);
-		
+	public void updateTestTime(Test test){
+		tdao.updateTestTime(test);
 	}
 
-	public void updateTestCreator(int id, Group group) {
-		tdao.updateTestCreator(id, group);
-		
-	}
-
-	public void updateTestElements(int id, HashSet<TestElement> tests) {
-		tdao.updateTestElements(id, tests);
-		
-	}
-
-	public void deleteTest(int id) {
-		tdao.deleteTest(id);
+	public void deleteTest(Test test) {
+		tdao.deleteTest(test);
 		
 	}
 
