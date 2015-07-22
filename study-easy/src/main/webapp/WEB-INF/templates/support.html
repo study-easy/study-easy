@@ -21,8 +21,8 @@
 	<div class="mainbody">
 		<div class="hellofield">
 			<p class="hellotext">
-				<span id="studyeasy">study-easy.</span> Anscheinend ist ein Problem
-				aufgetreten :( Und so werden wir dir helfen:<br />
+				<a th:href="@{/}" id="studyeasy"><span>study-easy.</span></a> Anscheinend ist ein Problem
+				aufgetreten :( <br /> Und so werden wir dir helfen:<br />
 			</p>
 			<ol class="hellotext" style="margin-top: -5px;">
 				<li>Nutzername eingeben (optional)</li>
@@ -42,18 +42,13 @@
 						</tr>
 						<tr>
 							<td><input type="text" th:field="*{name}"
-								placeholder="Deine_Mudda-Nutzername" size="25" class="inputfield" />
+								placeholder="Nutzername (optional)" size="25" class="inputfield" />
 								</td>
 						</tr>
 						<tr>
 							<td><input type="text" th:field="*{problem}"
-								placeholder="Was ist passiert? :(" size="25" class="inputfield" /></td>
-						</tr>
-						<tr>
-							<td><input type="text" th:field="*{problemort}"
-								placeholder="Wo ist es passiert?" size="25" class="inputfield" /></td>
-						</tr>
-						
+								placeholder="Was ist dein Problem?" size="25" class="inputfield" /></td>
+						</tr>						
 						<tr>
 							<td><button type="submit"
 									class="buttons">

@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/profil.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
@@ -15,38 +15,47 @@
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;">
- <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
+ <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->  
 <div class="header" id="inside">
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo">study-easy</a>
+		<a th:href="@{/home}" class="logo" >study-easy</a>
 		
-		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
-		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
+		<button type="submit" id="searchButton"><span id="searchText">GO</span>
 		</button>
-  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
+  		<input type="text" name="search" size="20" style="height: 20px; width: 180px;  margin-top:8px;" placeholder="Suche..."/>	
 		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
-</div>
+	</div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
-	<a href="#" th:href="@{/home}"><span th:text="${name}">Meine</span> Startseite</a><br />
-	<a href="#" th:href="@{/profilchange}">Profil bearbeiten</a><br />
-	<a href="#" th:href="@{/profilprivat}">Pers&ouml;nliche Daten</a><br />
-	<p>Meine Gruppen</p>
+	<div class="hellotext">
+	<a href="#" th:href="@{/admin}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+			<dl>
+			<dt></dt>
+				<dd><a th:href="@{/group}" class="linksupport" id="activ">Nutzer anzeigen</a></dd>
+				<dd><a th:href="@{/group}" class="linksupport" >Gruppen anzeigen</a></dd>
+			</dl>
 	
-	
-
+	</div>
 </div>
 <div class="mainInsidefield">
 <table>
-<tr><td>gjgug</td></tr></table>
-<p>fef <progress id="progressBar" max="100" value="50"></progress></p>
+<tr>
+<td>Liste </td>
+</tr>
+<tr th:each="groupList : ${groupList}">
+					<td><a href="group"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
+						<!--<th>Bsp</th>-->
+					</tr>
+</table>
 </div>
+
 </div>
 <div class="footer">
 		
@@ -60,6 +69,8 @@
 				</a> 
 		</p>
 	</div>
-</body>        
 
+
+
+</body>
 </html>

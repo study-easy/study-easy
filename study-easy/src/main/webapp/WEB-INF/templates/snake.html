@@ -27,32 +27,30 @@
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
-		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
+		<button type="submit" id="searchButton"><span id="searchText">GO</span>
 		</button>
-  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
+  		<input type="text" name="search" size="20" style="height: 20px; width: 180px;  margin-top:8px;" placeholder="Suche..."/>	
 		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
-</div>
+	</div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" ><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" >Profil bearbeiten</a><br />
-	<a href="#" >Pers&ouml;nliche Daten</a><br />
-	<a href="#" th:href="@{/snake}"><img src="resources/images/snakedunkel.png" width="18" height="18"/> Snake</a><br />
-	<table>
-	<tr>
-		<td>Meine Gruppen</td>
-	</tr>
-<!-- 	<tr th:each="">
-		<th th:text="">Liste</th>
-	</tr>
---><tr>
-	<th>Bsp</th>
-	</tr>
-	</table>
+<!--  <<<<<<< HEAD
+	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a><br/>
+			<dl>
+			<dt><a th:href="@{/games}" class="linksupport">Spiele</a></dt>
+				<dd><a th:href="@{/snake}" class="linksupport" id="activ">Snake</a></dd>
+			</dl>
+======= -->
+	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+	<dl>
+	<dt><a href="#" th:href="@{/games}" class="linksupport" >Spiele</a></dt>
+	<dd><a href="#" th:href="@{/snake}" class="linksupport" id="activ">Snake</a></dd>
+	</dl>
+<!--   >>>>>>> Marcel_V5 -->
 	</div>
 	
 

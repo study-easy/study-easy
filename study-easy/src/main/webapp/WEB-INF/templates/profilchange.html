@@ -13,36 +13,33 @@
 	<!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
 	<div class="header" id="inside">
 		<div id="support">
-			<a th:href="@{/support}" target="_blank"><img
-				src="resources/images/supportdunkel.png" width="20" height="20" /></a>
+		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
 		<a th:href="@{/home}" class="logo">study-easy</a>
-
-		<p th:text="${error}" class="notification"
-			style="color: #979797; margin-top: -25px; background-color: red;"></p>
-		<form class="logo" id="search" method="get" action="#"
-			th:action="@{/search}">
-			<button type="submit" id="searchButton">
-				<span id="searchText">GO</span>
-			</button>
-			<input type="text" size="20" style="height: 20px; margin-top: 0px;"
-				placeholder="Suche..." />
+		
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
+		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
+		<button type="submit" id="searchButton"><span id="searchText">GO</span>
+		</button>
+  		<input type="text" name="search" size="20" style="height: 20px; width: 180px;  margin-top:8px;" placeholder="Suche..."/>	
 		</form>
 		<div id="logout">
-			<a th:href="@{/logout}"><img
-				src="resources/images/logoutdunkel.png" width="20" height="20" /></a>
+		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
 	</div>
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
-			<a href="#"><span th:text="#{name}">Mein Profil</span></a><br /> <a
-				href="#">Profil bearbeiten</a><br /> <a href="#">Pers&ouml;nliche
-				Daten</a><br />
-			<p>Meine Gruppen</p>
-
-
-
-		</div>
+		<div class="hellotext">
+		<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+			<dl>
+			<dt><a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Mein Profil</span></a></dt>
+				<dd><a th:href="@{/profilchange}" class="linksupport" id="activ"><span th:text="Profil_bearbeiten"></span></a></dd>
+				<dd><a th:href="@{/profilprivat}" class="linksupport">Pers&ouml;nliche Daten</a></dd>
+			</dl>
+	
+	
+</div>
+</div>
 		<div class="mainInsidefield">
 			<!-- passwort, email, sicherheitsfrage, -->
 			<!-- schule, hobby, geburtsdatum,  -->
@@ -50,52 +47,45 @@
 				method="post">
 				<table>
 					<tr>
-						<td>Deine Mailadresse</td>
+						<td class="inputName">Deine Mailadresse:</td>
 					</tr>
 					<tr>
-						<td>Bisher:</td>
-						<td><a></a></td>
+						<td><input  th:field="*{email}" class="inputfield" type="email" value="email" size="30"/>
+						</td>
 					</tr>
 					<tr>
-						<td>Neu:</td>
-						<td><input type="email"/></td>
+						<td class="inputName">Schule/Ausbildung:</td>
 					</tr>
 					<tr>
-						<td>Schule/Ausbildung</td>
+						<td><textarea th:field="*{school}"  cols="35" rows="4">
+					</textarea>
+						</td>
 					</tr>
 					<tr>
-						<td>Bisher:</td>
-						<td></td>
+						<td class="inputName">Hobbys: </td>
+					</tr>
+					<tr><td>
+					  <textarea th:field="*{hobby}"  cols="35" rows="4" >Wird noch benötigt</textarea>
+					</td></tr>
+					<tr>
+						<td class="inputName">Zitate: </td>
+					</tr>
+					<tr><td>
+					  <textarea th:field="*{quotes}"  cols="35" rows="4" >Wird noch benötigt</textarea>
+					</td></tr>
+					<tr>
+						<td class="inputName">Geburtsdatum</td>
 					</tr>
 					<tr>
-						<td>Neu:</td>
-						<td><input /></td>
+						<td><input th:field="*{birthDate}" class="inputfield" type="date" value="2014-10-15" min="1900-10-01" max="2015-11-01" size="25"/>
+						</td>
 					</tr>
 					<tr>
-						<td>Hobbys</td>
+						<td class="inputName">Neues Profilbild:</td>
 					</tr>
 					<tr>
-						<td>Du magst bereits</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>Jetzt magst du</td>
-						<td><input /></td>
-					</tr>
-					<tr>
-						<td>Geburtsdatum</td>
-					</tr>
-					<tr>
-						<td>Bisher wurdest du geboren am</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>Jetzt bist du geboren am</td>
-						<td><input type="date" value="2014-10-15" min="1900-10-01" max="2015-11-01"/></td>
-					</tr>
-					<tr>
-						<td>Kontonummer + PIN</td>
-						<td><input type="text" /></td>
+						<td><input type="file" size="30" class="inputfield"/>
+						</td>
 					</tr>
 					<tr>
 						<td><button type="submit" class="buttons">
@@ -104,7 +94,6 @@
 					</tr>
 				</table>
 			</form>
-			<p>hkhj</p>
 		</div>
 	</div>
 	<div class="footer">
