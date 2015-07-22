@@ -32,7 +32,7 @@
 			<div class="hellotext">
 				<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
 				<dl>
-				<dt><a href="#" th:href="@{/profilchange}" class="linksupport">Profil bearbeiten</a></dt>
+				<dt><a href="#" th:href="@{/profilchange(user=${user})}" class="linksupport">Profil bearbeiten</a></dt>
 				<dt><a href="#" th:href="@{/games}" class="linksupport" >Spiele</a></dt>
 				
 				
