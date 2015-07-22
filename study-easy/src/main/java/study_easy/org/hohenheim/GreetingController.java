@@ -70,6 +70,9 @@ public class GreetingController {
             if(error.equals("1")) {
             	model.addAttribute("error", "Eingabe falsch");
             }
+            if(error.equals("2")) {
+            	model.addAttribute("error", "Erfolgreich Registriert");
+            }
              model.addAttribute("RegUser", reguser);         
              System.out.println("Index-Seite");
         return "index"; 
@@ -143,17 +146,16 @@ public class GreetingController {
 		if(check == false) {
 			return "redirect:/register?error=1";
 		}
-       System.out.println(RUS.register(password, passwordcheck, bname, sicherheitsfrage, sicherheitsantwort ));
+       //System.out.println(RUS.register(password, passwordcheck, bname, sicherheitsfrage, sicherheitsantwort ));
        System.out.println("Benutzername: " +bname);
        System.out.println("Passwort: " +password); 
        System.out.println("WPasswort: " +passwordcheck);
        System.out.println("Aktzeptiert: " + check);
-       if (bname.equals("bname")) {
-    	   System.out.println("Sie werden erfolgreich eingeloggt");
-    	   return "redirect:/register"; 
+       if (RUS.register(password, passwordcheck, bname, sicherheitsfrage, sicherheitsantwort )) {
+		   return "redirect:/?error=2"; 
        } else {
     	   System.out.println("ERROR");
-    	  return "redirect:/";
+    	   return "redirect:/register?error=1";
        }
        } 
 	/*
