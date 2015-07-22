@@ -141,7 +141,7 @@ public class RegUserService {
 				}
 			}
 		}
-		if (comparePassword.equals(password)) {
+		if ( comparePassword != null && comparePassword.equals(password)) {
 			return true;
 		} else {
 			return false;
