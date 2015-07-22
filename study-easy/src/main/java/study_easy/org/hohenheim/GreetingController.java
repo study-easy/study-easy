@@ -282,8 +282,10 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String home(@RequestParam(value="user", required=true) String name, Model model) {
+	//alle drei haben den gleichen Wert
 	model.addAttribute("name", name);
 	model.addAttribute("user", name);
+	model.addAttribute("pinnwallOwner", name);
 		UserPinn userPinn = new UserPinn();
 	PinnwallElement element = new PinnwallElement();
 	Date date = new Date();
@@ -291,9 +293,6 @@ public class GreetingController {
 	RegUser testUser = new RegUser();
 	Group group = new Group();
 	PinnwallElement e = new PinnwallElement();
-	model.addAttribute("error", name);
-	model.addAttribute("pinnwallOwner", "Hans");
-	model.addAttribute("pinnwallOwner", "Testuser 1");
 	model.addAttribute("PinnwallElement", element);
 	return "home"; 
 	}
