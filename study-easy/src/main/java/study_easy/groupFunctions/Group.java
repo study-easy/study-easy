@@ -137,46 +137,6 @@ public class Group {
 			}
 	}
 
-	public void finishCombat(Combat combat) {
-		// TODO fertig?
-//		if (combat.getChallengerNames().isEmpty() && combat.getOpponentNames().isEmpty()) {
-//			Functionals.getSystem().findGroup(combat.getChallenger()).getCurrentCombats().remove(combat);
-//			for (RegUser user : Functionals.getSystem().findGroup(combat.getChallenger()).getUserList()) {
-//				for (Badge badge : Functionals.getSystem().getBadgeList()) {
-//					Functionals.awardBadge(badge, user);
-//				}
-//				Functionals.getSystem().giveXP(user, combat.getChallengerRight());
-//				Functionals.levelUpUser(user);
-//
-//			}
-//			for (Achievement achievement : Functionals.getSystem().getAchievementList()) {
-//				if (achievement.conditionsTrue(Functionals.getSystem().findGroup(combat.getChallenger())))
-//					Functionals.getSystem().findGroup(combat.getChallenger()).achievements.add(achievement);
-//			}
-//
-//			Functionals.getSystem().findGroup(combat.getOpponent()).getCurrentCombats().remove(combat);
-//
-//			for (RegUser user : Functionals.getSystem().findGroup(combat.getOpponent()).getUserList()) {
-//				for (Badge badge : Functionals.getSystem().getBadgeList()) {
-//					Functionals.awardBadge(badge, user);
-//				}
-//				Functionals.getSystem().giveXP(user, combat.getOpponentRight());
-//				Functionals.levelUpUser(user);
-//			}
-//			for (Achievement achievement : Functionals.getSystem().getAchievementList()) {
-//				if (achievement.conditionsTrue(Functionals.getSystem().findGroup(combat.getOpponent())))
-//					Functionals.getSystem().findGroup(combat.getOpponent()).achievements.add(achievement);
-//
-//			}
-			HistoryElement element = new HistoryElement(combat);
-			combat = null;
-		//}
-	}
-
-	public void startCombat(Group opponent, Test test) {
-		Combat combat = new Combat(this.name, opponent.name, test);
-	}
-
 	public float getWinToLoss() {
 		return winToLoss;
 	}

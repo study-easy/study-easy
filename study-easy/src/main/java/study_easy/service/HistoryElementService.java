@@ -1,6 +1,5 @@
 package study_easy.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +26,8 @@ public class HistoryElementService{
 		
 	}
 
-	public void updateHistoryElementContent(int id, String content) {
-		hedao.updateHistoryElementContent(id, content);
-		
-	}
-
-	public void updateHistoryElementDate(int id, Date date) {
-		hedao.updateHistoryElementDate(id, date);
-		
+	public void updateHistoryElement(HistoryElement element){
+		//TODO
 	}
 
 	public void deleteHistoryElement(int id) {

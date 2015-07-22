@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.AdminDAOImpl;
 import study_easy.dao.RegUserDAOImpl;
+import study_easy.sharedAttributes.Badge;
 import study_easy.sharedAttributes.UserPinn;
 import study_easy.users.Admin;
 import study_easy.users.RegUser;
@@ -144,6 +145,18 @@ public class RegUserService {
 			return true;
 		} else {
 			return false;
+		}
+	}
+	
+	public void giveXP(RegUser user, int numOfRight) {
+		user.setXpPoints(user.getXpPoints() + (numOfRight * 10));
+		regUserDAO.updateRegUser(user);
+	}
+	
+	public void awardBadge(Badge badge, RegUser user) {
+		if (badge.conditionsTrue(user) && !user.getEarnedBadges().contains(badge)) {
+			user.getEarnedBadges().add(badge);
+			this.regUserDAO.updateRegUser(user);
 		}
 	}
 

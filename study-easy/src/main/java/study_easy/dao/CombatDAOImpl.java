@@ -30,53 +30,14 @@ public class CombatDAOImpl implements CombatDAO{
 	}
 
 	@Override
-	public void updateCombatChallenger(int id, String challenger) {
-		Session session = factory.getCurrentSession();
-		Combat combat = (Combat) session.load(Combat.class, id);
-		if(combat!=null){
-			combat.setChallenger(challenger);
-			session.update(combat);
-		}
+	public void updateCombat(Combat combat) {
+		factory.getCurrentSession().update(combat);
 	}
 
 	@Override
-	public void updateCombatOpponent(int id, String opponent) {
-		Session session = factory.getCurrentSession();
-		Combat combat = (Combat) session.load(Combat.class, id);
-		if(combat!=null){
-			combat.setOpponent(opponent);
-			session.update(combat);
-		}
+	public void deleteCombat(Combat combat) {
+		factory.getCurrentSession().delete(combat);
 	}
 
-	@Override
-	public void updateCombatTest(int id, Test test) {
-		Session session = factory.getCurrentSession();
-		Combat combat = (Combat) session.load(Combat.class, id);
-		if(combat!=null){
-			combat.setTest(test);
-			session.update(combat);
-		}
-	}
-
-	@Override
-	public void deleteCombat(int id) {
-		Session session = factory.getCurrentSession();
-		Combat combat = (Combat) session.load(Combat.class, id);
-		if(combat!=null)
-			session.delete(combat);
-	}
-
-	@Override
-	public void updateChallangerRight(int id, int challengerRight) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateOpponentRight(int id, int opponentRight) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

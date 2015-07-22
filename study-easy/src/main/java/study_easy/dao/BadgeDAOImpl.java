@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import study_easy.sharedAttributes.Badge;
-import study_easy.sharedAttributes.BadgeCondition;
 
 @Repository
 public class BadgeDAOImpl implements BadgeDAO{
@@ -30,13 +29,8 @@ public class BadgeDAOImpl implements BadgeDAO{
 	}
 
 	@Override
-	public void updateBadgeConditions(String name, BadgeCondition condition) {
-		Session session = factory.getCurrentSession();
-		Badge bagde = (Badge) session.load(Badge.class, name);
-		if(bagde!=null){
-			bagde.getConditions().add(condition);
-			session.update(bagde);
-		}
+	public void updateBadge(Badge bagde) {
+		factory.getCurrentSession().update(bagde);
 	}
 
 	@Override

@@ -26,8 +26,8 @@ public class BadgeService{
 		return bdao.listBadge();
 	}
 
-	public void updateBadgeConditions(String name, BadgeCondition condition) {
-		bdao.updateBadgeConditions(name, condition);
+	public void updateBadgeConditions(Badge badge) {
+		bdao.updateBadge(badge);
 		
 	}
 

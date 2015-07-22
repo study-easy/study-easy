@@ -30,10 +30,8 @@ public class GroupDAOImpl implements GroupDAO {
 	}
 
 	@Override
-	public void deleteGroup(String name) {
-		Session session = factory.getCurrentSession();
-		Group group = (Group) session.createCriteria(Group.class).add(Restrictions.eqOrIsNull("name", name));
-		session.delete(group);
+	public void deleteGroup(Group name) {
+		factory.getCurrentSession().delete(name);
 	}
 
 	@Override

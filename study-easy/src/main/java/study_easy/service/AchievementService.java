@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.AchievementDAOImpl;
 import study_easy.sharedAttributes.Achievement;
-import study_easy.sharedAttributes.AchievementCondition;
 
 @Service
 @Transactional

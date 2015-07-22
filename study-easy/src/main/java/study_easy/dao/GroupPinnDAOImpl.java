@@ -31,38 +31,17 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 	}
 
 	@Override
-	public void updateGroupPinnHistory(String owner, List<HistoryElement> list) {
-		Session session = factory.getCurrentSession();
-		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
-		if(pinn!=null){
-			//TODO
-		}
-	}
-
-	@Override
-	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list) {
-		Session session = factory.getCurrentSession();
-		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
-		if(pinn!=null){
-			//TODO
-		}
-	}
-
-	@Override
-	public void updateGroupPinnBan(String owner, boolean ban) {
-		Session session = factory.getCurrentSession();
-		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
-		if(pinn!=null){
-			
-		}
-	}
-
-	@Override
 	public void deleteGroupPinn(String owner) {
 		Session session = factory.getCurrentSession();
 		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
 		if(pinn!=null)
 			session.delete(pinn);
+	}
+
+	@Override
+	public void updateGroupPinn(GroupPinn pinn) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

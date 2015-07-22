@@ -10,6 +10,6 @@ public interface GroupDAO {
 	public List<Group> listGroup();
 	public void updateGroup(Group group);
 	public Group getGroup(String name);
-	public void deleteGroup(String name);
+	public void deleteGroup(Group name);
 
 }

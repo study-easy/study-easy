@@ -27,19 +27,8 @@ public class GroupPinnService{
 		return gpdao.listGroupPinn();
 	}
 
-	public void updateGroupPinnHistory(String owner, List<HistoryElement> list) {
-		gpdao.updateGroupPinnHistory(owner, list);
-		
-	}
-
-	public void updateGroupPinnEntries(String owner, List<PinnwallElement> list) {
-		gpdao.updateGroupPinnEntries(owner, list);
-		
-	}
-
-	public void updateGroupPinnBan(String owner, boolean ban) {
-		gpdao.updateGroupPinnBan(owner, ban);
-		
+	public void updateGroupPinn(GroupPinn pinn){
+		//TODO
 	}
 
 	public void deleteGroupPinn(String owner) {
