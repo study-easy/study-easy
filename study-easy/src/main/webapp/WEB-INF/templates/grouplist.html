@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/search.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
@@ -15,12 +15,12 @@
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;">
- <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
+ <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->  
 <div class="header" id="inside">
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo">study-easy</a>
+		<a th:href="@{/home}" class="logo" >study-easy</a>
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
@@ -35,31 +35,27 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Mein Profil</span></a><br />
-				<a href="#" th:href="@{/games}" class="linksupport" >Spiele</a><br />
-				<table>
-					<tr>
-						<th>Meine Gruppen</th>
-					</tr>
-					<tr th:each="groupList : ${groupList}">
-					<td><a href="group"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
-						<!--<th>Bsp</th>-->
-					</tr>
-					<tr>
-						<th>Nutzer</th>
-					</tr>
-					<tr th:each="userList : ${userList}">
+	<a href="#" th:href="@{/admin}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+			<dl>
+			<dt></dt>
+				<dd><a th:href="@{/group}" class="linksupport">Nutzer anzeigen</a></dd>
+				<dd><a th:href="@{/group}" class="linksupport" id="activ">Gruppen anzeigen</a></dd>
+			</dl>
+	
+	</div>
+</div>
+<div class="mainInsidefield">
+<table>
+<tr>
+<td>Liste Gruppe</td>
+</tr>
+<tr th:each="userList : ${userList}">
 					<td><a href="home"><span th:text="$userList.name}">Keine Gruppen</span></a></td>
 						<!--<th>Bsp</th>-->
 					</tr>
-				</table>
-	</div>
-	
+</table>
+</div>
 
-</div>
-<div class="mainInsidefield">
-<p>Suchergebnisse</p>
-</div>
 </div>
 <div class="footer">
 		
@@ -73,5 +69,8 @@
 				</a> 
 		</p>
 	</div>
-</body>        
+
+
+
+</body>
 </html>

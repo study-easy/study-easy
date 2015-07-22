@@ -169,7 +169,15 @@ a.linksupport:hover {
 #studyeasy {
 	font-size: 35pt; 
 	color: #ffa726;
+	text-decoration: none;
 	/* color: #fafbfc; */
+}
+a#studyeasy:hover {
+	font-size: 35pt; 
+	color: #ffa726;
+	text-decoration: none;
+	/* color: #fafbfc; */
+
 }
 
 .footer {
