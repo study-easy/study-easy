@@ -6,7 +6,6 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import study_easy.service.BadgeServiceImpl;
 import study_easy.users.RegUser;
 
 @Entity
@@ -24,8 +23,6 @@ public class Badge {
 	
 	public void addBadgeCondition(BadgeCondition element) {
 		conditions.add(element);
-		BadgeServiceImpl GPS = new BadgeServiceImpl();
-		GPS.updateBadgeConditions(this.name, element);
 	}
 
 

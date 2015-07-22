@@ -4,10 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 import study_easy.groupFunctions.Group;
-import study_easy.service.AchievementServiceImpl;
 import study_easy.users.RegUser;
 
 @Entity
@@ -15,18 +13,14 @@ import study_easy.users.RegUser;
 @Embeddable
 public class Achievement {
 
-	@NotNull
 	@Id	
 	@Column
 	private String name;
-	@NotNull
 	@ElementCollection
 	private Set<AchievementCondition> conditions = new HashSet<AchievementCondition>();
 
 	public void addAchievmentConditions(AchievementCondition element) {
 		conditions.add(element);
-		AchievementServiceImpl GPS = new AchievementServiceImpl();
-		GPS.updateAchievementConditions(this.name, element);
 	} 
 	
 	public boolean conditionsTrue(Group group) {

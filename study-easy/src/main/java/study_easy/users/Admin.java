@@ -4,7 +4,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import study_easy.service.AdminServiceImpl;
 import study_easy.sharedAttributes.UserPinn;
 
 @Entity
@@ -30,8 +29,6 @@ public class Admin extends User {
 		newAdmin.name = name;
 		newAdmin.password = password;
 		newAdmin.registeredSince = new Date();
-		AdminServiceImpl AS = new AdminServiceImpl();
-		AS.addAdmin(newAdmin);
 		return newAdmin;
 
 	}
