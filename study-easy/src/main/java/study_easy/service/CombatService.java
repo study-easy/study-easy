@@ -90,8 +90,8 @@ public class CombatService{
 					gs.getGroup(combat.getOpponent()).getAchievements().add(achievement);
 
 			}
+			@SuppressWarnings("unused")
 			HistoryElement element = new HistoryElement(combat);
-			combat = null;
 		}
 	}
 

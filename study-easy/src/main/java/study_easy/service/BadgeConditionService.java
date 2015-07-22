@@ -1,6 +1,5 @@
 package study_easy.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.BadgeConditionDAOImpl;
 import study_easy.sharedAttributes.BadgeCondition;
-import study_easy.sharedAttributes.ConditionTypes;
 
 @Service
 @Transactional

@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.GroupPinnDAOImpl;
 import study_easy.sharedAttributes.GroupPinn;
-import study_easy.sharedAttributes.HistoryElement;
-import study_easy.sharedAttributes.PinnwallElement;
 
 @Service
 @Transactional

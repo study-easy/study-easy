@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 import study_easy.sharedAttributes.Achievement;
 import study_easy.sharedAttributes.GroupPinn;
-import study_easy.sharedAttributes.HistoryElement;
 import study_easy.users.RegUser;
 
 @Entity
