@@ -39,7 +39,7 @@
 						<th>Meine Gruppen</th>
 					</tr>
 					<tr>
-						<td><a th:href="@{/groupchange?new=true}">Gruppe erstellen</a></td>
+						<td><a th:href="@{/groupchange?new=true}" class="linksupport">Gruppe erstellen</a></td>
 					</tr>
 					<tr th:each="groupList : ${groupList}">
 					<td><a href="group" class="linksupport"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
