@@ -11,15 +11,15 @@ import org.springframework.stereotype.Repository;
 import study_easy.users.Admin;
 
 @Repository
-public class AdminDAOImpl implements AdminDAO{
+public class AdminDAOImpl implements AdminDAO {
 
 	@Autowired
 	private SessionFactory factory;
-	
+
 	@Override
 	public void addAdmin(Admin admin) {
 		Session session = factory.getCurrentSession();
-		session.save(admin);		
+		session.save(admin);
 	}
 
 	@Override
@@ -30,40 +30,16 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 	@Override
-	public void updateAdminPassword(String name, String password) {
-		Session session = factory.getCurrentSession();
-		Admin admin = (Admin) session.load(Admin.class, name);
-		if(admin!=null){
-			admin.setPassword(password);
-			session.update(admin);
-		}
-	}
-
-	@Override
-	public void updateAdminEmail(String name, String email) {
-		Session session = factory.getCurrentSession();
-		Admin admin = (Admin) session.load(Admin.class, name);
-		if(admin!=null){
-			admin.setEmail(email);
-			session.update(admin);
-		}		
-	}
-
-	@Override
-	public void updateAdminRegisteredSince(String name, Date date) {
-		Session session = factory.getCurrentSession();
-		Admin admin = (Admin) session.load(Admin.class, name);
-		if(admin!=null){
-			
-		}
-	}
-
-	@Override
 	public void deleteAdmin(String name) {
 		Session session = factory.getCurrentSession();
 		Admin admin = (Admin) session.load(Admin.class, name);
-		if(admin!=null)
+		if (admin != null)
 			session.delete(admin);
+	}
+
+	@Override
+	public void updateAdmin(Admin admin) {
+		factory.getCurrentSession().update(admin);
 	}
 
 }

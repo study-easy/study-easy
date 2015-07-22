@@ -93,7 +93,7 @@ public class RegUserService {
 
 	}
 
-	public boolean register(String password, String testPassword, String name) {
+	public boolean register(String password, String testPassword, String name, String sicherheit, String sicherheitAntw) {
 		boolean nameOccupied = false;
 		for (RegUser user : regUserDAO.listRegUsers()) {
 			if (user.getName().equals(name))
@@ -113,6 +113,8 @@ public class RegUserService {
 			regUser.setRegisteredSince(new Date());
 			regUser.setXpPoints(0);
 			regUser.setLevel(0);
+			regUser.setSicherheitsfrage(sicherheit);
+			regUser.setSicherheitsfragecheck(sicherheitAntw);
 			UserPinn pinn = new UserPinn();
 			//pinn.setOwner(regUser.getName());
 			regUser.setPinn(pinn);

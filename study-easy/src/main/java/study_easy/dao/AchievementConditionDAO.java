@@ -9,6 +9,6 @@ public interface AchievementConditionDAO {
 	public void addAchievementCondition(AchievementCondition condition);
 	public List<AchievementCondition> listAchievementCondition();
 	public void updateAchievementCondition(AchievementCondition condition);
-	public void deleteAchievementCondition(int id);
+	public void deleteAchievementCondition(AchievementCondition condition);
 
 }

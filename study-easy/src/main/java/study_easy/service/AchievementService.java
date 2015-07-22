@@ -26,14 +26,24 @@ public class AchievementService{
 		return achievementDAOImpl.listAchievement();
 	}
 
-	public void updateAchievementConditions(String name, AchievementCondition condition) {
-		achievementDAOImpl.updateAchievementConditions(name, condition);
+	public void updateAchievement(Achievement achiev) {
+		achievementDAOImpl.updateAchievement(achiev);
 		
 	}
 
-	public void deleteAchievement(String name) {
+	public void deleteAchievement(Achievement name) {
 		achievementDAOImpl.deleteAchievement(name);
 		
+	}
+	
+	public Achievement getThisAchievement(int id){
+		Achievement achiev = null;
+		for(Achievement achie : this.listAchievement())
+			if(achie.getAchievId() == id){
+				achiev = achie;
+				break;
+			}
+		return achiev;
 	}
 
 }

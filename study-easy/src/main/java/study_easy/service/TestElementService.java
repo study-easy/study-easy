@@ -26,13 +26,19 @@ public class TestElementService{
 		return tedao.listTestElement();
 	}
 
-	public void updateTestElementTask(int id, String task) {
-		tedao.updateTestElementTask(id, task);
+	public void updateTestElement(TestElement element) {
+		tedao.updateTestElement(element);
 		
 	}
 
-	public void deleteTestElement(int id) {
+	public void deleteTestElement(TestElement id) {
 		tedao.deleteTestElement(id);
+		
+	}
+	
+	public TestElement getThisElement(int id){
+		return null;
+		//TODO
 		
 	}
 

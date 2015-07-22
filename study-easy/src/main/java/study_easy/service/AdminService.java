@@ -1,6 +1,5 @@
 package study_easy.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,24 +25,23 @@ public class AdminService{
 		return addao.listAdmin();
 	}
 
-	public void updateAdminPassword(String name, String password) {
-		addao.updateAdminPassword(name, password);
-		
-	}
-
-	public void updateAdminEmail(String name, String email) {
-		addao.updateAdminEmail(name, email);
-		
-	}
-
-	public void updateAdminRegisteredSince(String name, Date date) {
-		addao.updateAdminRegisteredSince(name, date);
-		
+	public void updateAdmin(Admin admin){
+		addao.updateAdmin(admin);
 	}
 
 	public void deleteAdmin(String name) {
 		addao.deleteAdmin(name);
 		
+	}
+	
+	public Admin getThisAdmin(String name){
+		Admin admin = null;
+		for(Admin ad : this.listAdmin()){
+			if(ad.getName().equals(name)){
+				admin = ad;
+			}
+		}
+		return admin;
 	}
 	
 	

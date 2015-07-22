@@ -36,11 +36,8 @@ public class AchievementConditionDAOImpl implements AchievementConditionDAO {
 	}
 
 	@Override
-	public void deleteAchievementCondition(int id) {
-		Session session = factory.getCurrentSession();
-		AchievementCondition condition = (AchievementCondition) session.load(AchievementCondition.class, id);
-		if (condition != null)
-			session.delete(condition);
+	public void deleteAchievementCondition(AchievementCondition condition) {
+		factory.getCurrentSession().delete(condition);
 	}
 
 

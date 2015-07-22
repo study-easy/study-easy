@@ -19,6 +19,7 @@ public abstract class User {
 	private String email;
 	@Column
 	protected Date registeredSince;
+	@Transient
 	@Size(min = 4, max = 10)
 	String passwordcheck;
 	@Transient
@@ -26,7 +27,7 @@ public abstract class User {
 	Boolean checkbox;
 
 	String sicherheitsfrage;
-	String sicherheitsfragecheck;
+	String sicherheitsfrageAntwort;
 
 	public String getPassword() {
 		return this.password;
@@ -45,7 +46,7 @@ public abstract class User {
 	}
 
 	public String getSicherheitsfragecheck() {
-		return this.sicherheitsfragecheck;
+		return this.sicherheitsfrageAntwort;
 	}
 
 	public void setSicherheitsfragecheck(String sicherheitsfragecheck) {

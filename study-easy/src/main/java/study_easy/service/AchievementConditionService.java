@@ -27,13 +27,24 @@ public class AchievementConditionService{
 		return achievementConditionDAOImpl.listAchievementCondition();
 	}
 
-	public void deleteAchievementCondition(int id) {
-		achievementConditionDAOImpl.deleteAchievementCondition(id);
+	public void deleteAchievementCondition(AchievementCondition condition) {
+		achievementConditionDAOImpl.deleteAchievementCondition(condition);
 		
 	}
 
 	public void updateAchievementCondition(AchievementCondition condition) {
 		achievementConditionDAOImpl.updateAchievementCondition(condition);
+		
+	}
+	
+	public AchievementCondition getThisAchievCondition(int id){
+		AchievementCondition cond = null;
+		for(AchievementCondition condition : this.listAchievementCondition()){
+			if(condition.getId() == id)
+				cond = condition;
+		}
+		return cond;
+		//TODO
 		
 	}
 

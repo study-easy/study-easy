@@ -30,21 +30,12 @@ public class AchievementDAOImpl implements AchievementDAO{
 	}
 
 	@Override
-	public void updateAchievementConditions(String name, AchievementCondition condition) {
-		Session session = factory.getCurrentSession();
-		Achievement achievement = (Achievement) session.load(Achievement.class, name);
-		if(achievement!=null){
-			achievement.getConditions().add(condition);
-			session.update(achievement);
-		}		
+	public void updateAchievement(Achievement achievement) {
+		factory.getCurrentSession().update(achievement);;		
 	}
 
 	@Override
-	public void deleteAchievement(String name) {
-		Session session = factory.getCurrentSession();
-		Achievement achievement = (Achievement) session.load(Achievement.class, name);
-		if(achievement!=null)
-			session.delete(achievement);
+	public void deleteAchievement(Achievement achievement) {
+		factory.getCurrentSession().delete(achievement);
 	}
-
 }
