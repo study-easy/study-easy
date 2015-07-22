@@ -18,12 +18,11 @@ public class Group {
 	@Column
 	private String name;
 	@ManyToMany
-	@JoinTable(name = "Gruppenmitglieder", joinColumns = @JoinColumn(name = "name") , inverseJoinColumns = @JoinColumn(name = "userName") )
+	@JoinTable(name = "Gruppenmitglieder", joinColumns = {@JoinColumn(name = "name")} , inverseJoinColumns = {@JoinColumn(name = "userName")} )
 	private Set<RegUser> userList = new HashSet<RegUser>();
 	@Column
 	private String description;
-	@OneToOne
-	private RegUser admin;
+	private String admin;
 	@Column
 	private int wins;
 	@Column
@@ -32,10 +31,10 @@ public class Group {
 	private float winToLoss;
 	@Column
 	private int winStreak;
-	@OneToMany
-	@JoinTable(name = "Combats", joinColumns = @JoinColumn(name = "name") , inverseJoinColumns = @JoinColumn(name = "id") )
+	@ManyToMany
+	@JoinTable(name = "combat_relation", joinColumns = {@JoinColumn(name = "name" )}, inverseJoinColumns = {@JoinColumn(name= "id")})
 	private Set<Combat> currentCombats = new HashSet<Combat>();
-	@OneToOne
+	@Embedded
 	private GroupPinn pinnwall;
 	@ElementCollection
 	private Set<Achievement> achievements = new HashSet<Achievement>();
@@ -64,11 +63,11 @@ public class Group {
 		this.description = description;
 	}
 
-	public RegUser getAdmin() {
+	public String getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(RegUser admin) {
+	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
 
@@ -133,7 +132,7 @@ public class Group {
 	public void reasignAdmin(String name) {
 		for (RegUser user : this.userList)
 			if (user.getName() == name) {
-				this.admin = user;
+				this.admin = user.getName();
 				break;
 			}
 	}

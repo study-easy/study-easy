@@ -8,15 +8,10 @@ import javax.persistence.*;
 
 import study_easy.groupFunctions.Combat;
 
-@Entity
-@Table(name = "HistoryElement")
 @Embeddable
 public class HistoryElement {
 
-	@Id
-	@GeneratedValue
-	@Column
-	private int id;
+	
 	@Column
 	private String description;
 	@Column

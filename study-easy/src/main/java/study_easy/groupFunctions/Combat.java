@@ -6,13 +6,26 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Combat")
-@Embeddable
 public class Combat {
 
-	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setChallengerNames(Set<String> challengerNames) {
+		this.challengerNames = challengerNames;
+	}
+
+	public void setOpponentNames(Set<String> opponentNames) {
+		this.opponentNames = opponentNames;
+	}
+
 	@Id
-	@Column
+	@GeneratedValue
 	private int id;
 	@ManyToOne
 	private Test test;
@@ -65,19 +78,21 @@ public class Combat {
 	}
 
 	public Combat(String challenger, String opponent, Test test) {
-//		this.challenger = challenger;
-//		this.opponent = opponent;
-//		this.test = test;
-//		Functionals.getSystem().findGroup(challenger).getCurrentCombats().add(this);
-//		Functionals.getSystem().findGroup(opponent).getCurrentCombats().add(this);
-//		this.opponentRight = 0;
-//		this.challengerRight = 0;
-//		for (RegUser user : Functionals.getSystem().findGroup(challenger).getUserList()) {
-//			this.challengerNames.add(user.getName());
-//		}
-//		for (RegUser user : Functionals.getSystem().findGroup(opponent).getUserList()) {
-//			this.challengerNames.add(user.getName());
-//		}
+		// this.challenger = challenger;
+		// this.opponent = opponent;
+		// this.test = test;
+		// Functionals.getSystem().findGroup(challenger).getCurrentCombats().add(this);
+		// Functionals.getSystem().findGroup(opponent).getCurrentCombats().add(this);
+		// this.opponentRight = 0;
+		// this.challengerRight = 0;
+		// for (RegUser user :
+		// Functionals.getSystem().findGroup(challenger).getUserList()) {
+		// this.challengerNames.add(user.getName());
+		// }
+		// for (RegUser user :
+		// Functionals.getSystem().findGroup(opponent).getUserList()) {
+		// this.challengerNames.add(user.getName());
+		// }
 	}
 
 	public Test getTest() {
@@ -100,10 +115,6 @@ public class Combat {
 		this.opponent = opponent2;
 	}
 
-	public int getId() {
-		return id;
-	}
-
 	public void setTest(Test test) {
 		this.test = test;
 	}
@@ -116,11 +127,11 @@ public class Combat {
 			this.setOpponentRight(this.getOpponentRight() + numberOfRight);
 			this.opponentNames.remove(name);
 		}
-		//TODO listen updaten via dao und service
+		// TODO listen updaten via dao und service
 	}
-	
-	public boolean isNotDone(String name){
-		if(this.challengerNames.contains(name) || this.opponentNames.contains(name))
+
+	public boolean isNotDone(String name) {
+		if (this.challengerNames.contains(name) || this.opponentNames.contains(name))
 			return true;
 		else
 			return false;

@@ -8,21 +8,13 @@ import javax.persistence.*;
 
 import study_easy.users.RegUser;
 
-@Entity
-@Table(name = "PinnwallElement")
 @Embeddable
 public class PinnwallElement {
 
-	@Id
-	@GeneratedValue
-	@Column
-	private int id;
 	@Column
 	private String entry;
-	@ElementCollection
-	private Set<PinnwallElement> comments = new HashSet<PinnwallElement>();
-	@OneToOne
-	private RegUser creator;
+	@Column
+	private String creator;
 	@Column
 	private Date date;
 
@@ -34,19 +26,11 @@ public class PinnwallElement {
 		this.entry = entry;
 	}
 
-	public Set<PinnwallElement> getComments() {
-		return comments;
-	}
-
-	public void setComments(PinnwallElement comments) {
-		this.comments.add(comments);
-	}
-
-	public RegUser getCreator() {
+	public String getCreator() {
 		return creator;
 	}
 
-	public void setCreator(RegUser creator) {
+	public void setCreator(String creator) {
 		this.creator = creator;
 	}
 

@@ -8,15 +8,33 @@ import javax.persistence.*;
 import study_easy.groupFunctions.Group;
 import study_easy.users.RegUser;
 
+
 @Entity
-@Table(name = "Achievement")
-@Embeddable
 public class Achievement {
 
-	@Id	
+	@Id
+	@GeneratedValue
+	private int achievId;
+	public int getAchievId() {
+		return achievId;
+	}
+
+	public void setAchievId(int achievId) {
+		this.achievId = achievId;
+	}
+
+	public String getAchievName() {
+		return achievName;
+	}
+
+	public void setAchievName(String achievName) {
+		this.achievName = achievName;
+	}
+
 	@Column
-	private String name;
-	@ElementCollection
+	private String achievName;
+	@ManyToMany
+	@JoinTable(name = "achievement_relation", joinColumns = @JoinColumn(name="achievId"), inverseJoinColumns = @JoinColumn(name="id"))
 	private Set<AchievementCondition> conditions = new HashSet<AchievementCondition>();
 
 	public void addAchievmentConditions(AchievementCondition element) {
@@ -65,11 +83,11 @@ public class Achievement {
 		return bool;
 	}
 	public String getName() {
-		return name;
+		return achievName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.achievName = name;
 	}
 
 	public Set<AchievementCondition> getConditions() {

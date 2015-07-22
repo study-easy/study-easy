@@ -53,7 +53,7 @@ public class RegUserService {
 		return user;
 	}
 
-	public static void levelUpUser(RegUser user) {
+	public void levelUpUser(RegUser user) {
 		int points = user.getXpPoints();
 		switch (user.getLevel()) {
 		case 0:
@@ -89,6 +89,7 @@ public class RegUserService {
 		case 10:
 			break;
 		}
+		//this.regUserDAO.
 
 	}
 
@@ -113,7 +114,7 @@ public class RegUserService {
 			regUser.setXpPoints(0);
 			regUser.setLevel(0);
 			UserPinn pinn = new UserPinn();
-			pinn.setOwner(regUser.getName());
+			//pinn.setOwner(regUser.getName());
 			regUser.setPinn(pinn);
 			regUserDAO.addRegUser(regUser);
 			return true;

@@ -3,18 +3,31 @@ package study_easy.sharedAttributes;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "AchievementCondition")
-@Embeddable
 public class AchievementCondition {
 
-	@GeneratedValue
 	@Id
-	@Column
-	private int id;
+	@GeneratedValue
+	int id;
 	@Column
 	private ConditionTypes conditionType;
 	@Column
-	private String name;
+	private String achievConditionName;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getAchievConditionName() {
+		return achievConditionName;
+	}
+
+	public void setAchievConditionName(String achievConditionName) {
+		this.achievConditionName = achievConditionName;
+	}
+
 	@Column
 	private int requiredNumber;
 	@Column
@@ -33,11 +46,11 @@ public class AchievementCondition {
 	}
 
 	public String getName() {
-		return name;
+		return achievConditionName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.achievConditionName = name;
 	}
 
 	public int getRequiredNumber() {
