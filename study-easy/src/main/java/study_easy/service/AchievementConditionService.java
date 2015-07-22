@@ -2,19 +2,39 @@ package study_easy.service;
 
 import java.util.List;
 
-import study_easy.sharedAttributes.AchievementCondition;
-import study_easy.sharedAttributes.ConditionTypes;
+import org.springframework.transaction.annotation.Transactional;
 
-public interface AchievementConditionService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import study_easy.dao.AchievementConditionDAOImpl;
+import study_easy.sharedAttributes.AchievementCondition;
+
+
+@Service
+@Transactional
+public class AchievementConditionService{
+
+	@Autowired
+	private AchievementConditionDAOImpl achievementConditionDAOImpl;
 	
-	public void addAchievementCondition(AchievementCondition condition);
-	public List<AchievementCondition> listAchievementCondition();
-	public void updateAchievementConditionName(int id, String name);
-	public void updateAchievementConditionType(int id, ConditionTypes type);
-	public void updateAchievementConditionRequiredNumber(int id, int number);
-	public void updateAchievementConditionRequiredString(int id, String string);
-	public void updateAchievementConditionRequiredTime(int id, float time);
-	public void updateAchievementConditionXp(int id, int xp);
-	public void deleteAchievementCondition(int id);
+	public void addAchievementCondition(AchievementCondition condition) {
+		achievementConditionDAOImpl.addAchievementCondition(condition);
+		
+	}
+
+	public List<AchievementCondition> listAchievementCondition() {
+		return achievementConditionDAOImpl.listAchievementCondition();
+	}
+
+	public void deleteAchievementCondition(int id) {
+		achievementConditionDAOImpl.deleteAchievementCondition(id);
+		
+	}
+
+	public void updateAchievementCondition(AchievementCondition condition) {
+		achievementConditionDAOImpl.updateAchievementCondition(condition);
+		
+	}
 
 }

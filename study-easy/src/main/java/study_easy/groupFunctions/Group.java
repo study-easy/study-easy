@@ -5,17 +5,18 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study_easy.service.CombatServiceImpl;
 import study_easy.service.GroupServiceImpl;
 import study_easy.service.RegUserServiceImpl;
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 import study_easy.sharedAttributes.Achievement;
-import study_easy.sharedAttributes.Badge;
 import study_easy.sharedAttributes.GroupPinn;
 import study_easy.sharedAttributes.HistoryElement;
-import study_easy.system.Controller;
 import study_easy.users.RegUser;
 
 @Entity
@@ -27,7 +28,7 @@ public class Group {
 	@Column
 	private String name;
 	@ManyToMany
-	@JoinTable(name = "Gruppenmitglieder", joinColumns= @JoinColumn(name = "name") , inverseJoinColumns = @JoinColumn(name = "userName"))
+	@JoinTable(name = "Gruppenmitglieder", joinColumns = @JoinColumn(name = "name") , inverseJoinColumns = @JoinColumn(name = "userName") )
 	private Set<RegUser> userList = new HashSet<RegUser>();
 	@Column
 	private String description;
@@ -42,7 +43,7 @@ public class Group {
 	@Column
 	private int winStreak;
 	@OneToMany
-	@JoinTable(name = "Combats", joinColumns = @JoinColumn(name = "name"), inverseJoinColumns = @JoinColumn(name = "id"))
+	@JoinTable(name = "Combats", joinColumns = @JoinColumn(name = "name") , inverseJoinColumns = @JoinColumn(name = "id") )
 	private Set<Combat> currentCombats = new HashSet<Combat>();
 	@OneToOne
 	private GroupPinn pinnwall;
@@ -69,7 +70,10 @@ public class Group {
 
 	public void setUserList(Set<RegUser> userList) {
 		this.userList = userList;
+<<<<<<< HEAD
 		//GS.updateGroupUserList(this.name, this.userList);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public String getDescription() {
@@ -78,7 +82,10 @@ public class Group {
 
 	public void setDescription(String description) {
 		this.description = description;
+<<<<<<< HEAD
 		GS.updateGroupDescription(this.name, this.description);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public RegUser getAdmin() {
@@ -87,7 +94,10 @@ public class Group {
 
 	public void setAdmin(RegUser admin) {
 		this.admin = admin;
+<<<<<<< HEAD
 		GS.updateGroupAdmin(this.name, this.admin);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public GroupPinn getPinnwall() {
@@ -96,7 +106,10 @@ public class Group {
 
 	public void setPinnwall(GroupPinn pinnwall) {
 		this.pinnwall = pinnwall;
+<<<<<<< HEAD
 		GS.updateGroupPinnwall(this.name, this.pinnwall);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public Set<Achievement> getAchievements() {
@@ -105,21 +118,31 @@ public class Group {
 
 	public void setAchievements(HashSet<Achievement> achievements) {
 		this.achievements = achievements;
+<<<<<<< HEAD
 		//GS.updateGroupAchievements(this.name, this.achievements);
 	}
 
 	public void setCurrentCombats(Set<Combat> list) {
 		this.currentCombats = list;
 		//GS.updateGroupCurrentCombats(this.name, this.currentCombats);
+=======
+	}
+
+	public void setCurrentCombats(HashSet<Combat> currentCombats) {
+		this.currentCombats = currentCombats;
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public void addUser(RegUser user) {
 		this.userList.add(user);
 		user.getGroups().add(this.name);
+<<<<<<< HEAD
 		//GS.updateGroupUserList(this.name, this.userList);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
-	
-	public void deleteUser(RegUser user){
+
+	public void deleteUser(RegUser user) {
 		this.userList.remove(user);
 		user.getGroups().remove(this.name);
 	}
@@ -130,7 +153,10 @@ public class Group {
 
 	public void setWinStreak(int winStreak) {
 		this.winStreak = winStreak;
+<<<<<<< HEAD
 		GS.updateGroupWinStreak(this.name, this.winStreak);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public int getWins() {
@@ -139,7 +165,10 @@ public class Group {
 
 	public void setWins(int wins) {
 		this.wins = wins;
+<<<<<<< HEAD
 		GS.updateGroupWins(this.name, this.wins);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public int getLosses() {
@@ -148,64 +177,71 @@ public class Group {
 
 	public void setLosses(int losses) {
 		this.losses = losses;
+<<<<<<< HEAD
 		GS.updateGroupLosses(this.name, this.losses);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public void setWinToLoss(float winToLoss) {
 		this.winToLoss = winToLoss;
+<<<<<<< HEAD
 		GS.updateGroupWinToLoss(this.name, this.winToLoss);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public void reasignAdmin(String name) {
 		for (RegUser user : this.userList)
 			if (user.getName() == name) {
 				this.admin = user;
+<<<<<<< HEAD
 				GS.updateGroupAdmin(this.name, user);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 				break;
 			}
 	}
 
-	public void startChallenge(Group opponent, Group corrector) {
-		// not TODO
-	}
-
 	public void finishCombat(Combat combat) {
 		// TODO fertig?
-		if (combat.getChallengerNames().isEmpty() && combat.getOpponentNames().isEmpty()) {
-			Controller.getSystem().findGroup(combat.getChallenger()).getCurrentCombats().remove(combat);
-			for (RegUser user : Controller.getSystem().findGroup(combat.getChallenger()).getUserList()) {
-				for (Badge badge : Controller.getSystem().getBadgeList()) {
-					Controller.awardBadge(badge, user);
-				}
-				Controller.getSystem().giveXP(user, combat.getChallengerRight());
-				Controller.levelUpUser(user);
-
-			}
-			for (Achievement achievement : Controller.getSystem().getAchievementList()) {
-				if (achievement.conditionsTrue(Controller.getSystem().findGroup(combat.getChallenger())))
-					Controller.getSystem().findGroup(combat.getChallenger()).achievements.add(achievement);
-				// TODO speichern
-			}
-
-			Controller.getSystem().findGroup(combat.getOpponent()).getCurrentCombats().remove(combat);
-
-			for (RegUser user : Controller.getSystem().findGroup(combat.getOpponent()).getUserList()) {
-				for (Badge badge : Controller.getSystem().getBadgeList()) {
-					Controller.awardBadge(badge, user);
-				}
-				Controller.getSystem().giveXP(user, combat.getOpponentRight());
-				Controller.levelUpUser(user);
-			}
-			for (Achievement achievement : Controller.getSystem().getAchievementList()) {
-				if (achievement.conditionsTrue(Controller.getSystem().findGroup(combat.getOpponent())))
-					Controller.getSystem().findGroup(combat.getOpponent()).achievements.add(achievement);
-				// TODO speichern
-			}
+//		if (combat.getChallengerNames().isEmpty() && combat.getOpponentNames().isEmpty()) {
+//			Functionals.getSystem().findGroup(combat.getChallenger()).getCurrentCombats().remove(combat);
+//			for (RegUser user : Functionals.getSystem().findGroup(combat.getChallenger()).getUserList()) {
+//				for (Badge badge : Functionals.getSystem().getBadgeList()) {
+//					Functionals.awardBadge(badge, user);
+//				}
+//				Functionals.getSystem().giveXP(user, combat.getChallengerRight());
+//				Functionals.levelUpUser(user);
+//
+//			}
+//			for (Achievement achievement : Functionals.getSystem().getAchievementList()) {
+//				if (achievement.conditionsTrue(Functionals.getSystem().findGroup(combat.getChallenger())))
+//					Functionals.getSystem().findGroup(combat.getChallenger()).achievements.add(achievement);
+//			}
+//
+//			Functionals.getSystem().findGroup(combat.getOpponent()).getCurrentCombats().remove(combat);
+//
+//			for (RegUser user : Functionals.getSystem().findGroup(combat.getOpponent()).getUserList()) {
+//				for (Badge badge : Functionals.getSystem().getBadgeList()) {
+//					Functionals.awardBadge(badge, user);
+//				}
+//				Functionals.getSystem().giveXP(user, combat.getOpponentRight());
+//				Functionals.levelUpUser(user);
+//			}
+//			for (Achievement achievement : Functionals.getSystem().getAchievementList()) {
+//				if (achievement.conditionsTrue(Functionals.getSystem().findGroup(combat.getOpponent())))
+//					Functionals.getSystem().findGroup(combat.getOpponent()).achievements.add(achievement);
+//
+//			}
 			HistoryElement element = new HistoryElement(combat);
+<<<<<<< HEAD
 
 			CS.deleteCombat(combat.getId());
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 			combat = null;
-		}
+		//}
 	}
 
 	public void startCombat(Group opponent, Test test) {

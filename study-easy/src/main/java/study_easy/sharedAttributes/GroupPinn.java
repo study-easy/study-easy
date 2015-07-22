@@ -5,11 +5,14 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study_easy.service.GroupPinnServiceImpl;
 
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 @Entity
 @Table(name = "GroupPinn")
 @Component
@@ -27,7 +30,10 @@ public class GroupPinn extends Pinnwall {
 
 	public void addHistoryElement(HistoryElement element) {
 		this.history.add(element);
+<<<<<<< HEAD
 		GPS.updateGroupPinnHistory(this.owner, element);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public Set<HistoryElement> getHistory() {
@@ -44,12 +50,14 @@ public class GroupPinn extends Pinnwall {
 
 	public void addEntrie(PinnwallElement entry) {
 		this.getEntries().add(entry);
+<<<<<<< HEAD
 		GPS.updateGroupPinnEntries(this.owner, entry);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	private Set<PinnwallElement> getEntries() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.entries;
 	}
 
 }

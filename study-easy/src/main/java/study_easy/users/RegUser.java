@@ -2,19 +2,20 @@ package study_easy.users;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
+<<<<<<< HEAD
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study_easy.service.RegUserServiceImpl;
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 import study_easy.sharedAttributes.Badge;
 import study_easy.sharedAttributes.UserPinn;
-import study_easy.system.Controller;
 
 @Entity
 @Table(name = "RegUser")
@@ -25,54 +26,27 @@ public class RegUser extends User {
 	private String school;
 	@Column
 	private String hobby;
-	@NotNull
 	@Column
 	private int xpPoints;
-	@NotNull
 	@Column
 	private int level;
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> quotes = new HashSet<String>();
 	@Column
 	private Date birthDate;
-	@NotNull
 	@Column
 	private boolean banned;
-	@ElementCollection
-	private Set<Badge> earnedBadges;
-	@OneToOne
+	@ElementCollection(fetch = FetchType.EAGER)
+	private Set<Badge> earnedBadges = new HashSet<Badge>();
+	@OneToOne(fetch = FetchType.EAGER)
 	private UserPinn pinn;
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	public Set<String> groups = new HashSet<String>();
 	@Autowired
 	private static RegUserServiceImpl RUS;
 	
 
-	public boolean register(String password, String testPassword, String name) {
-		List<RegUser> userlist = Controller.getSystem().getUserList();
-		boolean nameOccupied = false;
-		for (User user : userlist) {
-			if (user.name == name)
-				nameOccupied = true;
-		}
-		if (nameOccupied == true) {
-			return false;
-		}else if (password.equals(testPassword)) {
-				RegUser regUser = new RegUser();
-				regUser.name = name;
-				regUser.password = password;
-				regUser.banned = false;
-				regUser.earnedBadges = new HashSet<Badge>();
-				regUser.registeredSince = new Date();
-				UserPinn pinn = new UserPinn();
-				pinn.setOwner(regUser.name);
-				regUser.pinn = pinn;
-				Controller.getSystem().getUserList().add(regUser);
-				return true;
-			}else{
-				return false;
-		}		
-	}
+	
 
 	public String getSchool() {
 		return school;
@@ -88,7 +62,10 @@ public class RegUser extends User {
 
 	public void setSchool(String school) {
 		this.school = school;
+<<<<<<< HEAD
 		RUS.updateRegUserSchool(this.name, this.school);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public String getHobby() {
@@ -97,7 +74,10 @@ public class RegUser extends User {
 
 	public void setHobby(String hobby) {
 		this.hobby = hobby;
+<<<<<<< HEAD
 		RUS.updateRegUserHobby(this.name, this.hobby);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public int getXpPoints() {
@@ -106,7 +86,10 @@ public class RegUser extends User {
 
 	public void setXpPoints(int xpPoints) {
 		this.xpPoints = xpPoints;
+<<<<<<< HEAD
 		RUS.updateRegUserXP(this.name, this.xpPoints);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public int getLevel() {
@@ -115,7 +98,10 @@ public class RegUser extends User {
 
 	public void setLevel(int level) {
 		this.level = level;
+<<<<<<< HEAD
 		//TODO dao/service um Methode erweitern
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public Set<String> getQuotes() {
@@ -144,16 +130,26 @@ public class RegUser extends User {
 
 	public void addBadges(Badge badges) {
 		this.earnedBadges.add(badges);
+<<<<<<< HEAD
 		//TODO dao/service um Methode erweitern
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public void setBanned(boolean banned) {
 		this.banned = banned;
+<<<<<<< HEAD
 		//TODO dao/service um Methode erweitern
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public UserPinn getPinn() {
 		return this.pinn;
+	}
+	
+	public void setPinn(UserPinn pinn){
+		this.pinn = pinn;
 	}
 
 }

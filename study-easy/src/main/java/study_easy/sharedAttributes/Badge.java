@@ -6,10 +6,13 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study_easy.service.BadgeServiceImpl;
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 import study_easy.users.RegUser;
 
 @Entity
@@ -30,7 +33,10 @@ public class Badge {
 	
 	public void addBadgeCondition(BadgeCondition element) {
 		conditions.add(element);
+<<<<<<< HEAD
 		GPS.updateBadgeConditions(this.name, element);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 

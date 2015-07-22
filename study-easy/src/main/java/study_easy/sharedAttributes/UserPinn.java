@@ -5,11 +5,14 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study_easy.service.UserPinnServiceImpl;
 
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 @Entity
 @Table(name = "UserPinn")
 @Component
@@ -33,12 +36,14 @@ public class UserPinn extends Pinnwall {
 
 	public void addEntry(PinnwallElement entry) {
 		this.getEntries().add(entry);
+<<<<<<< HEAD
 		UPS.updateUserPinnEntries(this.owner, entry);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	private Set<PinnwallElement> getEntries() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.entries;
 	}
 
 	public boolean getBanned(){
@@ -47,6 +52,9 @@ public class UserPinn extends Pinnwall {
 	
 	public void setBanned(boolean ban){
 		this.banned = ban;
+<<<<<<< HEAD
 		UPS.updateUserPinnBan(this.owner, this.banned);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 }

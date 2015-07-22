@@ -5,11 +5,14 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study_easy.service.TestServiceImpl;
 
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 @Entity
 @Component
 public class Test {
@@ -37,7 +40,10 @@ public class Test {
 
 	public void setCreator(Group creator) {
 		this.creator = creator;
+<<<<<<< HEAD
 		TS.updateTestCreator(this.id, this.creator);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public void setId(int id) {
@@ -46,7 +52,10 @@ public class Test {
 
 	public void setTasks(HashSet<TestElement> tasks) {
 		this.tasks = tasks;
+<<<<<<< HEAD
 		//TS.updateTestElements(this.id, this.tasks);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public float getTime() {
@@ -55,7 +64,10 @@ public class Test {
 
 	public void setTime(float time) {
 		this.time = time;
+<<<<<<< HEAD
 		TS.updateTestTime(this.id, this.time);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public Set<TestElement> getTasks() {

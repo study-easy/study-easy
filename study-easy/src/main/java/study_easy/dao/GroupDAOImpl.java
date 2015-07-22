@@ -1,26 +1,22 @@
 package study_easy.dao;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import study_easy.groupFunctions.Combat;
 import study_easy.groupFunctions.Group;
-import study_easy.sharedAttributes.Achievement;
-import study_easy.sharedAttributes.GroupPinn;
-import study_easy.users.RegUser;
 
 @Repository
-public class GroupDAOImpl implements GroupDAO{
+public class GroupDAOImpl implements GroupDAO {
 
 	@Autowired
 	private SessionFactory factory;
-	
+
 	@Override
 	public void addGroup(Group group) {
 		Session session = factory.getCurrentSession();
@@ -35,6 +31,7 @@ public class GroupDAOImpl implements GroupDAO{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void updateGroupDescription(String name, String description) {
 		Session session = factory.getCurrentSession();
 		Group group = (Group) session.load(Group.class, name);
@@ -116,30 +113,23 @@ public class GroupDAOImpl implements GroupDAO{
 
 	@Override
 	public void updateGroupPinnwall(String name, GroupPinn pinn) {
-		Session session = factory.getCurrentSession();
-		Group group = (Group) session.load(Group.class, name);
-		if(group!=null){
-			group.setPinnwall(pinn);
-			session.update(group);
-		}
-	}
-
-	@Override
+=======
 	public void deleteGroup(String name) {
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 		Session session = factory.getCurrentSession();
-		Group group = (Group) session.load(Group.class, name);
-		if(group!=null)
-			session.delete(group);
+		Group group = (Group) session.createCriteria(Group.class).add(Restrictions.eqOrIsNull("name", name));
+		session.delete(group);
 	}
 
 	@Override
-	public void updateGroupWinStreak(String name, int streak) {
-		Session session = factory.getCurrentSession();
-		Group group = (Group) session.load(Group.class, name);
-		if(group!=null){
-			group.setWinStreak(streak);
-			session.update(group);
-		}
+	public void updateGroup(Group group) {
+		factory.getCurrentSession().update(group);
+	}
+
+	@Override
+	public Group getGroup(String name) {
+		return (Group) factory.getCurrentSession().createCriteria(Group.class)
+				.add(Restrictions.eqOrIsNull("name", name));
 	}
 
 }

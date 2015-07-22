@@ -4,13 +4,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study_easy.groupFunctions.Group;
-import study_easy.service.AchievementServiceImpl;
 import study_easy.users.RegUser;
 
 @Entity
@@ -19,11 +17,9 @@ import study_easy.users.RegUser;
 @Component
 public class Achievement {
 
-	@NotNull
 	@Id	
 	@Column
 	private String name;
-	@NotNull
 	@ElementCollection
 	private Set<AchievementCondition> conditions = new HashSet<AchievementCondition>();
 	@Autowired
@@ -31,7 +27,10 @@ public class Achievement {
 
 	public void addAchievmentConditions(AchievementCondition element) {
 		conditions.add(element);
+<<<<<<< HEAD
 		GPS.updateAchievementConditions(this.name, element);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	} 
 	
 	public boolean conditionsTrue(Group group) {

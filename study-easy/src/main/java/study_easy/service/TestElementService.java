@@ -2,19 +2,39 @@ package study_easy.service;
 
 import java.util.List;
 
-import study_easy.groupFunctions.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import study_easy.dao.TestElementDAOImpl;
 import study_easy.groupFunctions.TestElement;
 
-public interface TestElementService {
+@Service
+@Transactional
+public class TestElementService{
 
-	public void addTestElement(TestElement element);
-	public List<TestElement> listTestElement();
-	public void updateTestElementTask(int id, String task);
-	public void updateTestElementAnswer(int id, String answer);
-	public void updateTestElementWrongAnswer1(int id, String wrongAnswer1);
-	public void updateTestElementWrongAnswer2(int id, String wrongAnswer2);
-	public void updateTestElementWrongAnswer3(int id, String wrongAnswer3);
-	public void updateTestSubject(int id, Subject subject);
-	public void deleteTestElement(int id);
+	@Autowired
+	private TestElementDAOImpl tedao;
 	
+	
+	public void addTestElement(TestElement element) {
+		tedao.addTestElement(element);
+		
+	}
+
+	public List<TestElement> listTestElement() {
+		return tedao.listTestElement();
+	}
+
+	public void updateTestElementTask(int id, String task) {
+		tedao.updateTestElementTask(id, task);
+		
+	}
+
+	public void deleteTestElement(int id) {
+		tedao.deleteTestElement(id);
+		
+	}
+
+
 }

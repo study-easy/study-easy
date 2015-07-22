@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,8 @@ import study_easy.service.GroupServiceImpl;
 import study_easy.system.Controller;
 import study_easy.users.RegUser;
 
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 @Entity
 @Table(name = "Combat")
 @Embeddable
@@ -82,6 +85,7 @@ public class Combat {
 	}
 
 	public Combat(String challenger, String opponent, Test test) {
+<<<<<<< HEAD
 		this.challenger = challenger;
 		this.opponent = opponent;
 		this.test = test;
@@ -99,6 +103,21 @@ public class Combat {
 		CS.addCombat(this);
 		GS.updateGroupCurrentCombats(this.challenger, Controller.getSystem().findGroup(this.challenger).getCurrentCombats());
 		GS.updateGroupCurrentCombats(this.opponent, Controller.getSystem().findGroup(this.opponent).getCurrentCombats());
+=======
+//		this.challenger = challenger;
+//		this.opponent = opponent;
+//		this.test = test;
+//		Functionals.getSystem().findGroup(challenger).getCurrentCombats().add(this);
+//		Functionals.getSystem().findGroup(opponent).getCurrentCombats().add(this);
+//		this.opponentRight = 0;
+//		this.challengerRight = 0;
+//		for (RegUser user : Functionals.getSystem().findGroup(challenger).getUserList()) {
+//			this.challengerNames.add(user.getName());
+//		}
+//		for (RegUser user : Functionals.getSystem().findGroup(opponent).getUserList()) {
+//			this.challengerNames.add(user.getName());
+//		}
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public Test getTest() {
@@ -111,7 +130,10 @@ public class Combat {
 
 	public void setChallenger(String challenger) {
 		this.challenger = challenger;
+<<<<<<< HEAD
 		CS.updateCombatChallenger(this.id, challenger);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public String getOpponent() {
@@ -120,7 +142,10 @@ public class Combat {
 
 	public void setOpponent(String opponent2) {
 		this.opponent = opponent2;
+<<<<<<< HEAD
 		CS.updateCombatOpponent(this.id, opponent);
+=======
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public int getId() {
@@ -141,6 +166,13 @@ public class Combat {
 			this.opponentNames.remove(name);
 		}
 		//TODO listen updaten via dao und service
+	}
+	
+	public boolean isNotDone(String name){
+		if(this.challengerNames.contains(name) || this.opponentNames.contains(name))
+			return true;
+		else
+			return false;
 	}
 
 }

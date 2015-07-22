@@ -10,9 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study_easy.groupFunctions.Combat;
-import study_easy.service.GroupPinnServiceImpl;
-import study_easy.service.HistoryElementServiceImpl;
-import study_easy.system.Controller;
 
 @Entity
 @Table(name = "HistoryElement")
@@ -50,12 +47,17 @@ public class HistoryElement {
 			this.description = this.description + "Er endete in einem Unentschieden. Beide Gruppen hatten insgesamnt "
 					+ combat.getChallengerRight() + " richtige Antworten";
 		
-		Controller.getSystem().findGroup(combat.getChallenger()).getPinnwall().addHistoryElement(this);
-		Controller.getSystem().findGroup(combat.getOpponent()).getPinnwall().addHistoryElement(this);
+//		Functionals.getSystem().findGroup(combat.getChallenger()).getPinnwall().addHistoryElement(this);
+//		Functionals.getSystem().findGroup(combat.getOpponent()).getPinnwall().addHistoryElement(this);
 		
+<<<<<<< HEAD
 		HE.addHistoryElement(this);
 		GPS.updateGroupPinnHistory(combat.getChallenger(), this);
 		GPS.updateGroupPinnHistory(combat.getOpponent(), this);
+=======
+		//GPS.updateGroupPinnHistory(combat.getChallenger().getName(), combat.getChallenger().getPinnwall().getHistory());
+		//GPS.updateGroupPinnHistory(combat.getOpponent().getName(), combat.getOpponent().getPinnwall().getHistory());
+>>>>>>> origin/ConnorsVerzweiflungsBranch
 	}
 
 	public String getDescription() {
