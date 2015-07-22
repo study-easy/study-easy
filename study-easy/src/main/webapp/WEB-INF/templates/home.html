@@ -15,10 +15,10 @@
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo"  id="activ">study-easy</a>
+		<a th:href="@{/home(user=${user})}" class="logo"  id="activ">study-easy</a>
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
-		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
+		<form class="logo" id="search" method="get" action="#" th:action="@{/search(user=${user})}">
 		<button type="submit" id="searchButton"><span id="searchText">GO</span>
 		</button>
   		<input type="text" name="search" size="20" style="height: 20px; width: 180px;  margin-top:8px;" placeholder="Suche..."/>	
@@ -30,10 +30,10 @@
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
 			<div class="hellotext">
-				<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+				<a href="#" th:href="@{/home(user=${user})}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
 				<dl>
 				<dt><a href="#" th:href="@{/profilchange(user=${user})}" class="linksupport">Profil bearbeiten</a></dt>
-				<dt><a href="#" th:href="@{/games}" class="linksupport" >Spiele</a></dt>
+				<dt><a href="#" th:href="@{/games(user=${user})}" class="linksupport" >Spiele</a></dt>
 				
 				
 					<dt>Meine Gruppen</dt>
