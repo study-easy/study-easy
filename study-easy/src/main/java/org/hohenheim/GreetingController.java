@@ -278,6 +278,8 @@ public class GreetingController {
 	@RequestMapping(value="/test3",method=RequestMethod.GET)
 	public String greeting4(@RequestParam(value="name", required=false, defaultValue=" ") String name, Model model) {
 	model.addAttribute("name", name);
+	Integer wert = 64;
+	model.addAttribute("wert", wert);
 	
 	//System.out.println(name); 
 	return"test3";}

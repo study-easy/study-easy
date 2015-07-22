@@ -302,3 +302,34 @@ a.barbottom:visited {
 	color: #979797;
 }
 
+progress[value]::-webkit-progress-bar {
+  background-color: #fafbfc;
+  border-radius: 2px;
+  background: #fafbfc;
+  box-shadow: 0 2px 5px rgba(0, 99, 166, 0.25) inset;
+ /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; */
+}
+/* Firefox */
+progress::-moz-progress-bar {
+        background-image: -moz-linear-gradient(
+                center bottom,
+                rgb(43,194,83) 37%,
+                rgb(84,240,84) 69%
+        );
+}
+ 
+/* Chrome */
+progress::-webkit-progress-value {
+        background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(43,194,83)),
+                color-stop(1, rgb(84,240,84))
+        );
+        background-image: -webkit-linear-gradient(
+                center bottom,
+                rgb(43,194,83) 37%,
+                rgb(84,240,84) 69%
+        );
+}
