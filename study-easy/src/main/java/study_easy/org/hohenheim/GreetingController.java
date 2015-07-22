@@ -103,7 +103,7 @@ public class GreetingController {
 			@RequestParam(value = "password", required = true) String password,
 			@RequestParam(value = "passwordcheck", required = true) String passwordcheck,
 			@RequestParam(value = "check", required = false) Boolean check) {
-		RUS.register(password, passwordcheck, bname);
+		RUS.register(password, passwordcheck, bname, password, password);
 		System.out.println("Benutzername: " + bname);
 		System.out.println("Passwort: " + password);
 		System.out.println("WPasswort: " + passwordcheck);

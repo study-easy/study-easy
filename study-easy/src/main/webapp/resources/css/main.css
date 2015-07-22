@@ -11,14 +11,30 @@ body{
 	position: absolute;
 }
 .hellotext {
-	font-size: 17pt;
+	font-size: 16pt;
 	 color: #979797;
 }
-linksupport:visited {
-		 color: #979797;
+a.linksupport:visited {
+	text-decoration: none;
+		 color: #ffa726;
+	/*	 color: #979797; */
 }
-#linksupport {
-		 color: #979797;
+a.linksupport:hover {
+	text-decoration: none;
+	color: #58b7d5;
+}
+.linksupport:hover {
+	text-decoration: none;
+	color: #58b7d5;
+}
+
+.linksupport {
+		text-decoration: none;
+		 color: #ffa726;
+	/* color: #979797; */
+}
+#activ {
+	 border-bottom: 2px solid #ffd180;
 }
 #support {
 	top:20px; 
@@ -26,11 +42,11 @@ linksupport:visited {
 	margin-top: 20px;
 	margin-left: 20px;
 	width: 30px;
-	height: 25px;
 
 }
 #logout{
 	margin-top: -25px;
+/*	margin-top: -52px; */
 	margin-left: 945px;
 	right: 10px;
 	width: 30px;
@@ -43,6 +59,15 @@ linksupport:visited {
 	left: 15%; 
 	margin-top: 51px;
 }
+/*
+.insideMainbody{
+	overflow: auto;
+	margin-left: 300px;
+	margin-right: 50px;
+	margin-top: -70%;
+	height: 90%;
+}
+*/
 #inside {
 	background-color: #fafbfc; 
 }
@@ -51,19 +76,25 @@ linksupport:visited {
 	border-top: 1px solid #979797;
 }
 .menufield {
-	background-color: #dbdbdb; 
-	height: 100%; 
-	width: 250px; 
-	margin-left: 0px; 
-	margin-top: 0px;
+	/*	background-color: #dbdbdb; */
+	width: 200px;
+	margin-left: 10px; 
+	margin-top: 10px;
 	border-right: 1px solid #979797;
+	border-top: 1px solid #979797;
+	border-left: 1px solid #979797;
+	border-bottom: 1px solid #979797;
+	border-radius: 5px;
 }
 .mainInsidefield{
-	position: absolute;
-	margin-left: 260px;
+	 position: absolute; 
+	overflow: auto;
+	margin-left: 300px;
+	/* margin-top: -70%; */
+	margin-right: 50px;
 	top: 10px;
-	height: 100%; 
-	width: 715px;
+	height: 90%; 
+	width: 625px; 
 }
 .inputfield {
 	height: 25px;
@@ -81,6 +112,7 @@ linksupport:visited {
 	-webkit-border-radius: 1px; 
 	border-radius: 1px;
 	margin-left: -3px;
+	margin-top: -20px;
 }
 #searchText {
 	font-size: 13pt; 
@@ -101,7 +133,7 @@ linksupport:visited {
 }
 
 .inputName {
-	border-bottom: 1px solid #979797;
+	border-bottom: 1px solid #979797; 
 	font-size: 15pt; 
 	color: #979797;
 }
@@ -113,6 +145,11 @@ linksupport:visited {
 	width: 300px;
 	margin-top: -30px;
 	position: absolute;
+	/*
+	font-size: 20pt; 
+	color: #fafbfc;
+	text-align: center;
+	margin-top: -30px; */
 }
 .logo {
 	font-size: 20pt;
@@ -122,11 +159,25 @@ linksupport:visited {
 	margin-left: 70px;
 	position: absolute;
 	text-decoration: none;
+	/*
+	font-size: 20pt;
+	color: #979797;
+	margin-top: -30px;
+	margin-left:70px; */
 }
 
 #studyeasy {
 	font-size: 35pt; 
 	color: #ffa726;
+	text-decoration: none;
+	/* color: #fafbfc; */
+}
+a#studyeasy:hover {
+	font-size: 35pt; 
+	color: #ffa726;
+	text-decoration: none;
+	/* color: #fafbfc; */
+
 }
 
 .footer {
@@ -149,4 +200,163 @@ a.barbottom:visited {
 
 @-webkit-keyframes mymove {
     50% {box-shadow: 5px 4px 10px #979797;}
+}
+.pinnwallFrame {
+	overflow: auto;
+	bottom: 5px;
+	width: 500px;
+	height: 400px;
+
+}
+.pinnwall {
+	/*background-color: #D8D8D8;*/
+	width: 500px;
+	height: 400px ;
+	word-break: break-all;
+	word-wrap:break-word;
+	
+}
+
+#history { 
+	border-collapse: separate;
+	border-spacing: 3px; 
+}
+#history td {
+	border: 1px solid #B0E2FF;
+	border-radius: 5px;
+	padding: 15px;
+}
+#history tr {
+	/*graue Zeile*/
+	background-color: #B0E2FF;
+	border: 1px solid black;
+}
+#history tr:hover {
+	background-color: #58D3F7;
+}
+#history th {
+	border: 1px solid #979797;
+	background-color: #979797;
+	border-radius: 5px;
+}
+#groupPinnwall {
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+#groupPinnwall td {
+	border: #B0E2FF;
+	border-radius: 5px;
+	padding: 5px;
+}
+#groupPinnwall tr {
+	/*graue Zeile*/
+	background-color: #B0E2FF;
+	border: 1px #B0E2FF;
+}
+#groupPinnwall tr:hover {
+	background-color: #58D3F7;
+}
+#groupPinnwall th {
+	
+	border: 1px solid black;
+}
+#homePinnwall {
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+#homePinnwall td {
+	border: #B0E2FF;
+	border-radius: 5px;
+	padding: 5px;
+}
+#homePinnwall tr {
+	/*graue Zeile*/
+	background-color: #B0E2FF;
+	border: 1px #B0E2FF;
+}
+#homePinnwall tr:hover {
+	background-color: #58D3F7;
+}
+#homePinnwall th {
+	
+	border: 1px solid black;
+}
+
+
+.insideMainbodyHeadline {
+	font-size: 18pt;
+	color: #979797;
+
+}
+
+
+#userFont {
+	font-size: 17pt;
+	font-weight: bold;
+	font-style: italic;
+	color: #979797;
+}
+.progreSs {
+	font-size: .6em;
+	 line-height: 1.5em;
+	  text-indent: .5em; 
+	  width: 30em; 
+	  height: 3em; 
+	  border: 2px solid #ffa726; 
+	  background: #fafbfc;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: #fafbfc;
+  border-radius: 2px;
+  background: #fafbfc;
+  box-shadow: 0 2px 5px rgba(0, 99, 166, 0.25) inset;
+ /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; */
+}
+/* Firefox */
+progress::-moz-progress-bar {
+        background-image: -moz-linear-gradient(
+                center bottom,
+                rgb(88, 211, 247) 37%,
+                rgb(176, 229, 255) 69%
+        );
+}
+ 
+/* Chrome */
+progress::-webkit-progress-value {
+        background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(88, 211, 247)),
+                color-stop(1, rgb(176, 229, 255))
+        );
+        background-image: -webkit-linear-gradient(
+                center bottom,
+                rgb(88, 211, 247) 37%,
+                rgb(176, 229, 255) 69%
+        );
+}
+/* Firefox */
+progress.test::-moz-progress-bar {
+        background-image: -moz-linear-gradient(
+                center bottom,
+                rgb(88, 211, 247) 37%,
+                rgb(176, 229, 255) 69%
+        );
+}
+ 
+/* Chrome */
+progress.test::-webkit-progress-value {
+        background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(88, 211, 247)),
+                color-stop(1, rgb(176, 229, 255))
+        );
+        background-image: -webkit-linear-gradient(
+                center bottom,
+                rgb(88, 211, 247) 37%,
+                rgb(176, 229, 255) 69%
+        );
 }
