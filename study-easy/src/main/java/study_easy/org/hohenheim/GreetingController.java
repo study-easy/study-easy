@@ -140,7 +140,7 @@ public class GreetingController {
     		@RequestParam(value="sicherheitsfragecheck", required=true) String sicherheitsantwort,
     		@RequestParam(value="check", required=false, defaultValue="false") Boolean check
     		) {
-		if(check = false) {
+		if(check == false) {
 			return "redirect:/register?error=1";
 		}
        System.out.println(RUS.register(password, passwordcheck, bname, sicherheitsfrage, sicherheitsantwort ));
