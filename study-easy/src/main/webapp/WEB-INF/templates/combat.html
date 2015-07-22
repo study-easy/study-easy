@@ -22,32 +22,28 @@
 		</div>
 		<a th:href="@{/home}" class="logo">study-easy</a>
 		
-		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px; background-color: red;"></p>
+		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
-		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
+		<button type="submit" id="searchButton"><span id="searchText">GO</span>
 		</button>
-  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
+  		<input type="text" name="search" size="20" style="height: 20px; width: 180px;  margin-top:8px;" placeholder="Suche..."/>	
 		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
-</div>
+	</div>
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/profil}"><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" th:href="@{/snake}"><img src="resources/images/snakedunkel.png" width="18" height="18"/> Snake</a><br />
-	<table>
-	<tr>
-		<td>Meine Gruppen</td>
-	</tr>
-<!-- 	<tr th:each="">
-		<th th:text="">Liste</th>
-	</tr>
---><tr>
-	<th>Bsp</th>
-	</tr>
-	</table>
+	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a><br/>
+			<dl>
+			<dt><a th:href="@{/group}" class="linksupport"> <span th:text="${groupName}"></span></a></dt>
+				<dd><a th:href="@{/groupchange}" class="linksupport"><span th:text="Profil_bearbeiten"></span></a></dd>
+				<dd><a th:href="@{/members}" class="linksupport"><span th:text="Mitglieder"></span></a></dd>
+				<dd><a th:href="@{/groupHistory}" class="linksupport"><span th:text="Verlauf"></span></a></dd>
+				<dd><a th:href="@{/combat}" class="linksupport" id="activ">Combat</a></dd>
+				<dd><a th:href="@{/data}" class="linksupport"><span th:text="Dateien"></span></a></dd>
+			</dl>
 	</div>
 	
 
@@ -55,15 +51,29 @@
 <div class="mainInsidefield">
 <form action="#" th:action="@{/combat}" th:object="${Combat}"
 				method="post">
-<table>
+<table class="hellotext">
 <tr>
-<td>Ergebnis des letzten Combats</td>
-<td>hier ergebnis stehen</td>
+<td>Ergebnis des letzten Combats: <span></span></td>
 </tr>
 <tr>
-<td><input type="button" th:field="combat"/><button type="submit" class="buttons">
+<td><button type="submit" class="buttons">
 								<span class="buttonName" th:text="${status}">Combat</span>
-	</button><input type="file"/></td>
+	</button></td>
+</tr>
+<tr>
+<td>Achtung: Wenn du einen Combat startest</td>
+</tr>
+<tr>
+<td>oder beginnst zu bearbeiten musst du</td>
+</tr>
+<tr>
+<td>alle Fragen bearbeiten um gewinnen</td>
+</tr>
+<tr>
+<td>zu k&ouml;nnen.</td>
+</tr>
+<tr>
+<td>Jede Frage ist nur 1x bearbeitbar!</td>
 </tr>
 </table>
 </form>

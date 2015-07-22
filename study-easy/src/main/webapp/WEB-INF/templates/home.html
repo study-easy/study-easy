@@ -5,70 +5,105 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/home.css" />
-<link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
+<link rel="icon" type="image/vnd.microsoft.icon"
+	href="resources/images/sopra.ico" />
 </head>
-<body style="background-image: url(resources/images/tafel.jpg);
- -webkit-background-size: cover;
-  -moz-background-size: cover;
-   -o-background-size: cover;
-    background-position: center center; 
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed;">
- <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
-<div class="header" id="inside">
+<body
+	style="background-image: url(resources/images/tafel.jpg); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-position: center center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+	<!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
+	<div class="header" id="inside">
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo">study-easy</a>
+		<a th:href="@{/home}" class="logo"  id="activ">study-easy</a>
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
-		<button type="submit" id="searchButton" ><span id="searchText">GO</span>
+		<button type="submit" id="searchButton"><span id="searchText">GO</span>
 		</button>
-  		<input type="text" size="20" style="height: 20px; margin-top:0px;" placeholder="Suche..."/>	
+  		<input type="text" name="search" size="20" style="height: 20px; width: 180px;  margin-top:8px;" placeholder="Suche..."/>	
 		</form>
 		<div id="logout">
 		<a th:href="@{/logout}"><img src="resources/images/logoutdunkel.png" width="20" height="20"/></a>
 		</div>
-</div>
-<div class="mainbody" id="insidefield">
-<div class="menufield">
-	<div class="hellotext">
-	<a href="#" th:href="@{/profil}"><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" th:href="@{/snake}"><img src="resources/images/snakedunkel.png" width="18" height="18"/> Snake</a><br />
-	<table>
-	<tr>
-		<td>Meine Gruppen</td>
-	</tr>
-<!-- 	<tr th:each="">
-		<th th:text="">Liste</th>
-	</tr>
---><tr>
-	<th>Bsp</th>
-	</tr>
-	</table>
 	</div>
-	
+	<div class="mainbody" id="insidefield">
+		<div class="menufield">
+			<div class="hellotext">
+				<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+				<dl>
+				<dt><a href="#" th:href="@{/profilchange}" class="linksupport">Profil bearbeiten</a></dt>
+				<dt><a href="#" th:href="@{/games}" class="linksupport" >Spiele</a></dt>
+				
+				
+					<dt>Meine Gruppen</dt>
+						<dd th:each="groupList : ${groupList}">
+						<a href="group" class="linksupport"><span th:text="${groupList.name}">Keine Gruppen</span></a></dd>
+					</dl>
+				
+			</div>
 
-</div>
-<div class="mainInsidefield">
-<table>
-<tr><td>gjgug</td></tr></table>
-<p>hkhj</p>
-</div>
-</div>
-<div class="footer">
+
+		</div>
+		<!-- Pinnwand mit Einträgen im Mainbody 
+		<div class="insideMainbody"> -->
+		<div class="mainInsidefield">
+		<p>Willkommen <span th:text="${pinnwallOwner}">Max Mustermann</span>
+		<a><img src="resources/images/Profilbild.png" width="150" height="150" align="right"/></a></p>
+		<br />
+		<table><tr><td>
+		<progress class="progreSs" th:value="${wert}" max="100"> </progress></td><td><span th:text="${level}"></span></td>
+		</tr>
+		</table>
+		<br/>
+		<br/>
+		<br/>
+		<br />
+		<span class="insideMainbodyHeadline">Pinnwand</span>
+		<div class="pinnwallFrame">
+		<form action="#" th:action="@{/profilchange}" th:object="${PinnwallElement}"
+				method="post">
+		<table class="pinnwall" id="homePinnwall" style="border-top: 1px solid #979797">
+		<tr style="background-color: #FAFBFC; border:1px solid #979797">
+				<td class="inputName">Eintrag verfassen:
+				<input  th:field="*{entry}" class= "inputfield" type="text" value=" " size="70" placeholder="Was machst du gerade?"/>
+				<button type="submit" class="buttons">
+								<span class="buttonName">Posten</span>
+							</button>
+				</td>
+			</tr>
+			
+			<tr th:each="userPinn : ${userPinn}">
+				<td>
+					<span th:text="${pinnwallOwner}"></span>
+					<br/>
+					<br/>
+					<span th:text="${userPinn.entry}"></span>
+					<br/>
+					<span th:text="${userPinn.date}"></span>
+				</td>
+			</tr>
+			<tr><td>Blabla</td></tr>
+			<tr><td>Blabla</td></tr>
+			<tr><td>Blabla<br/><br/><br/><br/></td></tr>
+			<tr><td>Blabla<br/><br/><br/><br/><br/></td></tr>
+			<tr><td>Blabla<br/><br/><br/><br/><br/></td></tr>
+		</table>
+		</form>
+		</div>
+		</div>
+		</div>
 		
-		<p>[Foto: <a class="barbottom"
+	<div class="footer">
+
+		<p>
+			[Foto: <a class="barbottom"
 				href="https://www.flickr.com/photos/eflon/8743593650/in/photolist-ejDcLE-7CXAFs-5f12UX-66DNTm-8DBeHu-u7Kox4-48gJ8a-utYpD-qya12-aoUijf-5rLNHy-8sbsWD-5rWxfB-kbvXU-sfGx6-sfFUe-sfF85-9pySMg-nt9qBc-4Q8N1i-7v4ENF-4Jz3fS-4JuNzc-4Jz2KJ-4Jz2GL-nt9qd6-pdkRm1-aRz3b4-8yLnax-7UtbFe-6qwzjT-a9GaMX-rwgSJK-9yjAXz-21mK7-8aHhds-6ZCUh-ciL5S5-nzfe54-8Dz8cn-nbAtrV-5HDt5Y-i2WtQK-i2WsTz-9ynAis-i2WtsR-i2WGjy-i2WG1C-i2WG2E-i2XpiK"
-				target="_blank">Alex</a> CC by 
-			<a class="barbottom" href="https://creativecommons.org/licenses/by/2.0/"
-				target="_blank">2.0
-				</a> ]
-				<a th:href="@{/privacy}" target="_blank" class="barbottom">Rechtliches
-				</a> 
+				target="_blank">Alex</a> CC by <a class="barbottom"
+				href="https://creativecommons.org/licenses/by/2.0/" target="_blank">2.0
+			</a> ] <a th:href="@{/privacy}" target="_blank" class="barbottom">Rechtliches
+			</a>
 		</p>
 	</div>
-</body>        
+</body>
 </html>

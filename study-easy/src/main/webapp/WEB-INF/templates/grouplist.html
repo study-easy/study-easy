@@ -20,7 +20,7 @@
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo" id="activ">study-easy</a>
+		<a th:href="@{/home}" class="logo" >study-easy</a>
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
@@ -38,8 +38,8 @@
 	<a href="#" th:href="@{/admin}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
 			<dl>
 			<dt></dt>
-				<dd><a th:href="@{/group}" class="linksupport" >Nutzer anzeigen</a></dd>
-				<dd><a th:href="@{/group}" class="linksupport" >Gruppen anzeigen</a></dd>
+				<dd><a th:href="@{/group}" class="linksupport">Nutzer anzeigen</a></dd>
+				<dd><a th:href="@{/group}" class="linksupport" id="activ">Gruppen anzeigen</a></dd>
 			</dl>
 	
 	</div>
@@ -47,14 +47,12 @@
 <div class="mainInsidefield">
 <table>
 <tr>
-<td>Support Anfragen</td>
+<td>Liste Gruppe</td>
 </tr>
-<!-- 	<tr th:each="">
-		<th th:text="">Liste mit allen Support Problemen</th>
-	</tr>
---><tr>
-	<th>Bsp Supportproblem</th>
-	</tr>
+<tr th:each="userList : ${userList}">
+					<td><a href="home"><span th:text="$userList.name}">Keine Gruppen</span></a></td>
+						<!--<th>Bsp</th>-->
+					</tr>
 </table>
 </div>
 

@@ -4,7 +4,7 @@
 <title>study-easy</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/admin.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/home.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="resources/images/sopra.ico"/>
 </head>
 <body style="background-image: url(resources/images/tafel.jpg);
@@ -15,12 +15,12 @@
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;">
- <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->  
+ <!-- Hintergrundbild muss hier stehen nicht in css verschieben!! -->
 <div class="header" id="inside">
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo" id="activ">study-easy</a>
+		<a th:href="@{/home}" class="logo">study-easy</a>
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
@@ -35,29 +35,31 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/admin}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+<!-- <<<<<<< HEAD
+	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a><br/>
 			<dl>
-			<dt></dt>
-				<dd><a th:href="@{/group}" class="linksupport" >Nutzer anzeigen</a></dd>
-				<dd><a th:href="@{/group}" class="linksupport" >Gruppen anzeigen</a></dd>
+			<dt><a th:href="@{/games}" class="linksupport" id="activ">Spiele</a></dt>
+				<dd><a th:href="@{/snake}" class="linksupport">Snake</a></dd>
 			</dl>
-	
+======= -->
+	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+	<dl>
+	<dt><a href="#" th:href="@{/games}" class="linksupport" id="activ">Spiele</a></dt>
+	<dd><a href="#" th:href="@{/snake}" class="linksupport">Snake</a></dd>
+	</dl>
+<!--   >>>>>> Marcel_V5 -->
 	</div>
+	
+
 </div>
 <div class="mainInsidefield">
 <table>
-<tr>
-<td>Support Anfragen</td>
-</tr>
-<!-- 	<tr th:each="">
-		<th th:text="">Liste mit allen Support Problemen</th>
-	</tr>
---><tr>
-	<th>Bsp Supportproblem</th>
-	</tr>
+<tr><td><a href="#" th:href="@{/snake}"><img src="resources/images/snakelogodunkel.png" width="100" height="100"/></a>
+</td></tr>
+<tr><td><a href="#" th:href="@{/snake}" class="linksupport">Snake</a>
+</td></tr>
 </table>
 </div>
-
 </div>
 <div class="footer">
 		
@@ -71,8 +73,5 @@
 				</a> 
 		</p>
 	</div>
-
-
-
-</body>
+</body>        
 </html>
