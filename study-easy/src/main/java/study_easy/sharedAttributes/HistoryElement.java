@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study_easy.groupFunctions.Combat;
-import study_easy.service.BadgeConditionServiceImpl;
 import study_easy.service.GroupPinnServiceImpl;
 import study_easy.service.HistoryElementServiceImpl;
 import study_easy.system.Controller;

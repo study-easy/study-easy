@@ -9,7 +9,6 @@ import javax.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import study_easy.service.AchievementServiceImpl;
 import study_easy.service.PinnwallElementServiceImpl;
 import study_easy.users.RegUser;
 
