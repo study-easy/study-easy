@@ -439,7 +439,7 @@ public class GreetingController {
 		model.addAttribute("groupDescription", "Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.");
 		model.addAttribute("groupPinn", "Eintrag" /**group.getPinnwall().getEntries()*/);
 		model.addAttribute("name", "Testuser");
-		
+		//hahahha
 			return "group";
 		}
 	/*
