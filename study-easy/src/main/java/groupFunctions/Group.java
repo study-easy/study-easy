@@ -7,7 +7,7 @@ import sharedAttributes.GroupPinn;
 import users.RegUser;
 
 public class Group {
-		
+	// String subject hinzugefügt
 	private String name;
 	private ArrayList<RegUser> userList = new ArrayList<RegUser>();
 	private String description;
@@ -21,7 +21,15 @@ public class Group {
 	private GroupPinn pinnwall;
 	private ArrayList<Achievement> achievements = new ArrayList<Achievement>();
 	private ArrayList<String> combatNotifications = new ArrayList<String>();
+	private String subject;
 	
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
 	public String getName() {
 		return name;
 	}
