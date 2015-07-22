@@ -20,7 +20,7 @@
 		<div id="support">
 		<a th:href="@{/support}" target="_blank"><img src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo">study-easy</a>
+		<a th:href="@{/home}" class="logo" id="activ">study-easy</a>
 		
 		<p th:text="${error}" class="notification" style="color: #979797; margin-top: -25px;"></p>
 		<form class="logo" id="search" method="get" action="#" th:action="@{/search}">
@@ -35,9 +35,11 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/admin}" class="linksupport" id="activ"><span th:text="${name}">jo</span></a><br />
-	<a href="#" class="linksupport">User ansehen</a><br />
-	<a href="#" class="linksupport">Gruppen ansehen</a><br />
+			<dl>
+			<dt><a href="#" th:href="@{/admin}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a></dt>
+				<dd><a th:href="@{/group}" class="linksupport" >Nutzer anzeigen</a></dd>
+				<dd><a th:href="@{/group}" class="linksupport" >Gruppen anzeigen</a></dd>
+			</dl>
 	
 	</div>
 </div>

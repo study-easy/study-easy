@@ -38,9 +38,11 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Mein Profil</span></a><br />
-	<a href="#" th:href="@{/games}" class="linksupport" >Spiele</a><br />
-	<a href="#" th:href="@{/snake}" class="linksupport" id="activ">Snake</a><br />
+	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a><br/>
+			<dl>
+			<dt><a th:href="@{/games}" class="linksupport">Spiele</a></dt>
+				<dd><a th:href="@{/snake}" class="linksupport" id="activ">Snake</a></dd>
+			</dl>
 	</div>
 	
 

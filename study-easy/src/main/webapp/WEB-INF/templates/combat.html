@@ -35,9 +35,15 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/home}"><span th:text="${name}">Mein Profil</span></a><br />
-	<a th:href="@{/group}" class="linksupport"> <span th:text="${groupName}"></span></a>
-	<a th:href="@{/combat}" class="linksupport" id="activ">Combat</a>
+	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a><br/>
+			<dl>
+			<dt><a th:href="@{/group}" class="linksupport"> <span th:text="${groupName}"></span></a></dt>
+				<dd><a th:href="@{/groupchange}" class="linksupport"><span th:text="Profil_bearbeiten"></span></a></dd>
+				<dd><a th:href="@{/members}" class="linksupport"><span th:text="Mitglieder"></span></a></dd>
+				<dd><a th:href="@{/groupHistory}" class="linksupport"><span th:text="Verlauf"></span></a></dd>
+				<dd><a th:href="@{/combat}" class="linksupport" id="activ">Combat</a></dd>
+				<dd><a th:href="@{/data}" class="linksupport"><span th:text="Dateien"></span></a></dd>
+			</dl>
 	</div>
 	
 
