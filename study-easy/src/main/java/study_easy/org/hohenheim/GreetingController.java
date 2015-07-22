@@ -286,6 +286,7 @@ public class GreetingController {
 	model.addAttribute("name", name);
 	model.addAttribute("user", name);
 	model.addAttribute("pinnwallOwner", name);
+	model.addAttribute("wert","");
 		UserPinn userPinn = new UserPinn();
 	PinnwallElement element = new PinnwallElement();
 	Date date = new Date();
