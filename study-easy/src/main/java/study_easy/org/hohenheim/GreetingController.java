@@ -65,21 +65,13 @@ public class GreetingController {
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
     public String showForm(Model model,
-    		@RequestParam(value="error", required=false, defaultValue="null") String error) {
+    		@RequestParam(value="error", required=false, defaultValue=" ") String error) {
             RegUser reguser = new RegUser(); 
-			//model.addAttribute("RegUser", new RegUser());
+            if(error.equals("1")) {
+            	model.addAttribute("error", "Eingabe falsch");
+            }
              model.addAttribute("RegUser", reguser);         
              System.out.println("Index-Seite");
-             if (error.length() < 5){
-            	 error ="";
-            	 model.addAttribute("error", error);
-             } else {
-            	 error ="Sie haben einen Error"; 
-            	 model.addAttribute("error", error);
-             }
-             
-            
-             System.out.println("start index"); 
         return "index"; 
     }
 
@@ -93,18 +85,19 @@ public class GreetingController {
     public String login(RegUser reguser,
     		@RequestParam(value="name", required=true, defaultValue="") String bname,
     		@RequestParam(value="password", required=true, defaultValue="") String password) {
-		//System.out.println(RUS.signIn(password, bname)); 
+		System.out.println(RUS.signIn(password, bname)); 
        System.out.println("Benutzername: " +bname);
        System.out.println("Passwort: " +password);
        if ((bname.equals("admin")) && (password.equals("admin"))) {
     	   System.out.println("Sie werden erfolgreich eingeloggt");
     	   return "redirect:/admin";
        } else {
-    	   if (bname.equals("bname")) {
-    		   return "redirect:/home";
+    	   if (RUS.signIn(password, bname)) {
+    		   String redirect = "redirect:/home?user=" +bname;
+    		   return redirect;
     	   } 
     	   else { System.out.println("ERROR");
-    		  return "redirect:/?error=10000";
+    		  return "redirect:/?error=1";
     	   }
        }
     	    
