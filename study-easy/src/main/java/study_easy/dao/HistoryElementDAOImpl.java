@@ -1,6 +1,5 @@
 package study_easy.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -30,21 +29,14 @@ public class HistoryElementDAOImpl implements HistoryElementDAO{
 	}
 
 	@Override
-	public void updateHistoryElementContent(int id, String content) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateHistoryElementDate(int id, Date date) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void deleteHistoryElement(int id) {
 		Session session = factory.getCurrentSession();
 		session.delete(id);
+	}
+
+	@Override
+	public void updateHistoryElementContent(HistoryElement element) {
+		factory.getCurrentSession().update(element);
 	}
 
 }

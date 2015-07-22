@@ -28,10 +28,10 @@ public class GroupPinnService{
 	}
 
 	public void updateGroupPinn(GroupPinn pinn){
-		//TODO
+		gpdao.updateGroupPinn(pinn);
 	}
 
-	public void deleteGroupPinn(String owner) {
+	public void deleteGroupPinn(GroupPinn owner) {
 		gpdao.deleteGroupPinn(owner);
 		
 	}

@@ -63,5 +63,9 @@ public class BadgeCondition {
 	public void setRequiredDate(Date requiredDate) {
 		this.requiredDate = requiredDate;
 	}
+	
+	public int getId(){
+		return this.id;
+	}
 
 }

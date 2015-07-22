@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -37,12 +36,6 @@ public class GroupDAOImpl implements GroupDAO {
 	@Override
 	public void updateGroup(Group group) {
 		factory.getCurrentSession().update(group);
-	}
-
-	@Override
-	public Group getGroup(String name) {
-		return (Group) factory.getCurrentSession().createCriteria(Group.class)
-				.add(Restrictions.eqOrIsNull("name", name));
 	}
 
 }

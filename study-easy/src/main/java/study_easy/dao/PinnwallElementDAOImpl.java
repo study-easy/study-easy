@@ -1,6 +1,5 @@
 package study_easy.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -30,27 +29,15 @@ public class PinnwallElementDAOImpl implements PinnwallElementDAO{
 	}
 
 	@Override
-	public void updatePinnwallElementContent(int id, String content) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updatePinnwallElementDate(int id, Date date) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updatePinnwallElementComments(int id, List<PinnwallElement> list) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void deletePinnwallElement(int id) {
 		Session session = factory.getCurrentSession();
 		session.delete(id);
+	}
+
+	@Override
+	public void updatePinnwallElementContent(PinnwallElement element) {
+		factory.getCurrentSession().update(element);
+		
 	}
 
 }

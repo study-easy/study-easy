@@ -26,35 +26,24 @@ public class BadgeConditionService{
 	public List<BadgeCondition> listBadgeCondition() {
 		return bcdao.listBadgeCondition();
 	}
-
-	public void updateBadgeConditionType(int id, ConditionTypes type) {
-		bcdao.updateBadgeConditionType(id, type);
-		
+	
+	public BadgeCondition getThisBadgeCondition(int id){
+		BadgeCondition condition = null;
+		for(BadgeCondition cond : this.bcdao.listBadgeCondition()){
+			if(cond.getId() == id){
+				condition = cond;
+				break;
+			}
+		}
+		return condition;
 	}
 
-	public void updateBadgeConditionName(int id, String name) {
-		bcdao.updateBadgeConditionName(id, name);
-		
+	public void deleteBadgeCondition(BadgeCondition condition){
+		bcdao.deleteBadgeCondition(condition);
 	}
-
-	public void updateBadgeConditionRequiredInt(int id, int integer) {
-		bcdao.updateBadgeConditionRequiredInt(id, integer);
-		
-	}
-
-	public void updateBadgeConditionRequiredString(int id, String string) {
-		bcdao.updateBadgeConditionRequiredString(id, string);
-		
-	}
-
-	public void updateBadgeConditionRequiredDate(int id, Date date) {
-		bcdao.updateBadgeConditionRequiredDate(id, date);
-		
-	}
-
-	public void deleteBadgeCondition(int id) {
-		bcdao.deleteBadgeCondition(id);
-		
+	
+	public void updateBadgeCondition(BadgeCondition condition){
+		bcdao.updateBadgeCondition(condition);
 	}
 
 }

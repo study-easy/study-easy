@@ -1,6 +1,5 @@
 package study_easy.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import study_easy.sharedAttributes.BadgeCondition;
-import study_easy.sharedAttributes.ConditionTypes;
 
 @Repository
 public class BadgeConditionDAOImpl implements BadgeConditionDAO{
@@ -31,61 +29,14 @@ public class BadgeConditionDAOImpl implements BadgeConditionDAO{
 	}
 
 	@Override
-	public void updateBadgeConditionType(int id, ConditionTypes type) {
-		Session session = factory.getCurrentSession();
-		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
-		if(condition!=null){
-			condition.setConditionType(type);
-			session.update(condition);
-		}
+	public void updateBadgeCondition(BadgeCondition condition) {
+		factory.getCurrentSession().update(condition);
 	}
 
-	@Override
-	public void updateBadgeConditionName(int id, String name) {
-		Session session = factory.getCurrentSession();
-		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
-		if(condition!=null){
-			condition.setName(name);
-			session.update(condition);
-		}
-	}
 
 	@Override
-	public void updateBadgeConditionRequiredInt(int id, int integer) {
-		Session session = factory.getCurrentSession();
-		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
-		if(condition!=null){
-			condition.setRequiredNumber(integer);
-			session.update(condition);
-		}
-	}
-
-	@Override
-	public void updateBadgeConditionRequiredString(int id, String string) {
-		Session session = factory.getCurrentSession();
-		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
-		if(condition!=null){
-			condition.setRequiredString(string);
-			session.update(condition);
-		}
-	}
-
-	@Override
-	public void updateBadgeConditionRequiredDate(int id, Date date) {
-		Session session = factory.getCurrentSession();
-		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
-		if(condition!=null){
-			condition.setRequiredDate(date);
-			session.update(condition);
-		}
-	}
-
-	@Override
-	public void deleteBadgeCondition(int id) {
-		Session session = factory.getCurrentSession();
-		BadgeCondition condition = (BadgeCondition) session.load(BadgeCondition.class, id);
-		if(condition!=null)
-			session.delete(condition);
+	public void deleteBadgeCondition(BadgeCondition condition) {
+		factory.getCurrentSession().delete(condition);
 	}
 
 }

@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import study_easy.sharedAttributes.GroupPinn;
-import study_easy.sharedAttributes.HistoryElement;
-import study_easy.sharedAttributes.PinnwallElement;
 
 @Repository
 public class GroupPinnDAOImpl implements GroupPinnDAO{
@@ -31,16 +29,13 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 	}
 
 	@Override
-	public void deleteGroupPinn(String owner) {
-		Session session = factory.getCurrentSession();
-		GroupPinn pinn = (GroupPinn) session.load(GroupPinn.class, owner);
-		if(pinn!=null)
-			session.delete(pinn);
+	public void deleteGroupPinn(GroupPinn owner) {
+		factory.getCurrentSession().delete(owner);
 	}
 
 	@Override
 	public void updateGroupPinn(GroupPinn pinn) {
-		// TODO Auto-generated method stub
+		factory.getCurrentSession().update(pinn);
 		
 	}
 
