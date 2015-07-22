@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import study_easy.sharedAttributes.Achievement;
-import study_easy.sharedAttributes.AchievementCondition;
 
 @Repository
 public class AchievementDAOImpl implements AchievementDAO{

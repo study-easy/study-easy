@@ -26,19 +26,8 @@ public class PinnwallElementService{
 		return pedao.listPinnwallElement();
 	}
 
-	public void updatePinnwallElementContent(int id, String content) {
-		pedao.updatePinnwallElementContent(id, content);
-		
-	}
-
-	public void updatePinnwallElementDate(int id, Date date) {
-		pedao.updatePinnwallElementDate(id, date);
-		
-	}
-
-	public void updatePinnwallElementComments(int id, List<PinnwallElement> list) {
-		pedao.updatePinnwallElementComments(id, list);
-		
+	public void updatePinnwallElement(PinnwallElement element){
+		pedao.updatePinnwallElementContent(element);
 	}
 
 	public void deletePinnwallElement(int id) {
