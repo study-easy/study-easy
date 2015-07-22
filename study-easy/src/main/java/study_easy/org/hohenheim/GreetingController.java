@@ -35,19 +35,19 @@ public class GreetingController {
 	 *1. Startseite mit Login
 	 *2. Regstrierseite
 	 *3. Password vergessen
-	 *4. Groupchange  
-	 *5. Rechtliches
+	 *4. Combat  
+	 *5. Profilchange
 	 *6. Home
 	 *7. Support
-	 *8. Admin
+	 *8. COMBATTEST
 	 *9. Snake und Logout
 	 *10.Group
 	 *11.Suche
-	 *12.Profilchange
+	 *12.Rechtliches
 	 *13.Profilprivat
 	 *14. Delete
-	 *15.Combat
-	 *16.COMBATTEST
+	 *15.Groupchange
+	 *16.Admin
 	 *17.GAMES
 	 *18. GroupHistory 
 	 *19. Members
@@ -212,39 +212,61 @@ public class GreetingController {
     }
 	/*
 	 *##########################
-	 *4. Groupchange
+	 *4. Combat.HTML
 	 *Get Aufruf
 	 *
 	 */
-	@RequestMapping(value="/groupchange", method=RequestMethod.GET)
-    public String profil(Model model,
-    		@RequestParam(value="error", required=false, defaultValue="null") String error) {
-            RegUser reguser = new RegUser(); 
-            Group group = new Group();
-			//model.addAttribute("RegUser", new RegUser());
-             model.addAttribute("RegUser", reguser);
-             model.addAttribute("Group", group);
-             model.addAttribute("groupName", "Testgruppe");
-             model.addAttribute("name", "Testnutzer");
-             System.out.println("Groupchange");
- 
-             
-            
-        return "groupchange"; 
-    }
-	 
-	
+	@RequestMapping(value="/combat",method=RequestMethod.GET)
+	public String comabt(Model model) {
+	RegUser reguser = new RegUser();
+	Group group = new Group();
+	String status ="Dein status"; //z.b zum aktuellen Combat gehen oder Combat starten
+	Combat combat = new Combat ();	
+	model.addAttribute("Combat", combat);
+	model.addAttribute("status", status);
+	model.addAttribute("name", "Testname");
+	return "combat";
+	}
 	/*
 	 *##########################
-	 *5. PRIVACY.HTML
-	 *Get Aufruf
-	 *Besitzt sonst nichts
+	 *4. COMBAT.HTML
+	 *Post Aufruf 
+	 * 
 	 */
+	@RequestMapping(value="/combat", method=RequestMethod.POST)
+    public String combatpost(@RequestParam(value="check", required=false) Boolean check
+    		) {
 	
-	@RequestMapping(value="/privacy", method=RequestMethod.GET)
-    public String privacy(){	 
-        return "privacy";
-    } 
+       
+    return "redirect:/combattest?nr=0"; 
+	} 
+	/*
+	 *##########################
+	 *5. PROFILCHANGE.HTML
+	 *Post Aufruf
+	 *
+	 */
+	@RequestMapping(value="/profilchange", method=RequestMethod.POST)
+    public String profilpost(RegUser reguser) {
+       System.out.println("Profil gespeichert");
+       
+    return "redirect:/profil";
+	} 
+	/*
+	 *##########################
+	 *5. Profilprivat.HTML
+	 *Get Aufruf
+	 *
+	 */
+	@RequestMapping(value="/profilprivat",method=RequestMethod.GET)
+	public String profilprivatget(@RequestParam(value="name", required=false, defaultValue="Testname") String name, Model model) {
+	RegUser reguser = new RegUser();
+	model.addAttribute("RegUser", reguser); 
+	model.addAttribute("name", name); 
+	return "profilprivat";
+	} 
+	
+	
 	/*
 	 *##########################
 	 *6. HOME.HTML
@@ -315,20 +337,49 @@ public class GreetingController {
     }
 	/*
 	 *##########################
-	 *8. Admin.HTML
+	 *18. Combattest.HTML
 	 *Get Aufruf
-	 * 
+	 *
 	 */
-	@RequestMapping(value="/admin", method=RequestMethod.GET)
-    public String adminview(Model model) {
-            Admin admin = new Admin(); 
-             model.addAttribute("Admin", admin);
-             String adminname= "TestAdmin";
-             model.addAttribute("name", adminname);
-             
-             System.out.println("adminseite");  
-        return "admin"; 
-    } 
+	@RequestMapping(value="/combattest",method=RequestMethod.GET)
+	public String combattest(Model model,
+			@RequestParam(value="nr", required=true) int nr) {
+	nr++ ; 
+	RegUser reguser = new RegUser();
+	Group group = new Group();
+	Combat combat = new Combat ();	
+	Test test = new Test ();
+	TestElement testelement = new TestElement ();
+	model.addAttribute("Combat", combat);
+	model.addAttribute("TestElement", testelement);
+	model.addAttribute("task", "Hier könnte eine Frage stehen");
+	model.addAttribute("answer1", "Antwort1");
+	model.addAttribute("answer2", "Antwort2");
+	model.addAttribute("answer3", "Antwort3");
+	model.addAttribute("answer4", "Antwort4");
+	 
+	return "combattest"; 
+	}
+	/*
+	 *##########################
+	 *8. COMBATTEST.HTML
+	 *Post Aufruf 
+	 *
+	 */
+	@RequestMapping(value="/combattest", method=RequestMethod.POST)
+    public String combattestpost( @RequestParam(value="check", required=false, defaultValue="false") Boolean check,
+    		@RequestParam(value="check2", required=false, defaultValue="false") Boolean check2,
+    		@RequestParam(value="check3", required=false, defaultValue="false") Boolean check3,
+    		@RequestParam(value="check4", required=false, defaultValue="false") Boolean check4
+    		) { 
+	System.out.println(check);
+	System.out.println(check2);
+	System.out.println(check3);
+	System.out.println(check4);
+       
+    return "redirect:/combat"; 
+	}
+	
 	/*
 	 *##########################
 	 *9. LOGOUT.HTML
@@ -385,6 +436,13 @@ public class GreetingController {
 			return "group";
 		}
 	/*
+	 * TRENNLINIE
+	 * 
+	 * 
+	 */
+	
+	
+	/*
 	 *##########################
 	 *11. SEARCH.HTML
 	 *Get Aufruf
@@ -415,29 +473,16 @@ public class GreetingController {
 	}
 	/*
 	 *##########################
-	 *12. PROFILCHANGE.HTML
-	 *Post Aufruf
-	 *
-	 */
-	@RequestMapping(value="/profilchange", method=RequestMethod.POST)
-    public String profilpost(RegUser reguser) {
-       System.out.println("Profil gespeichert");
-       
-    return "redirect:/profil";
-	} 
-	/*
-	 *##########################
-	 *12. Profilprivat.HTML
+	 *12. PRIVACY.HTML
 	 *Get Aufruf
-	 *
+	 *Besitzt sonst nichts
 	 */
-	@RequestMapping(value="/profilprivat",method=RequestMethod.GET)
-	public String profilprivatget(@RequestParam(value="name", required=false, defaultValue="Testname") String name, Model model) {
-	RegUser reguser = new RegUser();
-	model.addAttribute("RegUser", reguser); 
-	model.addAttribute("name", name); 
-	return "profilprivat";
-	} 
+	
+	@RequestMapping(value="/privacy", method=RequestMethod.GET)
+    public String privacy(){	 
+        return "privacy";
+    } 
+	
 	/* 
 	 *##########################
 	 *13. PROFILPRIVAT.HTML
@@ -484,78 +529,43 @@ public class GreetingController {
 	}
 	/*
 	 *##########################
-	 *15. Combat.HTML
+	 *15. Groupchange
 	 *Get Aufruf
-	 *
+	 *POST-AUfruf zum speichern fehlt
 	 */
-	@RequestMapping(value="/combat",method=RequestMethod.GET)
-	public String comabt(Model model) {
-	RegUser reguser = new RegUser();
-	Group group = new Group();
-	String status ="Dein status"; //z.b zum aktuellen Combat gehen oder Combat starten
-	Combat combat = new Combat ();	
-	model.addAttribute("Combat", combat);
-	model.addAttribute("status", status);
-	model.addAttribute("name", "Testname");
-	return "combat";
-	}
+	@RequestMapping(value="/groupchange", method=RequestMethod.GET)
+    public String profil(Model model,
+    		@RequestParam(value="error", required=false, defaultValue="null") String error) {
+            RegUser reguser = new RegUser(); 
+            Group group = new Group();
+			//model.addAttribute("RegUser", new RegUser());
+             model.addAttribute("RegUser", reguser);
+             model.addAttribute("Group", group);
+             model.addAttribute("groupName", "Testgruppe");
+             model.addAttribute("name", "Testnutzer");
+             System.out.println("Groupchange");
+ 
+             
+            
+        return "groupchange"; 
+    }
 	/*
 	 *##########################
-	 *15. COMBAT.HTML
-	 *Post Aufruf 
+	 *16. Admin.HTML
+	 *Get Aufruf
 	 * 
 	 */
-	@RequestMapping(value="/combat", method=RequestMethod.POST)
-    public String combatpost(@RequestParam(value="check", required=false) Boolean check
-    		) {
+	@RequestMapping(value="/admin", method=RequestMethod.GET)
+    public String adminview(Model model) {
+            Admin admin = new Admin(); 
+             model.addAttribute("Admin", admin);
+             String adminname= "TestAdmin";
+             model.addAttribute("name", adminname);
+             
+             System.out.println("adminseite");  
+        return "admin"; 
+    } 
 	
-       
-    return "redirect:/combattest?nr=0"; 
-	} 
-	/*
-	 *##########################
-	 *16. Combattest.HTML
-	 *Get Aufruf
-	 *
-	 */
-	@RequestMapping(value="/combattest",method=RequestMethod.GET)
-	public String combattest(Model model,
-			@RequestParam(value="nr", required=true) int nr) {
-	nr++ ; 
-	RegUser reguser = new RegUser();
-	Group group = new Group();
-	Combat combat = new Combat ();	
-	Test test = new Test ();
-	TestElement testelement = new TestElement ();
-	model.addAttribute("Combat", combat);
-	model.addAttribute("TestElement", testelement);
-	model.addAttribute("task", "Hier könnte eine Frage stehen");
-	model.addAttribute("answer1", "Antwort1");
-	model.addAttribute("answer2", "Antwort2");
-	model.addAttribute("answer3", "Antwort3");
-	model.addAttribute("answer4", "Antwort4");
-	 
-	return "combattest"; 
-	}
-	/*
-	 *##########################
-	 *15. COMBATTEST.HTML
-	 *Post Aufruf 
-	 *
-	 */
-	@RequestMapping(value="/combattest", method=RequestMethod.POST)
-    public String combattestpost( @RequestParam(value="check", required=false, defaultValue="false") Boolean check,
-    		@RequestParam(value="check2", required=false, defaultValue="false") Boolean check2,
-    		@RequestParam(value="check3", required=false, defaultValue="false") Boolean check3,
-    		@RequestParam(value="check4", required=false, defaultValue="false") Boolean check4
-    		) { 
-	System.out.println(check);
-	System.out.println(check2);
-	System.out.println(check3);
-	System.out.println(check4);
-       
-    return "redirect:/combat"; 
-	}
 	/*
 	 *##########################
 	 *17.GAMES
