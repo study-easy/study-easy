@@ -30,21 +30,6 @@
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
 			<div class="hellotext">
-<!--  <<<<<<< HEAD
-			<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
-			<a th:href="@{/profilchange}" class="linksupport"><span th:text="Profil_bearbeiten"></span></a>
-			<a th:href="@{/games}" class="linksupport">Spiele</a>
-
-				<table>
-					<tr>
-						<th>Meine Gruppen</th>
-					</tr>
-					<tr>
-						<td><a th:href="@{/groupchange?new=true}" class="linksupport">Gruppe erstellen</a></td>
-					</tr>
-					<tr th:each="groupList : ${groupList}">
-					<td><a href="group" class="linksupport"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
-======= -->
 				<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
 				<dl>
 				<dt><a href="#" th:href="@{/profilchange}" class="linksupport">Profil bearbeiten</a></dt>
@@ -54,8 +39,6 @@
 					<dt>Meine Gruppen</dt>
 						<dd th:each="groupList : ${groupList}">
 						<a href="group" class="linksupport"><span th:text="${groupList.name}">Keine Gruppen</span></a></dd>
-<!--   >>>>>>> Marcel_V5 -->
-						<!--<th>Bsp</th>-->
 					</dl>
 				
 			</div>
@@ -67,13 +50,15 @@
 		<div class="mainInsidefield">
 		<p>Willkommen <span th:text="${pinnwallOwner}">Max Mustermann</span>
 		<a><img src="resources/images/Profilbild.png" width="150" height="150" align="right"/></a></p>
-		<p th:text="${pinnwallOwner}">Max Mustermann</p>
+		<br />
+		<table><tr><td>
+		<progress class="progreSs" th:value="${wert}" max="100"> </progress></td><td><span th:text="${level}"></span></td>
+		</tr>
+		</table>
 		<br/>
 		<br/>
 		<br/>
-		<br/>
-		<br/>
-		<br/>
+		<br />
 		<span class="insideMainbodyHeadline">Pinnwand</span>
 		<div class="pinnwallFrame">
 		<form action="#" th:action="@{/profilchange}" th:object="${PinnwallElement}"
@@ -81,7 +66,7 @@
 		<table class="pinnwall" id="homePinnwall" style="border-top: 1px solid #979797">
 		<tr style="background-color: #FAFBFC; border:1px solid #979797">
 				<td class="inputName">Eintrag verfassen:
-				<input  th:field="*{entry}" class= "inputfield" type="text" value=" " size="70" placeholder="Was möchtest du posten?"/>
+				<input  th:field="*{entry}" class= "inputfield" type="text" value=" " size="70" placeholder="Was machst du gerade?"/>
 				<button type="submit" class="buttons">
 								<span class="buttonName">Posten</span>
 							</button>

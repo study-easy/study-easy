@@ -296,7 +296,15 @@ a.barbottom:visited {
 	font-style: italic;
 	color: #979797;
 }
-
+.progreSs {
+	font-size: .6em;
+	 line-height: 1.5em;
+	  text-indent: .5em; 
+	  width: 30em; 
+	  height: 3em; 
+	  border: 2px solid #ffa726; 
+	  background: #fafbfc;
+}
 progress[value]::-webkit-progress-bar {
   background-color: #fafbfc;
   border-radius: 2px;
@@ -308,8 +316,8 @@ progress[value]::-webkit-progress-bar {
 progress::-moz-progress-bar {
         background-image: -moz-linear-gradient(
                 center bottom,
-                rgb(43,194,83) 37%,
-                rgb(84,240,84) 69%
+                rgb(88, 211, 247) 37%,
+                rgb(176, 229, 255) 69%
         );
 }
  
@@ -319,21 +327,21 @@ progress::-webkit-progress-value {
                 linear,
                 left bottom,
                 left top,
-                color-stop(0, rgb(43,194,83)),
-                color-stop(1, rgb(84,240,84))
+                color-stop(0, rgb(88, 211, 247)),
+                color-stop(1, rgb(176, 229, 255))
         );
         background-image: -webkit-linear-gradient(
                 center bottom,
-                rgb(43,194,83) 37%,
-                rgb(84,240,84) 69%
+                rgb(88, 211, 247) 37%,
+                rgb(176, 229, 255) 69%
         );
 }
 /* Firefox */
 progress.test::-moz-progress-bar {
         background-image: -moz-linear-gradient(
                 center bottom,
-                rgb(43,194,83) 37%,
-                rgb(84,240,84) 69%
+                rgb(88, 211, 247) 37%,
+                rgb(176, 229, 255) 69%
         );
 }
  
@@ -343,12 +351,12 @@ progress.test::-webkit-progress-value {
                 linear,
                 left bottom,
                 left top,
-                color-stop(0, rgb(43,194,83)),
-                color-stop(1, rgb(84,240,84))
+                color-stop(0, rgb(88, 211, 247)),
+                color-stop(1, rgb(176, 229, 255))
         );
         background-image: -webkit-linear-gradient(
                 center bottom,
-                rgb(43,194,83) 37%,
-                rgb(84,240,84) 69%
+                rgb(88, 211, 247) 37%,
+                rgb(176, 229, 255) 69%
         );
 }
