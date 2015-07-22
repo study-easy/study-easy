@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.BadgeDAOImpl;
 import study_easy.sharedAttributes.Badge;
-import study_easy.sharedAttributes.BadgeCondition;
 
 @Service
 @Transactional

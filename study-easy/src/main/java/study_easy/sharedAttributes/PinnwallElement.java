@@ -1,12 +1,8 @@
 package study_easy.sharedAttributes;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.*;
-
-import study_easy.users.RegUser;
 
 @Embeddable
 public class PinnwallElement {
