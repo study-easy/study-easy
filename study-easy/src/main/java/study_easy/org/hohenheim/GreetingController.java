@@ -359,7 +359,7 @@ public class GreetingController {
 	TestElement testelement = new TestElement ();
 	model.addAttribute("Combat", combat);
 	model.addAttribute("TestElement", testelement);
-	model.addAttribute("task", "Hier könnte eine Frage stehen");
+	model.addAttribute("task", "Hier kï¿½nnte eine Frage stehen");
 	model.addAttribute("answer1", "Antwort1");
 	model.addAttribute("answer2", "Antwort2");
 	model.addAttribute("answer3", "Antwort3");
