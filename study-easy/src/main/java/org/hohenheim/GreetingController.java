@@ -255,6 +255,7 @@ public class GreetingController {
 	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String home(@RequestParam(value="name", required=false, defaultValue="Mein Profil") String name, Model model) {
 	UserPinn userPinn = new UserPinn();
+	PinnwallElement element = new PinnwallElement();
 	Date date = new Date();
 	date.setDate(20);
 	RegUser testUser = new RegUser();
@@ -273,6 +274,7 @@ public class GreetingController {
 	model.addAttribute("groupList", testUser.getGroupList());
 	model.addAttribute("pinnwallOwner", "Hans");
 	model.addAttribute("pinnwallOwner", "Testuser 1");
+	model.addAttribute("PinnwallElement", element);
 	return "home"; 
 	}
 	
@@ -381,7 +383,8 @@ public class GreetingController {
 	@RequestMapping(value="/group", method=RequestMethod.GET)
 		public String showGroupInfo(@RequestParam (value="error", required=false, defaultValue= " ") String name, Model model) {
 		Group group = new Group();
-
+		PinnwallElement element = new PinnwallElement();
+		model.addAttribute("PinnwallElement", element);
 		model.addAttribute("groupName", "TestGruppe");
 		model.addAttribute("members", group.getUserList());
 		model.addAttribute("groupDescription", "Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.");
@@ -584,6 +587,7 @@ public class GreetingController {
 	public String showGroupHistory(@RequestParam (value="error" , required=false, defaultValue=" ") String name, Model model) {
 	model.addAttribute("groupHistory", "Verlauf");
 	model.addAttribute("groupName", "Gruppenname");
+	model.addAttribute("name", "TestUser");
 	return "groupHistory";
 }
 	/*

@@ -30,6 +30,7 @@
 	<div class="mainbody" id="insidefield">
 		<div class="menufield">
 			<div class="hellotext">
+<!--  <<<<<<< HEAD
 			<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
 			<a th:href="@{/profilchange}" class="linksupport"><span th:text="Profil_bearbeiten"></span></a>
 			<a th:href="@{/games}" class="linksupport">Spiele</a>
@@ -43,9 +44,20 @@
 					</tr>
 					<tr th:each="groupList : ${groupList}">
 					<td><a href="group" class="linksupport"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
+======= -->
+				<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+				<dl>
+				<dt><a href="#" th:href="@{/profilchange}" class="linksupport">Profil bearbeiten</a></dt>
+				<dt><a href="#" th:href="@{/games}" class="linksupport" >Spiele</a></dt>
+				
+				
+					<dt>Meine Gruppen</dt>
+						<dd th:each="groupList : ${groupList}">
+						<a href="group" class="linksupport"><span th:text="${groupList.name}">Keine Gruppen</span></a></dd>
+<!--   >>>>>>> Marcel_V5 -->
 						<!--<th>Bsp</th>-->
-					</tr>
-				</table>
+					</dl>
+				
 			</div>
 
 
@@ -62,9 +74,19 @@
 		<br/>
 		<br/>
 		<br/>
-		<span class="insideMainbodyHeader">Pinnwand</span>
+		<span class="insideMainbodyHeadline">Pinnwand</span>
 		<div class="pinnwallFrame">
-		<table class="pinnwall" id="homePinnwall">
+		<form action="#" th:action="@{/profilchange}" th:object="${PinnwallElement}"
+				method="post">
+		<table class="pinnwall" id="homePinnwall" style="border-top: 1px solid #979797">
+		<tr style="background-color: #FAFBFC; border:1px solid #979797">
+				<td class="inputName">Eintrag verfassen:
+				<input  th:field="*{entry}" class= "inputfield" type="text" value=" " size="70" placeholder="Was möchtest du posten?"/>
+				<button type="submit" class="buttons">
+								<span class="buttonName">Posten</span>
+							</button>
+				</td>
+			</tr>
 			
 			<tr th:each="userPinn : ${userPinn}">
 				<td>
@@ -77,7 +99,12 @@
 				</td>
 			</tr>
 			<tr><td>Blabla</td></tr>
+			<tr><td>Blabla</td></tr>
+			<tr><td>Blabla<br/><br/><br/><br/></td></tr>
+			<tr><td>Blabla<br/><br/><br/><br/><br/></td></tr>
+			<tr><td>Blabla<br/><br/><br/><br/><br/></td></tr>
 		</table>
+		</form>
 		</div>
 		</div>
 		</div>
