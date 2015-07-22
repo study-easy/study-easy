@@ -13,7 +13,7 @@ import study_easy.sharedAttributes.PinnwallElement;
 
 @Service
 @Transactional
-public class PinnwallElementServiceImpl implements PinnwallElementService{
+public class PinnwallElementServiceImpl implements PinnwallElementDAO{
 
 	@Autowired
 	private PinnwallElementDAOImpl pedao;

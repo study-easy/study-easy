@@ -14,7 +14,7 @@ import study_easy.sharedAttributes.PinnwallElement;
 
 @Service
 @Transactional
-public class GroupPinnServiceImpl implements GroupPinnService{
+public class GroupPinnServiceImpl implements GroupPinnDAO{
 
 	@Autowired
 	private GroupPinnDAOImpl gpdao;

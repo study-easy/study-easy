@@ -13,7 +13,7 @@ import study_easy.sharedAttributes.HistoryElement;
 
 @Service
 @Transactional
-public class HistoryElementServiceImpl implements HistoryElementService{
+public class HistoryElementServiceImpl implements HistoryElementDAO{
 
 	@Autowired
 	private HistoryElementDAOImpl hedao;

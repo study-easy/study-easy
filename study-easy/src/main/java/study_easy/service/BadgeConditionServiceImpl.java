@@ -14,7 +14,7 @@ import study_easy.sharedAttributes.ConditionTypes;
 
 @Service
 @Transactional
-public class BadgeConditionServiceImpl implements BadgeConditionService{
+public class BadgeConditionServiceImpl implements BadgeConditionDAO{
 
 	@Autowired
 	private BadgeConditionDAOImpl bcdao;

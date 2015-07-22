@@ -13,7 +13,7 @@ import study_easy.groupFunctions.Test;
 
 @Service
 @Transactional
-public class CombatServiceImpl implements CombatService{
+public class CombatServiceImpl implements CombatDAO{
 
 	@Autowired
 	private CombatDAOImpl cdao;
