@@ -87,7 +87,7 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/", method=RequestMethod.POST)
-    public String login(@Valid RegUser reguser, BindingResult bindingResult,
+    public String login(RegUser reguser,
     		@RequestParam(value="name", required=true, defaultValue="") String bname,
     		@RequestParam(value="password", required=true, defaultValue="") String password) {
 		System.out.println(reguser.signIn(password, bname)); 
