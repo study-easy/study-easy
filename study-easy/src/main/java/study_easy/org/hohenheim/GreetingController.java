@@ -514,7 +514,7 @@ public class GreetingController {
 	model.addAttribute("PinnwallElement", element);
 	model.addAttribute("groupName", "Lerngruppe_HH");
 	model.addAttribute("group", "Lerngruppe_Winfo");
-	model.addAttribute("groupDescription", "Das ist eine Lerngruppe zum Fach Wirtschaftsinformatik gegründet von Studenten der Universität Hohenheim. Wir lernen zusammen und helfen uns gegenseitig, wenn Probleme auftauchen sollten. Hier ist jeder gerne gesehen! :)");
+	model.addAttribute("groupDescription", "Das ist eine Lerngruppe zum Fach Wirtschaftsinformatik gegruendet von Studenten der Universitaet Hohenheim. Wir lernen zusammen und helfen uns gegenseitig, wenn Probleme auftauchen sollten. Hier ist jeder gerne gesehen! :)");
 	model.addAttribute("groupPinn", "Eintrag" /**group.getPinnwall().getEntries()*/);
 	//hahahha
 		return "group";
