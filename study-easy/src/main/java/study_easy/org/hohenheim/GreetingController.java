@@ -262,7 +262,7 @@ public class GreetingController {
 	Combat combat = new Combat ();	
 	model.addAttribute("Combat", combat);
 	model.addAttribute("status", status);
-	model.addAttribute("name", "Testname");
+	model.addAttribute("name", guser.getName());
 	return "combat";
 	}
 	/*
@@ -427,6 +427,7 @@ public class GreetingController {
 	TestElement testelement = new TestElement ();
 	model.addAttribute("Combat", combat);
 	model.addAttribute("TestElement", testelement);
+	model.addAttribute("name", guser.getName());
 	model.addAttribute("task", "Was ist der Unterschied zwischen extends und implements?");
 	model.addAttribute("answer1", "Es gibt keinen");
 	model.addAttribute("answer2", "extends wird für ein interface benutze, implements für Vererbung");
