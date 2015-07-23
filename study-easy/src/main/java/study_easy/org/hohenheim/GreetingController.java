@@ -412,11 +412,11 @@ public class GreetingController {
 	TestElement testelement = new TestElement ();
 	model.addAttribute("Combat", combat);
 	model.addAttribute("TestElement", testelement);
-	model.addAttribute("task", "Hier kï¿½nnte eine Frage stehen");
-	model.addAttribute("answer1", "Antwort1");
-	model.addAttribute("answer2", "Antwort2");
-	model.addAttribute("answer3", "Antwort3");
-	model.addAttribute("answer4", "Antwort4");
+	model.addAttribute("task", "Was ist der Unterschied zwischen extends und implements");
+	model.addAttribute("answer1", "Es gibt keinen");
+	model.addAttribute("answer2", "extends wird für ein interface benutze, implements für Vererbung");
+	model.addAttribute("answer3", "implements wir für ein interface benutzt, extends für Vererbung");
+	model.addAttribute("answer4", "extends exportiert Dateien, Implements implementiert Dateien");
 	 
 	return "combattest"; 
 	}
