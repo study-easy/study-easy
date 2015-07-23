@@ -35,25 +35,19 @@
 <div class="mainbody" id="insidefield">
 <div class="menufield">
 	<div class="hellotext">
-	<a href="#" th:href="@{/home}" class="linksupport"><span th:text="${name}">Mein Profil</span></a><br />
-				<a href="#" th:href="@{/games}" class="linksupport" >Spiele</a><br />
-				<table>
-					<tr>
-						<th>Meine Gruppen</th>
-					</tr>
-					<tr th:each="groupList : ${groupList}">
-					<td><a href="group"><span th:text="${groupList.name}">Keine Gruppen</span></a></td>
-						<!--<th>Bsp</th>-->
-					</tr>
-					<tr>
-						<th>Nutzer</th>
-					</tr>
-					<tr th:each="userList : ${userList}">
-					<td><a href="home"><span th:text="$userList.name}">Keine Gruppen</span></a></td>
-						<!--<th>Bsp</th>-->
-					</tr>
-				</table>
-	</div>
+				<a href="#" th:href="@{/home(user=${user})}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
+				<dl>
+				<dt><a href="#" th:href="@{/profilchange(user=${user})}" class="linksupport">Profil bearbeiten</a></dt>
+				<dt><a href="#" th:href="@{/creategroup(user=${user})}" class="linksupport">Gruppe erstellen</a></dt>
+				<dt><a href="#" th:href="@{/games(user=${user})}" class="linksupport" >Spiele</a></dt>
+				
+				
+					<dt>Meine Gruppen</dt>
+						
+						<dd><a th:href="@{/group(group=${group})}" class="linksupport"><span>Lerngruppe_HH</span></a></dd>
+					</dl>
+				
+			</div>
 	
 
 </div>

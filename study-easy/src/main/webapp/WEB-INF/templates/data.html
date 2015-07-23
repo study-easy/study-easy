@@ -37,7 +37,7 @@
 			<dl>
 				<dt><a th:href="@{/group}" class="linksupport"> <span th:text="${groupName}"></span></a></dt>
 				<dd><a th:href="@{/groupchange}" class="linksupport"><span th:text="Profil_bearbeiten"></span></a></dd>
-				<dd><a th:href="@{/members}" class="linksupport" ><span th:text="Mitglieder" id="activ"></span></a></dd>
+				<dd><a th:href="@{/members}" class="linksupport" ><span th:text="Mitglieder"></span></a></dd>
 				<dd><a th:href="@{/groupHistory}" class="linksupport"><span th:text="Verlauf"></span></a></dd>
 				<dd><a th:href="@{/combat}" class="linksupport" >Combat</a></dd>
 				<dd><a th:href="@{/data}" class="linksupport" id="activ"><span th:text="Dateien"></span></a></dd>
@@ -58,44 +58,10 @@
 			<span> <br /> <br /> <br /></span>
 			<br/>
 			<br/>
-			<p> <span class="insideMainbodyHeadline">Mitglieder</span></p>
+			<p> <span class="insideMainbodyHeadline">Dateien</span></p>
 			<div class="pinnwallFrame">
 			<table class="pinnwall" id="groupPinnwall">
-			
-			<tr th:each="groupPinn : ${groupPinn}"></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>EintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-						<tr><td>EintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintrag</td></tr>
-			
-						<tr><td>EintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintrag</td></tr>
-			
-						<tr><td>EintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintrag</td></tr>
-			
-						<tr><td>EintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintrag</td></tr>
-			
-						<tr><td>EintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintragEintrag</td></tr>
-			
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
-			<tr><td>Eintrag</td></tr>
+			<tr><td>Keine Dateien vorhanden</td></tr>
 			
 			</table>
 			</div>

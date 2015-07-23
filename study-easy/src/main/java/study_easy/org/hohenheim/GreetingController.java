@@ -288,7 +288,7 @@ public class GreetingController {
 			error="Eingabe falsch";
 		}
 		if(error.equals("3")) {
-			error="Passwort ge�ndert";
+			error="Passwort ge�ndert";
 		}
 		model.addAttribute("error", error);
 	}
@@ -496,9 +496,9 @@ public class GreetingController {
 	model.addAttribute("user", name);
 	model.addAttribute("pinnwallOwner", name);
 	model.addAttribute("PinnwallElement", element);
-	model.addAttribute("groupName", "TestGruppe");
-	model.addAttribute("group", "Lerngruppe1");
-	model.addAttribute("groupDescription", "Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.");
+	model.addAttribute("groupName", "Lerngruppe_HH");
+	model.addAttribute("group", "Lerngruppe_Winfo");
+	model.addAttribute("groupDescription", "Das ist eine Lerngruppe zum Fach Wirtschaftsinformatik gegründet von Studenten der Universität Hohenheim. Wir lernen zusammen und helfen uns gegenseitig, wenn Probleme auftauchen sollten. Hier ist jeder gerne gesehen! :)");
 	model.addAttribute("groupPinn", "Eintrag" /**group.getPinnwall().getEntries()*/);
 	//hahahha
 		return "group";
@@ -534,9 +534,12 @@ public class GreetingController {
 	@RequestMapping(value="/search",method=RequestMethod.GET)
 	public String search(@RequestParam(value="name", required=false, defaultValue=" ") String name,
 			@RequestParam(value="search", required=false, defaultValue=" ") String search, Model model) {
-	model.addAttribute("error", name); 
+	name = guser.getName();
+   	model.addAttribute("name", name);
+		model.addAttribute("user", name);
+		model.addAttribute("groupName", "Lerngruppe_HH");
 	//System.out.println("ggg " + search);
-	model.addAttribute("name", name); 
+ 
 	return "search";
 	}
 	
@@ -634,14 +637,16 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/groupchange", method=RequestMethod.GET)
     public String profil(Model model,
-    		@RequestParam(value="error", required=false, defaultValue="null") String error) {
+    		@RequestParam(value="name", required=false, defaultValue="null") String name) {
             RegUser reguser = new RegUser(); 
             Group group = new Group();
+        	name = guser.getName();
+           	model.addAttribute("name", name);
+       		model.addAttribute("user", name);
 			//model.addAttribute("RegUser", new RegUser());
              model.addAttribute("RegUser", reguser);
              model.addAttribute("Group", group);
-             model.addAttribute("groupName", "Testgruppe");
-             model.addAttribute("name", "Testnutzer");
+             model.addAttribute("groupName", "Lerngruppe_HH");
              System.out.println("Groupchange");
  
              
@@ -684,10 +689,12 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/groupHistory", method=RequestMethod.GET)
-	public String showGroupHistory(@RequestParam (value="error" , required=false, defaultValue=" ") String name, Model model) {
+	public String showGroupHistory(@RequestParam (value="name" , required=false, defaultValue=" ") String name, Model model) {
 	model.addAttribute("groupHistory", "Verlauf");
-	model.addAttribute("groupName", "Gruppenname");
-	model.addAttribute("name", "TestUser");
+	model.addAttribute("groupName", "Lerngruppe_HH");
+	name = guser.getName();
+   	model.addAttribute("name", name);
+	model.addAttribute("user", name);
 	return "groupHistory";
 }
 	/*
@@ -697,10 +704,14 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/members", method=RequestMethod.GET)
-	public String showMembers(@RequestParam (value="error" , required=false, defaultValue=" ") String name, Model model) {
-	model.addAttribute("groupHistory", "Verlauf");
-	model.addAttribute("groupName", "Testgruppe");
-	model.addAttribute("name", "Testuser");
+	public String showMembers(@RequestParam (value="name" , required=false, defaultValue=" ") String name, Model model) {
+	
+	name = guser.getName();
+    model.addAttribute("name", name);
+    model.addAttribute("user", name);
+    model.addAttribute("groupHistory", "Verlauf");
+	model.addAttribute("groupName", "Lerngruppe_HH");
+	
 	return "members";
 	}
 	/*
@@ -711,9 +722,13 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/data", method=RequestMethod.GET)
 	public String showData(@RequestParam (value="error" , required=false, defaultValue=" ") String name, Model model) {
-	model.addAttribute("groupHistory", "Verlauf");
-	model.addAttribute("groupName", "Testgruppe");
-	model.addAttribute("name", "Testuser");
+	
+		name = guser.getName();
+       	model.addAttribute("name", name);
+   		model.addAttribute("user", name);
+   		model.addAttribute("groupHistory", "Verlauf");
+	model.addAttribute("groupName", "Lerngruppe_HH");
+
 	return "data";
 	}
 	/*
@@ -749,7 +764,6 @@ public class GreetingController {
             model.addAttribute("RegUser", reguser);
             model.addAttribute("Group", group);
             model.addAttribute("groupCreate", "Gruppe erstellen");
-            model.addAttribute("name", "Testnutzer");
             System.out.println("Groupchange");
 		return "creategroup";
 	}
