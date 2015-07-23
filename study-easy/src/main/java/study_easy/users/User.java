@@ -42,7 +42,7 @@ public abstract class User {
 	}
 
 	public void setSicherheitsfrage(String sicherheitsfrage) {
-		this.name = sicherheitsfrage;
+		this.sicherheitsfrage = sicherheitsfrage;
 	}
 
 	public String getSicherheitsfragecheck() {
@@ -50,7 +50,7 @@ public abstract class User {
 	}
 
 	public void setSicherheitsfragecheck(String sicherheitsfragecheck) {
-		this.name = sicherheitsfragecheck;
+		this.sicherheitsfrageAntwort = sicherheitsfragecheck;
 	}
 
 	public void setCheck(Boolean check) {

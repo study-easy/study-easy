@@ -12,7 +12,7 @@ import study_easy.sharedAttributes.UserPinn;
 @Table(name = "RegUser")
 public class RegUser extends User {
 
-	@Column
+	@Column(name = "blubb")
 	private String school;
 	@Column
 	private String hobby;

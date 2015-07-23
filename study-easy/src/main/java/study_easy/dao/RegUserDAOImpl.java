@@ -22,7 +22,7 @@ public class RegUserDAOImpl implements RegUserDAO{
 	@Override
 	public void addRegUser(RegUser user) {
 		Session session = factory.getCurrentSession();
-		session.save(user);
+		session.persist(user);
 	}	
 		
 	@Override
