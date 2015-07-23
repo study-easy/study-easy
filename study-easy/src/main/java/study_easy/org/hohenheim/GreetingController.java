@@ -245,10 +245,13 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/combat",method=RequestMethod.GET)
-	public String comabt(Model model) {
+	public String comabt(Model model,
+			@RequestParam(value="start", required=false, defaultValue=" ") String error ) {
 	RegUser reguser = new RegUser();
 	Group group = new Group();
-	
+	if(error.equals("true")) {
+		model.addAttribute("error", "Wird Gestartet");
+	}
 	String status ="Dein status"; //z.b zum aktuellen Combat gehen oder Combat starten
 	if(combat) {
 		status="Neuer Combat morgen starten";
@@ -269,11 +272,16 @@ public class GreetingController {
 	 * 
 	 */
 	@RequestMapping(value="/combat", method=RequestMethod.POST)
-    public String combatpost(@RequestParam(value="check", required=false) Boolean check
+    public String combatpost(
     		) {
-	
+	if(combat) {
+		return "redirect:/combat?start=true";
+	} else {
+		combat = true;
+		return "redirect:/combattest?nr=0"; 
+	}
        
-    return "redirect:/combattest?nr=0"; 
+    
     
 	} 
 	/*
