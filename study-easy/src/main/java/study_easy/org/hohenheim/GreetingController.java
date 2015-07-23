@@ -35,7 +35,7 @@ public class GreetingController {
 	
 	RegUser guser = new RegUser();
 	Group group = new Group();
-	
+	Boolean combat = false;
 
 	@Autowired
 	private PinnwallElementService PES;
@@ -245,14 +245,24 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/combat",method=RequestMethod.GET)
-	public String comabt(Model model) {
+	public String comabt(Model model,
+			@RequestParam(value="start", required=false, defaultValue=" ") String error ) {
 	RegUser reguser = new RegUser();
 	Group group = new Group();
+	if(error.equals("true")) {
+		model.addAttribute("error", "Wird Gestartet"); 
+	}
 	String status ="Dein status"; //z.b zum aktuellen Combat gehen oder Combat starten
+	if(combat) {
+		status="Neuer Combat morgen starten";
+		
+	} else {
+		status="Combat bearbeiten";
+	}
 	Combat combat = new Combat ();	
 	model.addAttribute("Combat", combat);
 	model.addAttribute("status", status);
-	model.addAttribute("name", "Testname");
+	model.addAttribute("name", guser.getName());
 	return "combat";
 	}
 	/*
@@ -262,11 +272,16 @@ public class GreetingController {
 	 * 
 	 */
 	@RequestMapping(value="/combat", method=RequestMethod.POST)
-    public String combatpost(@RequestParam(value="check", required=false) Boolean check
+    public String combatpost(
     		) {
-	
+	if(combat) {
+		return "redirect:/combat?start=true";
+	} else {
+		combat = true;
+		return "redirect:/combattest?nr=0"; 
+	}
        
-    return "redirect:/combattest?nr=0"; 
+    
     
 	} 
 	/*
@@ -412,11 +427,12 @@ public class GreetingController {
 	TestElement testelement = new TestElement ();
 	model.addAttribute("Combat", combat);
 	model.addAttribute("TestElement", testelement);
-	model.addAttribute("task", "Hier kï¿½nnte eine Frage stehen");
-	model.addAttribute("answer1", "Antwort1");
-	model.addAttribute("answer2", "Antwort2");
-	model.addAttribute("answer3", "Antwort3");
-	model.addAttribute("answer4", "Antwort4");
+	model.addAttribute("name", guser.getName());
+	model.addAttribute("task", "Was ist der Unterschied zwischen extends und implements?");
+	model.addAttribute("answer1", "Es gibt keinen");
+	model.addAttribute("answer2", "extends wird für ein interface benutze, implements für Vererbung");
+	model.addAttribute("answer3", "implements wir für ein interface benutzt, extends für Vererbung");
+	model.addAttribute("answer4", "extends exportiert Dateien, Implements implementiert Dateien");
 	 
 	return "combattest"; 
 	}
@@ -534,10 +550,15 @@ public class GreetingController {
 	@RequestMapping(value="/search",method=RequestMethod.GET)
 	public String search(@RequestParam(value="name", required=false, defaultValue=" ") String name,
 			@RequestParam(value="search", required=false, defaultValue=" ") String search, Model model) {
+
 	name = guser.getName();
    	model.addAttribute("name", name);
 		model.addAttribute("user", name);
 		model.addAttribute("groupName", "Lerngruppe_HH");
+		if(search.equals("end")) {
+			return "redirect:/theend";
+		}
+
 	//System.out.println("ggg " + search);
  
 	return "search";

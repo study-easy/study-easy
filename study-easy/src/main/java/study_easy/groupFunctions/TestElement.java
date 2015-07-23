@@ -25,6 +25,38 @@ public class TestElement {
 	private String wrongAnswer3;
 	@Column
 	private int points;
+	Boolean check;
+	Boolean check2;
+	Boolean check3;
+	Boolean check4;
+	public void setCheck(Boolean check) {
+		this.check = check;
+	}
+
+	public Boolean getCheck() {
+		return check;
+	}
+	public void setCheck2(Boolean check2) {
+		this.check2 = check2;
+	}
+
+	public Boolean getCheck2() {
+		return check2;
+	}
+	public void setCheck3(Boolean check3) {
+		this.check3 = check3;
+	}
+
+	public Boolean getCheck3() {
+		return check3;
+	}
+	public void setCheck4(Boolean check4) {
+		this.check4 = check4;
+	}
+
+	public Boolean getCheck4() {
+		return check4;
+	}
 	
 	public Subject getSubject() {
 		return subject;
