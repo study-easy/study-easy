@@ -35,7 +35,7 @@ public class GreetingController {
 	
 	RegUser guser = new RegUser();
 	Group group = new Group();
-	
+	Boolean combat = false;
 
 	@Autowired
 	private PinnwallElementService PES;
