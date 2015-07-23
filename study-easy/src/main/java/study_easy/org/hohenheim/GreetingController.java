@@ -612,11 +612,12 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
     public String deletepost(RegUser reguser,
-    		@RequestParam(value="check", required=false) Boolean check
+    		@RequestParam(value="check", required=false, defaultValue="false") Boolean check
     		) {
 		
 	if(check==true) {
 		//account sperren/l�schen lassen
+		RUS.deleteRegUser(guser.getName());
 		return "redirect:/logout?delete=true";
 	}
        System.out.println("Private Daten gespeichert");
