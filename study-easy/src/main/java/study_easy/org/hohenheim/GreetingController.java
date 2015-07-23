@@ -276,11 +276,18 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/profilchange",method=RequestMethod.GET)
-	public String profilget(@RequestParam(value="user", required=false) String name, Model model) {
+	public String profilget(@RequestParam(value="user", required=false) String name,
+			@RequestParam(value="error", required=false) String error ,Model model) {
 	//String error = "";
 	//model.addAttribute("error", error);
 	guser.getName();
-	
+	if(error.isEmpty()) {
+		
+	} else {
+		if(error.equals(2)) {
+			
+		}
+	}
 	RegUser reggi = new RegUser();
 	model.addAttribute("RegUser", reggi); 
 	model.addAttribute("name", guser.getName()); 
@@ -568,6 +575,8 @@ public class GreetingController {
 		if(pw.equals(guser.getPassword())) {
 			if(npw.equals(npw2)) {
 				guser.setPassword(npw);
+			} else{
+				return "redirect:/profilchange?error=2";
 			}
 		} else  {
 			return "redirect:/profilchange?error=2";
