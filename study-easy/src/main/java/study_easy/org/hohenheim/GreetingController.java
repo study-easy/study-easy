@@ -28,6 +28,9 @@ public class GreetingController {
 	// TODO service objekte autowired hier aufschreiben
 	@Autowired
 	private RegUserService RUS;
+	
+	RegUser guser = new RegUser();
+	Group group = new Group();
 	/*
 	 *##########################
 	 *INHALTSVERZEICHNIS
@@ -273,10 +276,11 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/profilchange", method=RequestMethod.POST)
     public String profilpost(RegUser RegUser,
+    		@RequestParam(value="name", required=false) String name,
     		@RequestParam(value="email", required=false) String email,
     		@RequestParam(value="school", required=false) String school,
     		@RequestParam(value="quotes", required=false) String quotes) {
-		
+	
 		if(email.isEmpty()) {
 			
 		} else { RegUser.setEmail(email);
