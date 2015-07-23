@@ -27,12 +27,12 @@ public class HistoryElementService{
 	}
 
 	public void updateHistoryElement(HistoryElement element){
-		//TODO
+		hedao.updateHistoryElementContent(element);
 	}
 
-	public void deleteHistoryElement(int id) {
+	public void deleteHistoryElement(HistoryElement id) {
 		hedao.deleteHistoryElement(id);
 		
-	} //TODO
+	} 
 
 }

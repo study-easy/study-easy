@@ -117,6 +117,7 @@ public class RegUserService {
 			regUser.setSicherheitsfrage(sicherheit);
 			regUser.setSicherheitsfragecheck(sicherheitAntw);
 			UserPinn pinn = new UserPinn();
+			pinn.setBanned(false);
 			//pinn.setOwner(regUser.getName());
 			regUser.setPinn(pinn);
 			regUserDAO.addRegUser(regUser);

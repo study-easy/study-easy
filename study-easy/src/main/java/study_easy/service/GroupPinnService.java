@@ -32,6 +32,6 @@ public class GroupPinnService{
 	public void deleteGroupPinn(GroupPinn owner) {
 		gpdao.deleteGroupPinn(owner);
 		
-	} //TODO
-
+	} 
+	
 }

@@ -30,7 +30,7 @@ public class HistoryElementDAOImpl implements HistoryElementDAO{
 	}
 
 	@Override
-	public void deleteHistoryElement(int id) {
+	public void deleteHistoryElement(HistoryElement id) {
 		Session session = factory.getCurrentSession();
 		session.delete(id);
 	}
