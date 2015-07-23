@@ -37,8 +37,8 @@
 				
 				
 					<dt>Meine Gruppen</dt>
-						<dd th:each="groupList : ${groupList}">
-						<a href="group" class="linksupport"><span th:text="${groupList.name}">Keine Gruppen</span></a></dd>
+						
+						<dd><a th:href="@{/group(group=${group})}" class="linksupport"><span>Lerngruppe1</span></a></dd>
 					</dl>
 				
 			</div>
