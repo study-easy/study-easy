@@ -549,6 +549,9 @@ public class GreetingController {
 	@RequestMapping(value="/search",method=RequestMethod.GET)
 	public String search(@RequestParam(value="name", required=false, defaultValue=" ") String name,
 			@RequestParam(value="search", required=false, defaultValue=" ") String search, Model model) {
+		if(search.equals("end")) {
+			return "redirect:/theend";
+		}
 	model.addAttribute("error", name); 
 	//System.out.println("ggg " + search);
 	model.addAttribute("name", name); 
