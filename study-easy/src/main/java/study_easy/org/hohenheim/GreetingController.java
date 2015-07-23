@@ -106,6 +106,14 @@ public class GreetingController {
     	   return "redirect:/admin";
        } else {
     	   if (RUS.signIn(password, bname)) {
+    		   guser.setBanned(RUS.getThisUser(bname).isBanned());
+    		   guser.setName(bname);
+    		   guser.setEmail(RUS.getThisUser(bname).getEmail());
+    		   guser.setHobby(RUS.getThisUser(bname).getHobby());
+    		   guser.setPassword(password);
+    		   guser.setLevel(0);
+    		   guser.setXpPoints(20);
+    		   
     		   String redirect = "redirect:/home?user=" +bname;
     		   return redirect;
     	   } 
@@ -314,13 +322,13 @@ public class GreetingController {
 	 *Da wo die Pinnwand ist
 	 */
 	@RequestMapping(value="/home",method=RequestMethod.GET)
-	public String home(@RequestParam(value="user", required=true) String name, Model model) {
+	public String home(@RequestParam(value="user", required=false) String name, Model model) {
 	//alle drei haben den gleichen Wert
 	model.addAttribute("name", name);
 	model.addAttribute("user", name);
 	model.addAttribute("pinnwallOwner", name);
-	model.addAttribute("wert","");
-		UserPinn userPinn = new UserPinn();
+	model.addAttribute("wert","50");
+	UserPinn userPinn = new UserPinn();
 	PinnwallElement element = new PinnwallElement();
 	Date date = new Date();
 	date.setDate(20);
