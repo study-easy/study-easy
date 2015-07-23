@@ -32,6 +32,6 @@ public class PinnwallElementService{
 	public void deletePinnwallElement(int id) {
 		pedao.deletePinnwallElement(id);
 		
-	}
+	} //TODO
 
 }

@@ -268,19 +268,14 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/profilchange",method=RequestMethod.GET)
-	public String profilget(@RequestParam(value="user", required=true) String name, Model model) {
+	public String profilget(@RequestParam(value="user", required=false) String name, Model model) {
 	//String error = "";
 	//model.addAttribute("error", error);
-	System.out.println(name); 
-	RegUser reguser = new RegUser();
-	reguser.setPassword(RUS.getThisUser(name).getPassword());
-	reguser.setHobby(RUS.getThisUser(name).getHobby());
-	reguser.setSchool(RUS.getThisUser(name).getSchool());
-	reguser.setName(name);
-	System.out.println(reguser.getName());
-	model.addAttribute("RegUser", reguser); 
-	model.addAttribute(reguser);
-	model.addAttribute("name", name); 
+	guser.getName();
+	
+	RegUser reggi = new RegUser();
+	model.addAttribute("RegUser", reggi); 
+	model.addAttribute("name", guser.getName()); 
 	return "profilchange";
 	}
 	/*
@@ -298,19 +293,16 @@ public class GreetingController {
 	
 		if(email.isEmpty()) {
 			
-		} else { RegUser.setEmail(email);
+		} else { guser.setEmail(email);
 		}
 		if(school.isEmpty()) {
 			
 		} else {
-			RegUser.setSchool(school);
+			guser.setSchool(school);
 		}
-		//RUS.updateRegUser(reguser);
-		System.out.println(RegUser.getName());
-		String user= RegUser.getName();
+	RUS.updateRegUser(guser);
        System.out.println("Profil speichern");
-       String redirect = "redirect:/home?user=" +user;
-    return redirect;
+    return "redirect/home";
 	} 
 	
 	
@@ -324,6 +316,7 @@ public class GreetingController {
 	@RequestMapping(value="/home",method=RequestMethod.GET)
 	public String home(@RequestParam(value="user", required=false) String name, Model model) {
 	//alle drei haben den gleichen Wert
+		name = guser.getName();
 	model.addAttribute("name", name);
 	model.addAttribute("user", name);
 	model.addAttribute("pinnwallOwner", name);

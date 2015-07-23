@@ -33,6 +33,6 @@ public class HistoryElementService{
 	public void deleteHistoryElement(int id) {
 		hedao.deleteHistoryElement(id);
 		
-	}
+	} //TODO
 
 }
