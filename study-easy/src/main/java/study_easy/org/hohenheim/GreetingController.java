@@ -455,7 +455,7 @@ public class GreetingController {
             	//mache Logout, bzw speichere alle Daten
             	System.out.println("Du wirst ausgeloggt");
             }
-
+            RUS.updateRegUser(guser);
              
              System.out.println("logout");  
         return "logout"; 
