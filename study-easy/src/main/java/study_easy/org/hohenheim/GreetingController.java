@@ -471,25 +471,30 @@ public class GreetingController {
 	 */
 	
 	@RequestMapping(value="/group", method=RequestMethod.GET)
-		public String showGroupInfo(@RequestParam (value="error", required=false, defaultValue= " ") String name, Model model,
-									@RequestParam (value="entry", required=true, defaultValue="") String entry) {
-		Group group = new Group();
-		PinnwallElement element = new PinnwallElement();
-		
-		model.addAttribute("PinnwallElement", element);
-		model.addAttribute("groupName", "TestGruppe");
-
-		model.addAttribute("groupDescription", "Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.");
-		model.addAttribute("groupPinn", "Eintrag" /**group.getPinnwall().getEntries()*/);
-		model.addAttribute("name", "Testuser");
-		//hahahha
-			return "group";
-		}
+	public String showGroupInfo(@RequestParam (value="error", required=false, defaultValue= " ") String name, Model model,
+								@RequestParam (value="entry", required=true, defaultValue="") String entry) {
+	Group group = new Group();
+	PinnwallElement element = new PinnwallElement();
 	
-	@RequestMapping(value="/group", method=RequestMethod.POST)
-		public String saveEntry(@RequestParam (value="entry", required=true, defaultValue="") String entry) {
-			
-		}
+	model.addAttribute("PinnwallElement", element);
+	model.addAttribute("groupName", "TestGruppe");
+
+	model.addAttribute("groupDescription", "Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.");
+	model.addAttribute("groupPinn", "Eintrag" /**group.getPinnwall().getEntries()*/);
+	model.addAttribute("name", "Testuser");
+	//hahahha
+		return "group";
+	}
+
+@RequestMapping(value="/group", method=RequestMethod.POST)
+	public String saveEntry(@RequestParam (value="entry", required=true, defaultValue="") String entry) {
+		PinnwallElement e = new PinnwallElement();
+		Date date = new Date();
+		e.setEntry(entry);
+		e.setCreator(RUS.getThisUser(guser.getName()).getName());
+		e.setDate(date);
+		PES.addPinnwallElement(e);
+	}
 	/*
 	 * TRENNLINIE
 	 * 
