@@ -7,7 +7,7 @@ public abstract class Pinnwall {
 	
 	
 	@Column
-	public boolean pinnBanned = false;
+	public boolean pinnBanned;
 
 
 }

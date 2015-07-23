@@ -7,9 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.GroupDAOImpl;
+import study_easy.dao.GroupPinnDAOImpl;
 import study_easy.groupFunctions.Group;
 import study_easy.sharedAttributes.Achievement;
+import study_easy.sharedAttributes.GroupPinn;
 import study_easy.system.Leaderboard;
+import study_easy.users.RegUser;
 
 @Service
 @Transactional
@@ -17,6 +20,8 @@ public class GroupService {
 
 	@Autowired
 	private GroupDAOImpl gdao;
+	@Autowired
+	private GroupPinnDAOImpl gpdao;
 	
 	public GroupService(){
 		
@@ -66,6 +71,18 @@ public class GroupService {
 	public void recalcWinToLoss(Group group) {
 		group.setWinToLoss(group.getWins() / group.getLosses());
 		gdao.updateGroup(group);
+	}
+	
+	public void createGroup(String name, RegUser admin){
+		Group group = new Group();
+		group.setName(name);
+		group.addUser(admin);
+		group.setAdmin(admin.getName());
+		GroupPinn pinn = new GroupPinn();
+		group.setPinnwall(pinn);
+		pinn.pinnBanned = false;
+		this.gdao.addGroup(group);
+		this.gpdao.addGroupPinn(pinn);
 	}
 
 }

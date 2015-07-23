@@ -27,8 +27,8 @@ public class UserPinnService{
 		return updao.listUserPinn();
 	}
 
-	public void updateUserPinn(String owner) {
-		//TDOD
+	public void updateUserPinn(UserPinn owner) {
+		updao.updateUserPinn(owner);
 		
 	}
 

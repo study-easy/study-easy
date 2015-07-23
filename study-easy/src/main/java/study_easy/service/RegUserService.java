@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import study_easy.dao.AdminDAOImpl;
 import study_easy.dao.RegUserDAOImpl;
+import study_easy.dao.UserPinnDAOImpl;
 import study_easy.sharedAttributes.Badge;
 import study_easy.sharedAttributes.UserPinn;
 import study_easy.users.Admin;
@@ -23,6 +24,8 @@ public class RegUserService {
 	private RegUserDAOImpl regUserDAO;
 	@Autowired
 	private AdminDAOImpl adminDAO;
+	@Autowired
+	private UserPinnDAOImpl ups;
 
 	public RegUserService() {
 
@@ -121,6 +124,7 @@ public class RegUserService {
 			//pinn.setOwner(regUser.getName());
 			regUser.setPinn(pinn);
 			regUserDAO.addRegUser(regUser);
+			ups.addUserPinn(pinn);
 			return true;
 		} else {
 			return false;

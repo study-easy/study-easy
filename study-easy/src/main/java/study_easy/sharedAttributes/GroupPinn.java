@@ -21,14 +21,6 @@ public class GroupPinn extends Pinnwall {
 		return history;
 	}
 
-//	public void setOwner(String group) {
-//		this.owner = group;
-//	}
-//
-//	public String getOwner() {
-//		return owner;
-//	}
-
 	public void addEntrie(PinnwallElement entry) {
 		this.getEntries().add(entry);
 	}
