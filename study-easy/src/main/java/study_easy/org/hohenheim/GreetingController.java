@@ -285,8 +285,12 @@ public class GreetingController {
 		
 	} else {
 		if(error.equals(2)) {
-			
+			error="Eingabe falsch";
 		}
+		if(error.equals(3)) {
+			error="Passwort geändert";
+		}
+		model.addAttribute("error", error);
 	}
 	RegUser reggi = new RegUser();
 	model.addAttribute("RegUser", reggi); 
