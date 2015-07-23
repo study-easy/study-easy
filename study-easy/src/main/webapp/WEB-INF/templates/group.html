@@ -18,7 +18,7 @@
 			<a th:href="@{/support}" target="_blank"><img
 				src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="{/home(user=${user})}" class="logo">study-easy</a>
+		<a th:href="@{/home(user=${user})}" class="logo">study-easy</a>
 
 		<p th:text="${error}" class="notification"
 			style="color: #979797; margin-top: -25px;"></p>
@@ -40,7 +40,7 @@
 		<div class="menufield">
 			<div class="hellotext">
 
-				<a href="#" th:href="{/home(user=${user})}" class="linksupport" id="userFont"><span
+				<a href="#" th:href="@{/home(user=${user})}" class="linksupport" id="userFont"><span
 					th:text="${name}">Mein Profil</span></a><br />
 				<dl>
 					<dt>
@@ -97,7 +97,7 @@
 				<span class="insideMainbodyHeadline">Pinnwand</span>
 			</p>
 			<div class="pinnwallFrame" style="border-top: 1px solid #979797">
-				<form action="#" th:action="@{/profilchange}"
+				<form action="#" th:action="@{/group}"
 					th:object="${PinnwallElement}" method="post">
 					<table class="pinnwall" id="groupPinnwall">
 						<tr style="background-color: #FAFBFC; border: 1px solid #979797">
