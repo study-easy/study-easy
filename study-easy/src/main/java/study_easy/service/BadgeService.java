@@ -33,6 +33,6 @@ public class BadgeService{
 	public void deleteBadge(String name) {
 		bdao.deleteBadge(name);
 		
-	}
+	} //TODO
 
 }
