@@ -248,7 +248,14 @@ public class GreetingController {
 	public String comabt(Model model) {
 	RegUser reguser = new RegUser();
 	Group group = new Group();
+	
 	String status ="Dein status"; //z.b zum aktuellen Combat gehen oder Combat starten
+	if(combat) {
+		status="Neuer Combat morgen starten";
+		
+	} else {
+		status="Combat bearbeiten";
+	}
 	Combat combat = new Combat ();	
 	model.addAttribute("Combat", combat);
 	model.addAttribute("status", status);
