@@ -276,18 +276,18 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/profilchange",method=RequestMethod.GET)
-	public String profilget(@RequestParam(value="user", required=false) String name,
-			@RequestParam(value="error", required=false) String error ,Model model) {
+	public String profilget(
+			@RequestParam(value="error", required=false, defaultValue=" ") String error ,Model model) {
 	//String error = "";
 	//model.addAttribute("error", error);
 	guser.getName();
 	if(error.isEmpty()) {
 		
 	} else {
-		if(error.equals(2)) {
+		if(error.equals("2")) {
 			error="Eingabe falsch";
 		}
-		if(error.equals(3)) {
+		if(error.equals("3")) {
 			error="Passwort geändert";
 		}
 		model.addAttribute("error", error);
@@ -572,9 +572,9 @@ public class GreetingController {
 	 */
 	@RequestMapping(value="/profilprivat", method=RequestMethod.POST)
     public String profilprivatpost(RegUser reguser,
-    		@RequestParam(value="pw", required=true) String pw,
-    		@RequestParam(value="neupw", required=false) String npw,
-    		@RequestParam(value="neupw2", required=false) String npw2
+    		@RequestParam(value="password", required=false, defaultValue="d") String pw,
+    		@RequestParam(value="passwordcheck", required=false, defaultValue="s") String npw,
+    		@RequestParam(value="sicherheitsfrage", required=false, defaultValue="t") String npw2
     		) {
 		if(pw.equals(guser.getPassword())) {
 			if(npw.equals(npw2)) {
@@ -582,7 +582,7 @@ public class GreetingController {
 			} else{
 				return "redirect:/profilchange?error=2";
 			}
-		} else  {
+		} else  { 
 			return "redirect:/profilchange?error=2";
 		}
 		RUS.updateRegUser(guser);
