@@ -33,7 +33,8 @@ public class Group {
 	@ManyToMany
 	@JoinTable(name = "combat_relation", joinColumns = {@JoinColumn(name = "name" )}, inverseJoinColumns = {@JoinColumn(name= "id")})
 	private Set<Combat> currentCombats = new HashSet<Combat>();
-	@Embedded
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinTable(name= "group_relateion_pinn", joinColumns={@JoinColumn(name = "name")}, inverseJoinColumns={@JoinColumn(name = "id")})
 	private GroupPinn pinnwall;
 	@ElementCollection
 	private Set<Achievement> achievements = new HashSet<Achievement>();

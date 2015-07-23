@@ -5,20 +5,14 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-@Embeddable
+@Entity
 public class UserPinn extends Pinnwall {
 
-	
+	@Id@GeneratedValue
+	private int id;
 	@ElementCollection
 	private Set<PinnwallElement> entries = new HashSet<PinnwallElement>();
 
-//	public String getOwner() {
-//		return owner;
-//	}
-
-//	public void setOwner(String owner) {
-//		this.owner = owner;
-//	}
 
 	public void addEntry(PinnwallElement entry) {
 		this.getEntries().add(entry);
@@ -34,5 +28,9 @@ public class UserPinn extends Pinnwall {
 	
 	public void setBanned(boolean ban){
 		this.pinnBanned = ban;
+	}
+	
+	public int getId(){
+		return this.id;
 	}
 }

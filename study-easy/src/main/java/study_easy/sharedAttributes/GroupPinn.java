@@ -5,9 +5,11 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-@Embeddable
+@Entity
 public class GroupPinn extends Pinnwall {
 
+	@Id@GeneratedValue
+	private int id;
 	@ElementCollection
 	private Set<PinnwallElement> entries = new HashSet<PinnwallElement>();
 	@ElementCollection
@@ -27,6 +29,10 @@ public class GroupPinn extends Pinnwall {
 
 	private Set<PinnwallElement> getEntries() {
 		return this.entries;
+	}
+	
+	public int getId(){
+		return this.id;
 	}
 
 }

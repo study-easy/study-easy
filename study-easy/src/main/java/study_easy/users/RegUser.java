@@ -28,7 +28,8 @@ public class RegUser extends User {
 	private boolean banned;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<Badge> earnedBadges = new HashSet<Badge>();
-	@Embedded
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinTable(name = "pinn_user_relation", joinColumns={@JoinColumn(name = "username")}, inverseJoinColumns={@JoinColumn(name="id")})
 	private UserPinn pinn;
 	@ElementCollection(fetch = FetchType.EAGER)
 	public Set<String> groups = new HashSet<String>();
