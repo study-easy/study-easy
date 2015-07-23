@@ -50,7 +50,11 @@
 						<td class="inputName">Deine Mailadresse:</td>
 					</tr>
 					<tr>
-						<td><input  th:field="*{email}" class="inputfield" type="email" value="email" size="30"/>
+						<td><input  th:field="*{email}" class="inputfield" type="email" th:value="${email}" size="30"/>
+						</td>
+					</tr>
+					<tr>
+						<td><input  th:field="*{name}" class="inputfield" type="text" th:value="${name}" size="30"/>
 						</td>
 					</tr>
 					<tr>
