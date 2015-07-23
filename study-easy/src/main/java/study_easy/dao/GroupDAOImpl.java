@@ -24,6 +24,7 @@ public class GroupDAOImpl implements GroupDAO {
 	@Override
 	public List<Group> listGroup() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<Group> list = session.createQuery("from Group").list();
 		return list;
 	}

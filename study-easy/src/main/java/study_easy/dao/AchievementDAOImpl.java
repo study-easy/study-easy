@@ -24,6 +24,7 @@ public class AchievementDAOImpl implements AchievementDAO{
 	@Override
 	public List<Achievement> listAchievement() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<Achievement> list = session.createQuery("from Achievement").list();
 		return list;
 	}

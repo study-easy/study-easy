@@ -26,6 +26,7 @@ public class AchievementConditionDAOImpl implements AchievementConditionDAO {
 	@Override
 	public List<AchievementCondition> listAchievementCondition() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<AchievementCondition> list = session.createQuery("from AchievementCondition").list();
 		return list;
 	}

@@ -24,6 +24,7 @@ public class HistoryElementDAOImpl implements HistoryElementDAO{
 	@Override
 	public List<HistoryElement> listHistoryElement() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<HistoryElement> list = session.createQuery("from HistoryElement").list();
 		return list;
 	}

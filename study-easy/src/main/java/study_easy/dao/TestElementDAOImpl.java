@@ -23,6 +23,7 @@ public class TestElementDAOImpl implements TestElementDAO{
 	@Override
 	public List<TestElement> listTestElement() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<TestElement> list = session.createQuery("from TestElement").list();
 		return list;
 	}

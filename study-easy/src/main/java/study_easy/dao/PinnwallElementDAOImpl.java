@@ -24,6 +24,7 @@ public class PinnwallElementDAOImpl implements PinnwallElementDAO{
 	@Override
 	public List<PinnwallElement> listPinnwallElement() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<PinnwallElement> list = session.createQuery("from PinnwallElement").list();
 		return list;
 	}

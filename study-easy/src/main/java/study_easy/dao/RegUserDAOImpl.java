@@ -28,6 +28,7 @@ public class RegUserDAOImpl implements RegUserDAO{
 	@Override
 	public List<RegUser> listRegUsers(){
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<RegUser> list = session.createQuery("from RegUser").list();
 		return list;
 		

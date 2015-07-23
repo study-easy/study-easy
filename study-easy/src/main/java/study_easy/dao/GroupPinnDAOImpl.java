@@ -24,6 +24,7 @@ public class GroupPinnDAOImpl implements GroupPinnDAO{
 	@Override
 	public List<GroupPinn> listGroupPinn() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<GroupPinn> list = session.createQuery("from GroupPinn").list();
 		return list;
 	}

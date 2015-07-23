@@ -24,6 +24,7 @@ public class CombatDAOImpl implements CombatDAO{
 	@Override
 	public List<Combat> listCombat() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<Combat> list = session.createQuery("from Combat").list();
 		return list;
 	}

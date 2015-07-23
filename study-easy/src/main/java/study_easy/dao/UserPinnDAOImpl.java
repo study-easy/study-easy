@@ -27,6 +27,7 @@ public class UserPinnDAOImpl implements UserPinnDAO{
 	@Override
 	public List<UserPinn> listUserPinn() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<UserPinn> list = session.createQuery("from UserPinn").list();
 		return list;
 	}

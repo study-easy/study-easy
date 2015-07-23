@@ -24,6 +24,7 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public List<Admin> listAdmin() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<Admin> list = session.createQuery("from Admin").list();
 		return list;
 	}

@@ -24,6 +24,7 @@ public class BadgeDAOImpl implements BadgeDAO{
 	@Override
 	public List<Badge> listBadge() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<Badge> list = session.createQuery("from Badge").list();
 		return list;
 	}

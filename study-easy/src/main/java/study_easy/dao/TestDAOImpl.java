@@ -24,6 +24,7 @@ public class TestDAOImpl implements TestDAO{
 	@Override
 	public List<Test> listTest() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<Test> list = session.createQuery("from Test").list();
 		return list;
 	}

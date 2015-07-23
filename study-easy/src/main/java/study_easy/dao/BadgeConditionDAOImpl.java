@@ -24,6 +24,7 @@ public class BadgeConditionDAOImpl implements BadgeConditionDAO{
 	@Override
 	public List<BadgeCondition> listBadgeCondition() {
 		Session session = factory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<BadgeCondition> list = session.createQuery("from BadgeCondition").list();
 		return list;
 	}
