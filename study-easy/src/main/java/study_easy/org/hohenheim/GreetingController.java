@@ -106,13 +106,14 @@ public class GreetingController {
     	   return "redirect:/admin";
        } else {
     	   if (RUS.signIn(password, bname)) {
-    		   guser.setBanned(RUS.getThisUser(bname).isBanned());
+    		  // guser.setBanned(RUS.getThisUser(bname).isBanned());
     		   guser.setName(bname);
     		   guser.setEmail(RUS.getThisUser(bname).getEmail());
     		   guser.setHobby(RUS.getThisUser(bname).getHobby());
     		   guser.setPassword(password);
     		   guser.setLevel(0);
     		   guser.setXpPoints(20);
+    		   guser.setBanned(false);
     		   
     		   String redirect = "redirect:/home?user=" +bname;
     		   return redirect;
