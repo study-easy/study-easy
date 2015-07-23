@@ -451,6 +451,7 @@ public class GreetingController {
 	@RequestMapping(value="/snake", method=RequestMethod.GET)
     public String snake(Model model,
     		@RequestParam(value="name", required=false, defaultValue="TestName") String name) {
+		name = guser.getName();
         model.addAttribute("name", name);
              System.out.println("snake");
         return "snake"; 
