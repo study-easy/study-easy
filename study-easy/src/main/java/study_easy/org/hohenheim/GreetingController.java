@@ -276,6 +276,7 @@ public class GreetingController {
     		@RequestParam(value="email", required=false) String email,
     		@RequestParam(value="school", required=false) String school,
     		@RequestParam(value="quotes", required=false) String quotes) {
+		
 		if(email.isEmpty()) {
 			
 		} else { RegUser.setEmail(email);
