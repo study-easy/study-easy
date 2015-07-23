@@ -116,6 +116,8 @@ public class GreetingController {
     		   guser.setLevel(0);
     		   guser.setXpPoints(20);
     		   guser.setBanned(false);
+    		   guser.setSicherheitsfrage(RUS.getThisUser(bname).getSicherheitsfrage());
+    		   guser.setSicherheitsfragecheck(RUS.getThisUser(bname).getSicherheitsfragecheck());
     		   
     		   String redirect = "redirect:/home?user=" +bname;
     		   return redirect;
@@ -545,7 +547,7 @@ public class GreetingController {
 	public String profilprivatget(@RequestParam(value="name", required=false, defaultValue="Testname") String name, Model model) {
 	RegUser reguser = new RegUser();
 	model.addAttribute("RegUser", reguser); 
-	model.addAttribute("name", name); 
+	model.addAttribute("name", guser.getName()); 
 	return "profilprivat";
 	} 
 	/* 
@@ -555,10 +557,23 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/profilprivat", method=RequestMethod.POST)
-    public String profilprivatpost(RegUser reguser) {
+    public String profilprivatpost(RegUser reguser,
+    		@RequestParam(value="pw", required=true) String pw,
+    		@RequestParam(value="neupw", required=false) String npw,
+    		@RequestParam(value="neupw2", required=false) String npw2
+    		) {
+		if(pw.equals(guser.getPassword())) {
+			if(npw.equals(npw2)) {
+				guser.setPassword(npw);
+			}
+		} else  {
+			return "redirect:/profilchange?error=2";
+		}
+		RUS.updateRegUser(guser);
        System.out.println("Private Daten gespeichert");
        
-    return "redirect:/profil";
+       
+    return "redirect:/profilchange?error=3";
 	}
 	/* 
 	 *##########################

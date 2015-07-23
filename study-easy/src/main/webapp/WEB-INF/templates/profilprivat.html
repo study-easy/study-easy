@@ -53,14 +53,14 @@
 						<td class="inputName">Passwort &auml;ndern</td>
 					</tr>
 					<tr>
-						<td><input type="email" placeholder="Bisheriges" size="30" class="inputfield"/></td>
+						<td><input type="text" th:field="*{pw}" placeholder="Bisheriges" size="30" class="inputfield"/></td>
 						<td><a></a></td>
 					</tr>
 					<tr>
-						<td><input type="email" placeholder="Neues Passwort" size="30" class="inputfield"/></td>
+						<td><input type="text" th:field="*{neupw}" placeholder="Neues Passwort" size="30" class="inputfield"/></td>
 					</tr>
 					<tr>
-						<td><input type="email" placeholder="Neues Passwort widerholen" size="30" class="inputfield"/></td>
+						<td><input type="text" th:field="*{neupw2}" placeholder="Neues Passwort widerholen" size="30" class="inputfield"/></td>
 					</tr>
 					<tr>
 						<td><button type="submit" class="buttons">
