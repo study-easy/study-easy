@@ -17,6 +17,7 @@ import study_easy.groupFunctions.Group;
 import study_easy.groupFunctions.Test;
 import study_easy.groupFunctions.TestElement;
 import study_easy.service.GroupPinnService;
+import study_easy.service.GroupService;
 import study_easy.service.PinnwallElementService;
 import study_easy.service.RegUserService;
 import study_easy.sharedAttributes.GroupPinn;
@@ -40,6 +41,8 @@ public class GreetingController {
 	private PinnwallElementService PES;
 	@Autowired
 	private GroupPinnService GPS;
+	@Autowired
+	private GroupService GS;
 	/*
 	 *##########################
 	 *INHALTSVERZEICHNIS
@@ -718,5 +721,22 @@ public class GreetingController {
 	return "theend";
 	}
 	
+	@RequestMapping(value="/creategroup", method=RequestMethod.GET)
+	public String showCreateGroup(Model model) {
+		   RegUser reguser = new RegUser(); 
+           Group group = new Group();
+			//model.addAttribute("RegUser", new RegUser());
+            model.addAttribute("RegUser", reguser);
+            model.addAttribute("Group", group);
+            model.addAttribute("groupCreate", "Gruppe erstellen");
+            model.addAttribute("name", "Testnutzer");
+            System.out.println("Groupchange");
+		return "creategroup";
+	}
+	@RequestMapping(value="/creategroup", method=RequestMethod.POST)
+	public String createGroup(@RequestParam(value="name", required=true, defaultValue="") String name) {
+		GS.createGroup(name, guser);
+		return "creategroup";
+	}
 	
 }
