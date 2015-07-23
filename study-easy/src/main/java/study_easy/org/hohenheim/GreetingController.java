@@ -16,6 +16,8 @@ import study_easy.groupFunctions.Combat;
 import study_easy.groupFunctions.Group;
 import study_easy.groupFunctions.Test;
 import study_easy.groupFunctions.TestElement;
+import study_easy.service.GroupPinnService;
+import study_easy.service.PinnwallElementService;
 import study_easy.service.RegUserService;
 import study_easy.sharedAttributes.PinnwallElement;
 import study_easy.sharedAttributes.UserPinn;
@@ -31,6 +33,11 @@ public class GreetingController {
 	
 	RegUser guser = new RegUser();
 	Group group = new Group();
+
+	@Autowired
+	private PinnwallElementService PES;
+	@Autowired
+	private GroupPinnService GPS;
 	/*
 	 *##########################
 	 *INHALTSVERZEICHNIS
@@ -456,9 +463,11 @@ public class GreetingController {
 	 */
 	
 	@RequestMapping(value="/group", method=RequestMethod.GET)
-		public String showGroupInfo(@RequestParam (value="error", required=false, defaultValue= " ") String name, Model model) {
+		public String showGroupInfo(@RequestParam (value="error", required=false, defaultValue= " ") String name, Model model,
+									@RequestParam (value="entry", required=true, defaultValue="") String entry) {
 		Group group = new Group();
 		PinnwallElement element = new PinnwallElement();
+		
 		model.addAttribute("PinnwallElement", element);
 		model.addAttribute("groupName", "TestGruppe");
 
@@ -467,6 +476,11 @@ public class GreetingController {
 		model.addAttribute("name", "Testuser");
 		//hahahha
 			return "group";
+		}
+	
+	@RequestMapping(value="/group", method=RequestMethod.POST)
+		public String saveEntry(@RequestParam (value="entry", required=true, defaultValue="") String entry) {
+			
 		}
 	/*
 	 * TRENNLINIE

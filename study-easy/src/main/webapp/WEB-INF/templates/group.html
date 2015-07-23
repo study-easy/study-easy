@@ -18,7 +18,7 @@
 			<a th:href="@{/support}" target="_blank"><img
 				src="resources/images/supportdunkel.png" width="20" height="20" /></a>
 		</div>
-		<a th:href="@{/home}" class="logo">study-easy</a>
+		<a th:href="{/home(user=${user})}" class="logo">study-easy</a>
 
 		<p th:text="${error}" class="notification"
 			style="color: #979797; margin-top: -25px;"></p>
@@ -40,11 +40,11 @@
 		<div class="menufield">
 			<div class="hellotext">
 
-				<a href="#" th:href="@{/home}" class="linksupport" id="userFont"><span
+				<a href="#" th:href="{/home(user=${user})}" class="linksupport" id="userFont"><span
 					th:text="${name}">Mein Profil</span></a><br />
 				<dl>
 					<dt>
-						<a th:href="@{/group}" class="linksupport" id="activ"> <span
+						<a th:href="@{/group(group=${group})}" class="linksupport" id="activ"> <span
 							th:text="${groupName}"></span></a>
 					</dt>
 					<dd>
