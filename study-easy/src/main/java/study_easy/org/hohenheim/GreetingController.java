@@ -303,7 +303,7 @@ public class GreetingController {
 		} else {
 			guser.setSchool(school);
 		}
-	//RUS.updateRegUser(guser);
+	RUS.updateRegUser(guser);
        System.out.println("Profil speichern");
     return "redirect:/home";
 	} 
