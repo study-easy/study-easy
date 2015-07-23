@@ -44,8 +44,6 @@ public class AchievementConditionService{
 				cond = condition;
 		}
 		return cond;
-		//TODO
-		
 	}
 
 }
