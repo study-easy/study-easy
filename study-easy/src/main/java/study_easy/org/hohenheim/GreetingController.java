@@ -491,14 +491,15 @@ public class GreetingController {
 	//GPS.addGroupPinn(group.getPinnwall());
 	//GPS.updateGroupPinn(group.getPinnwall());
 	PinnwallElement element = new PinnwallElement();
-	
+	name = guser.getName();
+	model.addAttribute("name", name);
+	model.addAttribute("user", name);
+	model.addAttribute("pinnwallOwner", name);
 	model.addAttribute("PinnwallElement", element);
 	model.addAttribute("groupName", "TestGruppe");
 	model.addAttribute("group", "Lerngruppe1");
 	model.addAttribute("groupDescription", "Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.Das ist eine Testgruppe.");
 	model.addAttribute("groupPinn", "Eintrag" /**group.getPinnwall().getEntries()*/);
-	model.addAttribute("name", "Testuser");
-	model.addAttribute("user", guser.getName());
 	//hahahha
 		return "group";
 	}
@@ -737,10 +738,14 @@ public class GreetingController {
 	}
 	
 	@RequestMapping(value="/creategroup", method=RequestMethod.GET)
-	public String showCreateGroup(Model model) {
+	public String showCreateGroup(Model model, String name) {
 		   RegUser reguser = new RegUser(); 
            Group group = new Group();
 			//model.addAttribute("RegUser", new RegUser());
+           	name = guser.getName();
+           	model.addAttribute("name", name);
+       		model.addAttribute("user", name);
+       		model.addAttribute("pinnwallOwner", name);
             model.addAttribute("RegUser", reguser);
             model.addAttribute("Group", group);
             model.addAttribute("groupCreate", "Gruppe erstellen");
@@ -750,7 +755,7 @@ public class GreetingController {
 	}
 	@RequestMapping(value="/creategroup", method=RequestMethod.POST)
 	public String createGroup(@RequestParam(value="name", required=true, defaultValue="") String name) {
-		GS.createGroup(name, guser);
+		GS.createGroup(name, RUS.getThisUser("Benutzer1"));
 		return "creategroup";
 	}
 	

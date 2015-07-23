@@ -33,6 +33,7 @@
 				<a href="#" th:href="@{/home(user=${user})}" class="linksupport"><span th:text="${name}" id="userFont">Mein Profil</span></a>
 				<dl>
 				<dt><a href="#" th:href="@{/profilchange(user=${user})}" class="linksupport">Profil bearbeiten</a></dt>
+				<dt><a href="#" th:href="@{/creategroup(user=${user})}" class="linksupport">Gruppe erstellen</a></dt>
 				<dt><a href="#" th:href="@{/games(user=${user})}" class="linksupport" >Spiele</a></dt>
 				
 				
@@ -52,7 +53,7 @@
 		<a><img src="resources/images/Profilbild.png" width="150" height="150" align="right"/></a></p>
 		<br />
 		<table><tr><td>
-		<progress class="progreSs" th:value="${wert}" max="100"> </progress></td><td><span th:text="${level}"></span></td>
+		<progress class="progreSs" th:value="${wert}" max="100"> </progress></td><td><span>Level: 1</span></td>
 		</tr>
 		</table>
 		<br/>
@@ -83,11 +84,20 @@
 					<span th:text="${userPinn.date}"></span>
 				</td>
 			</tr>
-			<tr><td>Blabla</td></tr>
-			<tr><td>Blabla</td></tr>
-			<tr><td>Blabla<br/><br/><br/><br/></td></tr>
-			<tr><td>Blabla<br/><br/><br/><br/><br/></td></tr>
-			<tr><td>Blabla<br/><br/><br/><br/><br/></td></tr>
+			<tr><td>Von: Max Mustermann<br/><br/>
+			Hey! Danke für deine Hilfe neulich, jetzt hab ich's endlich verstanden, <br/> wie man die Formeln richtig anwendet! :)<br/>
+			wenn du mal Hilfe brauchst, melde dich einfach!</td></tr>
+			<tr><td>Von: Benutzer 2 <br/><br/>
+			Hey Benutzer1!<br/>Tolles Profilbild hast du da! Warst du da im Urlaub? :)</td></tr>
+			<tr><td>Von: Benutzer 3<br/><br/>
+			Kannst du mir mal bei den ERM Aufgaben helfen?<br/> Ich check das wirklich noch nicht so, wäre super, wenn du mir hilfst! Gruß</td></tr>
+			<tr><td>Von: Benutzer 4<br/><br/>
+			Hey,<br/>
+			weißt du, ob wir morgen Vorlesung haben oder ob sie ausfällt?<br/>
+			Der Prof hat doch glaube ich irgendwas erwähnt?</td></tr>
+			<tr><td>Von: Benutzer 5<br/><br/>
+			Wir haben eine neue Lerngruppe gegründet und wollen <br/>uns gerne beim Logik lernen unterstützen.<br/>
+			Hast du Lust auch mitzumachen? Wenn ja, dann komm <br/>doch einfach in "LogikerLernenLeichter" :)</td></tr>
 		</table>
 		</form>
 		</div>
