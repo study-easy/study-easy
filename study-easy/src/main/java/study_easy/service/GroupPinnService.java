@@ -34,4 +34,14 @@ public class GroupPinnService{
 		
 	} 
 	
+	public GroupPinn getThisPinn(int id){
+		GroupPinn pinn = null;
+		for(GroupPinn pinnwall : this.listGroupPinn()){
+			if(pinnwall.getId() == id){
+				pinn = pinnwall;
+			}
+		}
+		return pinn;
+	}
+	
 }
