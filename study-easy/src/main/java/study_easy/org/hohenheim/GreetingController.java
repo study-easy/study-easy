@@ -302,7 +302,7 @@ public class GreetingController {
 		}
 	RUS.updateRegUser(guser);
        System.out.println("Profil speichern");
-    return "redirect/home";
+    return "redirect:/home";
 	} 
 	
 	
