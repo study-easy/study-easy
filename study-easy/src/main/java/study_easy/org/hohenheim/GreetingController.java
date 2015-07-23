@@ -487,6 +487,8 @@ public class GreetingController {
 		e.setCreator(RUS.getThisUser(guser.getName()).getName());
 		e.setDate(date);
 		PES.addPinnwallElement(e);
+		PES.updatePinnwallElement(e);
+		return "redirect:/group";
 	}
 	/*
 	 * TRENNLINIE
