@@ -250,7 +250,7 @@ public class GreetingController {
 	RegUser reguser = new RegUser();
 	Group group = new Group();
 	if(error.equals("true")) {
-		model.addAttribute("error", "Wird Gestartet");
+		model.addAttribute("error", "Wird Gestartet"); 
 	}
 	String status ="Dein status"; //z.b zum aktuellen Combat gehen oder Combat starten
 	if(combat) {
@@ -427,7 +427,7 @@ public class GreetingController {
 	TestElement testelement = new TestElement ();
 	model.addAttribute("Combat", combat);
 	model.addAttribute("TestElement", testelement);
-	model.addAttribute("task", "Was ist der Unterschied zwischen extends und implements");
+	model.addAttribute("task", "Was ist der Unterschied zwischen extends und implements?");
 	model.addAttribute("answer1", "Es gibt keinen");
 	model.addAttribute("answer2", "extends wird für ein interface benutze, implements für Vererbung");
 	model.addAttribute("answer3", "implements wir für ein interface benutzt, extends für Vererbung");
