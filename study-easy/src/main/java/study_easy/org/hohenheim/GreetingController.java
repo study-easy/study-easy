@@ -261,7 +261,7 @@ public class GreetingController {
 	reguser.setName(name);
 	System.out.println(reguser.getName());
 	model.addAttribute("RegUser", reguser); 
-	
+	model.addAttribute(reguser);
 	model.addAttribute("name", name); 
 	return "profilchange";
 	}
@@ -272,22 +272,22 @@ public class GreetingController {
 	 *
 	 */
 	@RequestMapping(value="/profilchange", method=RequestMethod.POST)
-    public String profilpost(RegUser reguser,
+    public String profilpost(RegUser RegUser,
     		@RequestParam(value="email", required=false) String email,
     		@RequestParam(value="school", required=false) String school,
     		@RequestParam(value="quotes", required=false) String quotes) {
 		if(email.isEmpty()) {
 			
-		} else { reguser.setEmail(email);
+		} else { RegUser.setEmail(email);
 		}
 		if(school.isEmpty()) {
 			
 		} else {
-			reguser.setSchool(school);
+			RegUser.setSchool(school);
 		}
 		//RUS.updateRegUser(reguser);
-		System.out.println(reguser.getName());
-		String user= reguser.getName();
+		System.out.println(RegUser.getName());
+		String user= RegUser.getName();
        System.out.println("Profil speichern");
        String redirect = "redirect:/home?user=" +user;
     return redirect;
