@@ -617,7 +617,8 @@ public class GreetingController {
 		
 	if(check==true) {
 		//account sperren/l�schen lassen
-		RUS.deleteRegUser(guser.getName());
+		guser.setBanned(true);
+		RUS.updateRegUser(guser);
 		return "redirect:/logout?delete=true";
 	}
        System.out.println("Private Daten gespeichert");
